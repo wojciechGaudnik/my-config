@@ -1,0 +1,85 @@
+Ctrl+A or Home: Go to the beginning of the line.
+Ctrl+E or End: Go to the end of the line.
+Alt+B: Go left (back) one word.
+Ctrl+B: Go left (back) one character.
+Alt+F: Go right (forward) one word.
+Ctrl+F: Go right (forward) one character.
+Ctrl+XX: Move between the beginning of the line and the current position of the cursor.
+Ctrl+D or Delete: Delete the character under the cursor.
+Alt+D: Delete all characters after the cursor on the current line.
+Ctrl+H or Backspace: Delete the character before the cursor.
+Alt+T: Swap the current word with the previous word.
+Ctrl+T: Swap the last two characters before the cursor with each other. You can use this to quickly fix typos when you type two characters in the wrong order.
+Ctrl+_: Undo your last key press. You can repeat this to undo multiple times.
+Ctrl+W: Cut the word before the cursor, adding it to the clipboard.
+Ctrl+K: Cut the part of the line after the cursor, adding it to the clipboard.
+Ctrl+U: Cut the part of the line before the cursor, adding it to the clipboard.
+Ctrl+Y: Paste the last thing you cut from the clipboard. The y here stands for “yank”.
+Alt+U: Capitalize every character from the cursor to the end of the current word, converting the characters to upper case.
+Alt+L: Uncapitalize every character from the cursor to the end of the current word, converting the characters to lower case.
+Alt+C: Capitalize the character under the cursor. Your cursor will move to the end of the current word.
+
+df -h <--- free space on disks
+du -sh /media/bq666/HitachiHGST3TB <--- size of dir
+lsblk <--- all disks in tree
+udisksctl status <--- all disk 
+free -h <--- RAM space
+lsof /dev/sdb2 <--- with process uses disk
+fg <--- bring job from bacground
+ufw <--- firewall
+lshw <--- preent all hardware 
+hwinfo <--- preent all hardware 
+xxd <--- creates a hex dump of a given file or standard input
+netstat -atpu|grep 'ESTABLISHED'
+netstat -tulnp
+hdparm -t /dev/nvme0n1
+grep -irn '/home/bq666/.config' -e '-c conky'
+find / -name shiba4 -type f 2>>/dev/null
+lsof | grep -e \"[[:digit:]]\(r\|w\)\"|grep 'HitachiHGST3TB'
+lsof /media/bq666/HitachiHGST3TB
+iostat -x /dev/sda
+dd if=/dev/zero of=/mnt/old/test.dat bs=8k count=10000k status=progress
+fallocate -l 1G large_file.img
+bc <--- calculator
+rsync 
+-a(archive dir and content equals -rlptgoD) 
+	-r(only recursive) 
+	-l(copy symlinks as symlinks)
+	-p(preserve permissions = keep permissions) 
+	-t(preserve modification times)
+	-g(preserve group)
+	-o(preserve owner)
+	-D(preserve device files and preserve special files)
+--info=progress2
+-n(dry for test) 
+-z (compress file data during the transfer)
+-P(full stats!!!+ reasume interrupted transfers) 
+--delete(delete file in destination if source file is deleted)
+rsync --info=progress2 source dest
+diff -q(only when diffrent) -r(recursevely)
+tmux copy past: Ctrl+b, [       Ctrl+Space           Ctrl+w          Ctrl+b,]
+tmux ctrl+b s <--- switch session
+mkdir ~/.encrypted ~/encrypted
+encfs ~/.encrypted ~/encrypted
+# enter a passphrase
+mv existing-directory ~/encrypted
+echo "test" | xclip -selection clipboard
+fusermount -u ~/encrypted
+
+encfs ~/.encrypted ~/encrypted
+# enter your passphrase
+enca -L polish Picnic\ at\ Hanging\ Rock.txt -x utf8
+https://github.com/thameera/vimv
+
+git diff origin/master...HEAD 
+“So seriously, what the hell is the diff I’m about to push to master”
+
+git reset --hard origin/master 
+“Good God what have I done to my local code checkout, please cleanse my repository and forgive my sins.”
+
+git rebase -i --root 
+“There is no history. I am the history. This code is mine now”
+
+git push -f origin master 
+“If I force-push fast enough, nobody will have had time to pull my fuckup”
+grep -iRn "tls_cacert*" /etc
