@@ -20,8 +20,17 @@
 [[ ! -o 'no_brace_expand' ]] || p10k_config_opts+=('no_brace_expand')
 'builtin' 'setopt' 'no_aliases' 'no_sh_glob' 'brace_expand'
 
-ETHERNET_INTERFACE="enp7s0"
-VPN_INTERFACE="tun0"
+if [[ $(hostname) == "BIG" ]]; then
+	ETHERNET_INTERFACE="enp7s0"
+	VPN_INTERFACE="tun0"
+fi
+
+
+if [[ $(hostname) == "bq666-VirtualBox" ]]; then
+	ETHERNET_INTERFACE="enp0s3"
+	VPN_INTERFACE=""
+fi
+
 
 () {
   emulate -L zsh -o extended_glob
