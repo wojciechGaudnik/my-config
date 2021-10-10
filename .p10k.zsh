@@ -859,7 +859,7 @@ VPN_INTERFACE="tun0"
   ###########################[ vim_shell: vim shell indicator (:sh) ]###########################
   # Vim shell indicator color.
   typeset -g POWERLEVEL9K_VIM_SHELL_FOREGROUND=0
-  typeset -g POWERLEVEL9K_VIM_SHELL_BACKGROUND=2
+  typeset -g POWERLEVEL9K_VIM_SHELL_BACKGROUND=214
   # Custom icon.
   # typeset -g POWERLEVEL9K_VIM_SHELL_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
