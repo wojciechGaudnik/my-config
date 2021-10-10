@@ -1,11 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh
-autoload -U compinit && compinit -u
 
 if [[ $EUID -ne 0 ]];then
 	cat /home/bq666/.my-config/.usefulCommands.txt
@@ -177,151 +169,14 @@ function off(){
 	systemctl suspend
 }
 
-
-
-
-#----------------------------------------------------------------------------------------------------------------------------------------------------------
-#POWERLEVEL9K_COLOR_SCHEME='dark'
-#POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-#POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-#POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
-#POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="❯ "
-
-#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=('os_icon' 'host' 'user' 'vcs' 'dir' 'dir_writable' 'status')
-
-#POWERLEVEL9K_OS_ICON_FOREGROUND="black"
-#POWERLEVEL9K_OS_ICON_BACKGROUND=022
-
-#POWERLEVEL9K_HOST_LOCAL_FOREGROUND=022
-#POWERLEVEL9K_HOST_LOCAL_BACKGROUND="black"
-#POWERLEVEL9K_HOST_REMOTE_FOREGROUND="red"
-#POWERLEVEL9K_HOST_REMOTE_BACKGROUND="black"
-#POWERLEVEL9K_HOST_ICON="\uF109 "
-#POWERLEVEL9K_SSH_ICON="\uF489 "
-
-#POWERLEVEL9K_USER_DEFAULT_FOREGROUND="black"
-#POWERLEVEL9K_USER_DEFAULT_BACKGROUND=022
-#POWERLEVEL9K_USER_SUDO_FOREGROUND="red"
-#POWERLEVEL9K_USER_SUDO_BACKGROUND=022
-#POWERLEVEL9K_USER_ROOT_FOREGROUND="black"
-#POWERLEVEL9K_USER_ROOT_BACKGROUND="red"
-#POWERLEVEL9K_USER_ICON="\uF415" # 
-#POWERLEVEL9K_ROOT_ICON="#"
-#POWERLEVEL9K_SUDO_ICON=$'\uF09C' # 
-
-#POWERLEVEL9K_VCS_CLEAN_FOREGROUND="black"
-#POWERLEVEL9K_VCS_CLEAN_BACKGROUND=034
-#POWERLEVEL9K_VCS_MODIFIED_FOREGROUND="red"
-#POWERLEVEL9K_VCS_MODIFIED_BACKGROUND=034
-#POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND="black"
-#POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND="red"
-#POWERLEVEL9K_VCS_STAGED_ICON="\u00b1"
-#POWERLEVEL9K_VCS_UNTRACKED_ICON="\u25CF"
-#POWERLEVEL9K_VCS_UNSTAGED_ICON="\u00b1"
-#POWERLEVEL9K_VCS_INCOMING_CHANGES_ICON="\u2193"
-#POWERLEVEL9K_VCS_OUTGOING_CHANGES_ICON="\u2191"
-#POWERLEVEL9K_SHOW_CHANGESET="true"
-#POWERLEVEL9K_CHANGESET_HASH_LENGTH="12"
-
-
-
-
-
-#POWERLEVEL9K_DIR_HOME_FOREGROUND="black"
-#POWERLEVEL9K_DIR_HOME_BACKGROUND=024
-#POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="black"
-#POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND=023
-#POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="black"
-#POWERLEVEL9K_DIR_DEFAULT_BACKGROUND=025
-#POWERLEVEL9K_DIR_ETC_FOREGROUND="black"
-#POWERLEVEL9K_DIR_ETC_BACKGROUND="red"
-#POWERLEVEL9K_DIR_NOT_WRITABLE_FOREGROUND="red"
-#POWERLEVEL9K_DIR_NOT_WRITABLE_BACKGROUND=025
-#POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"
-#POWERLEVEL9K_SHORTEN_DIR_LENGTH=5
-
-
-
-
-
-#POWERLEVEL9K_STATUS_VERBOSE="true"
-#POWERLEVEL9K_STATUS_OK_BACKGROUND="clear"
-#POWERLEVEL9K_STATUS_OK_FOREGROUND="green"
-#POWERLEVEL9K_STATUS_ERROR_BACKGROUND="clear"
-#POWERLEVEL9K_STATUS_ERROR_FOREGROUND="red"
-
-# POWERLEVEL9K_CUSTOM_WIFI_SIGNAL="echo wifi: \$(nmcli device wifi | grep yes | awk '{print \$8}')"
-# POWERLEVEL9K_CUSTOM_WIFI_SIGNAL="zsh_wifi_signal"
-# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=('background_jobs' 'history' 'battery' 'ip' 'public_ip' 'vpn_ip')
-
-# POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND=166
-# POWERLEVEL9K_BACKGROUND_JOBS_BACKGROUND=022
-
-# POWERLEVEL9K_HISTORY_FOREGROUND=022
-# POWERLEVEL9K_HISTORY_BACKGROUND="black"
-
-# POWERLEVEL9K_BATTERY_LOW_THRESHOLD=20
-# POWERLEVEL9K_BATTERY_VERBOSE=true
-#POWERLEVEL9K_BATTERY_STAGES=(
-##   $'▏    ▏' $'▎    ▏' $'▍    ▏' $'▌    ▏' $'▋    ▏' $'▊    ▏' $'▉    ▏' $'█    ▏'
-##   $'█▏   ▏' $'█▎   ▏' $'█▍   ▏' $'█▌   ▏' $'█▋   ▏' $'█▊   ▏' $'█▉   ▏' $'██   ▏'
-##   $'██   ▏' $'██▎  ▏' $'██▍  ▏' $'██▌  ▏' $'██▋  ▏' $'██▊  ▏' $'██▉  ▏' $'███  ▏'
-##   $'███  ▏' $'███▎ ▏' $'███▍ ▏' $'███▌ ▏' $'███▋ ▏' $'███▊ ▏' $'███▉ ▏' $'████ ▏'
-##   $'████ ▏' $'████▎▏' $'████▍▏' $'████▌▏' $'████▋▏' $'████▊▏' $'████▉▏' $'█████▏' )
-## POWERLEVEL9K_BATTERY_LEVEL_BACKGROUND=(red orangered darkorange orange gold yellow yellow greenyellow chartreuse1 chartreuse2 green1)
-#POWERLEVEL9K_BATTERY_LOW_FOREGROUND="black"
-#POWERLEVEL9K_BATTERY_LOW_BACKGROUND="red"
-#POWERLEVEL9K_BATTERY_CHARGING_FOREGROUND=125
-#POWERLEVEL9K_BATTERY_CHARGING_BACKGROUND="green"
-#POWERLEVEL9K_BATTERY_CHARGED_FOREGROUND="black"
-#POWERLEVEL9K_BATTERY_CHARGED_BACKGROUND="green"
-#POWERLEVEL9K_BATTERY_DISCONNECTED_FOREGROUND=196
-#POWERLEVEL9K_BATTERY_DISCONNECTED_BACKGROUND="green"
-
-#POWERLEVEL9K_IP_FOREGROUND="black"
-#POWERLEVEL9K_IP_BACKGROUND=022
-
-#POWERLEVEL9K_PUBLIC_IP_FOREGROUND=022
-#POWERLEVEL9K_PUBLIC_IP_BACKGROUND="black"
-#POWERLEVEL9K_PUBLIC_IP_FILE="/tmp/p9k_public_ip_user"
-#POWERLEVEL9K_IP_INTERFACE="enp7s0"
-#POWERLEVEL9K_VPN_IP_INTERFACE="tun0"
-#POWERLEVEL9K_PUBLIC_IP_NONE="No internet"
-
-#POWERLEVEL9K_TIME_BACKGROUND="clear"
-#POWERLEVEL9K_TIME_FOREGROUND="022"
-#POWERLEVEL9K_TIME_FORMAT="%D{\uf017 %H:%M \uf073 %d.%m.%y}"
-
-
-
-
-
-
-
-
-
-
-
-
-
-# POWERLEVEL9K_ROOT_INDICATOR_BACKGROUND="red"
-# POWERLEVEL9K_ROOT_INDICATOR_FOREGROUND="white"
-# POWERLEVEL9K_TODO_BACKGROUND="clear"
-# POWERLEVEL9K_TODO_FOREGROUND="green"
-# POWERLEVEL9K_LOAD_CRITICAL_BACKGROUND="clear"
-# POWERLEVEL9K_LOAD_WARNING_BACKGROUND="clear"
-# POWERLEVEL9K_LOAD_NORMAL_BACKGROUND="clear"
-# POWERLEVEL9K_LOAD_CRITICAL_FOREGROUND="red"
-# POWERLEVEL9K_LOAD_WARNING_FOREGROUND="yellow"
-# POWERLEVEL9K_LOAD_NORMAL_FOREGROUND="green"
-# POWERLEVEL9K_LOAD_CRITICAL_VISUAL_IDENTIFIER_COLOR="red"
-# POWERLEVEL9K_LOAD_WARNING_VISUAL_IDENTIFIER_COLOR="yellow"
-# POWERLEVEL9K_LOAD_NORMAL_VISUAL_IDENTIFIER_COLOR="green"
-# POWERLEVEL9K_RAM_BACKGROUND="clear"
-# POWERLEVEL9K_RAM_FOREGROUND="green"
-# POWERLEVEL9K_RAM_ELEMENTS="ram_use"
-
-
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh
+autoload -U compinit && compinit -u
 
 # POWERLEVEL9K_CONTEXT_TEMPLATE="%n"
 
