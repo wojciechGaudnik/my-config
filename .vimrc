@@ -16,7 +16,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'itchyny/lightline.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'pearofducks/ansible-vim'
-Plug 'xolox/vim-session'
+Plug 'powerman/vim-plugin-autosess'
 
 call plug#end()
 
