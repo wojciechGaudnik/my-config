@@ -83,3 +83,4 @@ git rebase -i --root
 git push -f origin master 
 “If I force-push fast enough, nobody will have had time to pull my fuckup”
 grep -iRn "tls_cacert*" /etc
+
