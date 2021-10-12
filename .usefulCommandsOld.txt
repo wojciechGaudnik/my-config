@@ -8,3 +8,4 @@ Ctrl+_: Undo your last key press. You can repeat this to undo multiple times.
 Alt+U: Capitalize every character from the cursor to the end of the current word, converting the characters to upper case.
 Alt+L: Uncapitalize every character from the cursor to the end of the current word, converting the characters to lower case.
 Alt+C: Capitalize the character under the cursor. Your cursor will move to the end of the current word.
+
