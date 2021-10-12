@@ -1,23 +1,36 @@
-Ctrl+A or Home: Go to the beginning of the line.
-Ctrl+E or End: Go to the end of the line.
+========= Console Shortcuts ===============================================================================================================================
 Alt+B: Go left (back) one word.
-Ctrl+B: Go left (back) one character.
 Alt+F: Go right (forward) one word.
-Ctrl+F: Go right (forward) one character.
-Ctrl+XX: Move between the beginning of the line and the current position of the cursor.
 Ctrl+D or Delete: Delete the character under the cursor.
-Alt+D: Delete all characters after the cursor on the current line.
 Ctrl+H or Backspace: Delete the character before the cursor.
+Alt+D: Delete all characters after the cursor to the end of word
 Alt+T: Swap the current word with the previous word.
-Ctrl+T: Swap the last two characters before the cursor with each other. You can use this to quickly fix typos when you type two characters in the wrong order.
-Ctrl+_: Undo your last key press. You can repeat this to undo multiple times.
+Ctrl+r: Back i search
+Ctrl+s: Forward i search
 Ctrl+W: Cut the word before the cursor, adding it to the clipboard.
 Ctrl+K: Cut the part of the line after the cursor, adding it to the clipboard.
 Ctrl+U: Cut the part of the line before the cursor, adding it to the clipboard.
 Ctrl+Y: Paste the last thing you cut from the clipboard. The y here stands for “yank”.
-Alt+U: Capitalize every character from the cursor to the end of the current word, converting the characters to upper case.
-Alt+L: Uncapitalize every character from the cursor to the end of the current word, converting the characters to lower case.
-Alt+C: Capitalize the character under the cursor. Your cursor will move to the end of the current word.
+
+
+
+
+
+
+========= Tmux Shortcuts ==================================================================================================================================
+Shift+Ctrl++ 			Zoom out
+Ctrl+-       			Zoom in
+<Ctrl+b>+%			Split Vertical
+<Ctrl+b>+"			Split Horizontal
+<Ctrl+b>+{ or }			Swap pane		
+<Ctrl+b>+hold ctr + arrows	Resize pane
+<Ctrl+b>+[			Enter copy mode
+Space (Ctrl+space)		Start mark
+Enter (Ctrl+w)			Mark
+<Ctrl+b>+]			Paste
+========= Vim Shortcuts ==================================================================================================================================
+
+
 
 df -h <--- free space on disks
 du -sh /media/bq666/HitachiHGST3TB <--- size of dir

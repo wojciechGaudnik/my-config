@@ -1,0 +1,10 @@
+Ctrl+A or Home: Go to the beginning of the line.
+Ctrl+E or End: Go to the end of the line.
+Ctrl+B: Go left (back) one character.
+Ctrl+F: Go right (forward) one character.
+Ctrl+XX: Move between the beginning of the line and the current position of the cursor.
+Ctrl+T: Swap the last two characters before the cursor with each other. You can use this to quickly fix typos when you type two characters in the wrong order.
+Ctrl+_: Undo your last key press. You can repeat this to undo multiple times.
+Alt+U: Capitalize every character from the cursor to the end of the current word, converting the characters to upper case.
+Alt+L: Uncapitalize every character from the cursor to the end of the current word, converting the characters to lower case.
+Alt+C: Capitalize the character under the cursor. Your cursor will move to the end of the current word.
