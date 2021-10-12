@@ -29,6 +29,11 @@ Space (Ctrl+space)		Start mark
 Enter (Ctrl+w)			Mark
 <Ctrl+b>+]			Paste
 ========= Vim Shortcuts ==================================================================================================================================
+--------- NERDTree
+Ctrl+t 				Open/Close tree
+Shift+i 			Show/Hide hiden files
+
+
 
 
 
