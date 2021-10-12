@@ -13,12 +13,19 @@ set encoding=UTF-8
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'itchyny/lightline.vim'
-Plug 'ryanoasis/vim-devicons'
-Plug 'pearofducks/ansible-vim'
-Plug 'powerman/vim-plugin-autosess'
+	Plug 'itchyny/lightline.vim'
+	Plug 'ryanoasis/vim-devicons'
+	Plug 'pearofducks/ansible-vim'
+	Plug 'powerman/vim-plugin-autosess'
+	Plug 'preservim/nerdtree'
 
 call plug#end()
 
 set number
 set laststatus=2
+
+" NERDTree
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
