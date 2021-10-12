@@ -9,8 +9,6 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \| PlugInstall --sync | source $MYVIMRC
 \| endif
 
-set encoding=UTF-8
-
 call plug#begin('~/.vim/plugged')
 
 	Plug 'itchyny/lightline.vim'
@@ -21,11 +19,15 @@ call plug#begin('~/.vim/plugged')
 
 call plug#end()
 
-set number
-set laststatus=2
 
 " NERDTree
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
+
+" Configuration
+set encoding=UTF-8
+set number
+set laststatus=2
+set autoread
