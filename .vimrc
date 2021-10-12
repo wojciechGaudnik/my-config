@@ -33,9 +33,9 @@ let g:NERDTreeWinPos = "left"
 
 " Configuration
 set encoding=UTF-8
-set number
+set relativenumber
 set laststatus=2
 set autoread
-inoremap <C-\> <esc>:qa!<cr>               " quit discarding changes
-nnoremap <C-\> :qa!<cr>
+inoremap <C-\> <esc>:close<cr>               " <ctrl+4> close current window
+nnoremap <C-\> :close<cr>
 

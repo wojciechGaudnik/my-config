@@ -1,4 +1,4 @@
-========= Console Shortcuts ===============================================================================================================================
+========= Console Shortcuts ===============================================================================================
 Alt+B: Go left (back) one word.
 Alt+F: Go right (forward) one word.
 Ctrl+D or Delete: Delete the character under the cursor.
@@ -17,7 +17,7 @@ Ctrl+Y: Paste the last thing you cut from the clipboard. The y here stands for â
 
 
 
-========= Tmux Shortcuts ==================================================================================================================================
+========= Tmux Shortcuts ==================================================================================================
 Shift+Ctrl++ 			Zoom out
 Ctrl+-       			Zoom in
 <Ctrl+b>+%			Split Vertical
@@ -28,38 +28,46 @@ Ctrl+-       			Zoom in
 Space (Ctrl+space)		Start mark
 Enter (Ctrl+w)			Mark
 <Ctrl+b>+]			Paste
-========= Vim Shortcuts ==================================================================================================================================
+========= Vim Shortcuts ===================================================================================================
+:PlugInstall			Instal plugins from .vimrc
 --------- NERDTree
+Ctrl+n				Switch to home 
 Ctrl+t 				Open/Close tree
+Ctrl+f				Find
 Shift+i 			Show/Hide hiden files
+t				Open the selected file in a new tab
+i				Open the selected file in a horizontal split window
+s				Open the selected file in a vertical split window
+I				Toggle hidden files
+m				Show the NERD Tree menu
+R				Refresh the tree, useful if files change outside of Vim
+?				Toggle NERD Tree's quick help
 
 
 
-
-
-df -h <--- free space on disks
-du -sh /media/bq666/HitachiHGST3TB <--- size of dir
-lsblk <--- all disks in tree
-udisksctl status <--- all disk 
-free -h <--- RAM space
-lsof /dev/sdb2 <--- with process uses disk
-fg <--- bring job from bacground
-ufw <--- firewall
-lshw <--- preent all hardware 
-hwinfo <--- preent all hardware 
-xxd <--- creates a hex dump of a given file or standard input
+========= BASH ============================================================================================================
+--------- Net
 netstat -atpu|grep 'ESTABLISHED'
 netstat -tulnp
-hdparm -t /dev/nvme0n1
-grep -irn '/home/bq666/.config' -e '-c conky'
-find / -name shiba4 -type f 2>>/dev/null
+
+--------- Disck
+df -h 									<--- free space on disks
+du -sh /media/bq666/HitachiHGST3TB 					<--- size of dir
+lsblk 									<--- all disks in tree
+udisksctl status 							<--- all disk 
+lsof /dev/sdb2 								<--- with process uses disk
 lsof | grep -e \"[[:digit:]]\(r\|w\)\"|grep 'HitachiHGST3TB'
 lsof /media/bq666/HitachiHGST3TB
+hdparm -t /dev/nvme0n1
 iostat -x /dev/sda
-dd if=/dev/zero of=/mnt/old/test.dat bs=8k count=10000k status=progress
-fallocate -l 1G large_file.img
-bc <--- calculator
-rsync 
+
+--------- Cpu, RAM
+lshw <--- preent all hardware 
+hwinfo <--- preent all hardware 
+free -h <--- RAM space
+
+--------- Rsync 
+rsync -avP --info=progress2 ~/.zshrc NAS:/home/bq666/
 -a(archive dir and content equals -rlptgoD) 
 	-r(only recursive) 
 	-l(copy symlinks as symlinks)
@@ -74,6 +82,15 @@ rsync
 -P(full stats!!!+ reasume interrupted transfers) 
 --delete(delete file in destination if source file is deleted)
 rsync --info=progress2 source dest
+
+--------- Other
+dd if=/dev/zero of=/mnt/old/test.dat bs=8k count=10000k status=progress
+fallocate -l 1G large_file.img
+fg <--- bring job from bacground
+xxd <--- creates a hex dump of a given file or standard input
+grep -irn '/home/bq666/.config' -e '-c conky'
+find / -name shiba4 -type f 2>>/dev/null
+bc <--- calculator
 diff -q(only when diffrent) -r(recursevely)
 tmux copy past: Ctrl+b:
 	Enter copy mode: <prefix> + [
