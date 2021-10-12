@@ -1,0 +1,153 @@
+---
+#========================== confing =============================================================
+- name: cmd
+  hosts: OLD 
+  user: bq666
+  tasks:
+    - name: APT INSTALL
+      become: yes
+      apt:
+        name: "{{ item.source}}"
+        state: latest
+      with_items:
+        - {source: 'git'}
+        - {source: 'zsh'}
+        - {source: 'wget'}
+        - {source: 'curl'}
+        - {source: 'ruby-full'}
+        - {source: 'build-essential'}
+        - {source: 'python3-distutils'}
+        - {source: 'thefuck'}
+        - {source: 'autojump'}
+        - {source: 'tmux'}
+        - {source: 'screenfetch'}
+        - {source: 'vim'}
+        - {source: 'mc'}
+        - {source: 'htop'}
+    - name: LM_SENSORS APT INSTALL
+      tags:
+        - mytest
+      become: yes
+      register: reg_lm_sensors
+      apt: 
+        name: 'lm-sensors'
+        state: latest
+    - name: MY CONFIG FOR ROOT
+      become: yes
+      git:
+        repo='https://github.com/wojciechGaudnik/my-config.git'
+        dest='~/.my-config'
+    - name: MY CONFIG FOR BQ666
+      git:
+        repo='https://github.com/wojciechGaudnik/my-config.git'
+        dest='~/.my-config'
+    - name: LM_SENSORS SETUP
+      tags:
+        - mytest
+      become: yes
+      when: reg_lm_sensors.changed
+      expect:
+        timeout: 5
+        echo: yes
+        command: /sbin/sensors-detect
+        responses:
+          .*(YES|yes).*: "Yes"
+          .*ENTER.*: ""
+    - name: COLORLS GEM INSTALL
+      become: yes
+      gem:
+        name: colorls
+        user_install: no
+        state: latest
+    - name: COPY FONTS
+      become: yes
+      register: reg_fontsHack
+      copy:
+        src: ~/.my-config/fonts_hack
+        dest: /usr/share/fonts
+        remote_src: yes
+    - name: CONFIG FONTS
+      when: reg_fontsHack.changed
+      shell:
+        cmd: /bin/fc-cache -f
+    - name: USB RESET INSTALL
+      become: yes
+      copy:
+        src: ~/.my-config/usbreset.sh
+        dest: /usr/bin/
+        remote_src: yes
+        mode: u+rwx,g-rwx,o-rwx
+    - name: VIVM INSTALL
+      become: yes
+      get_url:
+        url: https://raw.githubusercontent.com/thameera/vimv/master/vimv 
+        dest: /usr/local/bin/vimv
+        mode: '0755'
+#========================== root ================================================================
+#-------------------------- git -----------------------------------------------------------------
+    - name: ROOT GIT REPOS
+      become: yes
+      git:
+        repo="{{item.repo}}"
+        dest="{{item.dest}}"
+        force="{{item.force}}"
+      with_items:
+        - {repo: 'https://github.com/robbyrussell/oh-my-zsh', dest: '~/.oh-my-zsh', force: yes}
+        - {repo: 'https://github.com/romkatv/powerlevel10k.git', dest: '~/.oh-my-zsh/custom/themes/powerlevel10k', force: yes}
+        - {repo: 'https://github.com/zsh-users/zsh-autosuggestions', dest: '~/.oh-my-zsh/custom/plugins/zsh-autosuggestions', force: yes}
+        - {repo: 'https://github.com/zsh-users/zsh-syntax-highlighting.git', dest: '~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting', force: yes}
+#-------------------------- copy ----------------------------------------------------------------
+    - name: ROOT CREATE DIR
+      become: yes
+      ansible.builtin.file:
+        path="{{item.path}}" 
+        state="{{item.state}}" 
+        recurse="{{item.recurse}}" 
+      with_items:
+        - {path: '~/.config/mc', state: 'directory', recurse: 'yes'}
+        - {path: '~/.config/htop', state: 'directory', recurse: 'yes'}
+    - name: ROOT LINK FILES
+      become: yes
+      ansible.builtin.file:
+        src="{{item.src}}"
+        dest="{{item.dest}}"
+        state="{{item.state}}"
+        force="{{item.force}}"
+      with_items:
+        - {src: "~/.my-config/.zshrc", dest: "~/.zshrc", state: "link", force: yes}
+        - {src: "~/.my-config/.p10k.zsh", dest: "~/.p10k.zsh", state: "link", force: yes}
+        - {src: "~/.my-config/.usefulCommands.txt", dest: "~/.usefulCommands.txt", state: "link", force: yes}
+        - {src: "~/.my-config/.tmux.conf", dest: "~/.tmux.conf", state: "link", force: yes}
+        - {src: "~/.my-config/.vimrc", dest: "~/.vimrc", state: "link", force: yes}
+        - {src: "~/.my-config/root/mc/ini", dest: "~/.config/mc/ini", state: "link", force: yes}
+        - {src: "~/.my-config/root/mc/panels.ini", dest: "~/.config/mc/panels.ini", state: "link", force: yes}
+        - {src: "~/.my-config/htoprc", dest: "~/.config/htop/htoprc", state: "link", force: yes}
+
+#-------------------------- setup ---------------------------------------------------------------
+    - name: ROOT SETUP DEFAULT SHELL 
+      become: yes
+      user:
+        name: "root"
+        shell: /usr/bin/zsh 
+
+
+        
+
+
+
+
+
+
+#========================== ba666 ===============================================================
+#-------------------------- setup ---------------------------------------------------------------
+    - name: BQ666 SETUP DEFAULT SHELL 
+      become: yes
+      user:
+        name: "bq666"
+        shell: /usr/bin/zsh 
+#-------------------------- git -----------------------------------------------------------------
+
+
+
+
+        
