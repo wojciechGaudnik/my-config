@@ -9,3 +9,4 @@ Alt+U: Capitalize every character from the cursor to the end of the current word
 Alt+L: Uncapitalize every character from the cursor to the end of the current word, converting the characters to lower case.
 Alt+C: Capitalize the character under the cursor. Your cursor will move to the end of the current word.
 
+
