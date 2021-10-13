@@ -17,6 +17,8 @@ call plug#begin('~/.vim/plugged')
         Plug 'powerman/vim-plugin-autosess'
         Plug 'preservim/nerdtree'
         Plug 'sonph/onehalf', { 'rtp': 'vim' }
+	      Plug 'sheerun/vim-polyglot'
+	      Plug 'frazrepo/vim-rainbow'
 
 call plug#end()
 
@@ -51,16 +53,19 @@ function! Toggle_transparent()
         hi Normal guibg=NONE ctermbg=NONE
         let s:is_transparent = 1
      else
-        hi Normal guibg=#282c34 ctermbg=236
+        hi Normal ctermbg=236
+        hi Normal guibg=#111222
         let s:is_transparent = 0
      endif
  endfunction
  nnoremap <C-x>t : call Toggle_transparent()<CR>
 
-
+" Rainbow brackets
+let g:rainbow_active = 1
 
 
 " Configuration
+hi Normal guibg=#111222
 set encoding=UTF-8
 set number relativenumber
 set laststatus=2
