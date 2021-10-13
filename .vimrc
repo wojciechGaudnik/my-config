@@ -11,12 +11,12 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 
 call plug#begin('~/.vim/plugged')
 
-	Plug 'itchyny/lightline.vim'
-	Plug 'ryanoasis/vim-devicons'
-	Plug 'pearofducks/ansible-vim'
-	Plug 'powerman/vim-plugin-autosess'
-	Plug 'preservim/nerdtree'
-	Plug 'sonph/onehalf', { 'rtp': 'vim' }
+        Plug 'itchyny/lightline.vim'
+        Plug 'ryanoasis/vim-devicons'
+        Plug 'pearofducks/ansible-vim'
+        Plug 'powerman/vim-plugin-autosess'
+        Plug 'preservim/nerdtree'
+        Plug 'sonph/onehalf', { 'rtp': 'vim' }
 
 call plug#end()
 
@@ -31,30 +31,31 @@ autocmd VimEnter * NERDTree | wincmd p
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 let g:NERDTreeWinPos = "left"
 
-" Theme oneHalfDark
+"Theme oneHalfDark
 syntax on
 set t_Co=256
 set cursorline
 colorscheme onehalfdark
 let g:airline_theme='onehalfdark'
-" lightline
-" let g:lightline = { 'colorscheme': 'onehalfdark' }
+highlight Comment cterm=NONE
+" " lightline
+" " let g:lightline = { 'colorscheme': 'onehalfdark' }
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
-let t:is_transparent = 0
+let s:is_transparent = 0
 function! Toggle_transparent()
-    if t:is_transparent == 0
+    if s:is_transparent == 0
         hi Normal guibg=NONE ctermbg=NONE
-        let t:is_transparent = 1
-    else
-        set background=dark
-        let t:is_tranparent = 0
-    endif
-endfunction
-nnoremap <C-p> : call Toggle_transparent()<CR>
+        let s:is_transparent = 1
+     else
+        hi Normal guibg=#282c34 ctermbg=236
+        let s:is_transparent = 0
+     endif
+ endfunction
+ nnoremap <C-x>t : call Toggle_transparent()<CR>
 
 
 
