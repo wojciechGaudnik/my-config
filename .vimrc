@@ -61,7 +61,7 @@ nnoremap <C-p> : call Toggle_transparent()<CR>
 
 " Configuration
 set encoding=UTF-8
-set relativenumber
+set number relativenumber
 set laststatus=2
 set autoread
 inoremap <C-\> <esc>:close<cr>               " <ctrl+4> close current window
