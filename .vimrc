@@ -11,7 +11,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 
 call plug#begin('~/.vim/plugged')
 
-        Plug 'itchyny/lightline.vim'
+"        Plug 'itchyny/lightline.vim'
         Plug 'ryanoasis/vim-devicons'
         Plug 'pearofducks/ansible-vim'
         Plug 'powerman/vim-plugin-autosess'
@@ -19,6 +19,8 @@ call plug#begin('~/.vim/plugged')
         Plug 'sonph/onehalf', { 'rtp': 'vim' }
 	      Plug 'sheerun/vim-polyglot'
 	      Plug 'frazrepo/vim-rainbow'
+        Plug 'vim-airline/vim-airline'
+        Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
@@ -72,3 +74,10 @@ set laststatus=2
 set autoread
 inoremap <C-\> <esc>:close<cr>               " <ctrl+4> close current window
 nnoremap <C-\> :close<cr>
+
+
+" vim-airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline_powerline_fonts = 1
+
