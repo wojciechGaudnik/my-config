@@ -29,6 +29,7 @@ Space (Ctrl+space)		Start mark
 Enter (Ctrl+w)			Mark
 <Ctrl+b>+]			Paste
 ========= Vim Shortcuts ===================================================================================================
++Ctrl+w + x                             Swap windows with next
 :PlugInstall			Instal plugins from .vimrc
 --------- NERDTree
 Ctrl+n				Switch to home 
