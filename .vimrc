@@ -11,16 +11,17 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 
 call plug#begin('~/.vim/plugged')
 
-"        Plug 'itchyny/lightline.vim'
+        Plug 'preservim/nerdtree'
         Plug 'ryanoasis/vim-devicons'
         Plug 'pearofducks/ansible-vim'
-        Plug 'powerman/vim-plugin-autosess'
-        Plug 'preservim/nerdtree'
         Plug 'sonph/onehalf', { 'rtp': 'vim' }
-	      Plug 'sheerun/vim-polyglot'
-	      Plug 'frazrepo/vim-rainbow'
         Plug 'vim-airline/vim-airline'
+        Plug 'frazrepo/vim-rainbow'
         Plug 'vim-airline/vim-airline-themes'
+	Plug 'airblade/vim-gitgutter'
+	Plug 'tpope/vim-fugitive'
+"        Plug 'powerman/vim-plugin-autosess'
+"        Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
@@ -35,15 +36,13 @@ autocmd VimEnter * NERDTree | wincmd p
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 let g:NERDTreeWinPos = "left"
 
-"Theme oneHalfDark
+" Theme oneHalfDark
 syntax on
 set t_Co=256
 set cursorline
 colorscheme onehalfdark
 let g:airline_theme='onehalfdark'
 highlight Comment cterm=NONE
-" " lightline
-" " let g:lightline = { 'colorscheme': 'onehalfdark' }
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
@@ -69,6 +68,15 @@ let g:rainbow_active = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#branch#enabled=1
+let g:airline_theme='dark'
+"
+" GitGutter
+function! GitStatus()
+  let [a,m,r] = GitGutterGetHunkSummary()
+  return printf('+%d ~%d -%d', a, m, r)
+endfunction
+set statusline+=%{GitStatus()}
 
 " Configuration
 hi Normal guibg=#111222
@@ -101,9 +109,13 @@ au BufNewFile, BufRead *.js, *.html, *.css
     \ set shiftwidth=2
 
 
-"split navigations
+" split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" switching between opened files
+nnoremap <C-Right> :bn<CR>
+nnoremap <C-Left> :bp<CR>
 
