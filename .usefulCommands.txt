@@ -32,8 +32,9 @@ Enter (Ctrl+w)			Mark
 +Ctrl+w + x                             Swap windows with next
 :PlugInstall			Instal plugins from .vimrc
 --------- NERDTree
-Ctrl+n				Switch to home 
+Ctrl+w +t 		Back to tree
 Ctrl+t 				Open/Close tree
+Ctrl+n				Switch to home 
 Ctrl+f				Find
 Shift+i 			Show/Hide hiden files
 t				Open the selected file in a new tab

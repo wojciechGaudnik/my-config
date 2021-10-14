@@ -65,6 +65,10 @@ function! Toggle_transparent()
 " Rainbow brackets
 let g:rainbow_active = 1
 
+" vim-airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline_powerline_fonts = 1
 
 " Configuration
 hi Normal guibg=#111222
@@ -75,9 +79,31 @@ set autoread
 inoremap <C-\> <esc>:close<cr>               " <ctrl+4> close current window
 nnoremap <C-\> :close<cr>
 
+" setting horizontal and vertical splits
+set splitbelow
+set splitright
 
-" vim-airline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-let g:airline_powerline_fonts = 1
+
+" Setting up indendation
+
+au BufNewFile, BufRead *.py
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix
+
+au BufNewFile, BufRead *.js, *.html, *.css
+    \ set tabstop=2 |
+    \ set softtabstop=2 |
+    \ set shiftwidth=2
+
+
+"split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
