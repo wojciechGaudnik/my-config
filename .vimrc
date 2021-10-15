@@ -88,7 +88,7 @@ au BufReadPost,BufNewFile *.c,*.cpp,*.java,*.md,*.txt,*.py RainbowLoad
 
 
 " ---------- Theme oneHalfDark sonph/onehalf ------------------------------------------
-colorscheme onehalfdark
+silent! colorscheme onehalfdark
 highlight Comment cterm=NONE
 hi Normal ctermbg=234
 hi Normal guibg=#1c1c1c
@@ -126,9 +126,11 @@ let g:airline#extensions#branch#enabled=1
 let g:airline_theme='dark'
 
 " ---------- GitGutter airblade/vim-gitgutter ------------------------------------------
-function! GitStatus()
-  let [a,m,r] = GitGutterGetHunkSummary()
-  return printf('+%d ~%d -%d', a, m, r)
-endfunction
-set statusline+=%{GitStatus()}
+if (exists("*GitGutterGetHunkSummary"))
+	function! GitStatus()
+	  let [a,m,r] = GitGutterGetHunkSummary()
+	  return printf('+%d ~%d -%d', a, m, r)
+	endfunction
+	set statusline+=%{GitStatus()}
+endif
 
