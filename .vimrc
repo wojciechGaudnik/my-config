@@ -15,6 +15,7 @@ call plug#begin('~/.vim/plugged')
         Plug 'ryanoasis/vim-devicons'
         Plug 'frazrepo/vim-rainbow'
         Plug 'sonph/onehalf', { 'rtp': 'vim' }
+	Plug 'relastle/bluewery.vim'	
         Plug 'vim-airline/vim-airline'
         Plug 'vim-airline/vim-airline-themes'
 	Plug 'airblade/vim-gitgutter'
@@ -22,6 +23,7 @@ call plug#begin('~/.vim/plugged')
 	
         Plug 'pearofducks/ansible-vim'
 	Plug 'aserebryakov/vim-todo-lists'
+	
 "        Plug 'powerman/vim-plugin-autosess'
 "        Plug 'sheerun/vim-polyglot'
 
@@ -29,7 +31,6 @@ call plug#end()
 
 " ---------- CONFIGURATION  -------------------------------------------------
 syntax on
-colorscheme onehalfdark
 set t_Co=256
 set cursorline
 set encoding=UTF-8
@@ -38,7 +39,6 @@ set laststatus=2
 set autoread
 set splitbelow
 set splitright
-hi Normal guibg=#111222
 " <ctrl+4> close current window
 inoremap <C-\> <esc>:close<cr>               
 nnoremap <C-\> :close<cr>
@@ -88,7 +88,11 @@ au BufReadPost,BufNewFile *.c,*.cpp,*.java,*.md,*.txt,*.py RainbowLoad
 
 
 " ---------- Theme oneHalfDark sonph/onehalf ------------------------------------------
+colorscheme onehalfdark
 highlight Comment cterm=NONE
+hi Normal ctermbg=236
+hi Normal guibg=#111222
+let s:is_transparent = 0
 let g:airline_theme='onehalfdark'
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -98,9 +102,15 @@ endif
 let s:is_transparent = 0
 function! Toggle_transparent()
     if s:is_transparent == 0
+	colorscheme bluewery
+	let g:lightline = {'colorscheme': 'bluewery'}
+	colorscheme green_dark
+	highlight Comment cterm=NONE
         hi Normal guibg=NONE ctermbg=NONE
         let s:is_transparent = 1
      else
+	colorscheme onehalfdark
+	highlight Comment cterm=NONE
         hi Normal ctermbg=236
         hi Normal guibg=#111222
         let s:is_transparent = 0
@@ -121,3 +131,4 @@ function! GitStatus()
   return printf('+%d ~%d -%d', a, m, r)
 endfunction
 set statusline+=%{GitStatus()}
+
