@@ -13,19 +13,59 @@ call plug#begin('~/.vim/plugged')
 
         Plug 'preservim/nerdtree'
         Plug 'ryanoasis/vim-devicons'
-        Plug 'pearofducks/ansible-vim'
+        Plug 'frazrepo/vim-rainbow'
         Plug 'sonph/onehalf', { 'rtp': 'vim' }
         Plug 'vim-airline/vim-airline'
-        Plug 'frazrepo/vim-rainbow'
         Plug 'vim-airline/vim-airline-themes'
 	Plug 'airblade/vim-gitgutter'
 	Plug 'tpope/vim-fugitive'
+	
+        Plug 'pearofducks/ansible-vim'
+	Plug 'aserebryakov/vim-todo-lists'
 "        Plug 'powerman/vim-plugin-autosess'
 "        Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
-" NERDTree
+" ---------- CONFIGURATION  -------------------------------------------------
+syntax on
+colorscheme onehalfdark
+set t_Co=256
+set cursorline
+set encoding=UTF-8
+set number relativenumber
+set laststatus=2
+set autoread
+set splitbelow
+set splitright
+hi Normal guibg=#111222
+" <ctrl+4> close current window
+inoremap <C-\> <esc>:close<cr>               
+nnoremap <C-\> :close<cr>
+"autocmd BufEnter *.txt hi Normal guibg=Black
+
+au BufNewFile, BufRead *.py
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix
+au BufNewFile, BufRead *.js, *.html, *.css
+    \ set tabstop=2 |
+    \ set softtabstop=2 |
+    \ set shiftwidth=2
+" split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+" switching between opened files
+nnoremap <C-Right> :bn<CR>
+nnoremap <C-Left> :bp<CR>
+
+" ---------- NERDTree preservim/nerdtree -------------------------------------------------
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
@@ -33,16 +73,23 @@ nnoremap <C-f> :NERDTreeFind<CR>
 " Start NERDTree and put the cursor back in the other window.
 autocmd VimEnter * NERDTree | wincmd p
 " Exit Vim if NERDTree is the only window remaining in the only tab.
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+" autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+" Close the tab if NERDTree is the only window remaining in it.
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 let g:NERDTreeWinPos = "left"
 
-" Theme oneHalfDark
-syntax on
-set t_Co=256
-set cursorline
-colorscheme onehalfdark
-let g:airline_theme='onehalfdark'
+" ---------- Devicons ryanoasis/vim-devicons --------------------------------------------------
+if exists("g:loaded_webdevicons")
+	call webdevicons#refresh()
+endif
+
+" ---------- Rainbow brackets frazrepo/vim-rainbow ------------------------------------------
+au BufReadPost,BufNewFile *.c,*.cpp,*.java,*.md,*.txt,*.py RainbowLoad
+
+
+" ---------- Theme oneHalfDark sonph/onehalf ------------------------------------------
 highlight Comment cterm=NONE
+let g:airline_theme='onehalfdark'
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
@@ -61,62 +108,16 @@ function! Toggle_transparent()
  endfunction
  nnoremap <C-x>t : call Toggle_transparent()<CR>
 
-" Rainbow brackets
-let g:rainbow_active = 1
-
-" vim-airline
+" ---------- Air-line vim-airline/vim-airline ------------------------------------------
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#branch#enabled=1
 let g:airline_theme='dark'
-"
-" GitGutter
+
+" ---------- GitGutter airblade/vim-gitgutter ------------------------------------------
 function! GitStatus()
   let [a,m,r] = GitGutterGetHunkSummary()
   return printf('+%d ~%d -%d', a, m, r)
 endfunction
 set statusline+=%{GitStatus()}
-
-" Configuration
-hi Normal guibg=#111222
-set encoding=UTF-8
-set number relativenumber
-set laststatus=2
-set autoread
-inoremap <C-\> <esc>:close<cr>               " <ctrl+4> close current window
-nnoremap <C-\> :close<cr>
-
-" setting horizontal and vertical splits
-set splitbelow
-set splitright
-
-
-" Setting up indendation
-
-au BufNewFile, BufRead *.py
-    \ set tabstop=4 |
-    \ set softtabstop=4 |
-    \ set shiftwidth=4 |
-    \ set textwidth=79 |
-    \ set expandtab |
-    \ set autoindent |
-    \ set fileformat=unix
-
-au BufNewFile, BufRead *.js, *.html, *.css
-    \ set tabstop=2 |
-    \ set softtabstop=2 |
-    \ set shiftwidth=2
-
-
-" split navigations
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
-" switching between opened files
-nnoremap <C-Right> :bn<CR>
-nnoremap <C-Left> :bp<CR>
-
-

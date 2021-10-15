@@ -33,6 +33,7 @@ Ctrl+x + t			Toggle transparent background
 Ctrl+w + x                     	Swap windows with next
 Ctrl+h,j,k,l			Moving between tabs	
 :PlugInstall			Instal plugins from .vimrc
+:hi				All colors
 --------- NERDTree
 Ctrl+w +t 		Back to tree
 Ctrl+t 				Open/Close tree
