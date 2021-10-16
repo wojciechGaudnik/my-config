@@ -96,7 +96,7 @@ au BufReadPost,BufNewFile *.c,*.cpp,*.java,*.md,*.txt,*.py RainbowLoad
 " ---------- Theme oneHalfDark sonph/onehalf ------------------------------------------
 silent! colorscheme onehalfdark
 hi Comment cterm=NONE
-hi Normal ctermbg=234 guibg=#1c1c1c
+hi Normal ctermbg=233 guibg=#121212
 let g:airline_theme='onehalfdark'
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -115,7 +115,7 @@ function! Toggle_transparent()
      else
 	colorscheme onehalfdark
 	hi Comment cterm=NONE
-	hi Normal ctermbg=234 guibg=#1c1c1c
+	hi Normal ctermbg=233 guibg=#121212
 	RainbowLoad
         let s:is_transparent = 0
      endif

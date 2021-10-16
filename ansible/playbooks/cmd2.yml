@@ -1,7 +1,7 @@
 ---
 #========================== confing =============================================================
 - name: cmd
-  hosts: OLD 
+  hosts: ALL
   user: bq666
   tasks:
     - name: APT INSTALL
@@ -21,12 +21,15 @@
         - {source: 'autojump'}
         - {source: 'tmux'}
         - {source: 'screenfetch'}
-        - {source: 'vim'}
         - {source: 'mc'}
         - {source: 'htop'}
+    - name: VIM APT INSTALL
+      become: yes
+      register: reg_vim
+      apt: 
+        name: 'vim'
+        state: latest
     - name: LM_SENSORS APT INSTALL
-      tags:
-        - mytest
       become: yes
       register: reg_lm_sensors
       apt: 
@@ -34,6 +37,7 @@
         state: latest
     - name: MY CONFIG FOR ROOT
       become: yes
+      register: reg_my_config_root
       git:
         repo='https://github.com/wojciechGaudnik/my-config.git'
         dest='~/.my-config'
@@ -42,8 +46,6 @@
         repo='https://github.com/wojciechGaudnik/my-config.git'
         dest='~/.my-config'
     - name: LM_SENSORS SETUP
-      tags:
-        - mytest
       become: yes
       when: reg_lm_sensors.changed
       expect:
@@ -106,6 +108,7 @@
       with_items:
         - {path: '~/.config/mc', state: 'directory', recurse: 'yes'}
         - {path: '~/.config/htop', state: 'directory', recurse: 'yes'}
+        - {path: '~/.vim/colors', state: 'directory', recurse: 'yes'}
     - name: ROOT LINK FILES
       become: yes
       ansible.builtin.file:
@@ -119,6 +122,7 @@
         - {src: "~/.my-config/.usefulCommands.txt", dest: "~/.usefulCommands.txt", state: "link", force: yes}
         - {src: "~/.my-config/.tmux.conf", dest: "~/.tmux.conf", state: "link", force: yes}
         - {src: "~/.my-config/.vimrc", dest: "~/.vimrc", state: "link", force: yes}
+        - {src: "~/.my-config/green_dark.vim", dest: "~/.vim/colors/green_dark.vim", state: "link", force: yes}
         - {src: "~/.my-config/root/mc/ini", dest: "~/.config/mc/ini", state: "link", force: yes}
         - {src: "~/.my-config/root/mc/panels.ini", dest: "~/.config/mc/panels.ini", state: "link", force: yes}
         - {src: "~/.my-config/htoprc", dest: "~/.config/htop/htoprc", state: "link", force: yes}
@@ -129,9 +133,22 @@
       user:
         name: "root"
         shell: /usr/bin/zsh 
+    - name: ROOT VIM INSTALL PLUGINS
+      when: reg_my_config_root.changed
+      tags:
+        - mytest
+      become: yes
+      command: vim +PlugInstall +qall
 
-
-        
+    - name : ROOT AUTO JUMP GREEN
+      tags:
+        - mytest
+      become: yes
+      lineinfile:
+        path: /usr/share/autojump/autojump.zsh
+        regex: '.*echo -e.*033.*31m'
+        line: '                echo -e "\\033[32m${output}\\033[0m"'
+        backrefs: yes
 
 
 
@@ -150,4 +167,3 @@
 
 
 
-        
