@@ -138,3 +138,6 @@ if (exists("*GitGutterGetHunkSummary"))
 	set statusline+=%{GitStatus()}
 endif
 
+" ---------- Ansible pearofducks/ansible-vim -----------------------------------------
+au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
+
