@@ -29,6 +29,9 @@ Ctrl+-       			Zoom in
 Space (Ctrl+space)		Start mark
 Enter (Ctrl+w)			Mark
 <Ctrl+b>+]			Paste
+--------- Resurrect
+<Ctrl+b> + <Ctrl+s>		Save
+<Ctrl+b> + <Ctrl+r>		Restore	
 ========= Vim Shortcuts ===================================================================================================
 Ctrl+x + t			Toggle transparent background
 Ctrl+w + x                     	Swap windows with next
