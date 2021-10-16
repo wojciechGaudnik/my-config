@@ -101,22 +101,20 @@ let s:is_transparent = 0
 function! Toggle_transparent()
     if s:is_transparent == 0
 	colorscheme bluewery
-	let g:lightline = {'colorscheme': 'bluewery'}
 	colorscheme green_dark
-	hi Comment cterm=NONE
+	hi Comment guifg=#808080
         hi Normal guibg=NONE ctermbg=NONE
 	RainbowLoad
         let s:is_transparent = 1
      else
-	silent! colorscheme onehalfdark
+	colorscheme onehalfdark
 	hi Comment cterm=NONE
 	hi Normal ctermbg=234 guibg=#1c1c1c
 	RainbowLoad
-	let g:airline_theme='onehalfdark'
         let s:is_transparent = 0
      endif
- endfunction
- nnoremap <C-x>t : call Toggle_transparent()<CR>
+endfunction
+nnoremap <C-x>t : call Toggle_transparent()<CR>
 
 " ---------- Air-line vim-airline/vim-airline ------------------------------------------
 let g:airline#extensions#tabline#enabled = 1
