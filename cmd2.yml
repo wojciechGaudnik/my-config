@@ -134,19 +134,11 @@
         name: "root"
         shell: /usr/bin/zsh 
     - name: ROOT VIM INSTALL PLUGINS
+      when: reg_my_config_root.changed
+      tags:
+        - mytest
       become: yes
-      when: reg_vim.changed
-      register: vim_conf
-      
-      expect:
-        timeout: 5
-        command: vim +PlugInstall +qall"
-        responses:
-          .*(YES|yes).*: "Yes"
-          .*ENTER.*: ""
-          .*: ""
-    - debug:
-        var: command_output.stdout_lines
+      command: vim +PlugInstall +qall
 
     - name : ROOT AUTO JUMP GREEN
       tags:
