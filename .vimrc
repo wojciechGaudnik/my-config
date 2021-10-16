@@ -22,6 +22,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'tpope/vim-fugitive'
 	
         Plug 'pearofducks/ansible-vim'
+	Plug 'Yggdroot/indentLine'
 	Plug 'aserebryakov/vim-todo-lists'
 	
 "        Plug 'powerman/vim-plugin-autosess'
@@ -65,7 +66,6 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <C-Right> :bn<CR>
 nnoremap <C-Left> :bp<CR>
 " resize window
-" nnoremap <C-W><C-Right> :vertical resize +5
 nnoremap <C-w>h :vertical resize -5<CR>
 nnoremap <C-w>l :vertical resize +5<CR>
 nnoremap <C-w>j :resize +5<CR>
@@ -96,7 +96,8 @@ au BufReadPost,BufNewFile *.c,*.cpp,*.java,*.md,*.txt,*.py RainbowLoad
 " ---------- Theme oneHalfDark sonph/onehalf ------------------------------------------
 silent! colorscheme onehalfdark
 hi Comment cterm=NONE
-hi Normal ctermbg=233 guibg=#121212
+hi Normal ctermbg=234 guibg=#1c1c1c
+hi Identifier guifg=#dcdfe4
 let g:airline_theme='onehalfdark'
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -110,12 +111,14 @@ function! Toggle_transparent()
 	colorscheme green_dark
 	hi Comment guifg=#808080
         hi Normal guibg=NONE ctermbg=NONE
+	hi Identifier guifg=#dcdfe4
 	RainbowLoad
         let s:is_transparent = 1
      else
 	colorscheme onehalfdark
 	hi Comment cterm=NONE
-	hi Normal ctermbg=233 guibg=#121212
+	hi Normal ctermbg=234 guibg=#1c1c1c
+	hi Identifier guifg=#dcdfe4
 	RainbowLoad
         let s:is_transparent = 0
      endif
@@ -140,4 +143,14 @@ endif
 
 " ---------- Ansible pearofducks/ansible-vim -----------------------------------------
 au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
+"au BufRead,BufNewFile */playbooks/*.yml colorscheme default
+let g:ansible_unindent_after_newline = 1
+let g:ansible_attribute_highlight = "ad"
+let g:ansible_name_highlight = "d"
 
+let g:ansible_extra_keywords_highlight = 1
+let g:ansible_normal_keywords_highlight = 'Constant'
+let g:ansible_with_keywords_highlight = 'Constant'
+let g:ansible_template_syntaxes = { '*.rb.j2': 'ruby' }
+" ---------- IndentLine Yggdroot/indentLine ------------------------------------------------
+au BufRead,BufNewFile */playbooks/*.yml IndentLinesEnable
