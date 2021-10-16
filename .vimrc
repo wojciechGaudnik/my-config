@@ -56,6 +56,7 @@ au BufNewFile, BufRead *.js, *.html, *.css
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2
+nnoremap <C-W><C-Right> :vertical resize +5
 " split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -64,7 +65,8 @@ nnoremap <C-H> <C-W><C-H>
 " switching between opened files
 nnoremap <C-Right> :bn<CR>
 nnoremap <C-Left> :bp<CR>
-
+" resize window
+nnoremap <C-w><C-Right> :vertical resize +5<CR>
 " ---------- NERDTree preservim/nerdtree -------------------------------------------------
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
@@ -77,7 +79,8 @@ autocmd VimEnter * NERDTree | wincmd p
 " Close the tab if NERDTree is the only window remaining in it.
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 let g:NERDTreeWinPos = "left"
-
+let g:NERDTreeMapOpenSplit = 's'
+let g:NERDTreeMapOpenVSplit = 'i'
 " ---------- Devicons ryanoasis/vim-devicons --------------------------------------------------
 if exists("g:loaded_webdevicons")
 	call webdevicons#refresh()
@@ -89,10 +92,8 @@ au BufReadPost,BufNewFile *.c,*.cpp,*.java,*.md,*.txt,*.py RainbowLoad
 
 " ---------- Theme oneHalfDark sonph/onehalf ------------------------------------------
 silent! colorscheme onehalfdark
-highlight Comment cterm=NONE
-hi Normal ctermbg=234
-hi Normal guibg=#1c1c1c
-let s:is_transparent = 0
+hi Comment cterm=NONE
+hi Normal ctermbg=234 guibg=#1c1c1c
 let g:airline_theme='onehalfdark'
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -103,20 +104,20 @@ let s:is_transparent = 0
 function! Toggle_transparent()
     if s:is_transparent == 0
 	colorscheme bluewery
-	let g:lightline = {'colorscheme': 'bluewery'}
 	colorscheme green_dark
-	highlight Comment cterm=NONE
+	hi Comment guifg=#808080
         hi Normal guibg=NONE ctermbg=NONE
+	RainbowLoad
         let s:is_transparent = 1
      else
 	colorscheme onehalfdark
-	highlight Comment cterm=NONE
-	hi Normal ctermbg=234
-	hi Normal guibg=#1c1c1c
+	hi Comment cterm=NONE
+	hi Normal ctermbg=234 guibg=#1c1c1c
+	RainbowLoad
         let s:is_transparent = 0
      endif
- endfunction
- nnoremap <C-x>t : call Toggle_transparent()<CR>
+endfunction
+nnoremap <C-x>t : call Toggle_transparent()<CR>
 
 " ---------- Air-line vim-airline/vim-airline ------------------------------------------
 let g:airline#extensions#tabline#enabled = 1

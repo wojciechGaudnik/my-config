@@ -8,8 +8,8 @@
 
 set background=dark
 
-let g:colors_name="me"
-let colors_name="me"
+let g:colors_name="green_dark"
+let colors_name="green_dark"
 
 
 " Set nice colors  green foreground on dark background
