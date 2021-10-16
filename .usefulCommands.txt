@@ -21,8 +21,8 @@ Ctrl+Y: Paste the last thing you cut from the clipboard. The y here stands for â
 <Ctrl+b> + I 			Reload
 Shift+Ctrl++ 			Zoom out
 Ctrl+-       			Zoom in
-<Ctrl+b>+%			Split Vertical
-<Ctrl+b>+"			Split Horizontal
+<Ctrl+b>+v			Split Vertical
+<Ctrl+b>+s			Split Horizontal
 <Ctrl+b>+{ or }			Swap pane		
 <Ctrl+b>+hold ctr + arrows	Resize pane
 <Ctrl+b>+[			Enter copy mode
@@ -39,14 +39,15 @@ Ctrl+h,j,k,l			Moving between tabs
 :PlugInstall			Instal plugins from .vimrc
 :hi				All colors
 --------- NERDTree
-Ctrl+w +t 		Back to tree
+m				Copy, Delete, ...
+Ctrl+w +t 			Back to tree
 Ctrl+t 				Open/Close tree
 Ctrl+n				Switch to home 
 Ctrl+f				Find
 Shift+i 			Show/Hide hiden files
 t				Open the selected file in a new tab
-i				Open the selected file in a horizontal split window
-s				Open the selected file in a vertical split window
+s				Open the selected file in a horizontal split window
+i				Open the selected file in a vertical split window
 I				Toggle hidden files
 m				Show the NERD Tree menu
 R				Refresh the tree, useful if files change outside of Vim

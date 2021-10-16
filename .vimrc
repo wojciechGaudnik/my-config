@@ -56,6 +56,7 @@ au BufNewFile, BufRead *.js, *.html, *.css
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2
+nnoremap <C-W><C-Right> :vertical resize +5
 " split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -64,7 +65,8 @@ nnoremap <C-H> <C-W><C-H>
 " switching between opened files
 nnoremap <C-Right> :bn<CR>
 nnoremap <C-Left> :bp<CR>
-
+" resize window
+nnoremap <C-w><C-Right> :vertical resize +5<CR>
 " ---------- NERDTree preservim/nerdtree -------------------------------------------------
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
@@ -77,7 +79,8 @@ autocmd VimEnter * NERDTree | wincmd p
 " Close the tab if NERDTree is the only window remaining in it.
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 let g:NERDTreeWinPos = "left"
-
+let g:NERDTreeMapOpenSplit = 's'
+let g:NERDTreeMapOpenVSplit = 'i'
 " ---------- Devicons ryanoasis/vim-devicons --------------------------------------------------
 if exists("g:loaded_webdevicons")
 	call webdevicons#refresh()
