@@ -25,6 +25,9 @@ call plug#begin('~/.vim/plugged')
 	Plug 'Yggdroot/indentLine'
 	Plug 'aserebryakov/vim-todo-lists'
 	
+	Plug 'vim-syntastic/syntastic'
+
+	
 "        Plug 'powerman/vim-plugin-autosess'
 "        Plug 'sheerun/vim-polyglot'
 
@@ -154,3 +157,15 @@ let g:ansible_with_keywords_highlight = 'Constant'
 let g:ansible_template_syntaxes = { '*.rb.j2': 'ruby' }
 " ---------- IndentLine Yggdroot/indentLine ------------------------------------------------
 au BufRead,BufNewFile */playbooks/*.yml IndentLinesEnable
+
+" ---------- Syntastic vim-syntastic/syntastic ------------------------------------------------
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+

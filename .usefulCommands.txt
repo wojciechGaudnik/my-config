@@ -53,7 +53,9 @@ I				Toggle hidden files
 m				Show the NERD Tree menu
 R				Refresh the tree, useful if files change outside of Vim
 ?				Toggle NERD Tree's quick help
-
+--------- Syntastic
+:help syntastic-checkers	
+:SyntasticInfo
 
 
 ========= BASH ============================================================================================================
