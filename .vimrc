@@ -56,7 +56,6 @@ au BufNewFile, BufRead *.js, *.html, *.css
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2
-nnoremap <C-W><C-Right> :vertical resize +5
 " split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -66,7 +65,11 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <C-Right> :bn<CR>
 nnoremap <C-Left> :bp<CR>
 " resize window
-nnoremap <C-w><C-Right> :vertical resize +5<CR>
+" nnoremap <C-W><C-Right> :vertical resize +5
+nnoremap <C-w>h :vertical resize -5<CR>
+nnoremap <C-w>l :vertical resize +5<CR>
+nnoremap <C-w>j :resize +5<CR>
+nnoremap <C-w>k :resize -5<CR>
 " ---------- NERDTree preservim/nerdtree -------------------------------------------------
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>

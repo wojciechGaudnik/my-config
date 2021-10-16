@@ -36,6 +36,7 @@ Enter (Ctrl+w)			Mark
 Ctrl+x + t			Toggle transparent background
 Ctrl+w + x                     	Swap windows with next
 Ctrl+h,j,k,l			Moving between tabs	
+Ctrl+w +h,j,k,l			Resize window
 :PlugInstall			Instal plugins from .vimrc
 :hi				All colors
 --------- NERDTree
