@@ -26,7 +26,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'aserebryakov/vim-todo-lists'
 	
 	Plug 'vim-syntastic/syntastic'
-
+	Plug 'christoomey/vim-tmux-navigator'
 	
 "        Plug 'powerman/vim-plugin-autosess'
 "        Plug 'sheerun/vim-polyglot'
