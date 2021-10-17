@@ -18,6 +18,7 @@ Ctrl+Y: Paste the last thing you cut from the clipboard. The y here stands for â
 
 
 ========= Tmux Shortcuts ==================================================================================================
+<Ctrl+b> :list-keys -T copy-mode-vi
 <Ctrl+b> + I 			Reload
 Shift+Ctrl++ 			Zoom out
 Ctrl+-       			Zoom in
@@ -57,6 +58,8 @@ R				Refresh the tree, useful if files change outside of Vim
 :help syntastic-checkers	
 :SyntasticInfo
 
+--------- Air-line
+:AirlineExtensions
 
 ========= BASH ============================================================================================================
 --------- Net

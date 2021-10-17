@@ -44,9 +44,13 @@ set autoread
 set splitbelow
 set splitright
 " <ctrl+4> close current window
-inoremap <C-\> <esc>:close<cr>               
+"inoremap <C-\> <esc>:close<cr>               
 nnoremap <C-\> :close<cr>
 "autocmd BufEnter *.txt hi Normal guibg=Black
+" <ctrl+s> save current window
+noremap <silent> <C-S>          :update<CR>
+vnoremap <silent> <C-S>         <C-C>:update<CR>
+inoremap <silent> <C-S>         <C-O>:update<CR>
 
 au BufNewFile, BufRead *.py
     \ set tabstop=4 |
@@ -155,11 +159,11 @@ let g:ansible_extra_keywords_highlight = 1
 let g:ansible_normal_keywords_highlight = 'Constant'
 let g:ansible_with_keywords_highlight = 'Constant'
 let g:ansible_template_syntaxes = { '*.rb.j2': 'ruby' }
+"
 " ---------- IndentLine Yggdroot/indentLine ------------------------------------------------
 au BufRead,BufNewFile */playbooks/*.yml IndentLinesEnable
 
 " ---------- Syntastic vim-syntastic/syntastic ------------------------------------------------
-
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*

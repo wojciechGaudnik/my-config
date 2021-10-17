@@ -132,6 +132,9 @@ alias la='ls -la'
 alias watch='watch -n.1'
 alias t='todo.sh'
 
+# turn off Ctrl+s freezing screen, for example in vim
+stty -ixon
+
 function doer() {
 busy=true
 while $busy
@@ -164,8 +167,8 @@ function on(){
 
 function off(){
 	pkill qbittorrent
-	doer /mnt/NAS_Plex
 	sleep 2
+	doer /mnt/NAS_Plex
 	systemctl suspend
 }
 
