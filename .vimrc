@@ -77,6 +77,18 @@ nnoremap <C-w>h :vertical resize -5<CR>
 nnoremap <C-w>l :vertical resize +5<CR>
 nnoremap <C-w>j :resize +5<CR>
 nnoremap <C-w>k :resize -5<CR>
+" ansible colors
+function! Ansible_colors()
+    hi ansible_attributes guifg=#00afff
+    hi ansible_name guifg=#00afff
+    hi ansible_debug_keywords guifg=#00afff
+    hi ansible_extra_special_keywords guifg=#00afff
+    hi ansible_normal_keywords guifg=#00afff
+    hi ansible_loop_keywords guifg=#00afff
+endfunction
+
+
+
 " ---------- NERDTree preservim/nerdtree -------------------------------------------------
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
@@ -105,29 +117,32 @@ silent! colorscheme onehalfdark
 hi Comment cterm=NONE
 hi Normal ctermbg=233 guibg=#121212
 hi Identifier guifg=#dcdfe4
+call Ansible_colors()
 let g:airline_theme='onehalfdark'
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
-let s:is_transparent = 0
+let s:is_transparent = 1
 function! Toggle_transparent()
-    if s:is_transparent == 0
+    if s:is_transparent == 1
 	colorscheme bluewery
 	colorscheme green_dark
 	hi Comment guifg=#808080
         hi Normal guibg=NONE ctermbg=NONE
 	hi Identifier guifg=#dcdfe4
+	call Ansible_colors()
 	RainbowLoad
-        let s:is_transparent = 1
+        let s:is_transparent = 0
      else
 	colorscheme onehalfdark
 	hi Comment cterm=NONE
 	hi Normal ctermbg=233 guibg=#121212
 	hi Identifier guifg=#dcdfe4
+	call Ansible_colors()
 	RainbowLoad
-        let s:is_transparent = 0
+        let s:is_transparent = 1
      endif
 endfunction
 nnoremap <C-x>t : call Toggle_transparent()<CR>
@@ -172,7 +187,11 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-
+"let g:syntastic_ansible_ansible_lint_quiet_messages = { "regex":   "Package installs should not use latest" }
+"let g:syntastic_ansible_ansible_lint_quiet_messages = { "regex":   '\mPackage installs should not use latest\|Tasks' }
+let g:syntastic_ansible_ansible_lint_quiet_messages = { "regex":   '\mPackage installs should not use latest\|Tasks that run when changed should likely be handlers' }
+"let g:syntastic_ansible_ansible_lint_quiet_messages = { "regex":   "\m\[403\]" }
+"let g:syntastic_ansible_ansible_lint_quiet_messages = { "regex":   "Tasks that run when changed should likely be handlers" }
 " ---------- TMUX integrantion christoomey/vim-tmux-navigator------------------------------------------------
 let g:tmux_navigator_no_mappings = 1
 nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
