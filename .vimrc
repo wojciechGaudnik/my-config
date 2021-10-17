@@ -44,7 +44,7 @@ set autoread
 set splitbelow
 set splitright
 " <ctrl+4> close current window
-"inoremap <C-\> <esc>:close<cr>               
+inoremap <C-\> <esc>:close<cr>               
 nnoremap <C-\> :close<cr>
 "autocmd BufEnter *.txt hi Normal guibg=Black
 " <ctrl+s> save current window
