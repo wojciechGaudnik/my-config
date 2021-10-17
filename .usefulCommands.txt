@@ -5,8 +5,6 @@ Ctrl+D or Delete: Delete the character under the cursor.
 Ctrl+H or Backspace: Delete the character before the cursor.
 Alt+D: Delete all characters after the cursor to the end of word
 Alt+T: Swap the current word with the previous word.
-Ctrl+r: Back i search
-Ctrl+s: Forward i search
 Ctrl+W: Cut the word before the cursor, adding it to the clipboard.
 Ctrl+K: Cut the part of the line after the cursor, adding it to the clipboard.
 Ctrl+U: Cut the part of the line before the cursor, adding it to the clipboard.
@@ -17,7 +15,10 @@ Ctrl+Y: Paste the last thing you cut from the clipboard. The y here stands for â
 
 
 
-========= Tmux Shortcuts ==================================================================================================
+========= Tmux ==================================================================================================
+<Ctrl+b> + ?			show all binds
+<Ctrl+b> + /			test press key
+tmux source ~/.tmux.conf	reload tmux
 <Ctrl+b> :list-keys -T copy-mode-vi
 <Ctrl+b> + I 			Reload
 Shift+Ctrl++ 			Zoom out
@@ -33,7 +34,7 @@ Enter (Ctrl+w)			Mark
 --------- Resurrect
 <Ctrl+b> + <Ctrl+s>		Save
 <Ctrl+b> + <Ctrl+r>		Restore	
-========= Vim Shortcuts ===================================================================================================
+========= Vim ===================================================================================================
 Ctrl+x + t			Toggle transparent background
 Ctrl+w + x                     	Swap windows with next
 Ctrl+h,j,k,l			Moving between tabs	

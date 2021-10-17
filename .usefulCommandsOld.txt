@@ -1,3 +1,4 @@
+========= Console Shortcuts ===============================================================================================
 Ctrl+A or Home: Go to the beginning of the line.
 Ctrl+E or End: Go to the end of the line.
 Ctrl+B: Go left (back) one character.
@@ -10,3 +11,5 @@ Alt+L: Uncapitalize every character from the cursor to the end of the current wo
 Alt+C: Capitalize the character under the cursor. Your cursor will move to the end of the current word.
 
 ufw <--- firewall
+Ctrl+r: Back i search
+Ctrl+s: Forward i search
