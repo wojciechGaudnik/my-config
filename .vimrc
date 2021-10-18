@@ -126,7 +126,7 @@ hi Comment cterm=NONE
 hi Normal ctermbg=233 guibg=#121212
 hi Identifier guifg=#dcdfe4
 call Ansible_colors()
-let g:airline_theme='onehalfdark'
+"let g:airline_theme='onehalfdark'
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
@@ -156,10 +156,16 @@ endfunction
 nnoremap <C-x>t : call Toggle_transparent()<CR>
 
 " ---------- Air-line vim-airline/vim-airline ------------------------------------------
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
-let g:airline_powerline_fonts = 1
 let g:airline#extensions#branch#enabled=1
+let g:airline#extensions#hunks#enabled=0
+let g:airline#extensions#keymap#enabled=0
+let g:airline#extensions#netrw#enabled=0
+let g:airline#extensions#term#enabled=0
+let g:airline#extensions#whitespace#enabled=0
+let g:airline#extensions#wordcount#enabled=0
+let g:airline_powerline_fonts = 1
 let g:airline_theme='dark'
 
 " ---------- GitGutter airblade/vim-gitgutter ------------------------------------------
@@ -177,7 +183,6 @@ au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
 let g:ansible_unindent_after_newline = 1
 let g:ansible_attribute_highlight = "od"
 let g:ansible_name_highlight = "b"
-
 let g:ansible_extra_keywords_highlight = 1
 let g:ansible_normal_keywords_highlight = 'Constant'
 let g:ansible_with_keywords_highlight = 'Constant'
