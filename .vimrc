@@ -94,6 +94,7 @@ nnoremap <C-w>j :resize +5<CR>
 nnoremap <C-w>k :resize -5<CR>
 " ----------------------------------------------------------------------------------------------------
 " colors 
+" ansible colors
 function! StartUpColors()
 	silent! colorscheme onehalfdark
 	hi Normal guibg=#121212 ctermbg=233 
@@ -106,7 +107,6 @@ function! TransparentUp()
 	hi Normal guibg=NONE ctermbg=NONE
 	"hi Comment guifg=#808080
 endfunction
-" ansible colors
 function! Ansible_colors()
     hi ansible_attributes guifg=#00afff
     hi ansible_name guifg=#00afff
@@ -122,10 +122,12 @@ function! Toggle_transparent()
     if s:is_transparent == 1
 	call TransparentUp()
         let s:is_transparent = 0
-     else
+    else
 	call StartUpColors()
         let s:is_transparent = 1
-     endif
+    endif
+    RainbowLoad
+    call Ansible_colors()
 endfunction
 nnoremap <C-x>t : call Toggle_transparent()<CR>
 " file colors
@@ -153,8 +155,8 @@ if exists("g:loaded_webdevicons")
 endif
 
 " ---------- Rainbow brackets frazrepo/vim-rainbow ------------------------------------------
-autocmd FileType vim,text,yaml.ansible RainbowLoad
-
+autocmd BufReadPost,BufNewFile *.c,*.cpp,*.java,*.md,*.txt,.*.txt,*.py,.vimrc,*.yml RainbowLoad
+"autocmd FileType vim,text,yaml.ansible RainbowLoad
 
 " ---------- Theme oneHalfDark sonph/onehalf ------------------------------------------
 if exists('+termguicolors')
