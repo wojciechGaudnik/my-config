@@ -43,6 +43,15 @@ set laststatus=2
 set autoread
 set splitbelow
 set splitright
+set smartindent
+set smartcase
+set nowrap
+set nobackup
+set undodir=~/.vim/undodir
+set undofile
+set incsearch
+set colorcolumn=120
+"set spell
 " set up cursor 
 set ttimeout
 set ttimeoutlen=1
@@ -53,7 +62,6 @@ let &t_SR = "\e[3 q"
 " <ctrl+4> close current window
 inoremap <C-\> <esc>:q<cr>               
 nnoremap <C-\> :q<cr>
-"autocmd BufEnter *.txt hi Normal guibg=Black
 " <ctrl+s> save current window
 noremap <silent> <C-S>          :update<CR>
 vnoremap <silent> <C-S>         <C-C>:update<CR>
@@ -84,6 +92,20 @@ nnoremap <C-w>h :vertical resize -5<CR>
 nnoremap <C-w>l :vertical resize +5<CR>
 nnoremap <C-w>j :resize +5<CR>
 nnoremap <C-w>k :resize -5<CR>
+" ----------------------------------------------------------------------------------------------------
+" colors 
+function! StartUpColors()
+	silent! colorscheme onehalfdark
+	hi Normal guibg=#121212 ctermbg=233 
+	"hi Identifier guifg=#dcdfe4
+endfunction
+call StartUpColors()
+" transparent 
+function! TransparentUp()
+	silent! colorscheme green_dark
+	hi Normal guibg=NONE ctermbg=NONE
+	"hi Comment guifg=#808080
+endfunction
 " ansible colors
 function! Ansible_colors()
     hi ansible_attributes guifg=#00afff
@@ -93,8 +115,22 @@ function! Ansible_colors()
     hi ansible_normal_keywords guifg=#00afff
     hi ansible_loop_keywords guifg=#00afff
 endfunction
-
-
+call Ansible_colors()
+" togle transparent
+let s:is_transparent = 1
+function! Toggle_transparent()
+    if s:is_transparent == 1
+	call TransparentUp()
+        let s:is_transparent = 0
+     else
+	call StartUpColors()
+        let s:is_transparent = 1
+     endif
+endfunction
+nnoremap <C-x>t : call Toggle_transparent()<CR>
+" file colors
+"autocmd FileType yaml.ansible colorscheme blue
+" ----------------------------------------------------------------------------------------------------
 
 " ---------- NERDTree preservim/nerdtree -------------------------------------------------
 nnoremap <leader>n :NERDTreeFocus<CR>
@@ -107,7 +143,7 @@ autocmd VimEnter * NERDTree | wincmd p
 " autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 " Close the tab if NERDTree is the only window remaining in it.
 "&buftype ==# 'quickfix' 
-autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1 | quit | endif
 let g:NERDTreeWinPos = "left"
 let g:NERDTreeMapOpenSplit = 's'
 let g:NERDTreeMapOpenVSplit = 'i'
@@ -117,43 +153,15 @@ if exists("g:loaded_webdevicons")
 endif
 
 " ---------- Rainbow brackets frazrepo/vim-rainbow ------------------------------------------
-au BufReadPost,BufNewFile *.c,*.cpp,*.java,*.md,*.txt,*.py,.vimrc RainbowLoad
+autocmd FileType vim,text,yaml.ansible RainbowLoad
 
 
 " ---------- Theme oneHalfDark sonph/onehalf ------------------------------------------
-silent! colorscheme onehalfdark
-hi Comment cterm=NONE
-hi Normal ctermbg=233 guibg=#121212
-hi Identifier guifg=#dcdfe4
-call Ansible_colors()
-"let g:airline_theme='onehalfdark'
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
-let s:is_transparent = 1
-function! Toggle_transparent()
-    if s:is_transparent == 1
-	colorscheme bluewery
-	colorscheme green_dark
-	hi Comment guifg=#808080
-        hi Normal guibg=NONE ctermbg=NONE
-	hi Identifier guifg=#dcdfe4
-	call Ansible_colors()
-	RainbowLoad
-        let s:is_transparent = 0
-     else
-	colorscheme onehalfdark
-	hi Comment cterm=NONE
-	hi Normal ctermbg=233 guibg=#121212
-	hi Identifier guifg=#dcdfe4
-	call Ansible_colors()
-	RainbowLoad
-        let s:is_transparent = 1
-     endif
-endfunction
-nnoremap <C-x>t : call Toggle_transparent()<CR>
 
 " ---------- Air-line vim-airline/vim-airline ------------------------------------------
 let g:airline#extensions#tabline#enabled=1
@@ -179,7 +187,6 @@ endif
 
 " ---------- Ansible pearofducks/ansible-vim -----------------------------------------
 au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
-"au BufRead,BufNewFile */playbooks/*.yml colorscheme default
 let g:ansible_unindent_after_newline = 1
 let g:ansible_attribute_highlight = "od"
 let g:ansible_name_highlight = "b"
@@ -195,7 +202,6 @@ au BufRead,BufNewFile */playbooks/*.yml IndentLinesEnable
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1

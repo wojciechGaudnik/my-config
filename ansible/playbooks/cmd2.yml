@@ -72,7 +72,7 @@
         remote_src: yes
     - name: CONFIG FONTS
       when: reg_fontsHack.changed
-      shell:
+      command:
         cmd: /bin/fc-cache -f
     - name: USB RESET INSTALL
       become: yes
@@ -92,9 +92,10 @@
     - name: ROOT GIT REPOS
       become: yes
       git:
-        repo="{{ item.repo }}"
-        dest="{{ item.dest }}"
-        force="{{ item.force }}"
+        repo: "{{ item.repo }}"
+        dest: "{{ item.dest }}"
+        force: "{{ item.force }}"
+        version: master
       with_items:
         - {repo: 'https://github.com/robbyrussell/oh-my-zsh', dest: '~/.oh-my-zsh', force: yes}
         - {repo: 'https://github.com/romkatv/powerlevel10k.git', dest: '~/.oh-my-zsh/custom/themes/powerlevel10k', force: yes}
@@ -111,6 +112,7 @@
         - {path: '~/.config/mc', state: 'directory', recurse: 'yes'}
         - {path: '~/.config/htop', state: 'directory', recurse: 'yes'}
         - {path: '~/.vim/colors', state: 'directory', recurse: 'yes'}
+        - {path: '~/.vim/undodir', state: 'directory', recurse: 'yes'}
     - name: ROOT LINK FILES
       become: yes
       ansible.builtin.file:
