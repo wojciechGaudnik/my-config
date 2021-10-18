@@ -43,6 +43,10 @@ set laststatus=2
 set autoread
 set splitbelow
 set splitright
+" set up cursor 
+let &t_SI = "\e[5 q"
+let &t_EI = "\e[1 q"
+let &t_SR = "\e[3 q"
 " <ctrl+4> close current window
 inoremap <C-\> <esc>:close<cr>               
 nnoremap <C-\> :close<cr>
@@ -187,11 +191,10 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-"let g:syntastic_ansible_ansible_lint_quiet_messages = { "regex":   "Package installs should not use latest" }
-"let g:syntastic_ansible_ansible_lint_quiet_messages = { "regex":   '\mPackage installs should not use latest\|Tasks' }
 let g:syntastic_ansible_ansible_lint_quiet_messages = { "regex":   '\mPackage installs should not use latest\|Tasks that run when changed should likely be handlers' }
-"let g:syntastic_ansible_ansible_lint_quiet_messages = { "regex":   "\m\[403\]" }
-"let g:syntastic_ansible_ansible_lint_quiet_messages = { "regex":   "Tasks that run when changed should likely be handlers" }
+"nnoremap <silent> <C-d> :lclose<CR>:bdelete<CR>
+"cabbrev <silent> bd <C-r>=(getcmdtype()==#':' && getcmdpos()==1 ? 'lclose\|bdelete' : 'bd')<CR>
+
 " ---------- TMUX integrantion christoomey/vim-tmux-navigator------------------------------------------------
 let g:tmux_navigator_no_mappings = 1
 nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
