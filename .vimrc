@@ -44,12 +44,15 @@ set autoread
 set splitbelow
 set splitright
 " set up cursor 
+set ttimeout
+set ttimeoutlen=1
+set ttyfast
 let &t_SI = "\e[5 q"
 let &t_EI = "\e[1 q"
 let &t_SR = "\e[3 q"
 " <ctrl+4> close current window
-inoremap <C-\> <esc>:close<cr>               
-nnoremap <C-\> :close<cr>
+inoremap <C-\> <esc>:q<cr>               
+nnoremap <C-\> :q<cr>
 "autocmd BufEnter *.txt hi Normal guibg=Black
 " <ctrl+s> save current window
 noremap <silent> <C-S>          :update<CR>
@@ -103,6 +106,7 @@ autocmd VimEnter * NERDTree | wincmd p
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 " autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 " Close the tab if NERDTree is the only window remaining in it.
+"&buftype ==# 'quickfix' 
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 let g:NERDTreeWinPos = "left"
 let g:NERDTreeMapOpenSplit = 's'
@@ -113,7 +117,7 @@ if exists("g:loaded_webdevicons")
 endif
 
 " ---------- Rainbow brackets frazrepo/vim-rainbow ------------------------------------------
-au BufReadPost,BufNewFile *.c,*.cpp,*.java,*.md,*.txt,*.py RainbowLoad
+au BufReadPost,BufNewFile *.c,*.cpp,*.java,*.md,*.txt,*.py,.vimrc RainbowLoad
 
 
 " ---------- Theme oneHalfDark sonph/onehalf ------------------------------------------
@@ -191,9 +195,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+"autocmd WinEnter * if &buftype ==# 'quickfix' && winnr('$') == 1 | quit | endif
 let g:syntastic_ansible_ansible_lint_quiet_messages = { "regex":   '\mPackage installs should not use latest\|Tasks that run when changed should likely be handlers' }
-"nnoremap <silent> <C-d> :lclose<CR>:bdelete<CR>
-"cabbrev <silent> bd <C-r>=(getcmdtype()==#':' && getcmdpos()==1 ? 'lclose\|bdelete' : 'bd')<CR>
 
 " ---------- TMUX integrantion christoomey/vim-tmux-navigator------------------------------------------------
 let g:tmux_navigator_no_mappings = 1
