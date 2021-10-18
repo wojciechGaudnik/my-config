@@ -27,6 +27,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'tpope/vim-fugitive'
 	Plug 'vim-syntastic/syntastic'
 	Plug 'jremmen/vim-ripgrep'	
+	Plug 'mbbill/undotree'
 "        Plug 'powerman/vim-plugin-autosess'
 "        Plug 'sheerun/vim-polyglot'
 
@@ -45,9 +46,6 @@ set splitright
 set smartindent
 set smartcase
 set nowrap
-set nobackup
-set undodir=~/.vim/undodir
-set undofile
 set incsearch
 set colorcolumn=120
 let mapleader=" " 
@@ -93,7 +91,9 @@ noremap <silent><C-S>          :update<CR>
 vnoremap <silent><C-S>         <C-C>:update<CR>
 inoremap <silent><C-S>         <C-O>:update<CR>
 " ripgrep
-nnoremap <silent><Leader>f :Rg 
+nnoremap <silent><Leader>f :Rg<CR> 
+" undotree
+nnoremap <silent><C-u> :UndotreeToggle<CR>
 "        repo: 'https://github.com/ wojciechGaudnik / my-config.git'
 " / ansible_dark.vim
 " ----------------------------------------------------------------------------------------------------
@@ -227,3 +227,11 @@ nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 if executable('rg')
 	let g:rg_derive_root='true'
 endif
+
+" ---------- UndoTree  mbbill/undotree ------------------------------------------------
+set nobackup
+set noswapfile
+set nowritebackup
+set undolevels=10000         " use many levels of undo
+set history=10000    " After nocompatible
+let g:undotree_SplitWidth=29

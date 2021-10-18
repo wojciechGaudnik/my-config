@@ -13,8 +13,6 @@ Ctrl+Y: Paste the last thing you cut from the clipboard. The y here stands for â
 
 
 
-
-
 ========= Tmux ==================================================================================================
 <Ctrl+b> + ?			show all binds
 <Ctrl+b> + /			test press key
@@ -36,9 +34,10 @@ Enter (Ctrl+w)			Mark
 <Ctrl+b> + <Ctrl+r>		Restore	
 ========= Vim ===================================================================================================
 <Ctrl>+x + t			Toggle transparent background
-<Ctrl>+w + x                     	Swap windows with next
+<Ctrl>+w + x                    Swap windows with next
 <Ctrl>+h,j,k,l			Moving between tabs	
-<Ctrl>+w +h,j,k,l			Resize window
+<Ctrl>+w +h,j,k,l		Resize window
+<Ctrl>+w +s or +v 		Split Vertical or Horizontal
 :PlugInstall			Instal plugins from .vimrc
 :hi				All colors
 :setfiletype_<ctlr+d>		List of all file types 			
@@ -64,6 +63,10 @@ R				Refresh the tree, useful if files change outside of Vim
 :AirlineExtensions
 --------- RipGrep
 <Leader>+f+<Enter>		Find txt under cursor in whole Path
+--------- Fugitive
+:G
+--------- UndoTree
+<Ctrl>+u			Toggle window
 ========= BASH ============================================================================================================
 --------- Net
 netstat -atpu|grep 'ESTABLISHED'
