@@ -23,6 +23,7 @@
         - {source: 'screenfetch'}
         - {source: 'mc'}
         - {source: 'htop'}
+        - {source: 'ripgrep'}
     - name: VIM APT INSTALL
       become: yes
       register: reg_vim

@@ -11,23 +11,22 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 
 call plug#begin('~/.vim/plugged')
 
-        Plug 'preservim/nerdtree'
         Plug 'ryanoasis/vim-devicons'
         Plug 'frazrepo/vim-rainbow'
         Plug 'sonph/onehalf', { 'rtp': 'vim' }
-	Plug 'relastle/bluewery.vim'	
         Plug 'vim-airline/vim-airline'
         Plug 'vim-airline/vim-airline-themes'
-	Plug 'airblade/vim-gitgutter'
-	Plug 'tpope/vim-fugitive'
 	
         Plug 'pearofducks/ansible-vim'
 	Plug 'Yggdroot/indentLine'
 	Plug 'aserebryakov/vim-todo-lists'
-	
-	Plug 'vim-syntastic/syntastic'
 	Plug 'christoomey/vim-tmux-navigator'
 	
+        Plug 'preservim/nerdtree'
+	Plug 'airblade/vim-gitgutter'
+	Plug 'tpope/vim-fugitive'
+	Plug 'vim-syntastic/syntastic'
+	Plug 'jremmen/vim-ripgrep'	
 "        Plug 'powerman/vim-plugin-autosess'
 "        Plug 'sheerun/vim-polyglot'
 
@@ -51,6 +50,7 @@ set undodir=~/.vim/undodir
 set undofile
 set incsearch
 set colorcolumn=120
+let mapleader=" " 
 "set spell
 " set up cursor 
 set ttimeout
@@ -59,13 +59,6 @@ set ttyfast
 let &t_SI = "\e[5 q"
 let &t_EI = "\e[1 q"
 let &t_SR = "\e[3 q"
-" <ctrl+4> close current window
-inoremap <C-\> <esc>:q<cr>               
-nnoremap <C-\> :q<cr>
-" <ctrl+s> save current window
-noremap <silent> <C-S>          :update<CR>
-vnoremap <silent> <C-S>         <C-C>:update<CR>
-inoremap <silent> <C-S>         <C-O>:update<CR>
 
 au BufNewFile, BufRead *.py
     \ set tabstop=4 |
@@ -92,6 +85,17 @@ nnoremap <C-w>h :vertical resize -5<CR>
 nnoremap <C-w>l :vertical resize +5<CR>
 nnoremap <C-w>j :resize +5<CR>
 nnoremap <C-w>k :resize -5<CR>
+" <ctrl+4> close current window
+inoremap <C-\> <esc>:q<cr>               
+nnoremap <C-\> :q<cr>
+" <ctrl+s> save current window
+noremap <silent><C-S>          :update<CR>
+vnoremap <silent><C-S>         <C-C>:update<CR>
+inoremap <silent><C-S>         <C-O>:update<CR>
+" ripgrep
+nnoremap <silent><Leader>f :Rg 
+"        repo: 'https://github.com/ wojciechGaudnik / my-config.git'
+" / ansible_dark.vim
 " ----------------------------------------------------------------------------------------------------
 " colors 
 " ansible colors
@@ -143,7 +147,8 @@ nnoremap <C-f> :NERDTreeFind<CR>
 autocmd VimEnter * NERDTree | wincmd p
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 " autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-" Close the tab if NERDTree is the only window remaining in it.
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 "&buftype ==# 'quickfix' 
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1 | quit | endif
 let g:NERDTreeWinPos = "left"
@@ -217,3 +222,8 @@ nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
+
+" ---------- Ripgrep jremmen/vim-ripgrep ------------------------------------------------
+if executable('rg')
+	let g:rg_derive_root='true'
+endif
