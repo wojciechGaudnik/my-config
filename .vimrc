@@ -109,7 +109,7 @@ call StartUpColors()
 function! TransparentUp()
 	silent! colorscheme green_dark
 	hi Normal guibg=NONE ctermbg=NONE
-	"hi Comment guifg=#808080
+	hi Comment guifg=#808080
 endfunction
 function! Ansible_colors()
     hi ansible_attributes guifg=#00afff
@@ -232,6 +232,11 @@ endif
 set nobackup
 set noswapfile
 set nowritebackup
-set undolevels=10000         " use many levels of undo
-set history=10000    " After nocompatible
-let g:undotree_SplitWidth=29
+set undolevels=10000         		" use many levels of undo
+set history=10000    			" After nocompatible
+let g:undotree_SplitWidth=24
+let g:undotree_RelativeTimestamp=1
+let g:undotree_ShortIndicators=1
+let g:persistent_undo=1
+set undodir=$HOME/.vim/undodir
+set undofile
