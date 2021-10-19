@@ -12,7 +12,6 @@ Ctrl+Y: Paste the last thing you cut from the clipboard. The y here stands for â
 
 
 
-
 ========= Tmux ==================================================================================================
 <Ctrl+b> + ?			show all binds
 <Ctrl+b> + /			test press key

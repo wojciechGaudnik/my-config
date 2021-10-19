@@ -13,8 +13,9 @@ call plug#begin('~/.vim/plugged')
 
         Plug 'ryanoasis/vim-devicons'
         Plug 'frazrepo/vim-rainbow'
-        Plug 'sonph/onehalf', { 'rtp': 'vim' }
-        Plug 'vim-airline/vim-airline'
+        "Plug 'sonph/onehalf', { 'rtp': 'vim' }
+       	Plug 'rakr/vim-one'
+	Plug 'vim-airline/vim-airline'
         Plug 'vim-airline/vim-airline-themes'
 	
         Plug 'pearofducks/ansible-vim'
@@ -28,6 +29,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'vim-syntastic/syntastic'
 	Plug 'jremmen/vim-ripgrep'	
 	Plug 'mbbill/undotree'
+	Plug 'vim-scripts/AutoComplPop'	
 "        Plug 'powerman/vim-plugin-autosess'
 "        Plug 'sheerun/vim-polyglot'
 
@@ -83,6 +85,10 @@ nnoremap <C-w>h :vertical resize -5<CR>
 nnoremap <C-w>l :vertical resize +5<CR>
 nnoremap <C-w>j :resize +5<CR>
 nnoremap <C-w>k :resize -5<CR>
+" prevent from puting deleted characters into buffer
+noremap x "_x
+noremap X "_x
+noremap <Del> "_x
 " <ctrl+4> close current window
 "inoremap <C-\> <esc>:q<cr>               
 "nnoremap <C-\> :q<cr>
@@ -96,18 +102,23 @@ inoremap <silent><C-S>         <C-O>:update<CR>
 nnoremap <silent><Leader>f :Rg<CR> 
 " undotree
 nnoremap <silent><C-u> :UndotreeToggle<CR>
-"        repo: 'https://github.com/ wojciechGaudnik / my-config.git'
-" / ansible_dark.vim
-" ----------------------------------------------------------------------------------------------------
-" colors 
+" Spelling mistakes will be colored up red.
+hi SpellBad cterm=underline ctermfg=203 guifg=#ff5f5f
+hi SpellLocal cterm=underline ctermfg=203 guifg=#ff5f5f
+hi SpellRare cterm=underline ctermfg=203 guifg=#ff5f5f
+hi SpellCap cterm=underline ctermfg=203 guifg=#ff5f5f
+let g:one_allow_italics = 1
 " ansible colors
 function! StartUpColors()
-	silent! colorscheme onehalfdark
-	hi Normal guibg=#121212 ctermbg=233 
+	silent! colorscheme one
+	set background=dark
+	"silent! colorscheme onehalfdark
+	hi Normal guibg=#121212 ctermbg=233 guifg=#dcdfd4 
 	"hi Identifier guifg=#dcdfe4
 endfunction
 call StartUpColors()
 " transparent 
+
 function! TransparentUp()
 	silent! colorscheme green_dark
 	hi Normal guibg=NONE ctermbg=NONE
@@ -243,3 +254,10 @@ let g:undotree_ShortIndicators=1
 let g:persistent_undo=1
 set undodir=$HOME/.vim/undodir
 set undofile
+
+" ---------- AutoComplPop mbbill/undotree ------------------------------------------------
+set complete+=kspell
+set completeopt=menuone,longest
+set shortmess+=c
+
+
