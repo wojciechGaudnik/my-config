@@ -57,7 +57,6 @@ set incsearch
 set colorcolumn=120
 set spell
 set spelllang=en_us
-set ttimeout
 set ttimeoutlen=1
 set ttyfast
 let g:mapleader=' ' 
@@ -65,18 +64,21 @@ let &t_SI = "\e[5 q"
 let &t_EI = "\e[1 q"
 let &t_SR = "\e[3 q"
 
-au BufNewFile, BufRead *.py
-    \ set tabstop=4 |
-    \ set softtabstop=4 |
-    \ set shiftwidth=4 |
-    \ set textwidth=79 |
-    \ set expandtab |
-    \ set autoindent |
-    \ set fileformat=unix
-au BufNewFile, BufRead *.js, *.html, *.css
-    \ set tabstop=2 |
-    \ set softtabstop=2 |
-    \ set shiftwidth=2
+augroup indenationPython
+    au BufNewFile, BufRead *.py set tabstop=4 
+    au BufNewFile, BufRead *.py set softtabstop=4
+    au BufNewFile, BufRead *.py set shiftwidth=4
+    au BufNewFile, BufRead *.py set textwidth=79
+    au BufNewFile, BufRead *.py set expandtab
+    au BufNewFile, BufRead *.py set autoindent
+    au BufNewFile, BufRead *.py set fileformat=unix
+augroup END
+
+augroup indenationJsHtmlCss
+  au BufNewFile, BufRead *.js, *.html, *.css set tabstop=2 |
+  au BufNewFile, BufRead *.js, *.html, *.css set softtabstop=2 |
+  au BufNewFile, BufRead *.js, *.html, *.css set shiftwidth=2
+augroup END
 " split navigation
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -118,7 +120,6 @@ function! Ansible_colors()
 	hi yamlFlowString guifg=#00ff00
     	RainbowLoad
 endfunction
-
 function! StartUpColors()
 	silent! colorscheme one
 	set background=dark
@@ -132,7 +133,6 @@ function! StartUpColors()
 	"hi link vimVar Normal 
 	call Ansible_colors()
 endfunction
-" transparent 
 function! TransparentUp()
 	silent! colorscheme green_dark
 	hi Normal guibg=NONE ctermbg=NONE
@@ -153,18 +153,14 @@ nnoremap <C-x>t : call Toggle_transparent()<CR>
 let s:is_transparent = 1
 let g:one_allow_italics = 1
 call StartUpColors()
-((()))
-" ---------- Rainbow brackets frazrepo/vim-rainbow ------------------------------------------
-"autocmd BufReadPost,BufNewFile *.c,*.cpp,*.java,*.md,*.txt,.*.txt,*.py,.vimrc,*.yml RainbowLoad
-autocmd FileType vim,text RainbowLoad
 autocmd FileType yaml.ansible call Ansible_colors() 
-"autocmd BufReadPre,BufNewFile *.yml call Ansible_colors()
-"autocmd FileType yaml.ansible call Ansible_colors()
+" ---------- Rainbow brackets frazrepo/vim-rainbow ------------------------------------------
+autocmd FileType vim,text RainbowLoad
 " ----------------------------------------------------------------------------------------------------
 " Show syntax highlighting groups for word under cursor
 nmap <C-S-P> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
-  if !exists("*synstack")
+  if !exists('*synstack')
     return
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
@@ -189,11 +185,11 @@ function! CloseTest()
 	let s:is_last = 1
 endfunction
 "autocmd BufEnter * call CloseTest()| quit | endif
-let g:NERDTreeWinPos = "left"
+let g:NERDTreeWinPos = 'left'
 let g:NERDTreeMapOpenSplit = 's'
 let g:NERDTreeMapOpenVSplit = 'i'
 " ---------- Devicons ryanoasis/vim-devicons --------------------------------------------------
-if exists("g:loaded_webdevicons")
+if exists('g:loaded_webdevicons')
 	call webdevicons#refresh()
 endif
 
@@ -219,7 +215,7 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme='dark'
 
 " ---------- GitGutter airblade/vim-gitgutter ------------------------------------------
-if (exists("*GitGutterGetHunkSummary"))
+if (exists('*GitGutterGetHunkSummary'))
 	function! GitStatus()
 	  let [a,m,r] = GitGutterGetHunkSummary()
 	  return printf('+%d ~%d -%d', a, m, r)
@@ -230,8 +226,8 @@ endif
 " ---------- Ansible pearofducks/ansible-vim -----------------------------------------
 au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
 let g:ansible_unindent_after_newline = 1
-let g:ansible_attribute_highlight = "od"
-let g:ansible_name_highlight = "b"
+let g:ansible_attribute_highlight = 'od'
+let g:ansible_name_highlight = 'b'
 let g:ansible_extra_keywords_highlight = 1
 let g:ansible_normal_keywords_highlight = 'Constant'
 let g:ansible_with_keywords_highlight = 'Constant'
@@ -248,12 +244,13 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_ansible_ansible_lint_quiet_messages = { "regex":   '\mPackage installs should not use latest\|Tasks that run when changed should likely be handlers' }
+let g:syntastic_ansible_ansible_lint_quiet_messages = { 'regex':   '\mPackage installs should not use latest\|Tasks that run when changed should likely be handlers' }
+let g:syntastic_vim_vint_quiet_messages = { 'regex':   'autocmd' }
 let g:syntastic_vim_checkers = ['vint']
 function! ToggleSyntastic()
     for i in range(1, winnr('$'))
         let bnum = winbufnr(i)
-        if getbufvar(bnum, '&buftype') == 'quickfix'
+        if getbufvar(bnum, '&buftype') ==? 'quickfix'
             lclose
             return
         endif
