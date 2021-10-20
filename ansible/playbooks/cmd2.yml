@@ -33,6 +33,7 @@
         - {source: 'mc'}
         - {source: 'htop'}
         - {source: 'ripgrep'}
+        - {source: 'ansible-lint'}
     - name: APT VIM INSTALL
       become: yes
       register: reg_vim
@@ -42,6 +43,7 @@
     - name: PIP VIM-VINT INSTALL
       pip:
        name: vim-vint
+       state: prevent
     - name: LM_SENSORS APT INSTALL
       become: yes
       register: reg_lm_sensors
