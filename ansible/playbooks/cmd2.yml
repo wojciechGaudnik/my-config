@@ -8,9 +8,8 @@
       become: yes
       apt:
         update_cache=yes
-        upgrade=dist
+        upgrade=yes
         force_apt_get=yes
-        cache_valid_time=3600
     - name: APT INSTALL
       become: yes
       apt:
