@@ -104,7 +104,6 @@ noremap <silent><C-S>          :update<CR>
 vnoremap <silent><C-S>         <C-C>:update<CR>
 inoremap <silent><C-S>         <C-O>:update<CR>
 "========== COLORS start ==================================================
-((()))
 " ansible colors
 function! Ansible_colors()
     	hi ansible_attributes guifg=#00afff
@@ -115,6 +114,7 @@ function! Ansible_colors()
     	hi ansible_loop_keywords guifg=#00afff
 	hi yamlPlainScalar guifg=#00afff
 	hi yamlBlockMappingKey guifg=#00afff
+    	RainbowLoad
 endfunction
 
 function! StartUpColors()
@@ -130,6 +130,7 @@ function! StartUpColors()
 	"hi Syntastic	inScalar'
 	"hi Identifier guifg=#dcdfe3
 	"hi link vimVar Normal 
+	call Ansible_colors()
 endfunction
 " transparent 
 function! TransparentUp()
@@ -146,16 +147,22 @@ function! Toggle_transparent()
 	call StartUpColors()
         let s:is_transparent = 1
     endif
+    " call Ansible_colors()
     RainbowLoad
-    call Ansible_colors()
 endfunction
 nnoremap <C-x>t : call Toggle_transparent()<CR>
 let s:is_transparent = 1
 let g:one_allow_italics = 1
 call StartUpColors()
-call Ansible_colors()
+"call Ansible_colors()
 " file colors
-"autocmd FileType yaml.ansible colorscheme blue
+((()))
+" ---------- Rainbow brackets frazrepo/vim-rainbow ------------------------------------------
+"autocmd BufReadPost,BufNewFile *.c,*.cpp,*.java,*.md,*.txt,.*.txt,*.py,.vimrc,*.yml RainbowLoad
+autocmd FileType vim RainbowLoad
+autocmd FileType yaml.ansible call Ansible_colors() 
+"autocmd BufReadPre,BufNewFile *.yml call Ansible_colors()
+"autocmd FileType yaml.ansible call Ansible_colors()
 " ----------------------------------------------------------------------------------------------------
 " Show syntax highlighting groups for word under cursor
 nmap <C-S-P> :call <SID>SynStack()<CR>
@@ -193,9 +200,6 @@ if exists("g:loaded_webdevicons")
 	call webdevicons#refresh()
 endif
 
-" ---------- Rainbow brackets frazrepo/vim-rainbow ------------------------------------------
-autocmd BufReadPost,BufNewFile *.c,*.cpp,*.java,*.md,*.txt,.*.txt,*.py,.vimrc,*.yml RainbowLoad
-autocmd FileType vim,text,yaml.ansible RainbowLoad
 
 " ---------- Theme oneHalfDark sonph/onehalf ------------------------------------------
 if exists('+termguicolors')
