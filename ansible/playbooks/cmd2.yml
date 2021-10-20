@@ -13,6 +13,8 @@
         cache_valid_time: 3600
         autoremove: yes
     - name: APT INSTALL
+      tags:
+        - mytest
       become: yes
       apt:
         name: "{{ item.source }}"
@@ -158,13 +160,9 @@
         shell: /usr/bin/zsh
     - name: ROOT VIM INSTALL PLUGINS
       when: reg_my_config_root.changed
-      tags:
-        - mytest
       become: yes
       command: vim +PlugInstall +qall
     - name : ROOT AUTO JUMP GREEN
-      tags:
-        - mytest
       become: yes
       lineinfile:
         path: /usr/share/autojump/autojump.zsh
