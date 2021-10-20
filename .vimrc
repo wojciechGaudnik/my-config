@@ -114,6 +114,8 @@ function! Ansible_colors()
     	hi ansible_loop_keywords guifg=#00afff
 	hi yamlPlainScalar guifg=#00afff
 	hi yamlBlockMappingKey guifg=#00afff
+	hi lv16 guifg=#00ff00
+	hi yamlFlowString guifg=#00ff00
     	RainbowLoad
 endfunction
 
@@ -127,8 +129,6 @@ function! StartUpColors()
 	hi SpellCap cterm=underline ctermfg=203 guifg=#ff5f5f
 	hi Normal guibg=#121212 ctermbg=233 guifg=#dcdfd4 
 	hi vimVar term=underline ctermfg=180 guifg=#e5c07b
-	"hi Syntastic	inScalar'
-	"hi Identifier guifg=#dcdfe3
 	"hi link vimVar Normal 
 	call Ansible_colors()
 endfunction
@@ -147,19 +147,16 @@ function! Toggle_transparent()
 	call StartUpColors()
         let s:is_transparent = 1
     endif
-    " call Ansible_colors()
     RainbowLoad
 endfunction
 nnoremap <C-x>t : call Toggle_transparent()<CR>
 let s:is_transparent = 1
 let g:one_allow_italics = 1
 call StartUpColors()
-"call Ansible_colors()
-" file colors
 ((()))
 " ---------- Rainbow brackets frazrepo/vim-rainbow ------------------------------------------
 "autocmd BufReadPost,BufNewFile *.c,*.cpp,*.java,*.md,*.txt,.*.txt,*.py,.vimrc,*.yml RainbowLoad
-autocmd FileType vim RainbowLoad
+autocmd FileType vim,text RainbowLoad
 autocmd FileType yaml.ansible call Ansible_colors() 
 "autocmd BufReadPre,BufNewFile *.yml call Ansible_colors()
 "autocmd FileType yaml.ansible call Ansible_colors()
