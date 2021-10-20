@@ -103,7 +103,7 @@ nnoremap <C-\> :bd<cr>
 noremap <silent><C-S>          :update<CR>
 vnoremap <silent><C-S>         <C-C>:update<CR>
 inoremap <silent><C-S>         <C-O>:update<CR>
-let g:one_llow_italics = 1
+let g:one_allow_italics = 1
 "========== COLORS start ==================================================
 " ansible colors
 function! Ansible_colors()
@@ -126,8 +126,8 @@ function! StartUpColors()
 	hi vimVar term=underline ctermfg=180 guifg=#e5c07b
 	"hi Syntastic	inScalar'
 	"hi Identifier guifg=#dcdfe4
+	"hi link vimVar Normal 
 	call Ansible_colors()
-	RainbowLoad
 endfunction
 " transparent 
 function! TransparentUp()
@@ -149,6 +149,7 @@ function! Toggle_transparent()
     call Ansible_colors()
 endfunction
 nnoremap <C-x>t : call Toggle_transparent()<CR>
+((((((()))))))
 RainbowLoad
 call StartUpColors()
 call Ansible_colors()
@@ -162,7 +163,7 @@ function! <SID>SynStack()
     return
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-endfunc
+endfunction
 "========== COLORS stop ==================================================
 " ---------- NERDTree preservim/nerdtree -------------------------------------------------
 nnoremap <leader>n :NERDTreeFocus<CR>
