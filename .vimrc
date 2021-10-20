@@ -103,17 +103,20 @@ nnoremap <C-\> :bd<cr>
 noremap <silent><C-S>          :update<CR>
 vnoremap <silent><C-S>         <C-C>:update<CR>
 inoremap <silent><C-S>         <C-O>:update<CR>
-let g:one_allow_italics = 1
 "========== COLORS start ==================================================
+((()))
 " ansible colors
 function! Ansible_colors()
-    hi ansible_attributes guifg=#00afff
-    hi ansible_name guifg=#00afff
-    hi ansible_debug_keywords guifg=#00afff
-    hi ansible_extra_special_keywords guifg=#00afff
-    hi ansible_normal_keywords guifg=#00afff
-    hi ansible_loop_keywords guifg=#00afff
+    	hi ansible_attributes guifg=#00afff
+    	hi ansible_name guifg=#00afff
+    	hi ansible_debug_keywords guifg=#00afff
+    	hi ansible_extra_special_keywords guifg=#00afff
+    	hi ansible_normal_keywords guifg=#00afff
+    	hi ansible_loop_keywords guifg=#00afff
+	hi yamlPlainScalar guifg=#00afff
+	hi yamlBlockMappingKey guifg=#00afff
 endfunction
+
 function! StartUpColors()
 	silent! colorscheme one
 	set background=dark
@@ -125,9 +128,8 @@ function! StartUpColors()
 	hi Normal guibg=#121212 ctermbg=233 guifg=#dcdfd4 
 	hi vimVar term=underline ctermfg=180 guifg=#e5c07b
 	"hi Syntastic	inScalar'
-	"hi Identifier guifg=#dcdfe4
+	"hi Identifier guifg=#dcdfe3
 	"hi link vimVar Normal 
-	call Ansible_colors()
 endfunction
 " transparent 
 function! TransparentUp()
@@ -136,7 +138,6 @@ function! TransparentUp()
 	hi Comment guifg=#808080
 endfunction
 " toggle transparent
-let s:is_transparent = 1
 function! Toggle_transparent()
     if s:is_transparent == 1
 	call TransparentUp()
@@ -149,8 +150,8 @@ function! Toggle_transparent()
     call Ansible_colors()
 endfunction
 nnoremap <C-x>t : call Toggle_transparent()<CR>
-((((((()))))))
-RainbowLoad
+let s:is_transparent = 1
+let g:one_allow_italics = 1
 call StartUpColors()
 call Ansible_colors()
 " file colors
@@ -194,7 +195,7 @@ endif
 
 " ---------- Rainbow brackets frazrepo/vim-rainbow ------------------------------------------
 autocmd BufReadPost,BufNewFile *.c,*.cpp,*.java,*.md,*.txt,.*.txt,*.py,.vimrc,*.yml RainbowLoad
-"autocmd FileType vim,text,yaml.ansible RainbowLoad
+autocmd FileType vim,text,yaml.ansible RainbowLoad
 
 " ---------- Theme oneHalfDark sonph/onehalf ------------------------------------------
 if exists('+termguicolors')
