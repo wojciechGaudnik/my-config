@@ -43,7 +43,7 @@
     - name: PIP VIM-VINT INSTALL
       pip:
        name: vim-vint
-       state: prevent
+       state: present
     - name: LM_SENSORS APT INSTALL
       become: yes
       register: reg_lm_sensors
