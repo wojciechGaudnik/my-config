@@ -41,6 +41,7 @@
         name: 'vim'
         state: latest
     - name: PIP VIM-VINT INSTALL
+      become: yes
       pip:
        name: vim-vint
        state: latest
@@ -161,7 +162,6 @@
         - mytest
       become: yes
       command: vim +PlugInstall +qall
-
     - name : ROOT AUTO JUMP GREEN
       tags:
         - mytest
