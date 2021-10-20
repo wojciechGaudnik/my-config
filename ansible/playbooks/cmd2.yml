@@ -7,9 +7,11 @@
     - name: APT UPDATE AND UPGRADE
       become: yes
       apt:
-        update_cache=yes
-        upgrade=yes
-        force_apt_get=yes
+        update_cache: yes
+        upgrade: yes
+        force_apt_get: yes
+        cache_valid_time: 3600
+        autoremove: yes
     - name: APT INSTALL
       become: yes
       apt:
