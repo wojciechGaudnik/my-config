@@ -30,8 +30,13 @@ call plug#begin('~/.vim/plugged')
 	Plug 'jremmen/vim-ripgrep'	
 	Plug 'mbbill/undotree'
 	Plug 'vim-scripts/AutoComplPop'	
+	Plug 'ynkdir/vim-vimlparser'
+	Plug 'syngan/vim-vimlint', {'depends' : 'ynkdir/vim-vimlparser'}
+
+	"Plug 'dbakker/vim-lint'
 "        Plug 'powerman/vim-plugin-autosess'
 "        Plug 'sheerun/vim-polyglot'
+
 
 call plug#end()
 
@@ -50,12 +55,12 @@ set smartcase
 set nowrap
 set incsearch
 set colorcolumn=120
-let mapleader=" " 
-"set spell
-" set up cursor 
+set spell
+set spelllang=en_us
 set ttimeout
 set ttimeoutlen=1
 set ttyfast
+let g:mapleader=' ' 
 let &t_SI = "\e[5 q"
 let &t_EI = "\e[1 q"
 let &t_SR = "\e[3 q"
@@ -72,7 +77,7 @@ au BufNewFile, BufRead *.js, *.html, *.css
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2
-" split navigations
+" split navigation
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
@@ -80,12 +85,12 @@ nnoremap <C-H> <C-W><C-H>
 " switching between opened files
 nnoremap <C-Right> :bn<CR>
 nnoremap <C-Left> :bp<CR>
-" resize window
+" re size window
 nnoremap <C-w>h :vertical resize -5<CR>
 nnoremap <C-w>l :vertical resize +5<CR>
 nnoremap <C-w>j :resize +5<CR>
 nnoremap <C-w>k :resize -5<CR>
-" prevent from puting deleted characters into buffer
+" prevent from putting deleted characters into buffer
 noremap x "_x
 noremap X "_x
 noremap <Del> "_x
@@ -98,32 +103,9 @@ nnoremap <C-\> :bd<cr>
 noremap <silent><C-S>          :update<CR>
 vnoremap <silent><C-S>         <C-C>:update<CR>
 inoremap <silent><C-S>         <C-O>:update<CR>
-" ripgrep
-nnoremap <silent><Leader>f :Rg<CR> 
-" undotree
-nnoremap <silent><C-u> :UndotreeToggle<CR>
-" Spelling mistakes will be colored up red.
-hi SpellBad cterm=underline ctermfg=203 guifg=#ff5f5f
-hi SpellLocal cterm=underline ctermfg=203 guifg=#ff5f5f
-hi SpellRare cterm=underline ctermfg=203 guifg=#ff5f5f
-hi SpellCap cterm=underline ctermfg=203 guifg=#ff5f5f
-let g:one_allow_italics = 1
+let g:one_llow_italics = 1
+"========== COLORS start ==================================================
 " ansible colors
-function! StartUpColors()
-	silent! colorscheme one
-	set background=dark
-	"silent! colorscheme onehalfdark
-	hi Normal guibg=#121212 ctermbg=233 guifg=#dcdfd4 
-	"hi Identifier guifg=#dcdfe4
-endfunction
-call StartUpColors()
-" transparent 
-
-function! TransparentUp()
-	silent! colorscheme green_dark
-	hi Normal guibg=NONE ctermbg=NONE
-	hi Comment guifg=#808080
-endfunction
 function! Ansible_colors()
     hi ansible_attributes guifg=#00afff
     hi ansible_name guifg=#00afff
@@ -132,8 +114,28 @@ function! Ansible_colors()
     hi ansible_normal_keywords guifg=#00afff
     hi ansible_loop_keywords guifg=#00afff
 endfunction
-call Ansible_colors()
-" togle transparent
+function! StartUpColors()
+	silent! colorscheme one
+	set background=dark
+	" Spelling mistakes will be colored up red.
+	hi SpellBad cterm=underline ctermfg=203 guifg=#ff5f5f
+	hi SpellLocal cterm=underline ctermfg=203 guifg=#ff5f5f
+	hi SpellRare cterm=underline ctermfg=203 guifg=#ff5f5f
+	hi SpellCap cterm=underline ctermfg=203 guifg=#ff5f5f
+	hi Normal guibg=#121212 ctermbg=233 guifg=#dcdfd4 
+	hi vimVar term=underline ctermfg=180 guifg=#e5c07b
+	"hi Syntastic	inScalar'
+	"hi Identifier guifg=#dcdfe4
+	call Ansible_colors()
+	RainbowLoad
+endfunction
+" transparent 
+function! TransparentUp()
+	silent! colorscheme green_dark
+	hi Normal guibg=NONE ctermbg=NONE
+	hi Comment guifg=#808080
+endfunction
+" toggle transparent
 let s:is_transparent = 1
 function! Toggle_transparent()
     if s:is_transparent == 1
@@ -147,10 +149,21 @@ function! Toggle_transparent()
     call Ansible_colors()
 endfunction
 nnoremap <C-x>t : call Toggle_transparent()<CR>
+RainbowLoad
+call StartUpColors()
+call Ansible_colors()
 " file colors
 "autocmd FileType yaml.ansible colorscheme blue
 " ----------------------------------------------------------------------------------------------------
-
+" Show syntax highlighting groups for word under cursor
+nmap <C-S-P> :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+"========== COLORS stop ==================================================
 " ---------- NERDTree preservim/nerdtree -------------------------------------------------
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
@@ -165,6 +178,11 @@ autocmd VimEnter * NERDTree | wincmd p
 "&buftype ==# 'quickfix' 
 " autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1 | quit | endif
 autocmd BufEnter * if len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1 && bufname('%') == ''| quit | endif
+let s:is_last = 0
+function! CloseTest()
+	let s:is_last = 1
+endfunction
+"autocmd BufEnter * call CloseTest()| quit | endif
 let g:NERDTreeWinPos = "left"
 let g:NERDTreeMapOpenSplit = 's'
 let g:NERDTreeMapOpenVSplit = 'i'
@@ -227,9 +245,19 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-"autocmd WinEnter * if &buftype ==# 'quickfix' && winnr('$') == 1 | quit | endif
 let g:syntastic_ansible_ansible_lint_quiet_messages = { "regex":   '\mPackage installs should not use latest\|Tasks that run when changed should likely be handlers' }
-
+let g:syntastic_vim_checkers = ['vint']
+function! ToggleSyntastic()
+    for i in range(1, winnr('$'))
+        let bnum = winbufnr(i)
+        if getbufvar(bnum, '&buftype') == 'quickfix'
+            lclose
+            return
+        endif
+    endfor
+    SyntasticCheck
+endfunction
+nnoremap <silent><C-c> :SyntasticCheck<CR>
 " ---------- TMUX integrantion christoomey/vim-tmux-navigator------------------------------------------------
 let g:tmux_navigator_no_mappings = 1
 nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
@@ -261,3 +289,9 @@ set completeopt=menuone,longest
 set shortmess+=c
 
 
+" ---------- Ripgrep / jremmen/vim-ripgrep ------------------------------------------------
+nnoremap <silent><C-f> :Rg<CR> 
+
+
+" ---------- UndoTree / mbbill/undotree ------------------------------------------------
+nnoremap <silent><C-u> :UndotreeToggle<CR>

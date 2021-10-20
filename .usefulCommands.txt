@@ -32,11 +32,18 @@ Enter (Ctrl+w)			Mark
 <Ctrl+b> + <Ctrl+s>		Save
 <Ctrl+b> + <Ctrl+r>		Restore	
 ========= Vim ===================================================================================================
+<Ctrl>+t			Toggle NERDTree 
+<Ctrl>+f			RipGrep find
+<Ctrl>+u			Toggle UndoTree
+<Ctrl>+s			Save
 <Ctrl>+x + t			Toggle transparent background
 <Ctrl>+w + x                    Swap windows with next
 <Ctrl>+h,j,k,l			Moving between tabs	
 <Ctrl>+w +h,j,k,l		Resize window
 <Ctrl>+w +s or +v 		Split Vertical or Horizontal
+<Ctrl>+<Alt>+p 			Check name of the colored filed 
+`. 				Last edited place
+``				Last jump
 :PlugInstall			Instal plugins from .vimrc
 :hi				All colors
 :setfiletype_<ctlr+d>		List of all file types 			
@@ -46,7 +53,6 @@ m				Copy, Delete, ...
 <Ctrl>+w +t 			Back to tree
 <Ctrl>+t 			Open/Close tree
 <Ctrl>+n			Switch to home 
-<Ctrl>+				Find
 Shift+i 			Show/Hide hiden files
 t				Open the selected file in a new tab
 s				Open the selected file in a horizontal split window
@@ -55,17 +61,16 @@ I				Toggle hidden files
 m				Show the NERD Tree menu
 R				Refresh the tree, useful if files change outside of Vim
 ?				Toggle NERD Tree's quick help
+--------- Spelling
+z= 				List of good words
+zg 				Add to dictionary
 --------- Syntastic
 :help syntastic-checkers	
 :SyntasticInfo
 --------- Air-line
 :AirlineExtensions
---------- RipGrep
-<Leader>+f+<Enter>		Find txt under cursor in whole Path
 --------- Fugitive
 :G
---------- UndoTree
-<Ctrl>+u			Toggle window
 ========= BASH ============================================================================================================
 --------- Net
 netstat -atpu|grep 'ESTABLISHED'
