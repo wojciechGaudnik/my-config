@@ -4,6 +4,13 @@
   hosts: ALL
   user: bq666
   tasks:
+    - name: APT UPDATE AND UPGRADE
+      become: yes
+      apt:
+        update_cache=yes
+        upgrade=dist
+        force_apt_get=yes
+        cache_valid_time=3600
     - name: APT INSTALL
       become: yes
       apt:
