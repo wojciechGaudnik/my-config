@@ -135,7 +135,7 @@
         - {src: "~/.my-config/.usefulCommands.txt", dest: "~/.usefulCommands.txt", state: "link", force: yes}
         - {src: "~/.my-config/.tmux.conf", dest: "~/.tmux.conf", state: "link", force: yes}
         - {src: "~/.my-config/.vimrc", dest: "~/.vimrc", state: "link", force: yes}
-        - {src: "~/.my-config/.vim/green_dark.vim", dest: "~/.vim/colors/green_dark.vim", state: "link", force: yes}
+        - {src: "~/.my-config/.vim/colors/green_dark.vim", dest: "~/.vim/colors/green_dark.vim", state: "link", force: yes}
         - {src: "~/.my-config/.vim/spell/en.utf-8.add", dest: "~/.vim/colors/spell/en.utf-8.add", state: "link", force: yes}
         - {src: "~/.my-config/.vim/spell/en.utf-8.add.spl", dest: "~/.vim/colors/spell/en.utf-8.add.spl", state: "link", force: yes}
         - {src: "~/.my-config/root/mc/ini", dest: "~/.config/mc/ini", state: "link", force: yes}
