@@ -37,7 +37,6 @@ call plug#begin('~/.vim/plugged')
 "        Plug 'powerman/vim-plugin-autosess'
 "        Plug 'sheerun/vim-polyglot'
 
-
 call plug#end()
 
 " ---------- CONFIGURATION  -------------------------------------------------
@@ -55,7 +54,6 @@ set smartcase
 set nowrap
 set incsearch
 set colorcolumn=120
-set spell
 set spelllang=en_us
 set ttimeoutlen=1
 set ttyfast
@@ -105,6 +103,8 @@ nnoremap <C-\> :bd<cr>
 noremap <silent><C-S>          :update<CR>
 vnoremap <silent><C-S>         <C-C>:update<CR>
 inoremap <silent><C-S>         <C-O>:update<CR>
+" toggle Spell Check
+map <F5> :setlocal spell!<CR>
 "========== COLORS start ==================================================
 " ansible colors
 function! Ansible_colors()
@@ -116,9 +116,7 @@ function! Ansible_colors()
     	hi ansible_loop_keywords guifg=#00afff
 	hi yamlPlainScalar guifg=#00afff
 	hi yamlBlockMappingKey guifg=#00afff
-	hi lv16 guifg=#00ff00
 	hi yamlFlowString guifg=#00ff00
-    	RainbowLoad
 endfunction
 function! StartUpColors()
 	silent! colorscheme one
@@ -155,9 +153,9 @@ let g:one_allow_italics = 1
 call StartUpColors()
 autocmd FileType yaml.ansible call Ansible_colors() 
 " ---------- Rainbow brackets frazrepo/vim-rainbow ------------------------------------------
-autocmd FileType vim,text RainbowLoad
-" ----------------------------------------------------------------------------------------------------
-" Show syntax highlighting groups for word under cursor
+ let g:rainbow_active = 0
+autocmd FileType vim,text,yaml.ansible RainbowLoad
+" ---------------------------------------------------------------------------------------------------- " Show syntax highlighting groups for word under cursor
 nmap <C-S-P> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
   if !exists('*synstack')

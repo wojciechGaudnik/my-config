@@ -64,6 +64,7 @@ R				Refresh the tree, useful if files change outside of Vim
 --------- Spelling
 z= 				List of good words
 zg 				Add to dictionary
+zug				Del to dictionary
 --------- Syntastic
 :help syntastic-checkers	
 :SyntasticInfo
