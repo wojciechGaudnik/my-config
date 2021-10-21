@@ -355,7 +355,7 @@ if isdirectory($HOME.'/.vim/plugged/')
 	silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
 	
 	" ---------- Repeat / tpope/vim-commentar ------------------------------------------------
-	nnoremap  :Commentary<CR>
+	map  :Commentary<CR>
 
 	" ---------- YCM / ycm-core/YouCompleteMe ------------------------------------------------
 	let g:ycm_autoclose_preview_window_after_completion=1

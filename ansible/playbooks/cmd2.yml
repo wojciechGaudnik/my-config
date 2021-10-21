@@ -158,10 +158,20 @@
       user:
         name: "root"
         shell: /usr/bin/zsh
+    # - name: ROOT VIM INSTALL PLUGINS
+    #   when: reg_my_config_root.changed
+    #   become: yes
+    #   command: vim +PlugInstall +qall
     - name: ROOT VIM INSTALL PLUGINS
-      when: reg_my_config_root.changed
       become: yes
-      command: vim +PlugInstall +qall
+      when: reg_my_config_root.changed
+      expect:
+        timeout: 60
+        echo: yes
+        command: vim +PlugInstall +qall
+        responses:
+          .*(YES|yes).*: "Yes"
+          .*ENTER.*: ""
     - name : ROOT AUTO JUMP GREEN
       become: yes
       lineinfile:
