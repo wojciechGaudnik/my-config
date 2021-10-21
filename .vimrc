@@ -22,10 +22,14 @@ call plug#begin('~/.vim/plugged')
 	Plug 'Yggdroot/indentLine'
 	Plug 'aserebryakov/vim-todo-lists'
 	Plug 'christoomey/vim-tmux-navigator'
-	
-        Plug 'preservim/nerdtree'
-	Plug 'airblade/vim-gitgutter'
+	Plug 'tpope/vim-surround'	
+	Plug 'tpope/vim-repeat'
 	Plug 'tpope/vim-fugitive'
+	Plug 'tpope/vim-commentary'
+
+
+	Plug 'preservim/nerdtree'
+	Plug 'airblade/vim-gitgutter'
 	Plug 'vim-syntastic/syntastic'
 	Plug 'jremmen/vim-ripgrep'	
 	Plug 'mbbill/undotree'
@@ -50,6 +54,7 @@ if isdirectory($HOME.'/.vim/plugged/')
 	set splitbelow
 	set splitright
 	set smartindent
+	set ignorecase
 	set smartcase
 	set nowrap
 	set incsearch
@@ -291,4 +296,11 @@ if isdirectory($HOME.'/.vim/plugged/')
 	
 	" ---------- UndoTree / mbbill/undotree ------------------------------------------------
 	nnoremap <silent><C-u> :UndotreeToggle<CR>
+
+
+	" ---------- Repeat / tpope/vim-repeat ------------------------------------------------
+	silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
+	
+	" ---------- Repeat / tpope/vim-commentar ------------------------------------------------
+	nnoremap  :Commentary<CR>
 endif
