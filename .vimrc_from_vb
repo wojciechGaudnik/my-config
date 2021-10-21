@@ -9,16 +9,6 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \| PlugInstall --sync | source $MYVIMRC
 \| endif
 
-function! BuildYCM(info)
-  " info is a dictionary with 3 fields
-  " - name:   name of the plugin
-  " - status: 'installed', 'updated', or 'unchanged'
-  " - force:  set on PlugInstall! or PlugUpdate!
-  if a:info.status ==? 'installed' || a:info.force
-    !./install.py --force-sudo
-  endif
-endfunction
-
 call plug#begin('~/.vim/plugged')
 
         Plug 'ryanoasis/vim-devicons'
@@ -32,30 +22,21 @@ call plug#begin('~/.vim/plugged')
 	Plug 'Yggdroot/indentLine'
 	Plug 'aserebryakov/vim-todo-lists'
 	Plug 'christoomey/vim-tmux-navigator'
-	Plug 'tpope/vim-surround'	
-	Plug 'tpope/vim-repeat'
-	Plug 'tpope/vim-fugitive'
-	Plug 'tpope/vim-commentary'
-
-	Plug 'preservim/nerdtree'
+	
+        Plug 'preservim/nerdtree'
 	Plug 'airblade/vim-gitgutter'
+	Plug 'tpope/vim-fugitive'
 	Plug 'vim-syntastic/syntastic'
 	Plug 'jremmen/vim-ripgrep'	
 	Plug 'mbbill/undotree'
 	Plug 'vim-scripts/AutoComplPop'	
 	Plug 'ynkdir/vim-vimlparser'
 	Plug 'syngan/vim-vimlint', {'depends' : 'ynkdir/vim-vimlparser'}
+	Plug 'haya14busa/incsearch.vim'         " incremental search: awesome!
 
-
-	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-	Plug 'junegunn/fzf.vim'
-	Plug 'ycm-core/YouCompleteMe', { 'do': function('BuildYCM') }
-	Plug 'Vimjas/vim-python-pep8-indent'
-	
 	"Plug 'dbakker/vim-lint'
 "        Plug 'powerman/vim-plugin-autosess'
 "        Plug 'sheerun/vim-polyglot'
-
 
 call plug#end()
 if isdirectory($HOME.'/.vim/plugged/')
@@ -76,6 +57,13 @@ if isdirectory($HOME.'/.vim/plugged/')
 	set ttyfast
 	let g:mapleader=' ' 
 
+	" searches	
+	set ignorecase
+	set smartcase
+	set hlsearch
+	set incsearch
+	set magic	
+
 	" cursor different shapes
 	let &t_SI = "\e[5 q"
 	let &t_EI = "\e[1 q"
@@ -85,11 +73,10 @@ if isdirectory($HOME.'/.vim/plugged/')
 	set wildmode=longest,list,full
 	set wildmenu
 
-	" set to auto read when a file is changed from the outside
+	" Set to auto read when a file is changed from the outside
 	set autoread
 	au FocusGained,BufEnter * checktime	
-	
- 	" indenation
+
 	set smartindent
 	augroup indenationPython
 	    au BufNewFile, BufRead *.py set tabstop=4 
@@ -100,12 +87,12 @@ if isdirectory($HOME.'/.vim/plugged/')
 	    au BufNewFile, BufRead *.py set autoindent
 	    au BufNewFile, BufRead *.py set fileformat=unix
 	augroup END
+	
 	augroup indenationJsHtmlCss
 	  au BufNewFile, BufRead *.js, *.html, *.css set tabstop=2 |
 	  au BufNewFile, BufRead *.js, *.html, *.css set softtabstop=2 |
 	  au BufNewFile, BufRead *.js, *.html, *.css set shiftwidth=2
 	augroup END
-	
 	" split navigation
 	nnoremap <C-J> <C-W><C-J>
 	nnoremap <C-K> <C-W><C-K>
@@ -138,12 +125,6 @@ if isdirectory($HOME.'/.vim/plugged/')
 	nnoremap <esc> :noh<return><esc>
 	nnoremap <esc>^[ <esc>^[	
 
-	" searches	
-	set ignorecase
-	set smartcase
-	set hlsearch
-	set incsearch
-	set magic	
 	function! VisualSelection(direction, extra_filter) range
 	   	let l:saved_reg = @"
 	   	execute 'normal! vgvy'
@@ -160,9 +141,10 @@ if isdirectory($HOME.'/.vim/plugged/')
 	   	let @/ = l:pattern
 	   	let @" = l:saved_reg
 	endfunction
+	
+	
 	vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
 	vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
-	
 	"========== COLORS start ==================================================
 	" ansible colors
 	function! Ansible_colors()
@@ -349,16 +331,4 @@ if isdirectory($HOME.'/.vim/plugged/')
 	
 	" ---------- UndoTree / mbbill/undotree ------------------------------------------------
 	nnoremap <silent><C-u> :UndotreeToggle<CR>
-
-
-	" ---------- Repeat / tpope/vim-repeat ------------------------------------------------
-	silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
-	
-	" ---------- Repeat / tpope/vim-commentar ------------------------------------------------
-	nnoremap  :Commentary<CR>
-
-	" ---------- YCM / ycm-core/YouCompleteMe ------------------------------------------------
-	let g:ycm_autoclose_preview_window_after_completion=1
-	map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
 endif

@@ -72,13 +72,14 @@ zug				Del to dictionary
 :AirlineExtensions
 --------- Fugitive
 :G
---------- Surround
 cs"' 				Replace " with '
 ds" 				Delete "
 ysiw]				Word on cursor soround ]
 yssb or yss)			Soround entire line
 ({Hello} world!)
 
+--------- YCM
+Space+g 			GoToDefinitionElseDeclaration 
 ========= BASH ============================================================================================================
 --------- Net
 netstat -atpu|grep 'ESTABLISHED'
