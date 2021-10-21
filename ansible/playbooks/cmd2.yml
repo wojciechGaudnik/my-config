@@ -36,6 +36,7 @@
         - {source: 'htop'}
         - {source: 'ripgrep'}
         - {source: 'ansible-lint'}
+        - {source: 'cmake'}
     - name: APT VIM INSTALL
       become: yes
       register: reg_vim
