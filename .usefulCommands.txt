@@ -72,6 +72,7 @@ zug				Del to dictionary
 :AirlineExtensions
 --------- Fugitive
 :G
+--------- Soround me
 cs"' 				Replace " with '
 ds" 				Delete "
 ysiw]				Word on cursor soround ]
