@@ -54,6 +54,18 @@
       apt:
         name: 'lm-sensors'
         state: latest
+    - name: COLORLS GEM INSTALL
+      become: yes
+      gem:
+        name: colorls
+        user_install: no
+        state: latest
+    - name: VIVM INSTALL
+      become: yes
+      get_url:
+        url: https://raw.githubusercontent.com/thameera/vimv/master/vimv
+        dest: /usr/local/bin/vimv
+        mode: '0755'
     - name: MY CONFIG FOR ROOT
       become: yes
       register: reg_my_config_root
@@ -76,36 +88,31 @@
         responses:
           .*(YES|yes).*: "Yes"
           .*ENTER.*: ""
-    - name: COLORLS GEM INSTALL
-      become: yes
-      gem:
-        name: colorls
-        user_install: no
-        state: latest
-    - name: COPY FONTS
+    - name: FONTS COPY
       become: yes
       register: reg_fontsHack
       copy:
         src: ~/.my-config/fonts_hack
         dest: /usr/share/fonts
         remote_src: yes
-    - name: CONFIG FONTS
+    - name: FONTS CONFIG
       when: reg_fontsHack.changed
       command:
         cmd: /bin/fc-cache -f
-    - name: USB RESET INSTALL
+    - name: USB RESET COPY
       become: yes
       copy:
         src: ~/.my-config/usbreset.sh
         dest: /usr/bin/
         remote_src: yes
         mode: u+rwx,g-rwx,o-rwx
-    - name: VIVM INSTALL
+    - name: MC GLOBAL CONFIG
       become: yes
-      get_url:
-        url: https://raw.githubusercontent.com/thameera/vimv/master/vimv
-        dest: /usr/local/bin/vimv
-        mode: '0755'
+      copy:
+        src: ~/.my-config/root/mc/mc.default.keymap
+        dest: /etc/mc/
+        remote_src: yes
+        mode: u+rw,g+r,o+r
 #========================== root ================================================================
 #-------------------------- git -----------------------------------------------------------------
     - name: ROOT GIT REPOS
