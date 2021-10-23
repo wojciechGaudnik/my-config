@@ -184,7 +184,7 @@ if isdirectory($HOME.'/.vim/plugged/')
 		hi SpellLocal cterm=underline ctermfg=203 guifg=#ff5f5f
 		hi SpellRare cterm=underline ctermfg=203 guifg=#ff5f5f
 		hi SpellCap cterm=underline ctermfg=203 guifg=#ff5f5f
-		hi Normal guibg=#1c1c1c ctermbg=233 guifg=#dcdfd4 
+		hi Normal guibg=#151515 ctermbg=233 guifg=#dcdfd4 
 		hi vimVar term=underline ctermfg=180 guifg=#e5c07b
 		"hi link vimVar Normal 
 		call Ansible_colors()
