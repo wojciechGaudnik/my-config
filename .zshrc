@@ -14,6 +14,7 @@ eval $(thefuck --alias)
 # If you come from bash you might have to change your $PATH.
 PATH=$HOME/bin:/usr/local/bin:$PATH
 #export PATH=/opt/apache-maven-3.6.2/bin:$PATH
+PATH=$HOME/.local/bin:$PATH
 
 # Icons
 source $(dirname $(gem which colorls))/tab_complete.sh

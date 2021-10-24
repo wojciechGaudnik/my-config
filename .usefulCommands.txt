@@ -22,37 +22,39 @@ Shift+Ctrl++ 			Zoom out
 Ctrl+-       			Zoom in
 <Ctrl+b>+v			Split Vertical
 <Ctrl+b>+s			Split Horizontal
-<Ctrl+b>+{ or }			Swap pane		
+<Ctrl+b>+{ or }			Swap pane
 <Ctrl+b>+hold ctr + arrows	Resize pane
+<Ctrl+b> + j 			jump
+y 				copy to system clipboard
 <Ctrl+b>+[			Enter copy mode
 Space (Ctrl+space)		Start mark
 Enter (Ctrl+w)			Mark
 <Ctrl+b>+]			Paste
 --------- Resurrect
 <Ctrl+b> + <Ctrl+s>		Save
-<Ctrl+b> + <Ctrl+r>		Restore	
+<Ctrl+b> + <Ctrl+r>		Restore
 ========= Vim ===================================================================================================
-<Ctrl>+t			Toggle NERDTree 
+<Ctrl>+t			Toggle NERDTree
 <Ctrl>+f			RipGrep find
 <Ctrl>+u			Toggle UndoTree
 <Ctrl>+s			Save
 <Ctrl>+x + t			Toggle transparent background
 <Ctrl>+w + x                    Swap windows with next
-<Ctrl>+h,j,k,l			Moving between tabs	
+<Ctrl>+h,j,k,l			Moving between tabs
 <Ctrl>+w +h,j,k,l		Resize window
 <Ctrl>+w +s or +v 		Split Vertical or Horizontal
-<Ctrl>+<Alt>+p 			Check name of the colored filed 
+<Ctrl>+<Alt>+p 			Check name of the colored filed
 `. 				Last edited place
 ``				Last jump
 :PlugInstall			Instal plugins from .vimrc
 :hi				All colors
-:setfiletype_<ctlr+d>		List of all file types 			
+:setfiletype_<ctlr+d>		List of all file types
 :set filetype? 			File type of curent file
 --------- NERDTree
 m				Copy, Delete, ...
 <Ctrl>+w +t 			Back to tree
 <Ctrl>+t 			Open/Close tree
-<Ctrl>+n			Switch to home 
+<Ctrl>+n			Switch to home
 Shift+i 			Show/Hide hiden files
 t				Open the selected file in a new tab
 s				Open the selected file in a horizontal split window
@@ -66,7 +68,7 @@ z= 				List of good words
 zg 				Add to dictionary
 zug				Del to dictionary
 --------- Syntastic
-:help syntastic-checkers	
+:help syntastic-checkers
 :SyntasticInfo
 --------- Air-line
 :AirlineExtensions
@@ -80,7 +82,7 @@ yssb or yss)			Soround entire line
 ({Hello} world!)
 
 --------- YCM
-Space+g 			GoToDefinitionElseDeclaration 
+Space+g 			GoToDefinitionElseDeclaration
 ========= BASH ============================================================================================================
 --------- Net
 netstat -atpu|grep 'ESTABLISHED'
@@ -90,7 +92,7 @@ netstat -tulnp
 df -h 									<--- free space on disks
 du -sh /media/bq666/HitachiHGST3TB 					<--- size of dir
 lsblk 									<--- all disks in tree
-udisksctl status 							<--- all disk 
+udisksctl status 							<--- all disk
 lsof /dev/sdb2 								<--- with process uses disk
 lsof | grep -e \"[[:digit:]]\(r\|w\)\"|grep 'HitachiHGST3TB'
 lsof /media/bq666/HitachiHGST3TB
@@ -98,24 +100,24 @@ hdparm -t /dev/nvme0n1
 iostat -x /dev/sda
 
 --------- Cpu, RAM
-lshw <--- preent all hardware 
-hwinfo <--- preent all hardware 
+lshw <--- preent all hardware
+hwinfo <--- preent all hardware
 free -h <--- RAM space
 
---------- Rsync 
+--------- Rsync
 rsync -avP --info=progress2 ~/.zshrc NAS:/home/bq666/
--a(archive dir and content equals -rlptgoD) 
-	-r(only recursive) 
+-a(archive dir and content equals -rlptgoD)
+	-r(only recursive)
 	-l(copy symlinks as symlinks)
-	-p(preserve permissions = keep permissions) 
+	-p(preserve permissions = keep permissions)
 	-t(preserve modification times)
 	-g(preserve group)
 	-o(preserve owner)
 	-D(preserve device files and preserve special files)
 --info=progress2
--n(dry for test) 
+-n(dry for test)
 -z (compress file data during the transfer)
--P(full stats!!!+ reasume interrupted transfers) 
+-P(full stats!!!+ reasume interrupted transfers)
 --delete(delete file in destination if source file is deleted)
 rsync --info=progress2 source dest
 
@@ -146,16 +148,15 @@ encfs ~/.encrypted ~/encrypted
 enca -L polish Picnic\ at\ Hanging\ Rock.txt -x utf8
 https://github.com/thameera/vimv
 
-git diff origin/master...HEAD 
+git diff origin/master...HEAD
 “So seriously, what the hell is the diff I’m about to push to master”
 
-git reset --hard origin/master 
+git reset --hard origin/master
 “Good God what have I done to my local code checkout, please cleanse my repository and forgive my sins.”
 
-git rebase -i --root 
+git rebase -i --root
 “There is no history. I am the history. This code is mine now”
 
-git push -f origin master 
+git push -f origin master
 “If I force-push fast enough, nobody will have had time to pull my fuckup”
 grep -iRn "tls_cacert*" /etc
-
