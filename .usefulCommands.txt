@@ -83,6 +83,10 @@ yssb or yss)			Soround entire line
 
 --------- YCM
 Space+g 			GoToDefinitionElseDeclaration
+--------- Sneak
+s{char}{char}			Jump to first "charchar"
+,				Jump up
+;				Jump down
 ========= BASH ============================================================================================================
 --------- Net
 netstat -atpu|grep 'ESTABLISHED'

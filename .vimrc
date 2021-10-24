@@ -34,6 +34,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'christoomey/vim-tmux-navigator'
 	Plug 'tmux-plugins/vim-tmux'
 	Plug 'ap/vim-css-color'
+	Plug 'justinmk/vim-sneak'
 	Plug 'tpope/vim-surround'
 	Plug 'tpope/vim-repeat'
 	Plug 'tpope/vim-fugitive'
@@ -171,19 +172,23 @@ if isdirectory($HOME.'/.vim/plugged/')
 	"========== COLORS start ==================================================
 	" ansible colors
 	function! Ansible_colors()
+	" term=reverse cterm=underline ctermfg=203 ctermbg=16 gui=undercurl guifg=#ff5f5f guibg=#282c34 guisp=Red
 	    	hi ansible_attributes guifg=#00afff
-	    	hi ansible_name guifg=#00afff
-	    	hi ansible_debug_keywords guifg=#00afff
-	    	hi ansible_extra_special_keywords guifg=#00afff
-	    	hi ansible_normal_keywords guifg=#00afff
-	    	hi ansible_loop_keywords guifg=#00afff
-		hi yamlPlainScalar guifg=#00afff
-		hi yamlBlockMappingKey guifg=#00afff
+	    	hi ansible_extra_special_keywords cterm=bold guifg=#ff5fff
+	    	hi ansible_name guifg=#c678dd
+	    	hi link ansible_name ansible_debug_keywords
+	    	hi link ansible_normal_keywords ansible_name
+	    	hi link ansible_loop_keywords ansible_name
+		hi link yamlFlowMapping ansible_name
+		hi link yamlFlowMappingKey ansible_name
+		hi link yamlBlockMappingKey ansible_name
+		hi yamlPlainScalar guifg=#00afff cterm=bold
 		hi yamlFlowString guifg=#00ff00
 	endfunction
 	function! StartUpColors()
 		silent! colorscheme one
 		set background=dark
+		call Ansible_colors()
 		" Spelling mistakes will be colored up red.
 		hi SpellBad cterm=underline ctermfg=203 guifg=#ff5f5f
 		hi SpellLocal cterm=underline ctermfg=203 guifg=#ff5f5f
@@ -200,9 +205,8 @@ if isdirectory($HOME.'/.vim/plugged/')
 		hi link tmuxSpecialCmds Statement
 		hi tmuxWindowPaneCmds guifg=#ff8700
 		hi link tmuxVariable Normal
-		hi link tmuxUserOptsSet guifg=#ff8700
+		hi tmuxUserOptsSet guifg=#ff8700
   		"hi link vimVar Normal
-		call Ansible_colors()
 	endfunction
 	function! TransparentUp()
 		silent! colorscheme green_dark
