@@ -166,10 +166,6 @@
       user:
         name: "root"
         shell: /usr/bin/zsh
-    # - name: ROOT VIM INSTALL PLUGINS
-    #   when: reg_my_config_root.changed
-    #   become: yes
-    #   command: vim +PlugInstall +qall
     - name: ROOT VIM INSTALL PLUGINS
       become: yes
       when: reg_my_config_root.changed
@@ -187,8 +183,10 @@
         regex: '.*echo -e.*033.*31m'
         line: '                echo -e "\\033[32m${output}\\033[0m"'
         backrefs: yes
-
-
+    - name: ROOT TMUX AUTO INSTALL PLUGINS
+      become: yes
+      command: 
+        cmd: tmux start-server && tmux new-session -d sleep 1 && ~/.tmux/plugins/tpm/scripts/install_plugins.sh && tmux kill-server
 
 
 
