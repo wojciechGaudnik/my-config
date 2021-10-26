@@ -193,9 +193,10 @@
       shell: |
         tmux start-server && tmux new-session -d sleep 5 && ~/.tmux/plugins/tpm/scripts/install_plugins.sh && tmux kill-server && exit 1
         # cmd: sh 'tmux start-server && tmux new-session -d sleep 1 && ~/.tmux/plugins/tpm/scripts/install_plugins.sh && tmux kill-server'
-      register: reg_tmux_auto_isntall_plugins
+      when: success|installed
+      # register: reg_tmux_auto_isntall_plugins
       # failed_when: reg_tmux_auto_isntall_plugins 
-    - debug: var=reg_tmux_auto_isntall_plugins.stdout_lines
+    # - debug: var=reg_tmux_auto_isntall_plugins.stdout_lines
 
 
 
