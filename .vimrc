@@ -10,25 +10,23 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 \| endif
 
 function! BuildYCM(info)
-  " info is a dictionary with 3 fields
-  " - name:   name of the plugin
-  " - status: 'installed', 'updated', or 'unchanged'
-  " - force:  set on PlugInstall! or PlugUpdate!
   if a:info.status ==? 'installed' || a:info.force
     !./install.py --force-sudo
   endif
 endfunction
 
+set tags=./tags,tags;$HOME
+
 call plug#begin('~/.vim/plugged')
 
-        Plug 'ryanoasis/vim-devicons'
-        Plug 'frazrepo/vim-rainbow'
-        "Plug 'sonph/onehalf', { 'rtp': 'vim' }
-       	Plug 'rakr/vim-one'
+  Plug 'ryanoasis/vim-devicons'
+ 	Plug 'frazrepo/vim-rainbow'
+ 	"Plug 'sonph/onehalf', { 'rtp': 'vim' }
+  Plug 'rakr/vim-one'
 	Plug 'vim-airline/vim-airline'
-        Plug 'vim-airline/vim-airline-themes'
+  Plug 'vim-airline/vim-airline-themes'
 
-        Plug 'pearofducks/ansible-vim'
+  "Plug 'pearofducks/ansible-vim'
 	Plug 'Yggdroot/indentLine'
 	Plug 'aserebryakov/vim-todo-lists'
 	Plug 'christoomey/vim-tmux-navigator'
@@ -44,13 +42,13 @@ call plug#begin('~/.vim/plugged')
 	Plug 'airblade/vim-gitgutter'
 	" Plug 'vim-syntastic/syntastic'
 	Plug 'dense-analysis/ale'
-
+	" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'jremmen/vim-ripgrep'
 	Plug 'mbbill/undotree'
 	Plug 'vim-scripts/AutoComplPop'
 	Plug 'ynkdir/vim-vimlparser'
 	Plug 'syngan/vim-vimlint', {'depends' : 'ynkdir/vim-vimlparser'}
-
+	Plug 'sheerun/vim-polyglot'
 
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
@@ -58,8 +56,8 @@ call plug#begin('~/.vim/plugged')
 	"Plug 'Vimjas/vim-python-pep8-indent'
 
 	"Plug 'dbakker/vim-lint'
-"        Plug 'powerman/vim-plugin-autosess'
-"        Plug 'sheerun/vim-polyglot'
+	"Plug 'powerman/vim-plugin-autosess'
+	"Plug 'sheerun/vim-polyglot'
 
 
 call plug#end()
@@ -92,18 +90,18 @@ if isdirectory($HOME.'/.vim/plugged/')
 
 	" set to auto read when a file is changed from the outside
 	set autoread
-	au FocusGained,BufEnter * checktime
+	" au FocusGained,BufEnter * checktime
 
  	" indenation
 	set smartindent
 	augroup indenationPython
-	    au BufNewFile, BufRead *.py set tabstop=4
-	    au BufNewFile, BufRead *.py set softtabstop=4
-	    au BufNewFile, BufRead *.py set shiftwidth=4
-	    au BufNewFile, BufRead *.py set textwidth=79
-	    au BufNewFile, BufRead *.py set expandtab
-	    au BufNewFile, BufRead *.py set autoindent
-	    au BufNewFile, BufRead *.py set fileformat=unix
+	  au BufNewFile, BufRead *.py set tabstop=4
+	  au BufNewFile, BufRead *.py set softtabstop=4
+	  au BufNewFile, BufRead *.py set shiftwidth=4
+	  au BufNewFile, BufRead *.py set textwidth=79
+	  au BufNewFile, BufRead *.py set expandtab
+	  au BufNewFile, BufRead *.py set autoindent
+	  au BufNewFile, BufRead *.py set fileformat=unix
 	augroup END
 	augroup indenationJsHtmlCss
 	  au BufNewFile, BufRead *.js, *.html, *.css set tabstop=2 |
@@ -120,27 +118,33 @@ if isdirectory($HOME.'/.vim/plugged/')
 
 	nnoremap <C-Right> :bn<CR>
 	nnoremap <C-Left> :bp<CR>
+	
 	" re size window
 	nnoremap <C-w>h :vertical resize -5<CR>
 	nnoremap <C-w>l :vertical resize +5<CR>
 	nnoremap <C-w>j :resize +5<CR>
 	nnoremap <C-w>k :resize -5<CR>
+	
 	" prevent from putting deleted characters into buffer
 	noremap x "_x
 	noremap X "_x
 	noremap <Del> "_x
-	" <ctrl+4> close current window
-	"inoremap <C-\> <esc>:q<cr>
-	"nnoremap <C-\> :q<cr>
+	
+	" close current window <ctrl+4>
+	inoremap <C-d> <esc>:q<cr>
+	nnoremap <C-d> :q<cr>
 	inoremap <C-\> <esc>:bd<cr>
 	nnoremap <C-\> :bd<cr>
-	" <ctrl+s> save current window
+	
+	" save current window <ctrl+s>
 	noremap <silent><C-S>          :update<CR>
 	vnoremap <silent><C-S>         <C-C>:update<CR>
 	inoremap <silent><C-S>         <C-O>:update<CR>
+	
 	" toggle Spell Check
 	map <F5> :setlocal spell!<CR>
-	" Clear highlighting on escape in normal mode
+	
+	" clear highlighting on escape in normal mode
 	nnoremap <esc> :noh<return><esc>
 	nnoremap <esc>^[ <esc>^[
 
@@ -151,20 +155,20 @@ if isdirectory($HOME.'/.vim/plugged/')
 	set incsearch
 	set magic
 	function! VisualSelection(direction, extra_filter) range
-	   	let l:saved_reg = @"
-	   	execute 'normal! vgvy'
+		let l:saved_reg = @"
+	  execute 'normal! vgvy'
 
-	   	let l:pattern = escape(@", "\\/.*'$^~[]")
-	   	let l:pattern = substitute(l:pattern, '\n$', '', '')
+	  let l:pattern = escape(@", "\\/.*'$^~[]")
+	  let l:pattern = substitute(l:pattern, '\n$', '', '')
 
-	   	if a:direction ==? 'gv'
-	   	    call CmdLine("Ack '" . l:pattern . "' " )
-	   	elseif a:direction ==? 'replace'
-	   	    call CmdLine('%s' . '/'. l:pattern . '/')
-	   	endif
+	  if a:direction ==? 'gv'
+	      call CmdLine("Ack '" . l:pattern . "' " )
+	  elseif a:direction ==? 'replace'
+	      call CmdLine('%s' . '/'. l:pattern . '/')
+	  endif
 
-	   	let @/ = l:pattern
-	   	let @" = l:saved_reg
+	  let @/ = l:pattern
+	  let @" = l:saved_reg
 	endfunction
 	vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
 	vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
@@ -173,17 +177,16 @@ if isdirectory($HOME.'/.vim/plugged/')
 	" ansible colors
 	function! Ansible_colors()
 	" term=reverse cterm=underline ctermfg=203 ctermbg=16 gui=undercurl guifg=#ff5f5f guibg=#282c34 guisp=Red
-	    	hi ansible_attributes guifg=#00afff
-	    	hi ansible_extra_special_keywords cterm=bold guifg=#ff5fff
-	    	hi ansible_name guifg=#c678dd
-	    	hi link ansible_name ansible_debug_keywords
-	    	hi link ansible_normal_keywords ansible_name
-	    	hi link ansible_loop_keywords ansible_name
+		hi yamlPlainScalar guifg=#00afff cterm=bold
+		hi yamlFlowString guifg=#00ff00
+	  hi ansible_name guifg=#c678dd
+	  hi ansible_attributes guifg=#00afff
+	  hi ansible_extra_special_keywords cterm=bold guifg=#ff5fff
+	  hi link ansible_normal_keywords ansible_name
+	  hi link ansible_loop_keywords ansible_name
 		hi link yamlFlowMapping ansible_name
 		hi link yamlFlowMappingKey ansible_name
 		hi link yamlBlockMappingKey ansible_name
-		hi yamlPlainScalar guifg=#00afff cterm=bold
-		hi yamlFlowString guifg=#00ff00
 	endfunction
 	function! StartUpColors()
 		silent! colorscheme one
@@ -246,24 +249,18 @@ if isdirectory($HOME.'/.vim/plugged/')
 	nnoremap <C-n> :NERDTree<CR>
 	nnoremap <C-t> :NERDTreeToggle<CR>
 	nnoremap <C-f> :NERDTreeFind<CR>
-	" Start NERDTree and put the cursor back in the other window.
-	autocmd VimEnter * NERDTree | wincmd p
-	" Exit Vim if NERDTree is the only window remaining in the only tab.
-	" autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-	" Exit Vim if NERDTree is the only window remaining in the only tab.
-	" autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-	"&buftype ==# 'quickfix'
-	" autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1 | quit | endif
-	autocmd BufEnter * if len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1 && bufname('%') == ''| quit | endif
-	let s:is_last = 0
-	" function! CloseTest()
-	" 	let s:is_last = 1
-	" endfunction
-	" autocmd BufEnter * call CloseTest()| quit | endif
 	let g:NERDTreeWinPos = 'left'
 	let g:NERDTreeMapOpenSplit = 's'
 	let g:NERDTreeMapOpenVSplit = 'i'
-
+	" Start NERDTree and put the cursor back in the other window.
+	autocmd VimEnter * NERDTree | wincmd p
+	" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+	autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+	" autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+	" autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+	" autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1 | quit | endif
+	" autocmd BufEnter * if len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1 && bufname('%') == ''| quit | endif
 	" ---------- Devicons ryanoasis/vim-devicons --------------------------------------------------
 	if exists('g:loaded_webdevicons')
 		call webdevicons#refresh()
@@ -279,6 +276,7 @@ if isdirectory($HOME.'/.vim/plugged/')
 	"  ---------- Air-line vim-airline/vim-airline ------------------------------------------
 	let g:airline#extensions#tabline#enabled=1
 	let g:airline#extensions#tabline#formatter = 'unique_tail'
+	let g:airline#extensions#ale#enabled=1
 	let g:airline#extensions#branch#enabled=1
 	let g:airline#extensions#hunks#enabled=0
 	let g:airline#extensions#keymap#enabled=0
@@ -304,33 +302,11 @@ if isdirectory($HOME.'/.vim/plugged/')
 	let g:ansible_extra_keywords_highlight = 1
 	let g:ansible_normal_keywords_highlight = 'Constant'
 	let g:ansible_with_keywords_highlight = 'Constant'
-	let g:ansible_template_syntaxes = { '*.rb.j2': 'ruby' }
+	" let g:ansible_template_syntaxes = { '*.rb.j2': 'ruby' }
 	"
 	" ---------- IndentLine Yggdroot/indentLine ------------------------------------------------
 	au BufRead,BufNewFile */playbooks/*.yml IndentLinesEnable
 
-	" ---------- Syntastic vim-syntastic/syntastic ------------------------------------------------
-	" set statusline+=%#warningmsg#
-	" set statusline+=%{SyntasticStatuslineFlag()}
-	" set statusline+=%*
-	" let g:syntastic_always_populate_loc_list = 1
-	" let g:syntastic_auto_loc_list = 1
-	" let g:syntastic_check_on_open = 1
-	" let g:syntastic_check_on_wq = 0
-	" let g:syntastic_ansible_ansible_lint_quiet_messages = { 'regex':   '\mPackage installs should not use latest\|Tasks that run when changed should likely be handlers' }
-	" let g:syntastic_vim_vint_quiet_messages = { 'regex':   'autocmd' }
-	" let g:syntastic_vim_checkers = ['vint']
-	" function! ToggleSyntastic()
-	"     for i in range(1, winnr('$'))
-	"         let bnum = winbufnr(i)
-	"         if getbufvar(bnum, '&buftype') ==? 'quickfix'
-	"             lclose
-	"             return
-	"         endif
-	"     endfor
-	"     SyntasticCheck
-	" endfunction
-	" nnoremap <silent><C-c> :SyntasticCheck<CR>
 	" ---------- TMUX integrantion christoomey/vim-tmux-navigator------------------------------------------------
 	let g:tmux_navigator_no_mappings = 1
 	nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
@@ -381,8 +357,56 @@ if isdirectory($HOME.'/.vim/plugged/')
 	map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 	" ---------- ALE / dense-analysis/ale ------------------------------------------------
-	let g:ale_linters = {'python': ['pylint', 'flake8', 'bandit']}
-	let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace'], 'python': ['black', 'autoflake']}
-	let g:ale_fix_on_save = 1
+	" let g:ale_linters = {
+	" 			\'python': ['flake8', 'bandit'],
+	" 			\'ansible': ['ansible', 'ansible-lint']} "'pylint', 'flake8',
+	" let g:ale_fixers = {
+	" 			\'*': ['remove_trailing_lines', 'trim_whitespace'],
+	" 			\'python': ['black', 'autoflake'],
+	" 			\'ansible': ['prettier', 'yamlfix']}
+	" let g:ale_fix_on_save = 1
+	" let g:ale_completion_enabled = 0
+	" let g:ale_completion_autoimport = 0
+	" let g:ale_cursor_detail = 0
+	" let g:ale_echo_cursor = 1
+	" let g:ale_floating_preview = 0
+	" let g:ale_open_list = 0
+	" let g:ale_set_loclist = 0
+	" let g:ale_set_quickfix = 1
+	" let g:ale_hover_cursor = 1 " default=1, to show info in echo line
+	" let g:ale_floating_preview = 0
+	" let g:ale_hover_to_floating_preview = 1
+	" let g:ale_set_balloons = 1
+	" let g:ale_hover_to_preview = 1
+	" let g:ale_disable_lsp = 0
+	" augroup ale_hover_cursor
+   	" autocmd!
+ 	  " autocmd CursorHold * ALEHover
+	" augroup END
 
+	" ---------- Syntastic vim-syntastic/syntastic ------------------------------------------------
+	" set statusline+=%#warningmsg#
+	" set statusline+=%{SyntasticStatuslineFlag()}
+	" set statusline+=%*
+	" let g:syntastic_always_populate_loc_list = 1
+	" let g:syntastic_auto_loc_list = 1
+	" let g:syntastic_check_on_open = 1
+	" let g:syntastic_check_on_wq = 0
+	" let g:syntastic_ansible_ansible_lint_quiet_messages = { 'regex':   '\mPackage installs should not use latest\|Tasks that run when changed should likely be handlers' }
+	" let g:syntastic_vim_vint_quiet_messages = { 'regex':   'autocmd' }
+	" let g:syntastic_vim_checkers = ['vint']
+	" function! ToggleSyntastic()
+	"     for i in range(1, winnr('$'))
+	"         let bnum = winbufnr(i)
+	"         if getbufvar(bnum, '&buftype') ==? 'quickfix'
+	"             lclose
+	"             return
+	"         endif
+	"     endfor
+	"     SyntasticCheck
+	" endfunction
+	" nnoremap <silent><C-c> :SyntasticCheck<CR>
+
+
+	" ---------- COC vim-syntastic/syntastic ------------------------------------------------
 endif
