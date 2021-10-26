@@ -189,7 +189,7 @@
       tags:
         - mytest
       shell: |
-        tmux start-server && tmux new-session -d sleep 5 && ~/.tmux/plugins/tpm/scripts/install_plugins.sh && tmux kill-server
+        tmux start-server && tmux new-session -d sleep 5 && ~/.tmux/plugins/tpm/scripts/install_plugins.sh && tmux kill-server && exit 1
         # cmd: sh 'tmux start-server && tmux new-session -d sleep 1 && ~/.tmux/plugins/tpm/scripts/install_plugins.sh && tmux kill-server'
 
 
