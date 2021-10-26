@@ -186,8 +186,14 @@
         backrefs: yes
     - name: ROOT TMUX AUTO INSTALL PLUGINS
       become: yes
-      command: 
-        cmd: tmux start-server && tmux new-session -d sleep 1 && ~/.tmux/plugins/tpm/scripts/install_plugins.sh && tmux kill-server
+      tags:
+        - mytest
+      shell: |
+        tmux start-server
+        tmux new-session -d sleep 1
+        ~/.tmux/plugins/tpm/scripts/install_plugins.sh 
+        tmux kill-server
+        # cmd: sh 'tmux start-server && tmux new-session -d sleep 1 && ~/.tmux/plugins/tpm/scripts/install_plugins.sh && tmux kill-server'
 
 
 
