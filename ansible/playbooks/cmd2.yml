@@ -197,7 +197,7 @@
       register: reg_tmux_auto_isntall_plugins
       # failed_when: reg_tmux_auto_isntall_plugins 
     - debug:
-      var: reg_tmux_auto_isntall_plugins.stdout_lines
+        var: reg_tmux_auto_isntall_plugins.stdout_lines
 
 
 
