@@ -13,8 +13,6 @@
         cache_valid_time: 3600
         autoremove: yes
     - name: APT INSTALL
-      tags:
-        - mytest
       become: yes
       apt:
         name: "{{ item.source }}"
@@ -190,7 +188,7 @@
         - mytest
       shell: |
         tmux start-server
-        tmux new-session -d sleep 1
+        tmux new-session -d sleep 5
         ~/.tmux/plugins/tpm/scripts/install_plugins.sh 
         tmux kill-server
         # cmd: sh 'tmux start-server && tmux new-session -d sleep 1 && ~/.tmux/plugins/tpm/scripts/install_plugins.sh && tmux kill-server'
