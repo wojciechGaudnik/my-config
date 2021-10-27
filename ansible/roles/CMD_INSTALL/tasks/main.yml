@@ -32,7 +32,7 @@
   apt:
     name: 'vim'
     state: latest
-- name: LM_SENSORS APT INSTALL
+- name: APT LM_SENSORS INSTALL
   register: reg_lm_sensors_install
   apt:
     name: 'lm-sensors'
