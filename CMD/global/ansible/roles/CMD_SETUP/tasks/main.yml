@@ -1,0 +1,43 @@
+- name: GIT PULL MY CONFIG
+  register: reg_my_config_root
+  git:
+    repo: 'https://github.com/wojciechGaudnik/my-config.git'
+    dest: '~/.my-config'
+    version: master
+- name: VIVM SETUP
+  get_url:
+    url: 'https://raw.githubusercontent.com/thameera/vimv/master/vimv'
+    dest: /usr/local/bin/vimv
+    mode: '0755'
+- name: LM_SENSORS SETUP
+  when: reg_lm_sensors.changed
+  expect:
+    timeout: 5
+    echo: yes
+    command: /sbin/sensors-detect
+    responses:
+      .*(YES|yes).*: "Yes"
+      .*ENTER.*: ""
+- name: LINK FILES
+  file:
+    src="{{ item.src }}"
+    dest="{{ item.dest }}"
+    state="{{ item.state }}"
+    force="{{ item.force }}"
+    mode="{{ item.mode }}"
+  with_items:
+    - {src: "~/.my-config/CMD/global/bash/usbreset.sh", dest: "/usr/bin/", state: "link", force: 'yes', mode: u+rwx,g-rwx,o-rwx}
+
+
+  # copy:
+  #   src: ~/.my-config/usbreset.sh
+  #   dest: /usr/bin/
+  #   remote_src: yes
+  #   mode: u+rwx,g-rwx,o-rwx
+        
+        
+        
+# - name: test
+#   when: reg_vim_install.changed
+# - debug:
+#     var: reg_vim_install.stdout_lines

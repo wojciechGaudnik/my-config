@@ -58,16 +58,14 @@
     #     name: 'colorls'
     #     user_install: no
     #     state: latest
-    - name: VIVM INSTALL
-      become: yes
-      get_url:
-        url: 'https://raw.githubusercontent.com/thameera/vimv/master/vimv'
-        dest: /usr/local/bin/vimv
-        mode: '0755'
+    # - name: VIVM INSTALL
+    #   become: yes
+    #   get_url:
+    #     url: 'https://raw.githubusercontent.com/thameera/vimv/master/vimv'
+    #     dest: /usr/local/bin/vimv
+    #     mode: '0755'
     - name: MY CONFIG FOR ROOT
       become: yes
-      # tags:
-      #   - mytest
       register: reg_my_config_root
       git:
         repo: 'https://github.com/wojciechGaudnik/my-config.git'
@@ -78,16 +76,16 @@
         repo: 'https://github.com/wojciechGaudnik/my-config.git'
         dest: '~/.my-config'
         version: master
-    - name: LM_SENSORS SETUP
-      become: yes
-      when: reg_lm_sensors.changed
-      expect:
-        timeout: 5
-        echo: yes
-        command: /sbin/sensors-detect
-        responses:
-          .*(YES|yes).*: "Yes"
-          .*ENTER.*: ""
+    # - name: LM_SENSORS SETUP
+    #   become: yes
+    #   when: reg_lm_sensors.changed
+    #   expect:
+    #     timeout: 5
+    #     echo: yes
+    #     command: /sbin/sensors-detect
+    #     responses:
+    #       .*(YES|yes).*: "Yes"
+    #       .*ENTER.*: ""
     - name: FONTS COPY
       become: yes
       register: reg_fontsHack
@@ -200,6 +198,8 @@
     #   tags:
     #     - mytest
 
+# - debug:
+#     var: reg_vim_install.stdout_lines
 
 
 #========================== ba666 ===============================================================
