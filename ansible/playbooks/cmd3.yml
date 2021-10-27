@@ -1,0 +1,6 @@
+---
+- hosts: VBK
+  become: true
+  user: bq666
+  roles:
+    - CMD_INSTALL
