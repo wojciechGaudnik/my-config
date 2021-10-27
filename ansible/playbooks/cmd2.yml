@@ -41,23 +41,23 @@
     #   apt:
     #     name: 'vim'
     #     state: latest
-    - name: PIP VIM-VINT INSTALL
-      become: yes
-      pip:
-       name: 'vim-vint'
-       state: latest
-    - name: LM_SENSORS APT INSTALL
-      become: yes
-      register: reg_lm_sensors
-      apt:
-        name: 'lm-sensors'
-        state: latest
-    - name: COLORLS GEM INSTALL
-      become: yes
-      gem:
-        name: 'colorls'
-        user_install: no
-        state: latest
+    # - name: PIP VIM-VINT INSTALL
+    #   become: yes
+    #   pip:
+    #    name: 'vim-vint'
+    #    state: latest
+    # - name: LM_SENSORS APT INSTALL
+    #   become: yes
+    #   register: reg_lm_sensors
+    #   apt:
+    #     name: 'lm-sensors'
+    #     state: latest
+    # - name: COLORLS GEM INSTALL
+    #   become: yes
+    #   gem:
+    #     name: 'colorls'
+    #     user_install: no
+    #     state: latest
     - name: VIVM INSTALL
       become: yes
       get_url:

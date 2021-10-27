@@ -37,3 +37,14 @@
   apt:
     name: 'lm-sensors'
     state: latest
+- name: PIP VIM-VINT INSTALL
+  become: yes
+  pip:
+   name: 'vim-vint'
+   state: latest
+- name: GEM COLORLS INSTALL
+  become: yes
+  gem:
+    name: 'colorls'
+    user_install: no
+    state: latest

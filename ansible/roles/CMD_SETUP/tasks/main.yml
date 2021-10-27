@@ -1,4 +1,4 @@
 # - name: test
 #   when: reg_vim_install.changed
 - debug:
-    var: reg_vim_install.stdout.line
+    var: reg_vim_install.stdout_lines
