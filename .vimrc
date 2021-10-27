@@ -198,7 +198,7 @@ if isdirectory($HOME.'/.vim/plugged/')
 		hi SpellRare cterm=underline ctermfg=203 guifg=#ff5f5f
 		hi SpellCap cterm=underline ctermfg=203 guifg=#ff5f5f
 		" hi Normal guibg=#151515 ctermbg=233 guifg=#dcdfd4
-		hi Normal guibg=#151515 ctermbg=233 guifg=#e2b77a
+		hi Normal guibg=#151515 ctermbg=233 guifg=#e9ce9b
 		hi vimVar term=underline ctermfg=180 guifg=#e5c07b
 		" python
 		hi pythonFunction guifg=#ff8700
@@ -334,7 +334,7 @@ if isdirectory($HOME.'/.vim/plugged/')
 
 	" ---------- AutoComplPop mbbill/undotree ------------------------------------------------
 	set complete+=kspell
-	set completeopt=menuone,longest
+	set completeopt=longest
 	set shortmess+=c
 
 
@@ -354,8 +354,9 @@ if isdirectory($HOME.'/.vim/plugged/')
 
 	" ---------- YCM / ycm-core/YouCompleteMe ------------------------------------------------
 	let g:ycm_autoclose_preview_window_after_completion=1
+	let g:ycm_key_list_stop_completion= ['<CR>']
 	map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
+	many	
 	" ---------- ALE / dense-analysis/ale ------------------------------------------------
 	" let g:ale_linters = {
 	" 			\'python': ['flake8', 'bandit'],

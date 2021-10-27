@@ -66,8 +66,8 @@
         mode: '0755'
     - name: MY CONFIG FOR ROOT
       become: yes
-      tags:
-        - mytest
+      # tags:
+      #   - mytest
       register: reg_my_config_root
       git:
         repo: 'https://github.com/wojciechGaudnik/my-config.git'
@@ -117,8 +117,8 @@
 #-------------------------- git -----------------------------------------------------------------
     - name: ROOT GIT REPOS
       become: yes
-      tags:
-        - mytest
+      # tags:
+      #   - mytest
       git:
         repo: "{{ item.repo }}"
         dest: "{{ item.dest }}"
@@ -188,18 +188,17 @@
         backrefs: yes
     - name: ROOT TMUX AUTO INSTALL PLUGINS
       become: yes
-      tags:
-        - mytest
+      when: reg_my_config_root.changed
+      # tags:
+        # - mytest
       shell: |
         tmux start-server && ~/.tmux/plugins/tpm/scripts/install_plugins.sh
-        # cmd: sh 'tmux start-server && tmux new-session -d sleep 1 && ~/.tmux/plugins/tpm/scripts/install_plugins.sh && tmux kill-server'
+      
       register: reg_tmux_auto_isntall_plugins
-      when: reg_tmux_auto_isntall_plugins.stdout_lines | regex_search('installed|succesed')
-      # failed_when: reg_tmux_auto_isntall_plugins 
-    - debug:
-        var: reg_tmux_auto_isntall_plugins.stdout_lines
-      tags:
-        - mytest
+    # - debug:
+    #     var: reg_tmux_auto_isntall_plugins.stdout
+    #   tags:
+    #     - mytest
 
 
 
