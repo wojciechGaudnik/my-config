@@ -6,7 +6,6 @@
     cache_valid_time: 3600
     autoremove: yes
 - name: APT INSTALL
-  become: yes
   apt:
     name: "{{ item.source }}"
     state: latest
@@ -29,8 +28,12 @@
     - {source: 'ansible-lint'}
     - {source: 'cmake'}
 - name: APT VIM INSTALL
-  become: yes
   register: reg_vim_install
   apt:
     name: 'vim'
+    state: latest
+- name: LM_SENSORS APT INSTALL
+  register: reg_lm_sensors_install
+  apt:
+    name: 'lm-sensors'
     state: latest
