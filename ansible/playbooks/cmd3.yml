@@ -4,3 +4,4 @@
   user: bq666
   roles:
     - CMD_INSTALL
+    - CMD_SETUP
