@@ -1,0 +1,11 @@
+- name: APT INSTALL
+  apt: 
+    name: git
+    state: latest
+- name: APT UPDATE AND UPGRADE
+  apt:
+    update_cache: yes
+    upgrade: 'yes'
+    force_apt_get: yes
+    cache_valid_time: 3600
+    autoremove: yes
