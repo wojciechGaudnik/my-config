@@ -10,7 +10,7 @@
     dest: /usr/local/bin/vimv
     mode: '0755'
 - name: LM_SENSORS SETUP
-  when: reg_lm_sensors.changed
+  when: reg_lm_sensors_install.changed
   expect:
     timeout: 5
     echo: yes
