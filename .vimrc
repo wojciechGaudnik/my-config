@@ -30,6 +30,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'Yggdroot/indentLine'
 	Plug 'aserebryakov/vim-todo-lists'
 	Plug 'christoomey/vim-tmux-navigator'
+	Plug 'christoomey/vim-system-copy'
 	Plug 'tmux-plugins/vim-tmux'
 	Plug 'ap/vim-css-color'
 	Plug 'justinmk/vim-sneak'
@@ -356,7 +357,7 @@ if isdirectory($HOME.'/.vim/plugged/')
 	let g:ycm_autoclose_preview_window_after_completion=1
 	let g:ycm_key_list_stop_completion= ['<CR>']
 	map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-	many	
+	
 	" ---------- ALE / dense-analysis/ale ------------------------------------------------
 	" let g:ale_linters = {
 	" 			\'python': ['flake8', 'bandit'],

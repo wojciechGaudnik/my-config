@@ -87,8 +87,15 @@ Space+g 			GoToDefinitionElseDeclaration
 s{char}{char}			Jump to first "charchar"
 ,				Jump up
 ;				Jump down
+--------- System Copy
+cpiw => copy word into system clipboard
+cpi' => copy inside single quotes to system clipboard
+cvi' => paste inside single quotes from system clipboard
+cP 	 => In addition, cP is mapped to copy the current line directly.
+cV   => The sequence cV is mapped to paste the content of system clipboard to the next line.
 ========= BASH ============================================================================================================
 --------- Net
+netstat -tpn|grep ESTABLISHED|grep -v 127.0.0.1
 netstat -atpu|grep 'ESTABLISHED'
 netstat -tulnp
 
