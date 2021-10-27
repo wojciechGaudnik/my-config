@@ -26,7 +26,7 @@
     force="{{ item.force }}"
     mode="{{ item.mode }}"
   with_items:
-    - {src: "~/.my-config/CMD/global/bash/usbreset.sh", dest: "/usr/bin/", state: "link", force: 'yes', mode: u+rwx,g-rwx,o-rwx}
+    - {src: "~/.my-config/CMD/global/bash/usbreset.sh", dest: "/usr/bin/usbreset.sh", state: "link", force: 'yes', mode: u+rwx,g-rwx,o-rwx}
 
 
   # copy:
