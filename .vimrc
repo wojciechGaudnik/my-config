@@ -359,28 +359,28 @@ if isdirectory($HOME.'/.vim/plugged/')
 	map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 	
 	" ---------- ALE / dense-analysis/ale ------------------------------------------------
-	" let g:ale_linters = {
-	" 			\'python': ['flake8', 'bandit'],
-	" 			\'ansible': ['ansible', 'ansible-lint']} "'pylint', 'flake8',
-	" let g:ale_fixers = {
-	" 			\'*': ['remove_trailing_lines', 'trim_whitespace'],
-	" 			\'python': ['black', 'autoflake'],
-	" 			\'ansible': ['prettier', 'yamlfix']}
-	" let g:ale_fix_on_save = 1
-	" let g:ale_completion_enabled = 0
-	" let g:ale_completion_autoimport = 0
-	" let g:ale_cursor_detail = 0
-	" let g:ale_echo_cursor = 1
-	" let g:ale_floating_preview = 0
-	" let g:ale_open_list = 0
-	" let g:ale_set_loclist = 0
-	" let g:ale_set_quickfix = 1
-	" let g:ale_hover_cursor = 1 " default=1, to show info in echo line
-	" let g:ale_floating_preview = 0
-	" let g:ale_hover_to_floating_preview = 1
-	" let g:ale_set_balloons = 1
-	" let g:ale_hover_to_preview = 1
-	" let g:ale_disable_lsp = 0
+	let g:ale_linters = {
+				\'python': ['flake8', 'bandit'],
+				\'ansible': ['ansible', 'ansible-lint']} "'pylint', 'flake8',
+	let g:ale_fixers = {
+				\'*': ['remove_trailing_lines', 'trim_whitespace'],
+				\'python': ['black', 'autoflake'],
+				\'ansible': ['prettier', 'yamlfix']}
+	let g:ale_fix_on_save = 1
+	let g:ale_completion_enabled = 0
+	let g:ale_completion_autoimport = 0
+	let g:ale_cursor_detail = 0
+	let g:ale_echo_cursor = 1
+	let g:ale_floating_preview = 0
+	let g:ale_open_list = 0
+	let g:ale_set_loclist = 0
+	let g:ale_set_quickfix = 1
+	let g:ale_hover_cursor = 1 " default=1, to show info in echo line
+	let g:ale_floating_preview = 0
+	let g:ale_hover_to_floating_preview = 1
+	let g:ale_set_balloons = 1
+	let g:ale_hover_to_preview = 1
+	let g:ale_disable_lsp = 0
 	" augroup ale_hover_cursor
    	" autocmd!
  	  " autocmd CursorHold * ALEHover
