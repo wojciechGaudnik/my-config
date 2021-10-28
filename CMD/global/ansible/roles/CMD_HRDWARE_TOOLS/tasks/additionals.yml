@@ -1,0 +1,7 @@
+- name: SET NVME
+  file:
+    path: '{{ item.path }}'
+    mode: '{{ item.mode }}'
+  with_items:
+    - {path: '/usr/sbin/nvme', mode: '4555'}
+    - {path: '/sbin/nvme', mode: '4555'}
