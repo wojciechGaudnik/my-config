@@ -10,22 +10,22 @@
     name: "{{ item.source }}"
     state: latest
   with_items:
-    - {source: 'git'}
-    - {source: 'zsh'}
-    - {source: 'wget'}
-    - {source: 'curl'}
-    - {source: 'ruby-full'}
-    - {source: 'build-essential'}
-    - {source: 'python3-distutils'}
-    - {source: 'python3-pip'}
-    - {source: 'thefuck'}
-    - {source: 'autojump'}
-    - {source: 'tmux'}
-    - {source: 'screenfetch'}
-    - {source: 'mc'}
-    - {source: 'htop'}
-    - {source: 'ripgrep'}
-    - {source: 'ansible-lint'}
+    # - {source: 'git'}
+    # - {source: 'zsh'}
+    # - {source: 'wget'}
+    # - {source: 'curl'}
+    # - {source: 'ruby-full'}
+    # - {source: 'build-essential'}
+    # - {source: 'python3-distutils'}
+    # - {source: 'python3-pip'}
+    # - {source: 'thefuck'}
+    # - {source: 'autojump'}
+    # - {source: 'tmux'}
+    # - {source: 'screenfetch'}
+    # - {source: 'mc'}
+    # - {source: 'htop'}
+    # - {source: 'ripgrep'}
+    # - {source: 'ansible-lint'}
     - {source: 'cmake'}
 - name: APT VIM INSTALL
   register: reg_vim_install
@@ -38,13 +38,16 @@
     name: 'lm-sensors'
     state: latest
 - name: PIP VIM-VINT INSTALL
-  become: yes
   pip:
    name: 'vim-vint'
    state: latest
 - name: GEM COLORLS INSTALL
-  become: yes
   gem:
     name: 'colorls'
     user_install: no
     state: latest
+- name: VIVM INSTALL
+  get_url:
+    url: 'https://raw.githubusercontent.com/thameera/vimv/master/vimv'
+    dest: /usr/local/bin/vimv
+    mode: '0755'

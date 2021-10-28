@@ -1,7 +1,16 @@
 ---
 - hosts: VBK
-  become: true
-  user: bq666
+  user: 'bq666'
+  become: 'yes'
+  vars:
+    user_name: 'bq666'
   roles:
     - CMD_INSTALL
     - CMD_GLOBAL_SETUP
+    - role: CMD_ROOT
+      vars:
+        user_name: 'root'
+    - role: CMD_USER
+      become: 'no'
+      vars:
+        user_name: 'bq666'

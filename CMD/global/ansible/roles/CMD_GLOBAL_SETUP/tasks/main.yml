@@ -1,23 +1,9 @@
-- name: GIT PULL MY CONFIG
+- name: GIT PULL CONFIG
   register: reg_my_config_root
   git:
     repo: 'https://github.com/wojciechGaudnik/my-config.git'
     dest: '~/.my-config'
     version: master
-- name: VIVM SETUP
-  get_url:
-    url: 'https://raw.githubusercontent.com/thameera/vimv/master/vimv'
-    dest: /usr/local/bin/vimv
-    mode: '0755'
-- name: LM_SENSORS SETUP
-  when: reg_lm_sensors_install.changed
-  expect:
-    timeout: 5
-    echo: yes
-    command: /sbin/sensors-detect
-    responses:
-      .*(YES|yes).*: "Yes"
-      .*ENTER.*: ""
 - name: LINK FILES
   file:
     src="{{ item.src }}"
@@ -27,23 +13,20 @@
     mode="{{ item.mode }}"
   with_items:
     - {src: '~/.my-config/CMD/global/bash/usbresetall.sh', dest: '/usr/bin/usbresetall.sh', state: 'link', force: 'yes', mode: '0700'}
-- name: MC GLOBAL CONFIG
+    - {src: '~/.my-config/CMD/global/mc/mc.default.keymap', dest: '/etc/mc/mc.default.keymap', state: 'link', force: 'yes', mode: '0644'}
+- name : AUTO JUMP GREEN
   become: yes
-  copy:
-    src: '~/.my-config/CMD/global/mc/mc.default.keymap' 
-    dest: '/etc/mc/'
-    remote_src: yes
-    mode: '0644'
-
-  # copy:
-  #   src: ~/.my-config/usbreset.sh
-  #   dest: /usr/bin/
-  #   remote_src: yes
-  #   mode: u+rwx,g-rwx,o-rwx
-        
-        
-        
-# - name: test
-#   when: reg_vim_install.changed
-# - debug:
-#     var: reg_vim_install.stdout_lines
+  lineinfile:
+    path: /usr/share/autojump/autojump.zsh
+    regex: '.*echo -e.*033.*31m'
+    line: '                echo -e "\\033[32m${output}\\033[0m"'
+    backrefs: yes
+- name: LM_SENSORS
+  when: reg_lm_sensors_install.changed
+  expect:
+    timeout: 5
+    echo: yes
+    command: /sbin/sensors-detect
+    responses:
+      .*(YES|yes).*: "Yes"
+      .*ENTER.*: ""
