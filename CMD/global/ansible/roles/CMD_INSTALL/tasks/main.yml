@@ -22,7 +22,7 @@
     # - {source: 'autojump'}
     # - {source: 'tmux'}
     # - {source: 'screenfetch'}
-    # - {source: 'mc'}
+    - {source: 'mc'}
     # - {source: 'htop'}
     # - {source: 'ripgrep'}
     # - {source: 'ansible-lint'}
