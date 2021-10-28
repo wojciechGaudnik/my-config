@@ -26,8 +26,14 @@
     force="{{ item.force }}"
     mode="{{ item.mode }}"
   with_items:
-    - {src: "~/.my-config/CMD/global/bash/usbresetall.sh", dest: "/usr/bin/usbresetall.sh", state: "link", force: 'yes', mode: '0700'}
-
+    - {src: '~/.my-config/CMD/global/bash/usbresetall.sh', dest: '/usr/bin/usbresetall.sh', state: 'link', force: 'yes', mode: '0700'}
+- name: MC GLOBAL CONFIG
+  become: yes
+  copy:
+    src: '~/.my-config/CMD/global/mc/mc.default.keymap' 
+    dest: '/etc/mc/'
+    remote_src: yes
+    mode: '0644'
 
   # copy:
   #   src: ~/.my-config/usbreset.sh
