@@ -1,0 +1,22 @@
+- name: APT UPDATE AND UPGRADE
+  apt:
+    update_cache: 'yes'
+    upgrade: 'yes'
+    force_apt_get: 'yes'
+    cache_valid_time: 3600
+    autoremove: 'yes'
+- name: APT INSTALL
+  apt:
+    name: '{{ item.source }}'
+    state: latest
+  with_items:
+    - {source: 'net-tools'}
+    - {source: 'wakeonlan'}
+    - {source: 'speedtest-cli'}
+    - {source: 'openvpn'}
+    - {source: 'lynis'}
+    - {source: 'nmap'}
+    - {source: 'whois'}
+    - {source: 'tshark'}
+# - name: ADDITIONAL
+  # import_tasks: additionals.yml
