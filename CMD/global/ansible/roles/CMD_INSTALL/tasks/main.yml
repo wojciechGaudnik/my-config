@@ -10,22 +10,22 @@
     name: "{{ item.source }}"
     state: latest
   with_items:
-    # - {source: 'git'}
-    # - {source: 'zsh'}
-    # - {source: 'wget'}
-    # - {source: 'curl'}
-    # - {source: 'ruby-full'}
-    # - {source: 'build-essential'}
-    # - {source: 'python3-distutils'}
-    # - {source: 'python3-pip'}
-    # - {source: 'thefuck'}
-    # - {source: 'autojump'}
-    # - {source: 'tmux'}
-    # - {source: 'screenfetch'}
+    - {source: 'git'}
+    - {source: 'zsh'}
+    - {source: 'wget'}
+    - {source: 'curl'}
+    - {source: 'ruby-full'}
+    - {source: 'build-essential'}
+    - {source: 'python3-distutils'}
+    - {source: 'python3-pip'}
+    - {source: 'thefuck'}
+    - {source: 'autojump'}
+    - {source: 'tmux'}
+    - {source: 'screenfetch'}
     - {source: 'mc'}
-    # - {source: 'htop'}
-    # - {source: 'ripgrep'}
-    # - {source: 'ansible-lint'}
+    - {source: 'htop'}
+    - {source: 'ripgrep'}
+    - {source: 'ansible-lint'}
     - {source: 'cmake'}
 - name: APT VIM INSTALL
   register: reg_vim_install

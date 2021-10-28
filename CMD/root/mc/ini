@@ -82,7 +82,7 @@ editor_backup_extension=~
 editor_filesize_threshold=64M
 editor_stop_format_chars=-+*\\,.;:&>
 mcview_eof=
-skin=modarin256root-defbg-thin
+skin=modarin256-defbg
 
 [Layout]
 message_visible=true
@@ -99,8 +99,8 @@ horizontal_equal=true
 top_panel_size=1
 
 [Misc]
-timeformat_recent=%b %e %H:%M
-timeformat_old=%b %e  %Y
+timeformat_recent= %H:%M:%S %e:%b:%Y
+timeformat_old=%e:%b:%Y
 ftp_proxy_host=gate
 ftpfs_password=anonymous@
 display_codepage=UTF-8
@@ -134,7 +134,7 @@ filetype_mode=true
 permission_mode=false
 torben_fj_mode=false
 quick_search_mode=2
-select_flags=6
+select_flags=7
 
 simple_swap=false
 

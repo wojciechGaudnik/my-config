@@ -47,5 +47,18 @@
     - {src: '~/.my-config/CMD/global/.vim/spell/en.utf-8.add', dest: '~/.vim/spell/en.utf-8.add', state: 'link', force: yes}
     - {src: '~/.my-config/CMD/global/.vim/spell/en.utf-8.add.spl', dest: '~/.vim/spell/en.utf-8.add.spl', state: 'link', force: yes}
     - {src: '~/.my-config/CMD/global/htoprc', dest: '~/.config/htop/htoprc', state: 'link', force: yes}
+- name: VIM INSTALL PLUGINS
+  when: reg_vim_install.changed
+  expect:
+    timeout: 60
+    echo: yes
+    command: vim +PlugInstall +qall
+    responses:
+      .*(YES|yes).*: "Yes"
+      .*ENTER.*: ""
+- name: TMUX INSTALL PLUGINS
+  when: reg_my_config_root.changed
+  shell: |
+    tmux start-server && ~/.tmux/plugins/tpm/scripts/install_plugins.sh
 - name: ADDITIONAL
   import_tasks: additional.yml

@@ -162,21 +162,21 @@
     #     - {src: "~/.my-config/htoprc", dest: "~/.config/htop/htoprc", state: "link", force: yes}
 
 #-------------------------- setup ---------------------------------------------------------------
-    - name: ROOT SETUP DEFAULT SHELL
-      become: yes
-      user:
-        name: "root"
-        shell: /usr/bin/zsh
-    - name: ROOT VIM INSTALL PLUGINS
-      become: yes
-      when: reg_my_config_root.changed
-      expect:
-        timeout: 60
-        echo: yes
-        command: vim +PlugInstall +qall
-        responses:
-          .*(YES|yes).*: "Yes"
-          .*ENTER.*: ""
+    # - name: ROOT SETUP DEFAULT SHELL
+    #   become: yes
+    #   user:
+    #     name: "root"
+    #     shell: /usr/bin/zsh
+    # - name: ROOT VIM INSTALL PLUGINS
+    #   become: yes
+    #   when: reg_vim_install.changed
+    #   expect:
+    #     timeout: 60
+    #     echo: yes
+    #     command: vim +PlugInstall +qall
+    #     responses:
+    #       .*(YES|yes).*: "Yes"
+    #       .*ENTER.*: ""
     # - name : ROOT AUTO JUMP GREEN
     #   become: yes
     #   lineinfile:
@@ -184,15 +184,15 @@
     #     regex: '.*echo -e.*033.*31m'
     #     line: '                echo -e "\\033[32m${output}\\033[0m"'
     #     backrefs: yes
-    - name: ROOT TMUX AUTO INSTALL PLUGINS
-      become: yes
-      when: reg_my_config_root.changed
-      # tags:
-        # - mytest
-      shell: |
-        tmux start-server && ~/.tmux/plugins/tpm/scripts/install_plugins.sh
+    # - name: ROOT TMUX AUTO INSTALL PLUGINS
+    #   become: yes
+    #   when: reg_my_config_root.changed
+    #   # tags:
+    #     # - mytest
+    #   shell: |
+    #     tmux start-server && ~/.tmux/plugins/tpm/scripts/install_plugins.sh
       
-      register: reg_tmux_auto_isntall_plugins
+    #   register: reg_tmux_auto_isntall_plugins
     # - debug:
     #     var: reg_tmux_auto_isntall_plugins.stdout
     #   tags:

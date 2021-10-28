@@ -99,8 +99,8 @@ horizontal_equal=true
 top_panel_size=1
 
 [Misc]
-timeformat_recent=%H:%M:%S %Y:%b:%e 
-timeformat_old=%b %e  %Y
+timeformat_recent= %H:%M:%S %e:%b:%Y
+timeformat_old=%e:%b:%Y
 ftp_proxy_host=gate
 ftpfs_password=anonymous@
 display_codepage=UTF-8
