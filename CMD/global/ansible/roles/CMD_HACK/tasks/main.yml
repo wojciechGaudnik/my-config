@@ -1,0 +1,27 @@
+- name: APT UPDATE AND UPGRADE
+  apt:
+    update_cache: 'yes'
+    upgrade: 'yes'
+    force_apt_get: 'yes'
+    cache_valid_time: 3600
+    autoremove: 'yes'
+- name: APT INSTALL
+  apt:
+    name: "{{ item.source }}"
+    state: latest
+  with_items:
+    - {source: 'john'}
+# - name: PIP VIM-VINT INSTALL
+#   pip:
+#    name: 'vim-vint'
+#    state: latest
+# - name: GEM COLORLS INSTALL
+#   gem:
+#     name: 'colorls'
+#     user_install: no
+#     state: latest
+# - name: VIVM INSTALL
+#   get_url:
+#     url: 'https://raw.githubusercontent.com/thameera/vimv/master/vimv'
+#     dest: /usr/local/bin/vimv
+#     mode: '0755'

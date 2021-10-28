@@ -23,6 +23,7 @@
     - {source: 'ripgrep'}
     - {source: 'xsel'}
     - {source: 'xclip'}
+    - {source: 'cryptsetup'}
 - name: APT VIM INSTALL
   apt:
     name: 'vim'

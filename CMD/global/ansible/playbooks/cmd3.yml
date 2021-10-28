@@ -10,6 +10,7 @@
     - CMD_GLOBAL_SETUP
     - CMD_HRDWARE_TOOLS
     - CMD_NET_TOOLS
+    - CMD_HACK
     - role: CMD_ROOT
       vars:
         user_name: 'root'
