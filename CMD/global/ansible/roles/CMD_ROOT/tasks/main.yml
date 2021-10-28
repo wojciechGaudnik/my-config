@@ -61,4 +61,4 @@
   shell: |
     tmux start-server && ~/.tmux/plugins/tpm/scripts/install_plugins.sh
 - name: ADDITIONAL
-  import_tasks: additional.yml
+  import_tasks: additionals.yml

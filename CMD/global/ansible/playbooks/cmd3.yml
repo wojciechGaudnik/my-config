@@ -5,6 +5,7 @@
   vars:
     user_name: 'bq666'
   roles:
+    - CMD_DEV_TOOLS_INSTALL
     - CMD_INSTALL
     - CMD_GLOBAL_SETUP
     - role: CMD_ROOT

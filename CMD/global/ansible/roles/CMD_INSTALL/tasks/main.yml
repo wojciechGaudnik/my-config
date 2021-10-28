@@ -1,10 +1,10 @@
 - name: APT UPDATE AND UPGRADE
   apt:
-    update_cache: yes
+    update_cache: 'yes'
     upgrade: 'yes'
-    force_apt_get: yes
+    force_apt_get: 'yes'
     cache_valid_time: 3600
-    autoremove: yes
+    autoremove: 'yes'
 - name: APT INSTALL
   apt:
     name: "{{ item.source }}"
@@ -14,10 +14,6 @@
     - {source: 'zsh'}
     - {source: 'wget'}
     - {source: 'curl'}
-    - {source: 'ruby-full'}
-    - {source: 'build-essential'}
-    - {source: 'python3-distutils'}
-    - {source: 'python3-pip'}
     - {source: 'thefuck'}
     - {source: 'autojump'}
     - {source: 'tmux'}
@@ -25,18 +21,18 @@
     - {source: 'mc'}
     - {source: 'htop'}
     - {source: 'ripgrep'}
-    - {source: 'ansible-lint'}
-    - {source: 'cmake'}
+    - {source: 'xsel'}
+    - {source: 'xclip'}
 - name: APT VIM INSTALL
-  register: reg_vim_install
   apt:
     name: 'vim'
     state: latest
+  register: reg_vim_install
 - name: APT LM_SENSORS INSTALL
-  register: reg_lm_sensors_install
   apt:
     name: 'lm-sensors'
     state: latest
+  register: reg_lm_sensors_install
 - name: PIP VIM-VINT INSTALL
   pip:
    name: 'vim-vint'
