@@ -97,13 +97,13 @@
       when: reg_fontsHack.changed
       command:
         cmd: /bin/fc-cache -f
-    - name: USB RESET COPY
-      become: yes
-      copy:
-        src: ~/.my-config/usbreset.sh
-        dest: /usr/bin/
-        remote_src: yes
-        mode: u+rwx,g-rwx,o-rwx
+    # - name: USB RESET COPY
+    #   become: yes
+    #   copy:
+    #     src: ~/.my-config/usbreset.sh
+    #     dest: /usr/bin/
+    #     remote_src: yes
+    #     mode: u+rwx,g-rwx,o-rwx
     - name: MC GLOBAL CONFIG
       become: yes
       copy:
