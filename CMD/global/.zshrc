@@ -1,5 +1,5 @@
 if [[ $EUID -ne 0 ]];then
-	cat /home/bq666/.my-config/.usefulCommands.txt
+	cat /home/bq666/.my-config/CMD/global/.usefulCommands.txt
 echo "---------------------------------------------------------------------------------------------------------------------------------------"
 screenfetch
 echo "---------------------------------------------------------------------------------------------------------------------------------------"
@@ -89,7 +89,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(ansible autojump git zsh-autosuggestions zsh-syntax-highlighting dotenv thefuck postgres mvn httpie docker docker-compose ufw rsync tmux pip) 
+plugins=(ansible autojump git zsh-autosuggestions zsh-syntax-highlighting dotenv thefuck postgres mvn httpie docker docker-compose ufw rsync tmux pip)
 
 source $ZSH/oh-my-zsh.sh
 
