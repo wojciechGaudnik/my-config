@@ -65,8 +65,7 @@
 #       .*ENTER.*: ""
 - name: VIM CLEAN PLUGINS
   expect:
-    timeout: 60
-    echo: yes
+    echo: 'no'
     command: vim +PlugClean! +qall
 - name: TMUX INSTALL PLUGINS
   when: reg_my_config_root.changed
