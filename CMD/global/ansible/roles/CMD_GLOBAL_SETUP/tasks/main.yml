@@ -24,7 +24,7 @@
 - name : AUTO JUMP GREEN
   become: yes
   lineinfile:
-    path: /usr/share/autojump/autojump.zsh
+    path: '/usr/share/autojump/autojump.zsh'
     regex: '.*echo -e.*033.*31m'
     line: "                echo -e '\\033[32m${output}\\033[0m'"
     backrefs: yes
