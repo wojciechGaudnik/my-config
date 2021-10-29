@@ -9,6 +9,13 @@
   when: reg_copy_fontsHack.changed
   command:
     cmd: /bin/fc-cache -f
+- name: DELETE/CREATE FILES/DIRECTORY
+  file:
+    path='{{ item.path}}'
+    state='{{ item.state }}'
+  with_items:
+    - {path: '~/.my-config/KDE/.local/share/konsole/', state: 'absent'}
+    - {path: '~/.my-config/KDE/.local/share/konsole/', state: 'directory'}
 - name: LINK FILES
   file:
     src='{{ item.src }}'
