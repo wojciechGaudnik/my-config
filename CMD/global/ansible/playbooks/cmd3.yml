@@ -18,3 +18,4 @@
       become: 'no'
       vars:
         user_name: 'bq666'
+    - KDE_GLOBAL_SETUP
