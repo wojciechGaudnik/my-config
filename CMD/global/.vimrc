@@ -249,7 +249,7 @@ if isdirectory($HOME.'/.vim/plugged/')
 	nnoremap <leader>n :NERDTreeFocus<CR>
 	nnoremap <C-n> :NERDTree<CR>
 	nnoremap <C-t> :NERDTreeToggle<CR>
-	nnoremap <C-f> :NERDTreeFind<CR>
+	nnoremap <C-q> :NERDTreeFind<CR>
 	let g:NERDTreeWinPos = 'left'
 	let g:NERDTreeMapOpenSplit = 's'
 	let g:NERDTreeMapOpenVSplit = 'i'

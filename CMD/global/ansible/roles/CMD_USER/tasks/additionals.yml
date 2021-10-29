@@ -7,3 +7,10 @@
   with_items:
     - {src: '~/.my-config/CMD/{{ user_name }}/mc/ini', dest: '~/.config/mc/ini', remote_src: 'yes', mode: '0644' }
     - {src: '~/.my-config/CMD/{{ user_name }}/mc/panels.ini', dest: '~/.config/mc/panels.ini', remote_src: 'yes', mode: '0644' }
+- git_config:
+    name: '{{ item.name }}'
+    scope: '{{ item.scope }}'
+    value: '{{ item.value }}'
+  with_items:
+    - {name: 'user.email', scope: 'global', value: 'wojciech.gaudnik@gmail.com'}
+    - {name: 'user.name', scope: 'global', value: 'Wojciech Gaudnik'}
