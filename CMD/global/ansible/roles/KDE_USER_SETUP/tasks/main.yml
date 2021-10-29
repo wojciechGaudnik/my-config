@@ -41,4 +41,4 @@
     - {src: '~/.my-config/KDE/.local/share/konsole/ZSH.profile', dest: '~/.local/share/konsole/ZSH.profile', remote_src: 'yes'}
 - name: TILIX CONFIG
   command:
-    cmd: 'dconf loda /com/gexperts/Tilix/ <~/.my-config/KDE/tilix/tilix.dconf'
+    cmd: 'dconf load /com/gexperts/Tilix/ <~/.my-config/KDE/tilix/tilix.dconf'

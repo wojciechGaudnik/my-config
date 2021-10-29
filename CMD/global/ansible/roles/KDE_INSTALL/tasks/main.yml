@@ -11,3 +11,4 @@
     state: latest
   with_items:
     - {source: 'tilix'}
+    - {source: 'dconf-cli'}
