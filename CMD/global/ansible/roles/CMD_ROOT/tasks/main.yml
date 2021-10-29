@@ -53,7 +53,6 @@
     echo: yes
     command: vim +PlugUpdate +qall
     responses:
-      .*(YES|yes).*: "Yes"
       .*ENTER.*: ""
 # - name: VIM INSTALL PLUGINS
 #   expect:
