@@ -1,5 +1,5 @@
 ---
-- hosts: VBK
+- hosts: ALL
   user: 'bq666'
   become: 'yes'
   vars:

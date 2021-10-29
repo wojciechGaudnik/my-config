@@ -85,5 +85,3 @@
   shell: tmux start-server && ~/.tmux/plugins/tpm/scripts/clean_plugins.sh
 - name: ADDITIONAL
   import_tasks: additionals.yml
-- debug:
-     var: reg_vim_install.stdout_lines
