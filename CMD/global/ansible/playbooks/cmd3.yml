@@ -1,5 +1,5 @@
 ---
-- hosts: OLD
+- hosts: ALL
   user: 'bq666'
   become: 'yes'
   vars:

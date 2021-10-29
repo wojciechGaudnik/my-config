@@ -24,11 +24,7 @@
     - {source: 'xsel'}
     - {source: 'xclip'}
     - {source: 'cryptsetup'}
-- name: APT VIM INSTALL
-  apt:
-    name: 'vim'
-    state: latest
-  register: reg_vim_install
+    - {source: 'vim'}
 - name: APT LM_SENSORS INSTALL
   apt:
     name: 'lm-sensors'
