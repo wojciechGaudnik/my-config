@@ -18,5 +18,6 @@
       # become: 'no'
       # vars:
         # user_name: 'bq666'
-    - role: KDE_GLOBAL_SETUP
+    - KDE_INSTALL
+    - role: KDE_USER_SETUP
       become: 'no'
