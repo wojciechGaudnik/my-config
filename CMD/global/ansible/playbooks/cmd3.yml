@@ -5,12 +5,12 @@
   vars:
     user_name: 'bq666'
   roles:
-    - CMD_DEV_TOOLS_INSTALL
-    - CMD_INSTALL
-    - CMD_GLOBAL_SETUP
-    - CMD_HRDWARE_TOOLS
-    - CMD_NET_TOOLS
-    - CMD_HACK
+    # - CMD_DEV_TOOLS_INSTALL
+    # - CMD_INSTALL
+    # - CMD_GLOBAL_SETUP
+    # - CMD_HRDWARE_TOOLS
+    # - CMD_NET_TOOLS
+    # - CMD_HACK
     - role: CMD_ROOT
       vars:
         user_name: 'root'

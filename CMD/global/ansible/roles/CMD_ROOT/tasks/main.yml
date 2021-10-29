@@ -47,6 +47,14 @@
     - {src: '~/.my-config/CMD/global/.vim/spell/en.utf-8.add', dest: '~/.vim/spell/en.utf-8.add', state: 'link', force: yes}
     - {src: '~/.my-config/CMD/global/.vim/spell/en.utf-8.add.spl', dest: '~/.vim/spell/en.utf-8.add.spl', state: 'link', force: yes}
     - {src: '~/.my-config/CMD/global/htoprc', dest: '~/.config/htop/htoprc', state: 'link', force: yes}
+- name: VIM UPDATE PLUGINS
+  expect:
+    timeout: 60
+    echo: yes
+    command: vim +PlugUpdate +qall
+    responses:
+      .*(YES|yes).*: "Yes"
+      .*ENTER.*: ""
 - name: VIM INSTALL PLUGINS
   expect:
     timeout: 60
@@ -61,8 +69,7 @@
     echo: yes
     command: vim +PlugClean +qall
     responses:
-      .*(YES|yes).*: "Yes"
-      .*ENTER.*: ""
+      'Delete all directories? (y/N)': 'y'
 - name: TMUX INSTALL PLUGINS
   when: reg_my_config_root.changed
   shell: |
