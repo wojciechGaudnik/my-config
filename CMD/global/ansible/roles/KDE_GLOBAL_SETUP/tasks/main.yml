@@ -9,3 +9,12 @@
   when: reg_copy_fontsHack.changed
   command:
     cmd: /bin/fc-cache -f
+- name: LINK FILES
+  file:
+    src='{{ item.src }}'
+    dest='{{ item.dest }}'
+    state='{{ item.state }}'
+    force='{{ item.force }}'
+  with_items:
+    - {src: '~/.my-config/KDE/.config/konsolerc', dest: '~/.config/konsolerc', state: 'link', force: 'yes'}
+    - {src: '~/.my-config/KDE/.local/share/konsole/ZSH.profile', dest: '~/.local/share/konsole/ZSH.profile', state: 'link', force: 'yes'}
