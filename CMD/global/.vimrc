@@ -26,7 +26,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
 
-  "Plug 'pearofducks/ansible-vim'
+  Plug 'pearofducks/ansible-vim'
 	Plug 'Yggdroot/indentLine'
 	Plug 'aserebryakov/vim-todo-lists'
 	Plug 'christoomey/vim-tmux-navigator'
@@ -119,32 +119,32 @@ if isdirectory($HOME.'/.vim/plugged/')
 
 	nnoremap <C-Right> :bn<CR>
 	nnoremap <C-Left> :bp<CR>
-	
+
 	" re size window
 	nnoremap <C-w>h :vertical resize -5<CR>
 	nnoremap <C-w>l :vertical resize +5<CR>
 	nnoremap <C-w>j :resize +5<CR>
 	nnoremap <C-w>k :resize -5<CR>
-	
+
 	" prevent from putting deleted characters into buffer
 	noremap x "_x
 	noremap X "_x
 	noremap <Del> "_x
-	
+
 	" close current window <ctrl+4>
 	inoremap <C-d> <esc>:q<cr>
 	nnoremap <C-d> :q<cr>
 	inoremap <C-\> <esc>:bd<cr>
 	nnoremap <C-\> :bd<cr>
-	
+
 	" save current window <ctrl+s>
 	noremap <silent><C-S>          :update<CR>
 	vnoremap <silent><C-S>         <C-C>:update<CR>
 	inoremap <silent><C-S>         <C-O>:update<CR>
-	
+
 	" toggle Spell Check
 	map <F5> :setlocal spell!<CR>
-	
+
 	" clear highlighting on escape in normal mode
 	nnoremap <esc> :noh<return><esc>
 	nnoremap <esc>^[ <esc>^[
@@ -357,7 +357,7 @@ if isdirectory($HOME.'/.vim/plugged/')
 	let g:ycm_autoclose_preview_window_after_completion=1
 	let g:ycm_key_list_stop_completion= ['<CR>']
 	map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-	
+
 	" ---------- ALE / dense-analysis/ale ------------------------------------------------
 	let g:ale_linters = {
 				\'python': ['flake8', 'bandit'],
