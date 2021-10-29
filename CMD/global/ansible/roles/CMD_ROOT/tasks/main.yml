@@ -55,21 +55,19 @@
     responses:
       .*(YES|yes).*: "Yes"
       .*ENTER.*: ""
-- name: VIM INSTALL PLUGINS
-  expect:
-    timeout: 60
-    echo: yes
-    command: vim +PlugInstall +qall
-    responses:
-      .*(YES|yes).*: "Yes"
-      .*ENTER.*: ""
+# - name: VIM INSTALL PLUGINS
+#   expect:
+#     timeout: 60
+#     echo: yes
+#     command: vim +PlugInstall +qall
+#     responses:
+#       .*(YES|yes).*: "Yes"
+#       .*ENTER.*: ""
 - name: VIM CLEAN PLUGINS
   expect:
     timeout: 60
     echo: yes
-    command: vim +PlugClean +qall
-    responses:
-      'Delete all directories? (y/N)': 'y'
+    command: vim +PlugClean! +qall
 - name: TMUX INSTALL PLUGINS
   when: reg_my_config_root.changed
   shell: |

@@ -1,5 +1,5 @@
 ---
-- hosts: ALL
+- hosts: BIG
   user: 'bq666'
   become: 'yes'
   vars:
