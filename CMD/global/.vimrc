@@ -26,7 +26,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
 
-  Plug 'pearofducks/ansible-vim'
+  "Plug 'pearofducks/ansible-vim'
 	Plug 'Yggdroot/indentLine'
 	Plug 'aserebryakov/vim-todo-lists'
 	Plug 'christoomey/vim-tmux-navigator'
