@@ -1,0 +1,41 @@
+- name: GIT PULL MY CONFIG
+  git:
+    repo: 'https://github.com/wojciechGaudnik/my-config.git'
+    dest: '~/.my-config'
+    version: master
+- name: FONTS COPY
+  become: yes
+  register: reg_copy_fontsHack
+  copy:
+    src: '~/.my-config/KDE/fonts_hack/'
+    dest: '/usr/share/fonts/'
+    remote_src: 'yes'
+- name: FONTS CONFIG
+  when: reg_copy_fontsHack.changed
+  command:
+    cmd: /bin/fc-cache -f
+- name: DELETE/CREATE FILES/DIRECTORY
+  file:
+    path: '{{ item.path }}'
+    state: '{{ item.state }}'
+  with_items:
+    - {path: '~/.local/share/konsole/', state: 'absent'}
+    - {path: '~/.local/share/konsole/', state: 'directory'}
+# - name: LINK FILES
+#   file:
+#     src='{{ item.src }}'
+#     dest='{{ item.dest }}'
+#     state='{{ item.state }}'
+#     force='{{ item.force }}'
+#   with_items:
+#     - {src: '~/.my-config/KDE/.config/konsolerc', dest: '~/.config/konsolerc', state: 'file', force: 'yes'}
+#     - {src: '~/.my-config/KDE/.local/share/konsole/ZSH.profile', dest: '~/.local/share/konsole/ZSH.profile', state: 'file', force: 'yes'}
+#
+- name: COPY FILES
+  copy:
+    src: '{{ item.src }}'
+    dest: '{{ item.dest }}'
+    remote_src: '{{ item.remote_src }}'
+  with_items:
+    - {src: '~/.my-config/KDE/.config/konsolerc', dest: '~/.config/konsolerc', remote_src: 'yes'}
+    - {src: '~/.my-config/KDE/.local/share/konsole/ZSH.profile', dest: '~/.local/share/konsole/ZSH.profile', remote_src: 'yes'}

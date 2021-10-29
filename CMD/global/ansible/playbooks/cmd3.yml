@@ -14,9 +14,9 @@
     # - role: CMD_ROOT
     #   vars:
     #     user_name: 'root'
-    - role: CMD_USER
-      become: 'no'
-      vars:
-        user_name: 'bq666'
+    # - role: CMD_USER
+      # become: 'no'
+      # vars:
+        # user_name: 'bq666'
     - role: KDE_GLOBAL_SETUP
       become: 'no'
