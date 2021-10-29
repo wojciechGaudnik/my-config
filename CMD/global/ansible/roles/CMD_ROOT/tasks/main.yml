@@ -15,11 +15,11 @@
     force: '{{ item.force }}'
     version: master
   with_items:
-    - {repo: 'https://github.com/robbyrussell/oh-my-zsh', dest: '~/.oh-my-zsh', force: yes}
-    - {repo: 'https://github.com/romkatv/powerlevel10k.git', dest: '~/.oh-my-zsh/custom/themes/powerlevel10k', force: yes}
-    - {repo: 'https://github.com/zsh-users/zsh-autosuggestions', dest: '~/.oh-my-zsh/custom/plugins/zsh-autosuggestions', force: yes}
-    - {repo: 'https://github.com/zsh-users/zsh-syntax-highlighting.git', dest: '~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting', force: yes}
-    - {repo: 'https://github.com/tmux-plugins/tpm', dest: '~/.tmux/plugins/tpm', force: yes}
+    - {repo: 'https://github.com/robbyrussell/oh-my-zsh', dest: '~/.oh-my-zsh', force: 'yes'}
+    - {repo: 'https://github.com/romkatv/powerlevel10k.git', dest: '~/.oh-my-zsh/custom/themes/powerlevel10k', force: 'yes'}
+    - {repo: 'https://github.com/zsh-users/zsh-autosuggestions', dest: '~/.oh-my-zsh/custom/plugins/zsh-autosuggestions', force: 'yes'}
+    - {repo: 'https://github.com/zsh-users/zsh-syntax-highlighting.git', dest: '~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting', force: 'yes'}
+    - {repo: 'https://github.com/tmux-plugins/tpm', dest: '~/.tmux/plugins/tpm', force: 'yes'}
 - name: CREATE DIR
   file:
     path='{{ item.path }}'
@@ -31,44 +31,59 @@
     - {path: '~/.vim/colors', state: 'directory', recurse: 'yes'}
     - {path: '~/.vim/undodir', state: 'directory', recurse: 'yes'}
     - {path: '~/.vim/spell', state: 'directory', recurse: 'yes'}
-- name: LINK FILES
+- name: LINK ZSH FILES
   file:
     src='{{ item.src }}'
     dest='{{ item.dest }}'
     state='{{ item.state }}'
     force='{{ item.force }}'
   with_items:
-    - {src: '~/.my-config/CMD/global/.zshrc', dest: '~/.zshrc', state: 'link', force: yes}
+    - {src: '~/.my-config/CMD/global/.zshrc', dest: '~/.zshrc', state: 'link', force: 'yes'}
     - {src: '~/.my-config/CMD/global/.p10k.zsh', dest: '~/.p10k.zsh', state: 'link', force: yes}
     - {src: '~/.my-config/CMD/global/.usefulCommands.txt', dest: '~/.usefulCommands.txt', state: 'link', force: yes}
-    - {src: '~/.my-config/CMD/global/.tmux.conf', dest: '~/.tmux.conf', state: 'link', force: yes}
+    - {src: '~/.my-config/CMD/global/htoprc', dest: '~/.config/htop/htoprc', state: 'link', force: yes}
+- name: LINK VIM FILES
+  register: reg_link_vim_files
+  file:
+    src='{{ item.src }}'
+    dest='{{ item.dest }}'
+    state='{{ item.state }}'
+    force='{{ item.force }}'
+  with_items:
     - {src: '~/.my-config/CMD/global/.vimrc', dest: '~/.vimrc', state: 'link', force: yes}
     - {src: '~/.my-config/CMD/global/.vim/colors/green_dark.vim', dest: '~/.vim/colors/green_dark.vim', state: 'link', force: yes}
     - {src: '~/.my-config/CMD/global/.vim/spell/en.utf-8.add', dest: '~/.vim/spell/en.utf-8.add', state: 'link', force: yes}
     - {src: '~/.my-config/CMD/global/.vim/spell/en.utf-8.add.spl', dest: '~/.vim/spell/en.utf-8.add.spl', state: 'link', force: yes}
-    - {src: '~/.my-config/CMD/global/htoprc', dest: '~/.config/htop/htoprc', state: 'link', force: yes}
-- name: VIM UPDATE PLUGINS
+- name: LINK TMUX FILES
+  register: reg_link_tmux_files
+  file:
+    src='{{ item.src }}'
+    dest='{{ item.dest }}'
+    state='{{ item.state }}'
+    force='{{ item.force }}'
+  with_items:
+    - {src: '~/.my-config/CMD/global/.tmux.conf', dest: '~/.tmux.conf', state: 'link', force: yes}
+- name: VIM INSTALL/UPDATE PLUGINS
+  when: reg_link_vim_files.changed
   expect:
     timeout: 60
-    echo: yes
+    echo: 'yes'
     command: vim +PlugUpdate +qall
     responses:
       .*ENTER.*: ""
-# - name: VIM INSTALL PLUGINS
-#   expect:
-#     timeout: 60
-#     echo: yes
-#     command: vim +PlugInstall +qall
-#     responses:
-#       .*(YES|yes).*: "Yes"
-#       .*ENTER.*: ""
 - name: VIM CLEAN PLUGINS
-  expect:
-    echo: 'no'
-    command: vim +PlugClean! +qall
+  when: reg_link_vim_files.changed
+  shell: vim +PlugClean! +qall
 - name: TMUX INSTALL PLUGINS
-  when: reg_my_config_root.changed
-  shell: |
-    tmux start-server && ~/.tmux/plugins/tpm/scripts/install_plugins.sh
+  when: reg_link_tmux_files.changed
+  shell: tmux start-server && ~/.tmux/plugins/tpm/scripts/install_plugins.sh
+- name: TMUX UPDATE PLUGINS
+  when: reg_link_tmux_files.changed
+  shell: tmux start-server && ~/.tmux/plugins/tpm/scripts/update_plugin.sh
+- name: TMUX CLEAN PLUGINS
+  when: reg_link_tmux_files.changed
+  shell: tmux start-server && ~/.tmux/plugins/tpm/scripts/clean_plugins.sh
 - name: ADDITIONAL
   import_tasks: additionals.yml
+- debug:
+     var: reg_vim_install.stdout_lines

@@ -1,9 +1,9 @@
-- name: LINK FILES
-  file:
+- name: COPY FILES
+  copy:
     src='{{ item.src }}'
     dest='{{ item.dest }}'
-    state='{{ item.state }}'
-    force='{{ item.force }}'
+    remote_src='{{ item.remote_src }}'
+    mode='{{ item.mode }}'
   with_items:
-    - {src: '~/.my-config/CMD/root/mc/ini', dest: '~/.config/mc/ini', state: 'link', force: yes}
-    - {src: '~/.my-config/CMD/root/mc/panels.ini', dest: '~/.config/mc/panels.ini', state: 'link', force: yes}
+    - {src: '~/.my-config/CMD/root/mc/ini', dest: '~/.config/mc/ini', remote_src: 'yes', mode: '0644' }
+    - {src: '~/.my-config/CMD/root/mc/panels.ini', dest: '~/.config/mc/panels.ini', remote_src: 'yes', mode: '0644' }
