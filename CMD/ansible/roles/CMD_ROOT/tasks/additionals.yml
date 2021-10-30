@@ -2,6 +2,6 @@
   become: yes
   lineinfile:
     path: '~/.config/mc/ini'
-    regex: '^skin=.*'
-    line: "skin=modarin256-defbg"
+    regex: '^skin='
+    line: "skin=modarin256root-defbg"
     backrefs: yes
