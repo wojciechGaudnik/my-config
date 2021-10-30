@@ -16,17 +16,19 @@
   with_items:
     - {src: '~/.my-config/CMD/config/mc/mc.default.keymap', dest: '/etc/mc/mc.default.keymap', remote_src: 'yes', mode: '0644'}
 - name : AUTO JUMP GREEN
-  become: yes
+  become: 'yes'
   lineinfile:
     path: '/usr/share/autojump/autojump.zsh'
     regex: '.*echo -e.*033.*31m'
     line: "                echo -e '\\033[32m${output}\\033[0m'"
     backrefs: yes
 - name: LM_SENSORS
+  become: 'yes'
   expect:
-    timeout: 5
+    timeout: 60
     echo: yes
     command: /sbin/sensors-detect
     responses:
+      'Do you want to add these lines automatically to /etc/modules? (yes/NO)': 'yes'
       .*(YES|yes).*: 'Yes'
       .*ENTER.*: ''
