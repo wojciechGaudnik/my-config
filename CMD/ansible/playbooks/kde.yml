@@ -1,3 +1,26 @@
-    # - KDE_INSTALL
-    # - role: KDE_USER_SETUP
-      # become: 'no'
+---
+- hosts: VBK
+  user: 'bq666'
+  vars:
+    user_name: 'bq666'
+  roles:
+    - KDE_INSTALL
+    - KDE_USER_SETUP
+    # - CMD_INSTALL_DEV_TOOLS
+    # - CMD_INSTALL
+    # - CMD_INSTALL_HARDWARE_TOOLS
+    # - CMD_INSTALL_NET_TOOLS
+    # - CMD_INSTALL_HACK
+    # - role: CMD_PULL_MY_CONFIG
+    #   register: reg_cmd_pull_my_config_root
+    # - role: CMD_PULL_MY_CONFIG
+    #   become: 'no'
+    #   register: reg_cmd_pull_my_config_user
+    # - CMD_CONFIG_GLOBAL
+    # - role: CMD_ROOT
+    #   vars:
+    #     user_name: 'root'
+    # - role: CMD_USER
+    #   become: 'no'
+    #   vars:
+    #     user_name: 'bq666'
