@@ -53,9 +53,9 @@
     force='{{ item.force }}'
   with_items:
     - {src: '~/.my-config/CMD/config/.zshrc', dest: '~/.zshrc', state: 'link', force: 'yes'}
-    - {src: '~/.my-config/CMD/config/.p10k.zsh', dest: '~/.p10k.zsh', state: 'link', force: yes}
-    - {src: '~/.my-config/CMD/config/.usefullCommands.txt', dest: '~/.usefullCommands.txt', state: 'link', force: yes}
-    - {src: '~/.my-config/CMD/config/htoprc', dest: '~/.config/htop/htoprc', state: 'link', force: yes}
+    - {src: '~/.my-config/CMD/config/.p10k.zsh', dest: '~/.p10k.zsh', state: 'link', force:'yes'}
+    - {src: '~/.my-config/CMD/config/.usefullCommands.txt', dest: '~/.usefullCommands.txt', state: 'link', force: 'yes'}
+    - {src: '~/.my-config/CMD/config/htoprc', dest: '~/.config/htop/htoprc', state: 'link', force: 'yes'}
 - name: VIM LINK FILES
   become: 'yes'
   # when: reg_root_git_pull_config_repo.changed
@@ -65,10 +65,10 @@
     state='{{ item.state }}'
     force='{{ item.force }}'
   with_items:
-    - {src: '~/.my-config/CMD/config/.vimrc', dest: '~/.vimrc', state: 'link', force: yes}
-    - {src: '~/.my-config/CMD/config/.vim/colors/green_dark.vim', dest: '~/.vim/colors/green_dark.vim', state: 'link', force: yes}
-    - {src: '~/.my-config/CMD/config/.vim/spell/en.utf-8.add', dest: '~/.vim/spell/en.utf-8.add', state: 'link', force: yes}
-    - {src: '~/.my-config/CMD/config/.vim/spell/en.utf-8.add.spl', dest: '~/.vim/spell/en.utf-8.add.spl', state: 'link', force: yes}
+    - {src: '~/.my-config/CMD/config/.vimrc', dest: '~/.vimrc', state: 'link', force: 'yes'}
+    - {src: '~/.my-config/CMD/config/.vim/colors/green_dark.vim', dest: '~/.vim/colors/green_dark.vim', state: 'link', force: 'yes'}
+    - {src: '~/.my-config/CMD/config/.vim/spell/en.utf-8.add', dest: '~/.vim/spell/en.utf-8.add', state: 'link', force: 'yes'}
+    - {src: '~/.my-config/CMD/config/.vim/spell/en.utf-8.add.spl', dest: '~/.vim/spell/en.utf-8.add.spl', state: 'link', force: 'yes'}
 - name: VIM INSTALL/UPDATE PLUGINS
   become: 'yes'
   # when: reg_root_git_pull_config_repo.changed
@@ -90,7 +90,7 @@
     state='{{ item.state }}'
     force='{{ item.force }}'
   with_items:
-    - {src: '~/.my-config/CMD/config/.tmux.conf', dest: '~/.tmux.conf', state: 'link', force: yes}
+    - {src: '~/.my-config/CMD/config/.tmux.conf', dest: '~/.tmux.conf', state: 'link', force: 'yes'}
 - name: TMUX INSTALL PLUGINS
   become: 'yes'
   # when: reg_root_git_pull_config_repo.changed
