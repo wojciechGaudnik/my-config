@@ -1,7 +1,6 @@
 ---
 - hosts: VBK
   user: 'bq666'
-  become: 'yes'
   roles:
     - CMD_APT_UPDATE_UPGRADE
     - CMD_INSTALL_DEV

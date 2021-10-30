@@ -1,4 +1,6 @@
 - name : AUTO JUMP GREEN
+  tags:
+    - mytest
   become: 'yes'
   lineinfile:
     path: '/usr/share/autojump/autojump.zsh'
