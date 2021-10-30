@@ -1,23 +1,29 @@
 ---
-- hosts: VBK
+- hosts: BIG
   user: 'bq666'
   become: 'yes'
   vars:
     user_name: 'bq666'
   roles:
-    # - CMD_DEV_TOOLS_INSTALL
-    # - CMD_INSTALL
-    # - CMD_GLOBAL_SETUP
-    # - CMD_HRDWARE_TOOLS
-    # - CMD_NET_TOOLS
-    # - CMD_HACK
-    # - role: CMD_ROOT
-    #   vars:
-    #     user_name: 'root'
-    # - role: CMD_USER
-      # become: 'no'
-      # vars:
-        # user_name: 'bq666'
-    - KDE_INSTALL
-    - role: KDE_USER_SETUP
+    - CMD_APT_UPDATE_UPGRADE
+    - role: CMD_PULL_MY_CONFIG
+      register: reg_cmd_pull_my_config_root
+    - role: CMD_PULL_MY_CONFIG
       become: 'no'
+      register: reg_cmd_pull_my_config_user
+    - CMD_DEV_TOOLS_INSTALL
+    - CMD_INSTALL
+    - CMD_GLOBAL_SETUP
+    - CMD_HRDWARE_TOOLS
+    - CMD_NET_TOOLS
+    - CMD_HACK
+    - role: CMD_ROOT
+      vars:
+        user_name: 'root'
+    - role: CMD_USER
+      become: 'no'
+      vars:
+        user_name: 'bq666'
+    # - KDE_INSTALL
+    # - role: KDE_USER_SETUP
+      # become: 'no'
