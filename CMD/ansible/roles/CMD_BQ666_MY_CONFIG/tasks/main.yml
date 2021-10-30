@@ -53,7 +53,7 @@
     force='{{ item.force }}'
   with_items:
     - {src: '~/.my-config/CMD/config/.zshrc', dest: '~/.zshrc', state: 'link', force: 'yes'}
-    - {src: '~/.my-config/CMD/config/.p10k.zsh', dest: '~/.p10k.zsh', state: 'link', force:'yes'}
+    - {src: '~/.my-config/CMD/config/.p10k.zsh', dest: '~/.p10k.zsh', state: 'link', force: 'yes'}
     - {src: '~/.my-config/CMD/config/.usefullCommands.txt', dest: '~/.usefullCommands.txt', state: 'link', force: 'yes'}
     - {src: '~/.my-config/CMD/config/htoprc', dest: '~/.config/htop/htoprc', state: 'link', force: 'yes'}
 - name: VIM LINK FILES
