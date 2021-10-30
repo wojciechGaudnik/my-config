@@ -352,6 +352,7 @@ if isdirectory($HOME.'/.vim/plugged/')
 
 	" ---------- Repeat / tpope/vim-commentar ------------------------------------------------
 	map  :Commentary<CR>
+	" autocmd FileType lua setlocal commentstring=#\ %s
 
 	" ---------- YCM / ycm-core/YouCompleteMe ------------------------------------------------
 	let g:ycm_autoclose_preview_window_after_completion=1
