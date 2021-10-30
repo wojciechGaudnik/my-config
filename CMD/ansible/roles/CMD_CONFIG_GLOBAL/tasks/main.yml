@@ -6,7 +6,7 @@
     force='{{ item.force }}'
     mode='{{ item.mode }}'
   with_items:
-    - {src: '~/.my-config/CMD/global/bash/usbresetall.sh', dest: '/usr/bin/usbresetall.sh', state: 'link', force: 'yes', mode: '0700'}
+    - {src: '~/.my-config/CMD/bash/usbresetall.sh', dest: '/usr/bin/usbresetall.sh', state: 'link', force: 'yes', mode: '0700'}
 - name: COPY FILES
   copy:
     src='{{ item.src }}'
@@ -14,7 +14,7 @@
     remote_src='{{ item.remote_src }}'
     mode='{{ item.mode }}'
   with_items:
-    - {src: '~/.my-config/CMD/global/mc/mc.default.keymap', dest: '/etc/mc/mc.default.keymap', remote_src: 'yes', mode: '0644'}
+    - {src: '~/.my-config/CMD/config/mc/mc.default.keymap', dest: '/etc/mc/mc.default.keymap', remote_src: 'yes', mode: '0644'}
 - name : AUTO JUMP GREEN
   become: yes
   lineinfile:
