@@ -1,4 +1,3 @@
-# CMD_ROOT_MY_CONFIG_GLOBAL main.yml <--- only console conf, change and copy to CMD_USER_MY_CONFIG and remove become: 'yes'
 # CMD_USER_MY_CONFIG main.yml <--- don't change this file, copy from root !!!
 - name: GIT PULL CONFIG REPO
   git:
