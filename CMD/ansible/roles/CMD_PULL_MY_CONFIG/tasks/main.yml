@@ -1,5 +1,5 @@
 - name: GIT PULL CONFIG
   git:
-    repo: 'https://github.com/wojciechGaudnik/my-config.git'
+    repo: 'git@github.com:wojciechGaudnik/my-config.git'
     dest: '~/.my-config'
     version: master
