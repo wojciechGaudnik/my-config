@@ -1,9 +1,7 @@
-- name: COPY FILES
-  copy:
-    src='{{ item.src }}'
-    dest='{{ item.dest }}'
-    remote_src='{{ item.remote_src }}'
-    mode='{{ item.mode }}'
-  with_items:
-    - {src: '~/.my-config/CMD/root/mc/ini', dest: '~/.config/mc/ini', remote_src: 'yes', mode: '0644' }
-    - {src: '~/.my-config/CMD/root/mc/panels.ini', dest: '~/.config/mc/panels.ini', remote_src: 'yes', mode: '0644' }
+- name : MC ROOT RED INDICATOR
+  become: yes
+  lineinfile:
+    path: '~/.config/mc/ini'
+    regex: '^skin=.*'
+    line: "skin=modarin256-defbg"
+    backrefs: yes
