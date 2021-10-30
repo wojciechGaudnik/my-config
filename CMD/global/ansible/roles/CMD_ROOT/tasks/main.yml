@@ -3,11 +3,6 @@
   user:
     name: '{{ user_name }}'
     shell: /usr/bin/zsh
-- name: GIT PULL MY CONFIG
-  git:
-    repo: 'https://github.com/wojciechGaudnik/my-config.git'
-    dest: '~/.my-config'
-    version: master
 - name: GIT PULL REPOS
   git:
     repo: '{{ item.repo }}'
@@ -31,7 +26,7 @@
     - {path: '~/.vim/colors', state: 'directory', recurse: 'yes'}
     - {path: '~/.vim/undodir', state: 'directory', recurse: 'yes'}
     - {path: '~/.vim/spell', state: 'directory', recurse: 'yes'}
-- name: LINK ZSH FILES
+- name: ZSH LINK FILES
   file:
     src='{{ item.src }}'
     dest='{{ item.dest }}'
@@ -42,7 +37,7 @@
     - {src: '~/.my-config/CMD/global/.p10k.zsh', dest: '~/.p10k.zsh', state: 'link', force: yes}
     - {src: '~/.my-config/CMD/global/.usefulCommands.txt', dest: '~/.usefulCommands.txt', state: 'link', force: yes}
     - {src: '~/.my-config/CMD/global/htoprc', dest: '~/.config/htop/htoprc', state: 'link', force: yes}
-- name: LINK VIM FILES
+- name: VIM LINK FILES
   register: reg_link_vim_files
   file:
     src='{{ item.src }}'
@@ -54,15 +49,6 @@
     - {src: '~/.my-config/CMD/global/.vim/colors/green_dark.vim', dest: '~/.vim/colors/green_dark.vim', state: 'link', force: yes}
     - {src: '~/.my-config/CMD/global/.vim/spell/en.utf-8.add', dest: '~/.vim/spell/en.utf-8.add', state: 'link', force: yes}
     - {src: '~/.my-config/CMD/global/.vim/spell/en.utf-8.add.spl', dest: '~/.vim/spell/en.utf-8.add.spl', state: 'link', force: yes}
-- name: LINK TMUX FILES
-  register: reg_link_tmux_files
-  file:
-    src='{{ item.src }}'
-    dest='{{ item.dest }}'
-    state='{{ item.state }}'
-    force='{{ item.force }}'
-  with_items:
-    - {src: '~/.my-config/CMD/global/.tmux.conf', dest: '~/.tmux.conf', state: 'link', force: yes}
 - name: VIM INSTALL/UPDATE PLUGINS
   when: reg_link_vim_files.changed
   expect:
@@ -74,6 +60,15 @@
 - name: VIM CLEAN PLUGINS
   when: reg_link_vim_files.changed
   shell: vim +PlugClean! +qall
+- name: TMUX LINK FILES
+  register: reg_link_tmux_files
+  file:
+    src='{{ item.src }}'
+    dest='{{ item.dest }}'
+    state='{{ item.state }}'
+    force='{{ item.force }}'
+  with_items:
+    - {src: '~/.my-config/CMD/global/.tmux.conf', dest: '~/.tmux.conf', state: 'link', force: yes}
 - name: TMUX INSTALL PLUGINS
   when: reg_link_tmux_files.changed
   shell: tmux start-server && ~/.tmux/plugins/tpm/scripts/install_plugins.sh
