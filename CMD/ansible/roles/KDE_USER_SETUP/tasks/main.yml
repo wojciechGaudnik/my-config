@@ -1,8 +1,3 @@
-- name: GIT PULL MY CONFIG
-  git:
-    repo: 'https://github.com/wojciechGaudnik/my-config.git'
-    dest: '~/.my-config'
-    version: master
 - name: FONTS COPY
   become: yes
   register: reg_copy_fontsHack
