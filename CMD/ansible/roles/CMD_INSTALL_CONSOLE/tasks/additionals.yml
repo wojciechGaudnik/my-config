@@ -1,9 +1,16 @@
 - name : AUTO JUMP GREEN
-  tags:
-    - mytest
   become: 'yes'
-  lineinfile:
-    path: '/usr/share/autojump/autojump.zsh'
-    regex: '.*echo -e.*033.*31m'
-    line: "                echo -e '\\033[32m${output}\\033[0m'"
-    backrefs: yes
+  replace:
+    path: '{{ item.path }}'
+    regexp: '{{ item.regexp }}'
+    replace: '{{ item.replace }}'
+  with_items:
+    - {path: '/usr/share/autojump/autojump.zsh', regexp: '31', replace: '32'}
+    - {path: '/usr/share/autojump/autojump.bash', regexp: '31', replace: '32'}
+  # lineinfile:
+  #   path: '/usr/share/autojump/autojump.zsh'
+  #   regex: '.*echo -e.*033.*31m'
+  #   line: "                echo -e '\\033[32m${output}\\033[0m'"
+  #   backrefs: yes
+  # tags:
+  #   - mytest
