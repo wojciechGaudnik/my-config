@@ -6,7 +6,12 @@
     force='{{ item.force }}'
     mode='{{ item.mode }}'
   with_items:
-    - {src: '~/.my-config/CMD/bash/usbresetall.sh', dest: '/usr/bin/usbresetall.sh', state: 'link', force: 'yes', mode: '0700'}
+    - {src: '~/.my-config/CMD/bash/saveTilixConf.sh', dest: '/usr/bin/saveTilixConf.sh', state: 'link', force: 'yes', mode: '0700'}
+    - {src: '~/.my-config/CMD/bash/resetNET.sh', dest: '/usr/bin/resetNET.sh', state: 'link', force: 'yes', mode: '0700'}
+    - {src: '~/.my-config/CMD/bash/resetNFS.sh', dest: '/usr/bin/resetNFS.sh', state: 'link', force: 'yes', mode: '0700'}
+    - {src: '~/.my-config/CMD/bash/resetUSB.sh', dest: '/usr/bin/resetUSB.sh', state: 'link', force: 'yes', mode: '0700'}
+    - {src: '~/.my-config/CMD/bash/testBIOSorURFI.sh', dest: '/usr/bin/testBIOSorURFI.sh', state: 'link', force: 'yes', mode: '0700'}
+    - {src: '~/.my-config/CMD/bash/testTrueColorConsole.sh', dest: '/usr/bin/testTrueColorConsole.sh', state: 'link', force: 'yes', mode: '0700'}
 - name: COPY FILES
   copy:
     src='{{ item.src }}'
@@ -15,10 +20,10 @@
     mode='{{ item.mode }}'
   with_items:
     - {src: '~/.my-config/CMD/config/mc/mc.default.keymap', dest: '/etc/mc/mc.default.keymap', remote_src: 'yes', mode: '0644'}
-- name : AUTO JUMP GREEN
-  become: 'yes'
-  lineinfile:
-    path: '/usr/share/autojump/autojump.zsh'
-    regex: '.*echo -e.*033.*31m'
-    line: "                echo -e '\\033[32m${output}\\033[0m'"
-    backrefs: yes
+# - name : AUTO JUMP GREEN
+#   become: 'yes'
+#   lineinfile:
+#     path: '/usr/share/autojump/autojump.zsh'
+#     regex: '.*echo -e.*033.*31m'
+#     line: "                echo -e '\\033[32m${output}\\033[0m'"
+#     backrefs: yes

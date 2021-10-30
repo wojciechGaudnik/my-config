@@ -32,3 +32,5 @@
     url: 'https://raw.githubusercontent.com/thameera/vimv/master/vimv'
     dest: /usr/local/bin/vimv
     mode: '0755'
+- name: ADDITIONAL
+  import_tasks: additionals.yml
