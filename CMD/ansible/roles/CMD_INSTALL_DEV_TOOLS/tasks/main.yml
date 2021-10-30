@@ -1,4 +1,5 @@
 - name: APT INSTALL
+  become: 'yes'
   apt:
     name: "{{ item.source }}"
     state: latest
@@ -14,6 +15,7 @@
     - {source: 'luarocks'}
     - {source: 'lua-busted'}
 - name: PIP INSTALL
+  become: 'yes'
   pip:
     name: "{{ item.source }}"
     state: latest

@@ -1,4 +1,10 @@
+- name: SETUP DEFAULT SHELL
+  become: 'yes'
+  user:
+    name: 'root'
+    shell: /usr/bin/zsh
 - name: LINK FILES
+  become: 'yes'
   file:
     src='{{ item.src }}'
     dest='{{ item.dest }}'
@@ -13,6 +19,7 @@
     - {src: '~/.my-config/CMD/bash/testBIOSorURFI.sh', dest: '/usr/bin/testBIOSorURFI.sh', state: 'link', force: 'yes', mode: '0700'}
     - {src: '~/.my-config/CMD/bash/testTrueColorConsole.sh', dest: '/usr/bin/testTrueColorConsole.sh', state: 'link', force: 'yes', mode: '0700'}
 - name: COPY FILES
+  become: 'yes'
   copy:
     src='{{ item.src }}'
     dest='{{ item.dest }}'
@@ -20,10 +27,10 @@
     mode='{{ item.mode }}'
   with_items:
     - {src: '~/.my-config/CMD/config/mc/mc.default.keymap', dest: '/etc/mc/mc.default.keymap', remote_src: 'yes', mode: '0644'}
-# - name : AUTO JUMP GREEN
-#   become: 'yes'
-#   lineinfile:
-#     path: '/usr/share/autojump/autojump.zsh'
-#     regex: '.*echo -e.*033.*31m'
-#     line: "                echo -e '\\033[32m${output}\\033[0m'"
-#     backrefs: yes
+- name : MC ROOT RED INDICATOR
+  become: yes
+  lineinfile:
+    path: '~/.config/mc/ini'
+    regex: '^skin='
+    line: "skin=modarin256root-defbg"
+    backrefs: yes

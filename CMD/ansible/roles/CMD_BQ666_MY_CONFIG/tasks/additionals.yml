@@ -1,3 +1,8 @@
+- name: SETUP DEFAULT SHELL
+  become: 'yes'
+  user:
+    name: 'bq666'
+    shell: /usr/bin/zsh
 - git_config:
     name: '{{ item.name }}'
     scope: '{{ item.scope }}'

@@ -1,4 +1,5 @@
 - name: APT INSTALL
+  become: 'yes'
   apt:
     name: '{{ item.source }}'
     state: latest

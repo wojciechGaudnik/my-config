@@ -2,23 +2,12 @@
 - hosts: BIG
   user: 'bq666'
   become: 'yes'
-  vars:
-    user_name: 'bq666'
   roles:
-    # - CMD_APT_UPDATE_UPGRADE
-    # - CMD_INSTALL_DEV_TOOLS
-    # - CMD_INSTALL
-    # - CMD_INSTALL_HARDWARE_TOOLS
-    # - CMD_INSTALL_NET_TOOLS
-    # - CMD_INSTALL_HACK
-    - CMD_PULL_MY_CONFIG
-    - role: CMD_PULL_MY_CONFIG
-      become: 'no'
-    - CMD_CONFIG_GLOBAL
-    - role: CMD_ROOT
-      vars:
-        user_name: 'root'
-    - role: CMD_USER
-      become: 'no'
-      vars:
-        user_name: 'bq666'
+    - CMD_APT_UPDATE_UPGRADE
+    - CMD_INSTALL
+    - CMD_INSTALL_DEV_TOOLS
+    - CMD_INSTALL_HARDWARE_TOOLS
+    - CMD_INSTALL_NET_TOOLS
+    - CMD_INSTALL_HACK
+    - CMD_ROOT_MY_CONFIG_GLOBAL
+    - CMD_BQ666_MY_CONFIG

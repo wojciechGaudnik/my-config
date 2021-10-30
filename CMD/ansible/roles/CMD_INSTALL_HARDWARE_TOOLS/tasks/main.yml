@@ -1,9 +1,9 @@
 - name: APT INSTALL
+  become: 'yes'
   apt:
     name: '{{ item.source }}'
     state: latest
   with_items:
-    - {source: 'nvme-cli'}
     - {source: 'iftop'}
     - {source: 'hwinfo'}
     - {source: 'smem'}
@@ -15,7 +15,14 @@
     - {source: 'stress'}
     - {source: 'stress-ng'}
     - {source: 'glmark2'}
+- name: NVME-CLI INSTALL
+  become: 'yes'
+  apt:
+    name: 'nvme-cli'
+    state: latest
+  register: reg_nvme_cli_install
 - name: APT LM_SENSORS INSTALL
+  become: 'yes'
   apt:
     name: 'lm-sensors'
     state: latest

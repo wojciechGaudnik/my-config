@@ -55,6 +55,7 @@ m				Copy, Delete, ...
 <Ctrl>+w +t 			Back to tree
 <Ctrl>+t 			Open/Close tree
 <Ctrl>+n			Switch to home
+<Ctrl>+q			Jump to current file
 Shift+i 			Show/Hide hiden files
 t				Open the selected file in a new tab
 s				Open the selected file in a horizontal split window
