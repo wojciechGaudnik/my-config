@@ -6,16 +6,16 @@
     user_name: 'bq666'
   roles:
     - CMD_APT_UPDATE_UPGRADE
-    - role: CMD_PULL_MY_CONFIG
-      register: reg_cmd_pull_my_config_root
-    - role: CMD_PULL_MY_CONFIG
-      become: 'no'
-      register: reg_cmd_pull_my_config_user
     - CMD_INSTALL_DEV_TOOLS
     - CMD_INSTALL
     - CMD_INSTALL_HARDWARE_TOOLS
     - CMD_INSTALL_NET_TOOLS
     - CMD_INSTALL_HACK
+    - role: CMD_PULL_MY_CONFIG
+      register: reg_cmd_pull_my_config_root
+    - role: CMD_PULL_MY_CONFIG
+      become: 'no'
+      register: reg_cmd_pull_my_config_user
     - CMD_CONFIG_GLOBAL
     - role: CMD_ROOT
       vars:
@@ -24,6 +24,3 @@
       become: 'no'
       vars:
         user_name: 'bq666'
-    # - KDE_INSTALL
-    # - role: KDE_USER_SETUP
-      # become: 'no'
