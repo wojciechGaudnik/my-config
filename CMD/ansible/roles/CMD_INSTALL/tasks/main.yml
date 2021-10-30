@@ -18,11 +18,6 @@
     - {source: 'xclip'}
     - {source: 'cryptsetup'}
     - {source: 'vim'}
-- name: APT LM_SENSORS INSTALL
-  apt:
-    name: 'lm-sensors'
-    state: latest
-  register: reg_lm_sensors_install
 - name: PIP VIM-VINT INSTALL
   pip:
    name: 'vim-vint'

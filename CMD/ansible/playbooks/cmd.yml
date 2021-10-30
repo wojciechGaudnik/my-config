@@ -11,11 +11,9 @@
     # - CMD_INSTALL_HARDWARE_TOOLS
     # - CMD_INSTALL_NET_TOOLS
     # - CMD_INSTALL_HACK
-    - role: CMD_PULL_MY_CONFIG
-      register: reg_cmd_pull_my_config_root
+    - CMD_PULL_MY_CONFIG
     - role: CMD_PULL_MY_CONFIG
       become: 'no'
-      register: reg_cmd_pull_my_config_user
     - CMD_CONFIG_GLOBAL
     - role: CMD_ROOT
       vars:

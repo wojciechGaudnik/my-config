@@ -5,3 +5,14 @@
   with_items:
     - {path: '/usr/sbin/nvme', mode: '4555'}
     - {path: '/sbin/nvme', mode: '4555'}
+- name: LM_SENSORS
+  when: reg_lm_sensors_install.changed
+  become: 'yes'
+  expect:
+    timeout: 60
+    echo: yes
+    command: /sbin/sensors-detect
+    responses:
+      'Do you want to add these lines automatically to /etc/modules? (yes/NO)': 'yes'
+      .*(YES|yes).*: 'Yes'
+      .*ENTER.*: ''

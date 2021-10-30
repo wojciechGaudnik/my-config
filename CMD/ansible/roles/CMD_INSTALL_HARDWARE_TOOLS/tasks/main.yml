@@ -15,5 +15,10 @@
     - {source: 'stress'}
     - {source: 'stress-ng'}
     - {source: 'glmark2'}
+- name: APT LM_SENSORS INSTALL
+  apt:
+    name: 'lm-sensors'
+    state: latest
+  register: reg_lm_sensors_install
 - name: ADDITIONAL
   import_tasks: additionals.yml

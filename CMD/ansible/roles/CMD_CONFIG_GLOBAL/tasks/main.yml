@@ -22,13 +22,3 @@
     regex: '.*echo -e.*033.*31m'
     line: "                echo -e '\\033[32m${output}\\033[0m'"
     backrefs: yes
-- name: LM_SENSORS
-  become: 'yes'
-  expect:
-    timeout: 60
-    echo: yes
-    command: /sbin/sensors-detect
-    responses:
-      'Do you want to add these lines automatically to /etc/modules? (yes/NO)': 'yes'
-      .*(YES|yes).*: 'Yes'
-      .*ENTER.*: ''
