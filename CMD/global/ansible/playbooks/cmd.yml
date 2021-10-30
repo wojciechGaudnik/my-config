@@ -11,16 +11,16 @@
     - role: CMD_PULL_MY_CONFIG
       become: 'no'
       register: reg_cmd_pull_my_config_user
-    - CMD_DEV_TOOLS_INSTALL
+    - CMD_INSTALL_DEV_TOOLS
     - CMD_INSTALL
-    - CMD_GLOBAL_SETUP
-    - CMD_HARDWARE_TOOLS
-    - CMD_NET_TOOLS
-    - CMD_HACK
-    - role: CMD_ROOT
+    - CMD_INSTALL_HARDWARE_TOOLS
+    - CMD_INSTALL_NET_TOOLS
+    - CMD_INSTALL_HACK
+    - CMD_CONFIG_GLOBAL
+    - role: CMD_CONFIG_ROOT
       vars:
         user_name: 'root'
-    - role: CMD_USER
+    - role: CMD_CONFIG_USER
       become: 'no'
       vars:
         user_name: 'bq666'
