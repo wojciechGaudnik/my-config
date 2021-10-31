@@ -1,0 +1,14 @@
+- name: CHROME TEST EXISTS
+  stat:
+    path: '/etc/apt/sources.list.d/google-chrome.list'
+  register: reg_chrome
+# - name: CHROME ADD KEY
+#     shell: wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+#     when: reg_chrome.exists
+# - name: CHROME ADD REPO
+#     copy: content='deb http://dl.google.com/linux/chrome/deb/ stable main' dest= owner=root group=root mode=644
+#     when: reg_chrome.exists
+# - name: UPDATE APT CACHE
+#     apt: update_cache = 'yes'
+# - name: Install Google Chrome
+#     apt: pkg=google-chrome-stable state=installed

@@ -1,5 +1,5 @@
 ---
-- hosts: KDE_HOSTS
+- hosts: VBK
   user: 'bq666'
   vars:
     user_name: 'bq666'

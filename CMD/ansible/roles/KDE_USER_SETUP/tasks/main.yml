@@ -43,6 +43,10 @@
     - {src: '~/.my-config/KDE/.local/share/konsole/ZSH.profile', dest: '~/.local/share/konsole/ZSH.profile', remote_src: 'yes'}
     - {src: '~/.my-config/KDE/.config/kglobalshortcutsrc', dest: '~/.config/kglobalshortcutsrc', remote_src: 'yes'}
     - {src: '~/.my-config/KDE/.config/khotkeysrc', dest: '~/.config/khotkeysrc', remote_src: 'yes'}
+    - {src: '~/.my-config/KDE/.local/share/wallpapers/left.png', dest: '~/.local/share/wallpapers/left.png', remote_src: 'yes'}
+    - {src: '~/.my-config/KDE/.local/share/wallpapers/center.jpg', dest: '~/.local/share/wallpapers/center.jpg', remote_src: 'yes'}
+    - {src: '~/.my-config/KDE/.local/share/wallpapers/right.jpg', dest: '~/.local/share/wallpapers/right.jpg', remote_src: 'yes'}
+    - {src: '~/.my-config/KDE/.local/share/wallpapers/top.jpg', dest: '~/.local/share/wallpapers/top.jpg', remote_src: 'yes'}
 - name: TILIX CONFIG
   when: reg_user_git_pull_config_repo.changed
   shell: 'dconf load /com/gexperts/Tilix/ <~/.my-config/KDE/tilix/tilix.dconf'

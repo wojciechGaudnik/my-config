@@ -6,3 +6,5 @@
   with_items:
     - {source: 'tilix'}
     - {source: 'dconf-cli'}
+- name: CHROME INSTALL
+  import_tasks: chrome_install.yml
