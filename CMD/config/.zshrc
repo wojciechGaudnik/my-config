@@ -160,7 +160,7 @@ function on(){
 	sleep 2
 	wakeonlan $OLD_MAC
 	piactl connect
-	mount -t nfs NAS:/mnt/NEW_DISKS/Plex /mnt/NAS_Plex
+	mount -t nfs -o soft NAS:/mnt/NEW_DISKS/Plex /mnt/NAS_Plex
 	# mount -t nfs NAS:/mnt/NEW_DISKS/Storage /mnt/NAS_Storage
 	apt update; apt -y upgrade
 }
