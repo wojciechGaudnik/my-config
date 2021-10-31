@@ -1,3 +1,10 @@
+- name: GIT PULL MY CONFIG REPO
+  become: 'no'
+  git:
+    repo: 'git@github.com:wojciechGaudnik/my-config.git'
+    dest: '~/.my-config'
+    version: master
+  register: reg_user_git_pull_config_repo
 - name: FONTS COPY
   become: yes
   register: reg_copy_fontsHack
@@ -37,4 +44,5 @@
     - {src: '~/.my-config/KDE/.config/kglobalshortcutsrc', dest: '~/.config/kglobalshortcutsrc', remote_src: 'yes'}
     - {src: '~/.my-config/KDE/.config/khotkeysrc', dest: '~/.config/khotkeysrc', remote_src: 'yes'}
 - name: TILIX CONFIG
+  when: reg_user_git_pull_config_repo.changed
   shell: 'dconf load /com/gexperts/Tilix/ <~/.my-config/KDE/tilix/tilix.dconf'
