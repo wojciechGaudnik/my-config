@@ -11,4 +11,4 @@ cp ~/.config/conky/.conky.conf ~/.my-config/KDE/.config/conky/
 cp ~/.config/solaar/config.json ~/.my-config/KDE/.config/solaar/
 # AUTO START
 cp ~/.config/autostart/com.gexperts.tilix.desktop ~/.my-config/KDE/.config/autostart/
-cp ~/.config/autostart-scripts/conky-startup.sh ~/.my-config/KDE/.config/solaar/
+cp ~/.config/autostart-scripts/conky-startup.sh ~/.my-config/KDE/.config/conky/
