@@ -30,3 +30,14 @@
   file:
     state: absent
     path: ~/.my-config-tmp
+- name: RUN APC SYSTEMCLT
+  become: 'yes'
+  when: reg_apc_install.changed
+  systemd:
+    name: apcupsd.service
+    state: started
+- name: TEST APC RUN
+  become: 'yes'
+  shell: apcaccess status
+  register: reg_apc_status
+
