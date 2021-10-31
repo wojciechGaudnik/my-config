@@ -1,3 +1,5 @@
+- name: ADDITIONAL
+  import_tasks: additionals.yml
 - name: APT INSTALL
   become: 'yes'
   apt:
@@ -6,5 +8,4 @@
   with_items:
     - {source: 'tilix'}
     - {source: 'dconf-cli'}
-- name: CHROME INSTALL
-  import_tasks: chrome_install.yml
+    - {source: 'chrome'}
