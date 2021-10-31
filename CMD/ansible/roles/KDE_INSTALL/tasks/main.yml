@@ -6,7 +6,8 @@
     name: "{{ item.source }}"
     state: latest
   with_items:
+    - {source: 'ttf-mscorefonts-installer'}
     - {source: 'tilix'}
     - {source: 'dconf-cli'}
+    - {source: 'conky-all'}
     - {source: 'google-chrome-stable'}
-    - {source: 'ttf-mscorefonts-installer'}

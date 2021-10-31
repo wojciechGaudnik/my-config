@@ -1,0 +1,7 @@
+- name: COPY FILES
+  copy:
+    src: '{{ item.src }}'
+    dest: '{{ item.dest }}'
+    remote_src: '{{ item.remote_src }}'
+  with_items:
+    - {src: '~/.my-config/KDE/.config/autostart/com.gexperts.tilix.desktop', dest: '~/.config/autostart/', remote_src: 'yes'}

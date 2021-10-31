@@ -1,0 +1,38 @@
+[Desktop Action new-session]
+Exec=tilix --action=app-new-session
+Name=New Session
+
+[Desktop Action new-window]
+Exec=tilix --action=app-new-window
+Name=New Window
+
+[Desktop Action preferences]
+Exec=tilix --preferences
+Name=Preferences
+
+[Desktop Entry]
+Actions=new-window;new-session;preferences;
+Categories=System;TerminalEmulator;X-GNOME-Utilities;
+Comment[en_US]=A tiling terminal for Gnome
+Comment=A tiling terminal for Gnome
+DBusActivatable=true
+Exec=tilix -q
+GenericName[en_US]=
+GenericName=
+Icon=com.gexperts.Tilix
+Keywords=shell;prompt;command;commandline;cmd;
+MimeType=
+Name[en_US]=Tilix
+Name=Tilix
+OnlyShowIn=KDE;
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+Version=1.0
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=
+X-Ubuntu-Gettext-Domain=tilix
