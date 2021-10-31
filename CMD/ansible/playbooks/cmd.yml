@@ -1,5 +1,5 @@
 ---
-- hosts: ALL
+- hosts: VBK
   user: 'bq666'
   roles:
     - CMD_APT_UPDATE_UPGRADE
@@ -10,3 +10,5 @@
     - CMD_INSTALL_HACK
     - CMD_ROOT_MY_CONFIG_GLOBAL
     - CMD_BQ666_MY_CONFIG
+    - role: CMD_WGAUDNIK_MY_CONFIG
+      user: 'wgaudnik'
