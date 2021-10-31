@@ -12,7 +12,6 @@
     force='{{ item.force }}'
     mode='{{ item.mode }}'
   with_items:
-    - {src: '~/.my-config/CMD/bash/saveTilixConf.sh', dest: '/usr/bin/saveTilixConf.sh', state: 'link', force: 'yes', mode: '0700'}
     - {src: '~/.my-config/CMD/bash/resetNET.sh', dest: '/usr/bin/resetNET.sh', state: 'link', force: 'yes', mode: '0700'}
     - {src: '~/.my-config/CMD/bash/resetNFS.sh', dest: '/usr/bin/resetNFS.sh', state: 'link', force: 'yes', mode: '0700'}
     - {src: '~/.my-config/CMD/bash/resetUSB.sh', dest: '/usr/bin/resetUSB.sh', state: 'link', force: 'yes', mode: '0700'}

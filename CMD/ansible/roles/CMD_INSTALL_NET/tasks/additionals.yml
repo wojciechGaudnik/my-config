@@ -9,9 +9,10 @@
 - name: GIT PULL MY CONFIG REPO
   become: 'yes'
   when: reg_vnstat_install.changed
+  register: reg_temp_my_config
   git:
     repo: 'git@github.com:wojciechGaudnik/my-config.git'
-    dest: '~/.my-config'
+    dest: '~/.my-config-tmp'
     version: master
 - name: VNSTAT SETUP
   become: 'yes'
@@ -22,10 +23,11 @@
     remote_src='{{ item.remote_src }}'
     mode='{{ item.mode }}'
   with_items:
-    - {src: '~/.my-config/CMD/config/vnstat/etc/vnstat.conf', dest: '/etc/vnstat.conf', remote_src: 'yes', mode: '0644' }
-    - {src: '~/.my-config/CMD/config/vnstat/var/lib/vnstat/vnstat.db', dest: '/var/lib/vnstat/vnstat.db', remote_src: 'yes', mode: '0644' }
-- name: REMOVE MY CONFIG AFTER VNSTAT INSTALLATION:
+    - {src: '~/.my-config-tmp/CMD/config/vnstat/etc/vnstat.conf', dest: '/etc/vnstat.conf', remote_src: 'yes', mode: '0644' }
+    - {src: '~/.my-config-tmp/CMD/config/vnstat/var/lib/vnstat/vnstat.db', dest: '/var/lib/vnstat/vnstat.db', remote_src: 'yes', mode: '0644' }
+- name: REMOVE MY CONFIG AFTER VNSTAT INSTALLATION
   become: 'yes'
+  when: reg_temp_my_config.changed
   file:
     state: absent
-    path: ~/.my-config
+    path: ~/.my-config-tmp
