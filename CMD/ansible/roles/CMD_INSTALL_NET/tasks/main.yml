@@ -12,5 +12,5 @@
     - {source: 'nmap'}
     - {source: 'whois'}
     - {source: 'tshark'}
-# - name: ADDITIONAL
-  # import_tasks: additionals.yml
+- name: ADDITIONAL
+  import_tasks: additionals.yml
