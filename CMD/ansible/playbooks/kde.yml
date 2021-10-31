@@ -1,11 +1,16 @@
 ---
-- hosts: VBK
+- hosts: KDE_HOSTS
   user: 'bq666'
   vars:
     user_name: 'bq666'
   roles:
     - KDE_INSTALL
     - KDE_USER_SETUP
+    #
+    #
+    #
+    #
+    #
     # - CMD_INSTALL_DEV_TOOLS
     # - CMD_INSTALL
     # - CMD_INSTALL_HARDWARE_TOOLS
