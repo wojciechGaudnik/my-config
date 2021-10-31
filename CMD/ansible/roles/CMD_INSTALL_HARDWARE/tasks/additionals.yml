@@ -16,5 +16,8 @@
     command: '/sbin/sensors-detect'
     responses:
       'Do you want to add these lines automatically to /etc/modules? (yes/NO)': 'yes'
-      .*(YES/no).*: 'YES'
-      .*ENTER.*: ''
+      '.*(YES/no).*': 'YES'
+      '.*(yes/NO).*': 'NO'
+      '(YES/no/selectively)': 'YES'
+      '(yes/NO/selectively)': 'NO'
+      '.*ENTER.*': ''

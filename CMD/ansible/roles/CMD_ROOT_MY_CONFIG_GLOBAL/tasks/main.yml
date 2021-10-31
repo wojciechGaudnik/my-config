@@ -6,7 +6,7 @@
     repo: 'git@github.com:wojciechGaudnik/my-config.git'
     dest: '~/.my-config'
     version: master
-  # register: reg_root_git_pull_config_repo
+  register: reg_root_git_pull_config_repo
 - name: GIT PULL REPOS
   become: 'yes'
   git:
@@ -34,7 +34,7 @@
     - {path: '~/.vim/spell', state: 'directory', recurse: 'yes'}
 - name: MC COPY FILES
   become: 'yes'
-  # when: reg_root_git_pull_config_repo.changed
+  when: reg_root_git_pull_config_repo.changed
   copy:
     src='{{ item.src }}'
     dest='{{ item.dest }}'
@@ -45,7 +45,7 @@
     - {src: '~/.my-config/CMD/config/mc/panels.ini', dest: '~/.config/mc/panels.ini', remote_src: 'yes', mode: '0644' }
 - name: ZSH LINK FILES
   become: 'yes'
-  # when: reg_root_git_pull_config_repo.changed
+  when: reg_root_git_pull_config_repo.changed
   file:
     src='{{ item.src }}'
     dest='{{ item.dest }}'
@@ -58,7 +58,7 @@
     - {src: '~/.my-config/CMD/config/htoprc', dest: '~/.config/htop/htoprc', state: 'link', force: 'yes'}
 - name: VIM LINK FILES
   become: 'yes'
-  # when: reg_root_git_pull_config_repo.changed
+  when: reg_root_git_pull_config_repo.changed
   file:
     src='{{ item.src }}'
     dest='{{ item.dest }}'
@@ -71,7 +71,7 @@
     - {src: '~/.my-config/CMD/config/.vim/spell/en.utf-8.add.spl', dest: '~/.vim/spell/en.utf-8.add.spl', state: 'link', force: 'yes'}
 - name: VIM INSTALL/UPDATE PLUGINS
   become: 'yes'
-  # when: reg_root_git_pull_config_repo.changed
+  when: reg_root_git_pull_config_repo.changed
   expect:
     timeout: 60
     echo: 'yes'
@@ -80,7 +80,7 @@
       .*ENTER.*: ""
 - name: VIM CLEAN PLUGINS
   become: 'yes'
-  # when: reg_root_git_pull_config_repo.changed
+  when: reg_root_git_pull_config_repo.changed
   shell: vim +PlugClean! +qall
 - name: TMUX LINK FILES
   become: 'yes'
@@ -93,15 +93,15 @@
     - {src: '~/.my-config/CMD/config/.tmux.conf', dest: '~/.tmux.conf', state: 'link', force: 'yes'}
 - name: TMUX INSTALL PLUGINS
   become: 'yes'
-  # when: reg_root_git_pull_config_repo.changed
+  when: reg_root_git_pull_config_repo.changed
   shell: tmux start-server && ~/.tmux/plugins/tpm/scripts/install_plugins.sh
 - name: TMUX UPDATE PLUGINS
   become: 'yes'
-  # when: reg_root_git_pull_config_repo.changed
+  when: reg_root_git_pull_config_repo.changed
   shell: tmux start-server && ~/.tmux/plugins/tpm/scripts/update_plugin.sh
 - name: TMUX CLEAN PLUGINS
   become: 'yes'
-  # when: reg_root_git_pull_config_repo.changed
+  when: reg_root_git_pull_config_repo.changed
   shell: tmux start-server && ~/.tmux/plugins/tpm/scripts/clean_plugins.sh
 - name: ADDITIONAL
   import_tasks: additionals.yml
