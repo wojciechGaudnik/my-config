@@ -39,6 +39,7 @@
     - {src: '~/.my-config/KDE/.config/khotkeysrc', dest: '~/.config/khotkeysrc', remote_src: 'yes'}
     - {src: '~/.my-config/KDE/.config/conky/.conky.conf', dest: '~/.config/conky/', remote_src: 'yes'}
     - {src: '~/.my-config/KDE/.config/conky/conky-startup.sh', dest: '~/.config/conky/conky-startup.sh', remote_src: 'yes'}
+    - {src: '~/.my-config/KDE/.config/solaar/config.json', dest: '~/.config/solaar/', remote_src: 'yes'}
 - name: COPY WALLPAPERS
   import_tasks: wallpapers.yml
 - name: COPY AUTO START FILES
