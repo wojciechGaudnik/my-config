@@ -9,7 +9,6 @@
 - name: GIT PULL MY CONFIG REPO
   become: 'yes'
   when: reg_apc_install.changed
-  register: reg_temp_my_config
   git:
     repo: 'git@github.com:wojciechGaudnik/my-config.git'
     dest: '~/.my-config-tmp'
@@ -26,7 +25,7 @@
     - {src: '~/.my-config-tmp/CMD/config/apc/etc/apcupsd/apcupsd.conf', dest: '/etc/apcupsd/apcupsd.conf', remote_src: 'yes', mode: '0644' }
 - name: REMOVE MY CONFIG AFTER VNSTAT INSTALLATION
   become: 'yes'
-  when: reg_temp_my_config.changed
+  when: reg_apc_install.changed
   file:
     state: absent
     path: ~/.my-config-tmp
@@ -36,8 +35,16 @@
   systemd:
     name: apcupsd.service
     state: started
-- name: TEST APC RUN
+- name: PAUSE
+  local_action: pause seconds=10
+  when: reg_apc_install.changed
+- name: RUN TEST
   become: 'yes'
-  shell: apcaccess status
-  register: reg_apc_status
-
+  shell: 'apcaccess status'
+  register: reg_apc_test
+- name: CHECK TEST
+  assert:
+    that:
+      - reg_apc_test is search('ONLINE')
+    fail_msg: 'UPC ERROR'
+    success_msg: 'UPC OK'
