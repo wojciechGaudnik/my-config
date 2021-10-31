@@ -8,4 +8,5 @@
   with_items:
     - {source: 'tilix'}
     - {source: 'dconf-cli'}
-    - {source: 'chrome'}
+    - {source: 'google-chrome-stable'}
+    - {source: 'ttf-mscorefonts-installer'}
