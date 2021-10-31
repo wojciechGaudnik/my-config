@@ -1,5 +1,5 @@
 ---
-- hosts: BIG
+- hosts: VBK
   user: 'bq666'
   roles:
     # - CMD_APT_UPDATE_UPGRADE
