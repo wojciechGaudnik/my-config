@@ -11,3 +11,4 @@
     - {source: 'dconf-cli'}
     - {source: 'conky-all'}
     - {source: 'google-chrome-stable'}
+    - {source: 'solaar'}

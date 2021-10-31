@@ -3,11 +3,14 @@
   apt_key:
     url: 'https://dl.google.com/linux/linux_signing_key.pub'
     state: present
-- name: CHROME ADD REPO
+- name: ADD ADDITIONAL REPOTS
   become: 'yes'
   apt_repository:
-    repo: 'deb http://dl.google.com/linux/chrome/deb/ stable main'
-    state: present
+    repo: '{{ item.repo }}'
+    state: '{{ item.state }}'
+  with_items:
+    - {repo: 'deb http://dl.google.com/linux/chrome/deb/ stable main', state: 'present' }
+    - {repo: 'ppa:solaar-unifying/ppa', state: 'present' }
 - name: APT UPDATE AND UPGRADE
   become: 'yes'
   apt:
