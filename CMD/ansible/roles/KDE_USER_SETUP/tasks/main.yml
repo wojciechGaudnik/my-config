@@ -17,12 +17,12 @@
   command:
     cmd: '/bin/fc-cache -f'
 # - name: DELETE/CREATE FILES/DIRECTORY
-#   file:
-#     path: '{{ item.path }}'
-#     state: '{{ item.state }}'
-#   with_items:
-#     - {path: '~/.local/share/konsole/', state: 'absent'}
-#     - {path: '~/.local/share/konsole/', state: 'directory'}
+  # file:
+    # path: '{{ item.path }}'
+    # state: '{{ item.state }}'
+  # with_items:
+    # - {path: '~/.local/share/konsole/', state: 'directory'}
+    # - {path: '~/.local/share/konsole/', state: 'absent'}
 # - name: LINK FILES
 #   file:
 #     src='{{ item.src }}'
@@ -50,3 +50,5 @@
 - name: TILIX CONFIG
   when: reg_user_git_pull_config_repo.changed
   shell: 'dconf load /com/gexperts/Tilix/ <~/.my-config/KDE/tilix/tilix.dconf'
+- name: COPY WALLPAPERS
+  import_tasks: wallpapers.yml

@@ -1,0 +1,18 @@
+- name: CREATE WALLPAPERS DIRECTORY
+  become: 'yes'
+  file:
+    path: '{{ item.path }}'
+    state: '{{ item.state }}'
+  with_items:
+    - {path: '/usr/share/wallpapers/MyWallpapers', state: 'directory'}
+- name: COPY WALLPAPERS
+  become: 'yes'
+  copy:
+    src: '{{ item.src }}'
+    dest: '{{ item.dest }}'
+    remote_src: '{{ item.remote_src }}'
+  with_items:
+    - {src: '~/.my-config/KDE/.local/share/wallpapers/left.png', dest: '/usr/share/wallpapers/MyWallpapers/left.png', remote_src: 'yes'}
+    - {src: '~/.my-config/KDE/.local/share/wallpapers/center.jpg', dest: '/usr/share/wallpapers/MyWallpapers/center.jpg', remote_src: 'yes'}
+    - {src: '~/.my-config/KDE/.local/share/wallpapers/right.jpg', dest: '/usr/share/wallpapers/MyWallpapers/right.jpg', remote_src: 'yes'}
+    - {src: '~/.my-config/KDE/.local/share/wallpapers/top.jpg', dest: '/usr/share/wallpapers/MyWallpapers/top.jpg', remote_src: 'yes'}
