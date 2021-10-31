@@ -5,7 +5,7 @@
     user_name: 'bq666'
   roles:
     - KDE_INSTALL
-    # - KDE_USER_SETUP
+    - KDE_USER_SETUP
     #
     #
     #

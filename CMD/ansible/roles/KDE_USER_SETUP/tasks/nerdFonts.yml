@@ -1,0 +1,11 @@
+- name: FONTS COPY
+  become: yes
+  register: reg_copy_fontsHack
+  copy:
+    src: '~/.my-config/KDE/fonts_hack/'
+    dest: '/usr/share/fonts/'
+    remote_src: 'yes'
+- name: FONTS CONFIG
+  when: reg_copy_fontsHack.changed
+  command:
+    cmd: '/bin/fc-cache -f'

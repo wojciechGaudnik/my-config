@@ -11,37 +11,21 @@
     dest: '~/.my-config'
     version: master
   register: reg_user_git_pull_config_repo
-- name: FONTS COPY
-  become: yes
-  register: reg_copy_fontsHack
-  copy:
-    src: '~/.my-config/KDE/fonts_hack/'
-    dest: '/usr/share/fonts/'
-    remote_src: 'yes'
-- name: FONTS CONFIG
-  when: reg_copy_fontsHack.changed
-  command:
-    cmd: '/bin/fc-cache -f'
-- name: TILIX CONFIG
-  when: reg_user_git_pull_config_repo.changed
-  shell: 'dconf load /com/gexperts/Tilix/ <~/.my-config/KDE/tilix/tilix.dconf'
-# - name: DELETE/CREATE FILES/DIRECTORY
-  # file:
-    # path: '{{ item.path }}'
-    # state: '{{ item.state }}'
-  # with_items:
-    # - {path: '~/.local/share/konsole/', state: 'directory'}
+- name: DELETE/CREATE FILES/DIRECTORY
+  file:
+    path: '{{ item.path }}'
+    state: '{{ item.state }}'
+  with_items:
+    - {path: '~/.config/conky/', state: 'directory'}
     # - {path: '~/.local/share/konsole/', state: 'absent'}
-# - name: LINK FILES
-#   file:
-#     src='{{ item.src }}'
-#     dest='{{ item.dest }}'
-#     state='{{ item.state }}'
-#     force='{{ item.force }}'
-#   with_items:
-#     - {src: '~/.my-config/KDE/.config/konsolerc', dest: '~/.config/konsolerc', state: 'file', force: 'yes'}
-#     - {src: '~/.my-config/KDE/.local/share/konsole/ZSH.profile', dest: '~/.local/share/konsole/ZSH.profile', state: 'file', force: 'yes'}
-#
+ - name: LINK FILES
+   file:
+     src='{{ item.src }}'
+     dest='{{ item.dest }}'
+     state='{{ item.state }}'
+     force='{{ item.force }}'
+   with_items:
+     - {src: '~/.my-config/KDE/.config/conky/conky-startup.sh', dest: '~/.config/autostart-scripts/', state: 'file', force: 'yes'}
 - name: COPY FILES
   copy:
     src: '{{ item.src }}'
@@ -52,7 +36,10 @@
     - {src: '~/.my-config/KDE/.local/share/konsole/ZSH.profile', dest: '~/.local/share/konsole/ZSH.profile', remote_src: 'yes'}
     - {src: '~/.my-config/KDE/.config/kglobalshortcutsrc', dest: '~/.config/kglobalshortcutsrc', remote_src: 'yes'}
     - {src: '~/.my-config/KDE/.config/khotkeysrc', dest: '~/.config/khotkeysrc', remote_src: 'yes'}
+    - {src: '~/.my-config/KDE/.config/conky/.conky.conf', dest: '~/.config/conky/', remote_src: 'yes'}
 - name: COPY WALLPAPERS
   import_tasks: wallpapers.yml
 - name: COPY AUTO START FILES
   import_tasks: autostart.yml
+- name: SETUP NERD FONTS
+  import_tasks: nerdFonts.yml

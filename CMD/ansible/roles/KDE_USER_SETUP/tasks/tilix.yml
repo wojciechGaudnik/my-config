@@ -1,0 +1,3 @@
+- name: TILIX CONFIG
+  when: reg_user_git_pull_config_repo.changed
+  shell: 'dconf load /com/gexperts/Tilix/ <~/.my-config/KDE/tilix/tilix.dconf'
