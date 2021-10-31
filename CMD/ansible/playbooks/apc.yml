@@ -1,0 +1,6 @@
+---
+# - hosts: APC_HOSTS
+- hosts: OLD
+  user: 'bq666'
+  roles:
+    - APC_INSTALL
