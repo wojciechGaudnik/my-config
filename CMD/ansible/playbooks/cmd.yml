@@ -11,4 +11,4 @@
     # - CMD_ROOT_MY_CONFIG_GLOBAL
     # - CMD_BQ666_MY_CONFIG
     - role: CMD_WGAUDNIK_MY_CONFIG
-      user: 'wgaudnik'
+      remote_user: 'wgaudnik'

@@ -1,7 +1,7 @@
 - name: SETUP DEFAULT SHELL
   become: 'yes'
   user:
-    name: 'wgaudnika'
+    name: 'wgaudnik'
     shell: /usr/bin/zsh
 - git_config:
     name: '{{ item.name }}'
