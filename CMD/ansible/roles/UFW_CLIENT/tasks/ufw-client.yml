@@ -1,0 +1,5 @@
+- name: UFW ENABLE
+  become: 'no'
+  ufw:
+    state: 'enabled'
+    policy: 'deny'
