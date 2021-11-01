@@ -1,11 +1,11 @@
-- name: CREATE WALLPAPERS DIRECTORY
+- name: WALLPAPERS DIRECTORY CREATE
   become: 'yes'
   file:
     path: '{{ item.path }}'
     state: '{{ item.state }}'
   with_items:
     - {path: '/usr/share/wallpapers/MyWallpapers', state: 'directory'}
-- name: COPY WALLPAPERS
+- name: WALLPAPERS COPY
   become: 'yes'
   copy:
     src: '{{ item.src }}'

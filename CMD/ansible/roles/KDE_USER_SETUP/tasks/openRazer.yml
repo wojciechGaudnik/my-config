@@ -1,6 +1,6 @@
 - name: ADDING EXISTING USER "{{ ansible_user }}" TO GROUP SUDO
-   user:
-     name: "{{ ansible_user }}"
-     groups: plugdev
-     append: yes
-   become: yes
+  become: yes
+  user:
+    name: "{{ ansible_user }}"
+    groups: plugdev
+    append: yes
