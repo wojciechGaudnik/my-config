@@ -12,7 +12,8 @@
     dest: '{{ item.dest }}'
     remote_src: '{{ item.remote_src }}'
   with_items:
-    - {src: '~/.my-config/KDE/.local/share/wallpapers/left.png', dest: '/usr/share/wallpapers/MyWallpapers/left.png', remote_src: 'yes'}
-    - {src: '~/.my-config/KDE/.local/share/wallpapers/center.jpg', dest: '/usr/share/wallpapers/MyWallpapers/center.jpg', remote_src: 'yes'}
-    - {src: '~/.my-config/KDE/.local/share/wallpapers/right.jpg', dest: '/usr/share/wallpapers/MyWallpapers/right.jpg', remote_src: 'yes'}
-    - {src: '~/.my-config/KDE/.local/share/wallpapers/top.jpg', dest: '/usr/share/wallpapers/MyWallpapers/top.jpg', remote_src: 'yes'}
+    - {src: '~/.my-config/KDE/.local/share/wallpapers/left.png', dest: '/usr/share/wallpapers/MyWallpapers/', remote_src: 'yes'}
+    - {src: '~/.my-config/KDE/.local/share/wallpapers/center.jpg', dest: '/usr/share/wallpapers/MyWallpapers/', remote_src: 'yes'}
+    - {src: '~/.my-config/KDE/.local/share/wallpapers/right.jpg', dest: '/usr/share/wallpapers/MyWallpapers/', remote_src: 'yes'}
+    - {src: '~/.my-config/KDE/.local/share/wallpapers/top.jpg', dest: '/usr/share/wallpapers/MyWallpapers/', remote_src: 'yes'}
+    - {src: '~/.my-config/KDE/.local/share/wallpapers/login.jpg', dest: '/usr/share/wallpapers/MyWallpapers/', remote_src: 'yes'}
