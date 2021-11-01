@@ -42,6 +42,8 @@
     - {src: '~/.my-config/KDE/.config/solaar/config.json', dest: '~/.config/solaar/', remote_src: 'yes'}
     - {src: '~/.my-config/KDE/.config/libreoffice/4/user/registrymodifications.xcu', dest: '~/.config/libreoffice/4/user/', remote_src: 'yes'}
     - {src: '~/.my-config/KDE/.config/libreoffice/4/user/basic/Standard/Module1.xba', dest: '~/.config/libreoffice/4/user/basic/Standard/', remote_src: 'yes'}
+    - {src: '~/.my-config/KDE/.config/katerc', dest: '~/.config/', remote_src: 'yes'}
+    - {src: '~/.my-config/KDE/.config/dolphinrc', dest: '~/.config/', remote_src: 'yes'}
 - name: WALLPAPERS COPY
   import_tasks: wallpapers.yml
 - name: AUTO START FILES COPY

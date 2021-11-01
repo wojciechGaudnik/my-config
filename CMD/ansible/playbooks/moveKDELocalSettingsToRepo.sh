@@ -11,6 +11,8 @@ cp ~/.config/conky/.conky.conf ~/.my-config/KDE/.config/conky/
 cp ~/.config/solaar/config.json ~/.my-config/KDE/.config/solaar/
 cp ~/.config/libreoffice/4/user/registrymodifications.xcu ~/.my-config/KDE/.config/libreoffice/4/user/
 cp ~/.config/libreoffice/4/user/basic/Standard/Module1.xba ~/.my-config/KDE/.config/libreoffice/4/user/basic/Standard/
+cp ~/.config/katerc ~/.my-config/KDE/.config/
+cp ~/.config/dolphinrc ~/.my-config/KDE/.config/
 
 # AUTO START
 cp ~/.config/autostart/com.gexperts.tilix.desktop ~/.my-config/KDE/.config/autostart/

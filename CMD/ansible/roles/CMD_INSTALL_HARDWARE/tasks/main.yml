@@ -15,6 +15,7 @@
     - {source: 'stress'}
     - {source: 'stress-ng'}
     - {source: 'glmark2'}
+    - {source: 'radeontop'}
 - name: NVME-CLI INSTALL
   become: 'yes'
   apt:
