@@ -12,3 +12,6 @@
     - {source: 'conky-all'}
     - {source: 'google-chrome-stable'}
     - {source: 'solaar'}
+    - {source: 'thunderbird'}
+    - {source: 'thunderbird-locale-en'}
+    - {source: 'thunderbird-locale-en-us'}
