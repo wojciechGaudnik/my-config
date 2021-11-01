@@ -1,5 +1,27 @@
-- name: UFW ENABLE
+- name: UFW POLICY DENY
   become: 'yes'
-  community.general.uf:
-    state: enabled
-    policy: deny
+  ufw:
+    state: 'enabled'
+    policy: 'deny'
+- name: UFW LOGGING ENABLE
+  become: 'yes'
+  ufw:
+    logging: 'on'
+- name: UFW SSH ALLOW
+  become: 'yes'
+  ufw:
+    rule: 'allow'
+    name: OpenSSH
+- name: TEST WAKE ON LAN
+  become: 'yes'
+  register: reg_wake_on_lan_test
+  shell: 'cat /sys/class/net/{{ inter.device }}/device/power/wakeup'
+  changed_when: false
+- name: SET WAKE ON LAN
+  become: 'yes'
+  shell: "ethtool --change {{ inter.device }} wol g"
+  when: reg_wake_on_lan_test.stdout == 'disabled'
+# - debug: var=inter.device
+# - debug: var=reg_wake_on_lan_test.stdout
+# - debug: var=reg_wake_on_lan_test.stdout_lines
+

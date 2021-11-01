@@ -1,5 +1,5 @@
 ---
-- hosts: VBK
+- hosts: OLD
   user: 'bq666'
   roles:
     # - CMD_APT_UPDATE_UPGRADE
@@ -12,5 +12,10 @@
     # - CMD_BQ666_MY_CONFIG
     # - role: CMD_WGAUDNIK_MY_CONFIG
       # remote_user: 'wgaudnik'
-    - UFW_CLIENT
+      - role: UFW_CLIENT
+        vars:
+          ip_addr: "{{ ansible_default_ipv4.address }}"
+          all_inter: "{{ ansible_facts | dict2items | selectattr('value.ipv4', 'defined') | map(attribute='value') | list }}"
+          inter: "{{ all_inter | selectattr('ipv4.address', 'equalto', ip_addr) | first }}"
+
     # - UFW_SERVER
