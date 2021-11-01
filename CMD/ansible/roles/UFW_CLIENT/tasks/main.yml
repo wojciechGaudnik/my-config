@@ -1,0 +1,5 @@
+- name: UFW ENABLE
+  become: 'yes'
+  community.general.uf:
+    state: enabled
+    policy: deny
