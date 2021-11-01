@@ -18,6 +18,7 @@
   with_items:
     - {path: '~/.config/conky/', state: 'directory'}
     - {path: '~/.config/autostart-scripts/', state: 'directory'}
+    - {path: '~/.config/solaar/', state: 'directory'}
     # - {path: '~/.local/share/konsole/', state: 'absent'}
 - name: LINK FILES
   file:

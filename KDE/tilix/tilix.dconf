@@ -24,7 +24,7 @@ theme-variant='dark'
 unsafe-paste-alert=false
 warn-vte-config-issue=false
 window-save-state=true
-window-state=128
+window-state=132
 window-style='disable-csd'
 
 [keybindings]
