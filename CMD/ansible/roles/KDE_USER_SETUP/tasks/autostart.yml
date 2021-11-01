@@ -5,3 +5,5 @@
     remote_src: '{{ item.remote_src }}'
   with_items:
     - {src: '~/.my-config/KDE/.config/autostart/com.gexperts.tilix.desktop', dest: '~/.config/autostart/', remote_src: 'yes'}
+    - {src: '~/.my-config/KDE/.config/conky/conky-startup.sh', dest: '~/.config/conky/', remote_src: 'yes'}
+    - {src: '~/.my-config/KDE/.config/autostart/libreoffice-calc.desktop', dest: '~/.config/autostart/', remote_src: 'yes'}

@@ -34,13 +34,14 @@
     dest: '{{ item.dest }}'
     remote_src: '{{ item.remote_src }}'
   with_items:
-    - {src: '~/.my-config/KDE/.config/konsolerc', dest: '~/.config/konsolerc', remote_src: 'yes'}
-    - {src: '~/.my-config/KDE/.local/share/konsole/ZSH.profile', dest: '~/.local/share/konsole/ZSH.profile', remote_src: 'yes'}
-    - {src: '~/.my-config/KDE/.config/kglobalshortcutsrc', dest: '~/.config/kglobalshortcutsrc', remote_src: 'yes'}
-    - {src: '~/.my-config/KDE/.config/khotkeysrc', dest: '~/.config/khotkeysrc', remote_src: 'yes'}
+    - {src: '~/.my-config/KDE/.config/konsolerc', dest: '~/.config/', remote_src: 'yes'}
+    - {src: '~/.my-config/KDE/.local/share/konsole/ZSH.profile', dest: '~/.local/share/konsole/', remote_src: 'yes'}
+    - {src: '~/.my-config/KDE/.config/kglobalshortcutsrc', dest: '~/.config/', remote_src: 'yes'}
+    - {src: '~/.my-config/KDE/.config/khotkeysrc', dest: '~/.config/', remote_src: 'yes'}
     - {src: '~/.my-config/KDE/.config/conky/.conky.conf', dest: '~/.config/conky/', remote_src: 'yes'}
-    - {src: '~/.my-config/KDE/.config/conky/conky-startup.sh', dest: '~/.config/conky/conky-startup.sh', remote_src: 'yes'}
     - {src: '~/.my-config/KDE/.config/solaar/config.json', dest: '~/.config/solaar/', remote_src: 'yes'}
+    - {src: '~/.my-config/KDE/.config/libreoffice/4/user/registrymodifications.xcu', dest: '~/.config/libreoffice/4/user/', remote_src: 'yes'}
+    - {src: '~/.my-config/KDE/.config/libreoffice/4/user/basic/Standard/Module1.xba', dest: '~/.config/libreoffice/4/user/basic/Standard/', remote_src: 'yes'}
 - name: COPY WALLPAPERS
   import_tasks: wallpapers.yml
 - name: COPY AUTO START FILES
