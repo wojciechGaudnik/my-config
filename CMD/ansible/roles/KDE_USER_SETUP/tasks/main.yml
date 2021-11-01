@@ -19,6 +19,7 @@
     - {path: '~/.config/autostart-scripts/', state: 'directory'}
     - {path: '~/.config/solaar/', state: 'directory'}
     - {path: '~/.config/libreoffice/4/user/basic/Standard/', state: 'directory'}
+    - {path: '~/.config/autostart/', state: 'directory'}
     # - {path: '~/.local/share/konsole/', state: 'absent'}
 - name: LINK FILES
   file:
