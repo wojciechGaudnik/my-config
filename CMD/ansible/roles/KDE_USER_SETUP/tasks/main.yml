@@ -5,7 +5,6 @@
   with_items:
     - {path: '~/.my-config/', state: 'absent'}
 - name: GIT PULL MY CONFIG REPO
-  become: 'no'
   git:
     repo: 'git@github.com:wojciechGaudnik/my-config.git'
     dest: '~/.my-config'
