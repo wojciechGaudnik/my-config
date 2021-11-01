@@ -115,7 +115,7 @@ Word Completion Remove Tail=true
 
 [KTextEditor::Search]
 Replace History=\\0
-Search History=tmux, D R,D R,\x00D\x00R\x00A\x00M\x00,Ai,Vol,--deepdark-large-radius
+Search History=45,tmux, D R,D R,\x00D\x00R\x00A\x00M\x00,Ai,Vol,--deepdark-large-radius
 
 [Kate Print Settings][Margins]
 bottom=4
