@@ -1,5 +1,5 @@
 <!DOCTYPE gui>
-<gui translationDomain="kxmlgui5" version="32" name="dolphin">
+<gui version="32" name="dolphin" translationDomain="kxmlgui5">
  <MenuBar alreadyVisited="1">
   <Menu alreadyVisited="1" name="file" noMerge="1">
    <text translationDomain="kxmlgui5">&amp;File</text>
@@ -77,7 +77,7 @@
    <Separator/>
    <Action name="panels"/>
    <Menu name="location_bar" icon="edit-select-text" noMerge="1">
-    <text translationDomain="dolphin" context="@title:menu">Location Bar</text>
+    <text context="@title:menu" translationDomain="dolphin">Location Bar</text>
     <Action name="editable_location"/>
     <Action name="replace_location"/>
    </Menu>
@@ -131,7 +131,7 @@
   </Menu>
  </MenuBar>
  <ToolBar alreadyVisited="1" name="mainToolBar" noMerge="1">
-  <text translationDomain="dolphin" context="@title:menu">Main Toolbar</text>
+  <text context="@title:menu" translationDomain="dolphin">Main Toolbar</text>
   <Action name="go_back"/>
   <Action name="go_forward"/>
   <Action name="view_redisplay"/>
@@ -201,6 +201,6 @@
   <Action priority="0" name="edit_copy"/>
   <Action priority="0" name="edit_paste"/>
   <Action priority="0" name="toggle_search"/>
-  <Action priority="0" name="view_redisplay"/>
+  <Action priority="128" name="view_redisplay"/>
  </ActionProperties>
 </gui>
