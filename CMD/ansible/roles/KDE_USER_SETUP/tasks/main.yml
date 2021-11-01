@@ -42,9 +42,11 @@
     - {src: '~/.my-config/KDE/.config/solaar/config.json', dest: '~/.config/solaar/', remote_src: 'yes'}
     - {src: '~/.my-config/KDE/.config/libreoffice/4/user/registrymodifications.xcu', dest: '~/.config/libreoffice/4/user/', remote_src: 'yes'}
     - {src: '~/.my-config/KDE/.config/libreoffice/4/user/basic/Standard/Module1.xba', dest: '~/.config/libreoffice/4/user/basic/Standard/', remote_src: 'yes'}
-- name: COPY WALLPAPERS
+- name: WALLPAPERS COPY
   import_tasks: wallpapers.yml
-- name: COPY AUTO START FILES
+- name: AUTO START FILES COPY
   import_tasks: autostart.yml
-- name: SETUP NERD FONTS
+- name: NERD FONT SSETUP
   import_tasks: nerdFonts.yml
+- name: OPEN RAZER SETUP
+  import_tasks: openRazer.yml

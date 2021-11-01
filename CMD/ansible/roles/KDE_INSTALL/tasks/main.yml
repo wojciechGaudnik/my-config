@@ -16,3 +16,6 @@
     - {source: 'thunderbird-locale-en'}
     - {source: 'thunderbird-locale-en-us'}
     - {source: 'libreoffice-kde5'}
+    - {source: 'openrazer-meta'}
+    - {source: 'polychromatic'}
+
