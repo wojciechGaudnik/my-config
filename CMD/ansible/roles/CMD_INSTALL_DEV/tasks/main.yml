@@ -15,6 +15,11 @@
     - {source: 'luarocks'}
     - {source: 'lua-busted'}
     - {source: 'default-jdk'}
+    - {source: 'maven'}
+    - {source: 'gcc'}
+    - {source: 'nasm'}
+    - {source: 'gdb'}
+    - {source: 'sasm'}
 - name: PIP INSTALL
   become: 'yes'
   pip:
