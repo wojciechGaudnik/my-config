@@ -12,10 +12,10 @@
     - {source: 'conky-all'}
     - {source: 'google-chrome-stable'}
     - {source: 'solaar'}
+    - {source: 'openrazer-meta'}
+    - {source: 'polychromatic'}
     - {source: 'thunderbird'}
     - {source: 'thunderbird-locale-en'}
     - {source: 'thunderbird-locale-en-us'}
     - {source: 'libreoffice-kde5'}
-    - {source: 'openrazer-meta'}
-    - {source: 'polychromatic'}
 
