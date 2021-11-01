@@ -4,16 +4,16 @@
     name: "{{ item.source }}"
     state: latest
   with_items:
-    # - {source: 'ruby-full'}
-    # - {source: 'build-essential'}
-    # - {source: 'python3-distutils'}
-    # - {source: 'python3-pip'}
-    # - {source: 'pylint'}
-    # - {source: 'cmake'}
-    # - {source: 'ansible-lint'}
-    # - {source: 'lua5.4'}
-    # - {source: 'luarocks'}
-    # - {source: 'lua-busted'}
+    - {source: 'ruby-full'}
+    - {source: 'build-essential'}
+    - {source: 'python3-distutils'}
+    - {source: 'python3-pip'}
+    - {source: 'pylint'}
+    - {source: 'cmake'}
+    - {source: 'ansible-lint'}
+    - {source: 'lua5.4'}
+    - {source: 'luarocks'}
+    - {source: 'lua-busted'}
     - {source: 'default-jdk'}
 - name: PIP INSTALL
   become: 'yes'

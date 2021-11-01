@@ -18,4 +18,17 @@
     - {source: 'thunderbird-locale-en'}
     - {source: 'thunderbird-locale-en-us'}
     - {source: 'libreoffice-kde5'}
+    - {source: 'latte-dock'}
+    - {source: 'kcolorchooser'}
+    - {source: 'timeshift'}
+    - {source: 'filelight'}
+    - {source: 'synaptic'}
+    - {source: 'wine'}
+    - {source: 'playonlinux'}
+    - {source: 'handbrake'}
+    - {source: 'simplescreenrecorder'}
+    - {source: 'ffmpeg'}
+    - {source: 'obs-studio'}
+    - {source: 'vlc'}
+    - {source: 'gimp'}
 
