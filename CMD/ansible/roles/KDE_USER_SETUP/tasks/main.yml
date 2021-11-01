@@ -47,6 +47,8 @@
     - {src: '~/.my-config/KDE/.config/dolphinrc', dest: '~/.config/', remote_src: 'yes'}
     - {src: '~/.my-config/KDE/.local/share/kxmlgui5/dolphin/dolphinui.rc', dest: '~/.local/share/kxmlgui5/dolphin/', remote_src: 'yes'}
     - {src: '~/.my-config/KDE/.config/plasma-localerc', dest: '~/.config/', remote_src: 'yes'}
+- name: TILIX CONFIG
+  import_tasks: tilix.yml
 - name: WALLPAPERS COPY
   import_tasks: wallpapers.yml
 - name: AUTO START FILES COPY
