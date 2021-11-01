@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script:module PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "module.dtd">
+<script:module xmlns:script="http://openoffice.org/2000/script" script:name="Module1" script:language="StarBasic">REM  *****  BASIC  *****
+
+Sub Main
+
+End Sub
+
+
+sub SetGreen
+rem ----------------------------------------------------------------------
+rem define variables
+dim document   as object
+dim dispatcher as object
+rem ----------------------------------------------------------------------
+rem get access to the document
+document   = ThisComponent.CurrentController.Frame
+dispatcher = createUnoService(&quot;com.sun.star.frame.DispatchHelper&quot;)
+
+rem ----------------------------------------------------------------------
+dim args1(0) as new com.sun.star.beans.PropertyValue
+args1(0).Name = &quot;BackgroundColor&quot;
+args1(0).Value = 8508442
+
+dispatcher.executeDispatch(document, &quot;.uno:BackgroundColor&quot;, &quot;&quot;, 0, args1())
+
+
+end sub
+
+
+sub SetNoFill
+rem ----------------------------------------------------------------------
+rem define variables
+dim document   as object
+dim dispatcher as object
+rem ----------------------------------------------------------------------
+rem get access to the document
+document   = ThisComponent.CurrentController.Frame
+dispatcher = createUnoService(&quot;com.sun.star.frame.DispatchHelper&quot;)
+
+rem ----------------------------------------------------------------------
+dim args1(0) as new com.sun.star.beans.PropertyValue
+args1(0).Name = &quot;BackgroundColor&quot;
+args1(0).Value = -1
+
+dispatcher.executeDispatch(document, &quot;.uno:BackgroundColor&quot;, &quot;&quot;, 0, args1())
+
+
+end sub
+
+
+sub SetRed
+rem ----------------------------------------------------------------------
+rem define variables
+dim document   as object
+dim dispatcher as object
+rem ----------------------------------------------------------------------
+rem get access to the document
+document   = ThisComponent.CurrentController.Frame
+dispatcher = createUnoService(&quot;com.sun.star.frame.DispatchHelper&quot;)
+
+rem ----------------------------------------------------------------------
+dim args1(0) as new com.sun.star.beans.PropertyValue
+args1(0).Name = &quot;BackgroundColor&quot;
+args1(0).Value = 16711680
+
+dispatcher.executeDispatch(document, &quot;.uno:BackgroundColor&quot;, &quot;&quot;, 0, args1())
+
+
+end sub
+
+
+sub SetPurple
+rem ----------------------------------------------------------------------
+rem define variables
+dim document   as object
+dim dispatcher as object
+rem ----------------------------------------------------------------------
+rem get access to the document
+document   = ThisComponent.CurrentController.Frame
+dispatcher = createUnoService(&quot;com.sun.star.frame.DispatchHelper&quot;)
+
+rem ----------------------------------------------------------------------
+dim args1(0) as new com.sun.star.beans.PropertyValue
+args1(0).Name = &quot;BackgroundColor&quot;
+args1(0).Value = 8388736
+
+dispatcher.executeDispatch(document, &quot;.uno:BackgroundColor&quot;, &quot;&quot;, 0, args1())
+
+
+end sub
+</script:module>

@@ -117,6 +117,7 @@ hwinfo <--- preent all hardware
 free -h <--- RAM space
 
 --------- Rsync
+rsync SRC DEST
 rsync -avP --info=progress2 ~/.zshrc NAS:/home/bq666/
 -a(archive dir and content equals -rlptgoD)
 	-r(only recursive)
