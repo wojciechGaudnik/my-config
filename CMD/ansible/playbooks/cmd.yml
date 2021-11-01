@@ -1,21 +1,16 @@
 ---
-- hosts: OLD
+- hosts: ALL
   user: 'bq666'
   roles:
     # - CMD_APT_UPDATE_UPGRADE
     # - CMD_INSTALL_DEV
     # - CMD_INSTALL_CONSOLE
     # - CMD_INSTALL_HARDWARE
-    # - CMD_INSTALL_NET
+    - CMD_INSTALL_NET
     # - CMD_INSTALL_HACK
     # - CMD_ROOT_MY_CONFIG_GLOBAL
     # - CMD_BQ666_MY_CONFIG
     # - role: CMD_WGAUDNIK_MY_CONFIG
       # remote_user: 'wgaudnik'
-      - role: UFW_CLIENT
-        vars:
-          ip_addr: "{{ ansible_default_ipv4.address }}"
-          all_inter: "{{ ansible_facts | dict2items | selectattr('value.ipv4', 'defined') | map(attribute='value') | list }}"
-          inter: "{{ all_inter | selectattr('ipv4.address', 'equalto', ip_addr) | first }}"
-
+      # - role: UFW_CLIENT
     # - UFW_SERVER

@@ -5,12 +5,10 @@
     state: latest
   with_items:
     - {source: 'net-tools'}
-    - {source: 'wakeonlan'}
-    - {source: 'speedtest-cli'}
-    - {source: 'openvpn'}
-    - {source: 'lynis'}
-    - {source: 'nmap'}
-    - {source: 'whois'}
-    - {source: 'tshark'}
+    # - {source: 'wakeonlan'}
+    # - {source: 'ethtool'}
+    # - {source: 'speedtest-cli'}
+    # - {source: 'openvpn'}
+    # - {source: 'whois'}
 - name: ADDITIONAL
   import_tasks: additionals.yml

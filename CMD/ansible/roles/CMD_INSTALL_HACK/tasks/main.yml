@@ -5,6 +5,9 @@
     state: latest
   with_items:
     - {source: 'john'}
+    - {source: 'lynis'}
+    - {source: 'nmap'}
+    - {source: 'tshark'}
 # - name: PIP VIM-VINT INSTALL
 #   pip:
 #    name: 'vim-vint'
