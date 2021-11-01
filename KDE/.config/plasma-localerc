@@ -1,0 +1,7 @@
+[Formats]
+LANG=en_US.UTF-8
+LC_MEASUREMENT=pl_PL.UTF-8
+LC_MONETARY=pl_PL.UTF-8
+LC_NUMERIC=pl_PL.UTF-8
+LC_TIME=en_US.UTF-8
+useDetailed=true
