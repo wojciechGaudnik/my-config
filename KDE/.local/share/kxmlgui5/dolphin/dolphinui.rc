@@ -201,6 +201,6 @@
   <Action priority="0" name="edit_copy"/>
   <Action priority="0" name="edit_paste"/>
   <Action priority="0" name="toggle_search"/>
-  <Action priority="128" name="view_redisplay"/>
+  <Action priority="0" name="view_redisplay"/>
  </ActionProperties>
 </gui>
