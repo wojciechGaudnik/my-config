@@ -1,5 +1,5 @@
 [Desktop Entry]
-DefaultProfile=ZSH.profile
+DefaultProfile=
 
 [Favorite Profiles]
 Favorites=ZSH.profile
@@ -12,8 +12,7 @@ DisplayPort-0 DisplayPort-1 DisplayPort-2 HDMI-A-0 Width 2560=2560
 DisplayPort-0 DisplayPort-1 DisplayPort-2 HDMI-A-0 Window-Maximized 2560x1440=true
 DisplayPort-0 DisplayPort-1 DisplayPort-2 HDMI-A-0 XPosition=1440
 DisplayPort-0 DisplayPort-1 DisplayPort-2 HDMI-A-0 YPosition=24
-RestorePositionForNextInstance=false
-State=AAAA/wAAAAD9AAAAAAAACgAAAAVqAAAABAAAAAQAAAAIAAAACPwAAAAA
+State=AAAA/wAAAAD9AAAAAAAACgAAAAU5AAAABAAAAAQAAAAIAAAACPwAAAAA
 ToolBarsMovable=Disabled
 Virtual1 Window-Maximized 2560x1440=true
 Virtual1 XPosition 2560x1440=0
