@@ -2,7 +2,7 @@
 DefaultProfile=ZSH.profile
 
 [Favorite Profiles]
-Favorites=
+Favorites=ZSH.profile
 
 [MainWindow]
 DisplayPort-0 DisplayPort-1 DisplayPort-2 HDMI-A-0 Height 1440=1416
