@@ -101,9 +101,9 @@ netstat -atpu|grep 'ESTABLISHED'
 netstat -tulnp
 
 --------- Disck
+lsblk 									<--- all disks in tree
 df -h 									<--- free space on disks
 du -sh /media/bq666/HitachiHGST3TB 					<--- size of dir
-lsblk 									<--- all disks in tree
 udisksctl status 							<--- all disk
 lsof /dev/sdb2 								<--- with process uses disk
 lsof | grep -e \"[[:digit:]]\(r\|w\)\"|grep 'HitachiHGST3TB'
