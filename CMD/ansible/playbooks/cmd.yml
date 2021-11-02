@@ -12,5 +12,5 @@
     - CMD_BQ666_MY_CONFIG
     # - role: CMD_WGAUDNIK_MY_CONFIG
     #   remote_user: 'wgaudnik'
-    # - UFW_CLIENT
+    - UFW_CLIENT
     # - UFW_SERVER
