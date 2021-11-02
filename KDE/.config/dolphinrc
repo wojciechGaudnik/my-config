@@ -31,7 +31,7 @@ OpenExternallyCalledFolderInNewTab=false
 RememberOpenedTabs=false
 ShowFullPath=true
 ShowFullPathInTitlebar=true
-Version=200
+Version=201
 ViewPropsTimestamp=2020,4,10,9,31,2
 
 [IconsMode]
@@ -46,24 +46,30 @@ detailViewIconSize=0
 [KPropertiesDialog]
 DisplayPort-0 DisplayPort-1 DisplayPort-2 HDMI-A-0 Height 1440=456
 DisplayPort-0 DisplayPort-1 DisplayPort-2 HDMI-A-0 Height 2560=542
+DisplayPort-0 DisplayPort-1 DisplayPort-2 HDMI-A-0 Height 2560x1440=606
 DisplayPort-0 DisplayPort-1 DisplayPort-2 HDMI-A-0 Width 1440=471
 DisplayPort-0 DisplayPort-1 DisplayPort-2 HDMI-A-0 Width 2560=401
+DisplayPort-0 DisplayPort-1 DisplayPort-2 HDMI-A-0 Width 2560x1440=483
 Height 1440=542
 Width 2560=957
 
 [MainWindow]
 DisplayPort-0 DisplayPort-1 DisplayPort-2 HDMI-A-0 Height 1440=918
 DisplayPort-0 DisplayPort-1 DisplayPort-2 HDMI-A-0 Height 2560=1416
+DisplayPort-0 DisplayPort-1 DisplayPort-2 HDMI-A-0 Height 2560x1440=1407
 DisplayPort-0 DisplayPort-1 DisplayPort-2 HDMI-A-0 Width 1440=1280
 DisplayPort-0 DisplayPort-1 DisplayPort-2 HDMI-A-0 Width 2560=1706
+DisplayPort-0 DisplayPort-1 DisplayPort-2 HDMI-A-0 Width 2560x1440=390
 DisplayPort-0 DisplayPort-1 DisplayPort-2 HDMI-A-0 Window-Maximized 1440x2560=true
 DisplayPort-0 DisplayPort-1 DisplayPort-2 HDMI-A-0 Window-Maximized 2560x1440=true
 DisplayPort-0 DisplayPort-1 DisplayPort-2 HDMI-A-0 XPosition=1440
+DisplayPort-0 DisplayPort-1 DisplayPort-2 HDMI-A-0 XPosition 2560x1440=2828
 DisplayPort-0 DisplayPort-1 DisplayPort-2 HDMI-A-0 YPosition=22
+DisplayPort-0 DisplayPort-1 DisplayPort-2 HDMI-A-0 YPosition 2560x1440=1107
 Height 1440=1381
 Height 2560=1407
 MenuBar=Disabled
-State=AAAA/wAAAAD9AAAAAwAAAAAAAADaAAAFZPwCAAAAAvsAAAAWAGYAbwBsAGQAZQByAHMARABvAGMAawAAAAAA/////wAAAAoBAAAD+wAAABQAcABsAGEAYwBlAHMARABvAGMAawEAAAAmAAAFZAAAAF0BAAADAAAAAQAAALgAAAVK/AIAAAAB+wAAABAAaQBuAGYAbwBEAG8AYwBrAAAAACYAAAVKAAAACgEAAAMAAAADAAAFAAAAAL78AQAAAAH7AAAAGAB0AGUAcgBtAGkAbgBhAGwARABvAGMAawAAAAAAAAAFAAAAAAoBAAADAAAJJQAABWQAAAAEAAAABAAAAAgAAAAI/AAAAAEAAAACAAAAAQAAABYAbQBhAGkAbgBUAG8AbwBsAEIAYQByAQAAAAD/////AAAAAAAAAAA=
+State=AAAA/wAAAAD9AAAAAwAAAAAAAADWAAAFPfwCAAAAAvsAAAAWAGYAbwBsAGQAZQByAHMARABvAGMAawAAAAAA/////wAAAAoBAAAD+wAAABQAcABsAGEAYwBlAHMARABvAGMAawEAAAAuAAAFPQAAAF0BAAADAAAAAQAAALgAAAVK/AIAAAAB+wAAABAAaQBuAGYAbwBEAG8AYwBrAAAAACYAAAVKAAAACgEAAAMAAAADAAAFAAAAAL78AQAAAAH7AAAAGAB0AGUAcgBtAGkAbgBhAGwARABvAGMAawAAAAAAAAAFAAAAAAoBAAADAAAJKQAABT0AAAAEAAAABAAAAAgAAAAI/AAAAAEAAAACAAAAAQAAABYAbQBhAGkAbgBUAG8AbwBsAEIAYQByAQAAAAD/////AAAAAAAAAAA=
 ToolBarsMovable=Disabled
 Width 1440=1272
 Width 2560=1280
