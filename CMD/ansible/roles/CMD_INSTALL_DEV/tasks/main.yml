@@ -20,7 +20,6 @@
     - {source: 'nasm'}
     - {source: 'gdb'}
     - {source: 'sasm'}
-    - {source: 'qt5-qmake'}
 - name: PIP INSTALL
   become: 'yes'
   pip:
