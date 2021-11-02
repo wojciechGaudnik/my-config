@@ -1,6 +1,5 @@
 ---
-# - hosts: APC_HOSTS
-- hosts: APC_HOSTS
+- hosts: BIG
   user: 'bq666'
   roles:
     - APC_INSTALL

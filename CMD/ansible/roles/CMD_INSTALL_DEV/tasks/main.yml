@@ -30,5 +30,3 @@
     - {source: 'isort'}
     - {source: 'flake8'}
     - {source: 'bandit'}
-# - name: JAVA 17 INSTALL
-#   import_tasks: java.yml
