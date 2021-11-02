@@ -31,4 +31,5 @@
     - {source: 'obs-studio'}
     - {source: 'vlc'}
     - {source: 'gimp'}
+    - {source: 'libreoffice-java-common'}
 

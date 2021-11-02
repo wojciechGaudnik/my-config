@@ -102,6 +102,7 @@ netstat -tulnp
 
 --------- Disck
 lsblk 									<--- all disks in tree
+nvme list 							<--- serial numbers
 df -h 									<--- free space on disks
 du -sh /media/bq666/HitachiHGST3TB 					<--- size of dir
 udisksctl status 							<--- all disk
