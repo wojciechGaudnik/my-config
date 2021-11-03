@@ -19,6 +19,7 @@
     - {src: '~/.my-config/CMD/bash/testTrueColorConsole.sh', dest: '/usr/bin/testTrueColorConsole.sh', state: 'link', force: 'yes', mode: '0700'}
     - {src: '~/.my-config/CMD/config/etc/environment', dest: '/etc/', state: 'link', force: 'yes', mode: '0700'}
     - {src: '~/.my-config/CMD/config/etc/udev/rules.d/70-persistent-net.rules', dest: '/etc/udev/rules.d', state: 'link', force: 'yes', mode: '0700'}
+# dupa
 - name: COPY FILES
   become: 'yes'
   copy:
