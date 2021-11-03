@@ -1,0 +1,5 @@
+# interface with MAC address "00:0c:29:43:28:11" will be assigned "eth0"
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="f0:2f:74:1a:aa:84", ATTR{dev_id}=="0x0", ATTR{type}=="1", KERNEL=="eth*", NAME="eno1"
+
+# interface with MAC address "00:0c:29:43:28:1b" will be assigned "eth1"
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="f0:2f:74:1a:aa:83", ATTR{dev_id}=="0x0", ATTR{type}=="1", KERNEL=="eth*", NAME="enp7s0"
