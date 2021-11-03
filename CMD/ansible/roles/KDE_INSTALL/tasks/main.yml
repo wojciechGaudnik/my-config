@@ -34,4 +34,5 @@
     - {source: 'libreoffice-java-common'}
     - {source: 'slack-desktop'}
     - {source: 'discord'}
+    - {source: 'qbittorrent'}
 
