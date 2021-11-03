@@ -7,5 +7,5 @@
     force='{{ item.force }}'
     mode='{{ item.mode }}'
   with_items:
-    - {src: '~/.my-config/CMD/config/etc/udev/rules.d/70-persistent-net.rules', dest: '/etc/udev/rules.d', state: 'link', force: 'yes', mode: '0700'}
+    - {src: '~/.my-config/CMD/config/etc/udev/rules.d/70-persistent-net.rules', dest: '/etc/udev/rules.d/70-persistent-net.rules', state: 'link', force: 'yes', mode: '0700'}
     - {src: '~/.my-config/CMD/config/usr/lib/systemd/system-sleep/suspend-modules', dest: '/usr/lib/systemd/system-sleep/suspend-modules', state: 'link', force: 'yes', mode: '0700'}
