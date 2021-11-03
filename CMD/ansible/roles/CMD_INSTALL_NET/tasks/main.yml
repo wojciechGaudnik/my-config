@@ -10,6 +10,7 @@
     - {source: 'speedtest-cli'}
     - {source: 'openvpn'}
     - {source: 'whois'}
+    - {source: 'nfs-common'}
 - name: VNSTAT
   import_tasks: vnstat.yml
 - name: WAKE ON LAN
