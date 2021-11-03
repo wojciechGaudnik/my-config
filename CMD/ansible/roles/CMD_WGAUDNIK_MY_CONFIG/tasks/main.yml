@@ -13,6 +13,18 @@
   with_items:
     - {name: 'user.email', scope: 'global', value: 'wojciech.gaudnik@gmail.com'}
     - {name: 'user.name', scope: 'global', value: 'Wojciech Gaudnik'}
+- name: SETUP DEFAULT SHELL
+  become: 'no'
+  user:
+    name: 'wgaudnik'
+    shell: /usr/bin/zsh
+- git_config:
+    name: '{{ item.name }}'
+    scope: '{{ item.scope }}'
+    value: '{{ item.value }}'
+  with_items:
+    - {name: 'user.email', scope: 'global', value: 'wojciech.gaudnik@gmail.com'}
+    - {name: 'user.name', scope: 'global', value: 'Wojciech Gaudnik'}
 - name: GIT PULL MY CONFIG REPO
   become: 'no'
   git:
