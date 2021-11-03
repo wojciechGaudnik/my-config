@@ -10,5 +10,9 @@
     - {source: 'speedtest-cli'}
     - {source: 'openvpn'}
     - {source: 'whois'}
-- name: ADDITIONAL
-  import_tasks: additionals.yml
+- name: VNSTAT
+  import_tasks: vnstat.yml
+- name: WAKE ON LAN
+  import_tasks: wake_on_lan.yml
+- name: HOSTS ETC
+  import_tasks: hosts_etc.yml
