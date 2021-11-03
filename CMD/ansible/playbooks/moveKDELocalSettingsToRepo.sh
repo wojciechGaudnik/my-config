@@ -15,6 +15,8 @@ cp ~/.config/katerc ~/.my-config/KDE/.config/
 cp ~/.config/dolphinrc ~/.my-config/KDE/.config/
 cp ~/.local/share/kxmlgui5/dolphin/dolphinui.rc ~/.my-config/KDE/.local/share/kxmlgui5/dolphin/
 cp ~/.config/plasma-localerc ~/.my-config/KDE/.config/
+cp ~/.config/qBittorrent/qBittorrent-data.conf ~/.my-config/KDE/.config/qBittorrent/
+cp ~/.config/qBittorrent/qBittorrent.conf ~/.my-config/KDE/.config/qBittorrent/
 
 # AUTO START
 cp ~/.config/autostart/com.gexperts.tilix.desktop ~/.my-config/KDE/.config/autostart/

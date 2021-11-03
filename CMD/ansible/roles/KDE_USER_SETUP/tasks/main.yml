@@ -20,6 +20,7 @@
     - {path: '~/.config/solaar/', state: 'directory'}
     - {path: '~/.config/libreoffice/4/user/basic/Standard/', state: 'directory'}
     - {path: '~/.config/autostart/', state: 'directory'}
+    - {path: '~/.config/qBittorrent/', state: 'directory'}
     # - {path: '~/.local/share/konsole/', state: 'absent'}
 - name: LINK FILES
   file:
@@ -47,6 +48,8 @@
     - {src: '~/.my-config/KDE/.config/dolphinrc', dest: '~/.config/', remote_src: 'yes'}
     - {src: '~/.my-config/KDE/.local/share/kxmlgui5/dolphin/dolphinui.rc', dest: '~/.local/share/kxmlgui5/dolphin/', remote_src: 'yes'}
     - {src: '~/.my-config/KDE/.config/plasma-localerc', dest: '~/.config/', remote_src: 'yes'}
+    - {src: '~/.my-config/KDE/.config/qBittorrent/qBittorrent-data.conf', dest: '~/.config/qBittorrent/', remote_src: 'yes'}
+    - {src: '~/.my-config/KDE/.config/qBittorrent/qBittorrent.conf', dest: '~/.config/qBittorrent/', remote_src: 'yes'}
 - name: TILIX CONFIG
   import_tasks: tilix.yml
 - name: WALLPAPERS COPY
