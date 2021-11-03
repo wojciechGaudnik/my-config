@@ -8,7 +8,7 @@
     # - CMD_INSTALL_HARDWARE
     # - CMD_INSTALL_NET
     # - CMD_INSTALL_HACK
-    # - CMD_ROOT_MY_CONFIG_GLOBAL
+    - CMD_ROOT_MY_CONFIG_GLOBAL
     # - CMD_BQ666_MY_CONFIG
     # - role: CMD_WGAUDNIK_MY_CONFIG
     #   remote_user: 'wgaudnik'
