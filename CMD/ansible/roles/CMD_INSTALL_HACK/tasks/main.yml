@@ -8,3 +8,4 @@
     - {source: 'lynis'}
     - {source: 'nmap'}
     - {source: 'tshark'}
+    - {source: 'feroxbuster'}
