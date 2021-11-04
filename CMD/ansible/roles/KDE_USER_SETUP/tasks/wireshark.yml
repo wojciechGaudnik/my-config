@@ -1,0 +1,5 @@
+- name: WIRESHARK ADD USER TO GROUP
+  user:
+    name: 'bq666'
+    groups: 'wireshark'
+    append: 'yes'

@@ -35,4 +35,5 @@
     - {source: 'slack-desktop'}
     - {source: 'discord'}
     - {source: 'qbittorrent'}
+    - {source: 'wireshark'}
 

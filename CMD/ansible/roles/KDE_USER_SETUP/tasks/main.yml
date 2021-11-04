@@ -60,3 +60,5 @@
   import_tasks: nerdFonts.yml
 - name: OPEN RAZER SETUP
   import_tasks: openRazer.yml
+- name: WHIRESHARK
+  import_tasks: wireshark.yml
