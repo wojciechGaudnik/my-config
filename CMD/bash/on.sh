@@ -11,3 +11,6 @@ systemctl start piavpn.service
 echo "on ---> piavpn.service running $(date)...">>/var/log/system_suspend_big.log
 
 customMount NAS:/mnt/NEW_DISKS/Plex /mnt/NAS_Plex
+
+wakeonlan $OLD_MAC
+echo "on ---> wake signal to OLD sended at$(date)...">>/var/log/system_suspend_big.log
