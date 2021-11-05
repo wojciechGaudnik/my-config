@@ -32,8 +32,9 @@ function customKill(){
 	fi
 }
 
-customUnmount /mnt/NAS_Plex
 customKill qbittorrent
+sleep 2
+customUnmount /mnt/NAS_Plex
 
 piactl disconnect
 echo "$(date) ---> off, piactl disconnected">>/var/log/system_suspend_big.log
