@@ -8,8 +8,9 @@ then
 elif [ ${1} = 'post' ]
 then
   echo "$(date) ---> unsuspend, custom modules">>/var/log/system_suspend_big.log
-  # modprobe -i atlantic
   echo "1">/sys/class/drm/card0/device/hwmon/hwmon5/pwm1_enable
+  echo "$(date) ---> echo "1">/sys/class/drm/card0/device/hwmon/hwmon5/pwm1_enable <--- OK">>/var/log/system_suspend_big.log
+  # modprobe -i atlantic
   # wakeonlan $OLD_MAC
   echo "$(date) ---> unsuspend, custom modules OK">>/var/log/system_suspend_big.log
 fi
