@@ -36,8 +36,9 @@ customUnmount /mnt/NAS_Plex
 customKill qbittorrent
 
 piactl disconnect
+echo "off ---> piactl disconnected at $(date)...">>/var/log/system_suspend_big.log
 systemctl stop piavpn.service
+echo "off ---> piavpn stoped at $(date)...">>/var/log/system_suspend_big.log
 
-echo "off ---> last step systemctl suspend $(date)...">>/var/log/system_suspend_big.log
-
+echo "off ---> last step systemctl suspend at $(date)...">>/var/log/system_suspend_big.log
 systemctl suspend

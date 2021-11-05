@@ -10,6 +10,12 @@ echo "on ---> awake $(date)...">>/var/log/system_suspend_big.log
 systemctl start piavpn.service
 echo "on ---> piavpn.service running $(date)...">>/var/log/system_suspend_big.log
 
+systemctl start piavpn.service
+sleep 2
+echo "on ---> piavpn started at $(date)...">>/var/log/system_suspend_big.log
+piactl connect
+echo "on ---> piactl connected at $(date)...">>/var/log/system_suspend_big.log
+
 customMount NAS:/mnt/NEW_DISKS/Plex /mnt/NAS_Plex
 
 wakeonlan $OLD_MAC
