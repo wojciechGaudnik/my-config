@@ -38,11 +38,6 @@ customKill qbittorrent
 piactl disconnect
 systemctl stop piavpn.service
 
-systemctl suspend
+echo "off ---> last step systemctl suspend $(date)...">>/var/log/system_suspend_big.log
 
-# function off(){
-# 	pkill qbittorrent
-# 	sleep 2
-# 	doer /mnt/NAS_Plex
-# 	systemctl suspend
-# }
+systemctl suspend
