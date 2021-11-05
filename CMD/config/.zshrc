@@ -16,7 +16,6 @@ PATH=$HOME/bin:/usr/local/bin:$PATH
 #export PATH=/opt/apache-maven-3.6.2/bin:$PATH
 PATH=$HOME/.local/bin:$PATH
 PATH=/opt/timecamp:$PATH
-PATH=/opt/caprine:$PATH
 
 # Icons
 source $(dirname $(gem which colorls))/tab_complete.sh
@@ -82,7 +81,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
-
+HISTSIZE=9999
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
