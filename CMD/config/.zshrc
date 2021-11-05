@@ -157,23 +157,6 @@ do
 done
 }
 
-function on(){
-	piactl disconnect
-	sleep 2
-	wakeonlan $OLD_MAC
-	piactl connect
-	mount -t nfs -o soft NAS:/mnt/NEW_DISKS/Plex /mnt/NAS_Plex
-	# mount -t nfs NAS:/mnt/NEW_DISKS/Storage /mnt/NAS_Storage
-	apt update; apt -y upgrade
-}
-
-function off(){
-	pkill qbittorrent
-	sleep 2
-	doer /mnt/NAS_Plex
-	systemctl suspend
-}
-
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
