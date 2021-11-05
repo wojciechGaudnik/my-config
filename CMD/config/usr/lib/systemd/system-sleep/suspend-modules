@@ -1,15 +1,16 @@
 #!/bin/sh
-echo "suspend custom modules works !!!">>/var/lib/systemd_suspend_big
+echo "$(date) ---> suspend, custom modules works !!!">>/var/log/system_suspend_big.log
 if [ $1 = 'pre' ]
 then
-  echo "we are suspending at $(date)...">>/var/lib/systemd_suspend_big
+  echo "$(date) ---> suspend, custom modules">>/var/log/system_suspend_big.log
   # modprobe -r atlantic
-  echo "unload atlantic OK">>/var/lib/systemd_suspend_big
+  echo "$(date) ---> unloaded, custom modules OK">>/var/log/system_suspend_big.log
 elif [ ${1} = 'post' ]
 then
-  echo "..and we are back from $(date)">>/var/lib/systemd_suspend_big
-  # modprobe -i atlantic
+  echo "$(date) ---> unsuspend, custom modules">>/var/log/system_suspend_big.log
   echo "1">/sys/class/drm/card0/device/hwmon/hwmon5/pwm1_enable
+  echo "$(date) ---> echo "1">/sys/class/drm/card0/device/hwmon/hwmon5/pwm1_enable <--- OK">>/var/log/system_suspend_big.log
+  # modprobe -i atlantic
   # wakeonlan $OLD_MAC
-  echo "load atlantic OK">>/var/lib/systemd_suspend_big
+  echo "$(date) ---> unsuspend, custom modules OK">>/var/log/system_suspend_big.log
 fi

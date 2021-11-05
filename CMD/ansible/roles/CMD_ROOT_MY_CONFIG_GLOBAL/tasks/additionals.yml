@@ -12,6 +12,8 @@
     force='{{ item.force }}'
     mode='{{ item.mode }}'
   with_items:
+    - {src: '~/.my-config/CMD/bash/off.sh', dest: '/usr/bin/off', state: 'link', force: 'yes', mode: '0700'}
+    - {src: '~/.my-config/CMD/bash/on.sh', dest: '/usr/bin/on', state: 'link', force: 'yes', mode: '0700'}
     - {src: '~/.my-config/CMD/bash/resetNET.sh', dest: '/usr/bin/resetNET.sh', state: 'link', force: 'yes', mode: '0700'}
     - {src: '~/.my-config/CMD/bash/resetNFS.sh', dest: '/usr/bin/resetNFS.sh', state: 'link', force: 'yes', mode: '0700'}
     - {src: '~/.my-config/CMD/bash/resetUSB.sh', dest: '/usr/bin/resetUSB.sh', state: 'link', force: 'yes', mode: '0700'}
