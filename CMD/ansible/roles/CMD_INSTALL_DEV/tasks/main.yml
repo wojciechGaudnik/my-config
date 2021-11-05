@@ -20,6 +20,8 @@
     - {source: 'nasm'}
     - {source: 'gdb'}
     - {source: 'sasm'}
+    - {source: 'nodejs'}
+    - {source: 'npm'}
 - name: PIP INSTALL
   become: 'yes'
   pip:
