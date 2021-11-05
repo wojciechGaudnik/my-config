@@ -11,5 +11,5 @@ then
   # modprobe -i atlantic
   # echo "1">/sys/class/drm/card0/device/hwmon/hwmon5/pwm1_enable
   # wakeonlan $OLD_MAC
-  echo "load atlantic OK">> /tmp/systemd_suspend_test
+  echo "load atlantic OK">>/var/lib/systemd_suspend_big
 fi
