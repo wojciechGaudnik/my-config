@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 function customMount() {
 	mount -t nfs -o soft $1 $2
