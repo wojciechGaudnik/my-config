@@ -9,6 +9,8 @@ Ctrl+W: Cut the word before the cursor, adding it to the clipboard.
 replaced by moving !!! ---> Ctrl+K: Cut the part of the line after the cursor, adding it to the clipboard.
 Ctrl+U: Cut the part of the line before the cursor, adding it to the clipboard.
 Ctrl+Y: Paste the last thing you cut from the clipboard. The y here stands for “yank”.
+Ctrl+p: Last command
+Ctrl+n: Precious command
 
 
 

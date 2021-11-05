@@ -1,11 +1,2 @@
-- name: LINK FILES
-  become: 'yes'
-  file:
-    src='{{ item.src }}'
-    dest='{{ item.dest }}'
-    state='{{ item.state }}'
-    force='{{ item.force }}'
-    mode='{{ item.mode }}'
-  with_items:
-    - {src: '~/.my-config/CMD/config/etc/udev/rules.d/70-persistent-net.rules', dest: '/etc/udev/rules.d/70-persistent-net.rules', state: 'link', force: 'yes', mode: '0700'}
-    - {src: '~/.my-config/CMD/config/usr/lib/systemd/system-sleep/suspend-modules', dest: '/usr/lib/systemd/system-sleep/suspend-modules', state: 'link', force: 'yes', mode: '0700'}
+- name: NET
+  import_tasks: net.yml
