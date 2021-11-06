@@ -32,7 +32,7 @@
     - {source: 'vlc'}
     - {source: 'gimp'}
     - {source: 'libreoffice-java-common'}
-    - {source: 'slack-desktop'}
+    # - {source: 'slack-desktop'}
     # - {source: 'discord'}
     - {source: 'qbittorrent'}
     - {source: 'wireshark'}
