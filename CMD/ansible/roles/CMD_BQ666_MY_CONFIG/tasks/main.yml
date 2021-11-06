@@ -1,24 +1,7 @@
 # ---> Don't change this file manually <---
-# CMD_ROOT_MY_CONFIG_GLOBAL main.yml <--- only console conf, change and copy to CMD_USER_MY_CONFIG and remove become: 'no'
-# CMD_USER_MY_CONFIG main.yml <--- don't change this file, copy from root !!!
-- name: SETUP DEFAULT SHELL
+- name: GIT USER EMAIL AND NAME
   become: 'no'
-  user:
-    name: 'wgaudnik'
-    shell: /usr/bin/zsh
-- git_config:
-    name: '{{ item.name }}'
-    scope: '{{ item.scope }}'
-    value: '{{ item.value }}'
-  with_items:
-    - {name: 'user.email', scope: 'global', value: 'wojciech.gaudnik@gmail.com'}
-    - {name: 'user.name', scope: 'global', value: 'Wojciech Gaudnik'}
-- name: SETUP DEFAULT SHELL
-  become: 'no'
-  user:
-    name: 'wgaudnik'
-    shell: /usr/bin/zsh
-- git_config:
+  git_config:
     name: '{{ item.name }}'
     scope: '{{ item.scope }}'
     value: '{{ item.value }}'
@@ -63,17 +46,6 @@
     - {path: '/mnt/NAS_Storage', state: 'directory', recurse: 'yes'}
     - {path: '/mnt/NAS_VirtualBox', state: 'directory', recurse: 'yes'}
     - {path: '/mnt/usb', state: 'directory', recurse: 'yes'}
-- name: MC COPY FILES
-  become: 'no'
-  when: reg_bq666_git_pull_config_repo.changed
-  copy:
-    src='{{ item.src }}'
-    dest='{{ item.dest }}'
-    remote_src='{{ item.remote_src }}'
-    mode='{{ item.mode }}'
-  with_items:
-    - {src: '~/.my-config/CMD/config/mc/ini', dest: '~/.config/mc/ini', remote_src: 'yes', mode: '0644' }
-    - {src: '~/.my-config/CMD/config/mc/panels.ini', dest: '~/.config/mc/panels.ini', remote_src: 'yes', mode: '0644' }
 - name: ZSH LINK FILES
   become: 'no'
   when: reg_bq666_git_pull_config_repo.changed
@@ -134,5 +106,16 @@
   become: 'no'
   when: reg_bq666_git_pull_config_repo.changed
   shell: tmux start-server && ~/.tmux/plugins/tpm/scripts/clean_plugins.sh
-# - name: ADDITIONAL
-#   import_tasks: additionals.yml
+- name: MC COPY FILES
+  become: 'no'
+  when: reg_bq666_git_pull_config_repo.changed
+  copy:
+    src='{{ item.src }}'
+    dest='{{ item.dest }}'
+    remote_src='{{ item.remote_src }}'
+    mode='{{ item.mode }}'
+  with_items:
+    - {src: '~/.my-config/CMD/config/mc/ini', dest: '~/.config/mc/ini', remote_src: 'yes', mode: '0644' }
+    - {src: '~/.my-config/CMD/config/mc/panels.ini', dest: '~/.config/mc/panels.ini', remote_src: 'yes', mode: '0644' }
+- name: AUTO JUMP GREEN
+  import_tasks: auto_jump_green.yml
