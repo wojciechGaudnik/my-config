@@ -118,5 +118,5 @@
   become: 'yes'
   when: reg_root_git_pull_config_repo.changed
   shell: tmux start-server && ~/.tmux/plugins/tpm/scripts/clean_plugins.sh
-# - name: ADDITIONAL
-#   import_tasks: additionals.yml
+- name: AUTO JUMP GREEN
+  import_tasks: auto_jump_green.yml
