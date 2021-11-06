@@ -15,18 +15,22 @@
     - {source: 'stress'}
     - {source: 'stress-ng'}
     - {source: 'glmark2'}
-    - {source: 'radeontop'}
-- name: NVME-CLI INSTALL
+- name: NVME-CLI APT INSTALL
   become: 'yes'
   apt:
     name: 'nvme-cli'
     state: latest
   register: reg_nvme_cli_install
-- name: APT LM_SENSORS INSTALL
+- name: LM_SENSORS APT INSTALL
   become: 'yes'
   apt:
     name: 'lm-sensors'
     state: latest
   register: reg_lm_sensors_install
-- name: ADDITIONAL
-  import_tasks: additionals.yml
+
+- name: NVME-CLI SET SUID
+  when: reg_nvme_cli_install.changed
+  import_tasks: nvme_cli_set_suid.yml
+- name: LM SENSORS DETECT
+  when: reg_lm_sensors_install.changed
+  import_tasks: lm_sensors_detect.yml

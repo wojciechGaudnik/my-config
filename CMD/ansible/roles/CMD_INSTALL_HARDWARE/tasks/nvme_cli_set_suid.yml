@@ -1,0 +1,7 @@
+- name: NVME-CLI SET SUID
+  become: 'yes'
+  file:
+    path: '{{ item.path }}'
+    mode: '{{ item.mode }}'
+  with_items:
+    - {path: '/usr/sbin/nvme', mode: '4555'}
