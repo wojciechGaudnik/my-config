@@ -1,3 +1,9 @@
+- name: NVME-CLI APT INSTALL
+  become: 'yes'
+  apt:
+    name: 'nvme-cli'
+    state: latest
+  register: reg_nvme_cli_install
 - name: NVME-CLI SET SUID
   become: 'yes'
   file:

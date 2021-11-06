@@ -1,3 +1,9 @@
+- name: LM_SENSORS APT INSTALL
+  become: 'yes'
+  apt:
+    name: 'lm-sensors'
+    state: latest
+  register: reg_lm_sensors_install
 - name: LM_SENSORS DETECT
   become: 'yes'
   expect:
