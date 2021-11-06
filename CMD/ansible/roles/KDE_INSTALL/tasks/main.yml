@@ -33,7 +33,7 @@
     - {source: 'gimp'}
     - {source: 'libreoffice-java-common'}
     - {source: 'slack-desktop'}
-    - {source: 'discord'}
+    # - {source: 'discord'}
     - {source: 'qbittorrent'}
     - {source: 'wireshark'}
 

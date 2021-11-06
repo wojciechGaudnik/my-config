@@ -1,5 +1,5 @@
 ---
-- hosts: BIG
+- hosts: VBK
   user: 'bq666'
   vars:
     user_name: 'bq666'

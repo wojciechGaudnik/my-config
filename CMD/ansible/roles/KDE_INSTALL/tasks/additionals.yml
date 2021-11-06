@@ -13,6 +13,7 @@
     - {repo: 'ppa:solaar-unifying/ppa', state: 'present' }
     - {repo: 'ppa:openrazer/stable', state: 'present' }
     - {repo: 'ppa:polychromatic/stable', state: 'present' }
+    - {repo: 'deb https://packagecloud.io/slacktechnologies/slack/debian/ jessie main', state: 'present' }
 - name: APT UPDATE AND UPGRADE
   become: 'yes'
   apt:
