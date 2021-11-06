@@ -6,6 +6,7 @@
   register: reg_lm_sensors_install
 - name: LM_SENSORS DETECT
   become: 'yes'
+  when: reg_lm_sensors_install.changed
   expect:
     timeout: 60
     echo: yes

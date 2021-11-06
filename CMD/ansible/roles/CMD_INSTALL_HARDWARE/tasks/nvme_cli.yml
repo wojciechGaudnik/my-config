@@ -6,6 +6,7 @@
   register: reg_nvme_cli_install
 - name: NVME-CLI SET SUID
   become: 'yes'
+  when: reg_nvme_cli_install.changed
   file:
     path: '{{ item.path }}'
     mode: '{{ item.mode }}'
