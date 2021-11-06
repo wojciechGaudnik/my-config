@@ -19,7 +19,7 @@
     - {src: '~/.my-config/CMD/bash/resetUSB.sh', dest: '/usr/bin/resetUSB.sh', state: 'link', force: 'yes', mode: '0700'}
     - {src: '~/.my-config/CMD/bash/testBIOSorURFI.sh', dest: '/usr/bin/testBIOSorURFI.sh', state: 'link', force: 'yes', mode: '0700'}
     - {src: '~/.my-config/CMD/bash/testTrueColorConsole.sh', dest: '/usr/bin/testTrueColorConsole.sh', state: 'link', force: 'yes', mode: '0700'}
-    - {src: '~/.my-config/CMD/config/etc/environment', dest: '/etc/', state: 'link', force: 'yes', mode: '0700'}
+    - {src: '~/.my-config/CMD/config/etc/environment', dest: '/etc/environment', state: 'link', force: 'yes', mode: '0700'}
 - name: COPY FILES
   become: 'yes'
   copy:
@@ -36,3 +36,12 @@
     regex: '^skin='
     line: "skin=modarin256root-defbg"
     backrefs: yes
+- name : AUTO JUMP GREEN
+  become: 'yes'
+  replace:
+    path: '{{ item.path }}'
+    regexp: '{{ item.regexp }}'
+    replace: '{{ item.replace }}'
+  with_items:
+    - {path: '/usr/share/autojump/autojump.zsh', regexp: '31', replace: '32'}
+    - {path: '/usr/share/autojump/autojump.bash', regexp: '31', replace: '32'}

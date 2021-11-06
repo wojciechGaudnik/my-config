@@ -117,5 +117,5 @@
   with_items:
     - {src: '~/.my-config/CMD/config/mc/ini', dest: '~/.config/mc/ini', remote_src: 'yes', mode: '0644' }
     - {src: '~/.my-config/CMD/config/mc/panels.ini', dest: '~/.config/mc/panels.ini', remote_src: 'yes', mode: '0644' }
-- name: AUTO JUMP GREEN
-  import_tasks: auto_jump_green.yml
+- name: ADDITIONALS
+  import_tasks: additionals.yml
