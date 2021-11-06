@@ -31,4 +31,4 @@
   systemd:
     name: 'systemd-resolved'
     state: restarted
-- debug: var=ansible_hostname
+  changed_when: false
