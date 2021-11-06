@@ -11,8 +11,7 @@
     - {source: 'openvpn'}
     - {source: 'whois'}
     - {source: 'nfs-common'}
-- name: VNSTAT
-  import_tasks: vnstat.yml
+    - {source: 'vnstat'}
 - name: WAKE ON LAN
   import_tasks: wake_on_lan.yml
 - name: HOSTS ETC
