@@ -1,3 +1,7 @@
+- name: WIRESHARK ADD GROUP
+  group:
+    name: wireshark
+    state: present
 - name: WIRESHARK ADD USER TO GROUP
   user:
     name: 'bq666'
