@@ -19,6 +19,7 @@
     - {source: 'xclip'}
     - {source: 'cryptsetup'}
     - {source: 'vim'}
+    - {source: 'fzf'}
 - name: PIP VIM-VINT INSTALL
   become: 'yes'
   pip:

@@ -24,7 +24,7 @@
     - {source: 'filelight'}
     - {source: 'synaptic'}
     - {source: 'wine'}
-    - {source: 'playonlinux'}
+    # - {source: 'playonlinux'}
     - {source: 'handbrake'}
     - {source: 'simplescreenrecorder'}
     - {source: 'ffmpeg'}
