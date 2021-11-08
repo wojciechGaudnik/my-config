@@ -9,7 +9,9 @@
     - {source: 'python3-distutils'}
     - {source: 'python3-pip'}
     - {source: 'pylint'}
+    - {source: 'make'}
     - {source: 'cmake'}
+    - {source: 'perl'}
     - {source: 'ansible-lint'}
     - {source: 'lua5.4'}
     - {source: 'luarocks'}

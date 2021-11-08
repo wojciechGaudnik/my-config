@@ -1,8 +1,8 @@
 ---
-- hosts: BIG
-  user: 'bq666'
+- hosts: DHC
+  user: 'wgaudnik'
   vars:
-    user_name: 'bq666'
+    user_name: 'wgaudnik'
   roles:
     - KDE_INSTALL
     - KDE_USER_SETUP

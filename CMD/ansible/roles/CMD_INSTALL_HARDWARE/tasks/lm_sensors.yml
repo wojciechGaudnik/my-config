@@ -1,12 +1,9 @@
-- name: NVME SET SUID
+- name: LM_SENSORS APT INSTALL
   become: 'yes'
-  when: reg_nvme_cli_install.changed
-  file:
-    path: '{{ item.path }}'
-    mode: '{{ item.mode }}'
-  with_items:
-    - {path: '/usr/sbin/nvme', mode: '4555'}
-    - {path: '/sbin/nvme', mode: '4555'}
+  apt:
+    name: 'lm-sensors'
+    state: latest
+  register: reg_lm_sensors_install
 - name: LM_SENSORS DETECT
   become: 'yes'
   when: reg_lm_sensors_install.changed
