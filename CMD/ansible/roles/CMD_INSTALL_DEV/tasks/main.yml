@@ -7,6 +7,7 @@
     - {source: 'ruby-full'}
     - {source: 'build-essential'}
     - {source: 'python3-distutils'}
+    - {source: 'python3.9-full'}
     - {source: 'python3-pip'}
     - {source: 'pylint'}
     - {source: 'make'}
