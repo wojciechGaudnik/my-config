@@ -7,11 +7,11 @@ function customMount() {
 
 echo "$(date) ---> on, awake">>/var/log/system_suspend_big.log
 
+systemctl stop piavpn.service
+echo "$(date) ---> on, piavpn.service stoped ">>/var/log/system_suspend_big.log
+
 wakeonlan $OLD_MAC
 echo "$(date) ---> on, wake signal to OLD sended">>/var/log/system_suspend_big.log
-
-systemctl start piavpn.service
-echo "$(date) ---> on, piavpn.service running">>/var/log/system_suspend_big.log
 
 systemctl start piavpn.service
 sleep 5

@@ -42,4 +42,5 @@ systemctl stop piavpn.service
 echo "$(date) ---> off, piavpn stoped">>/var/log/system_suspend_big.log
 
 echo "$(date) ---> off, last step systemctl suspend">>/var/log/system_suspend_big.log
-systemctl suspend
+# systemctl suspend
+shutdown now
