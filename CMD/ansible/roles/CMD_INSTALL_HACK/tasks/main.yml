@@ -9,3 +9,6 @@
     - {source: 'nmap'}
     - {source: 'tshark'}
     # - {source: 'feroxbuster'}
+    # - {source: 'ffuf'}
+    # - {source: 'dirb'}
+    # - {source: 'gobuster'}
