@@ -1099,6 +1099,9 @@ Sort reversed[$d]
 Speedbar Width[$d]
 View Style[$d]
 
+[KShortcutsDialog Settings]
+Dialog Size[$d]
+
 [Main]
 AlreadyImported=defaults,konqueror_gestures_kde321,konsole,kde32b1
 Disabled=false

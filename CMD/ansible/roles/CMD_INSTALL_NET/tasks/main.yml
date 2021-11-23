@@ -12,6 +12,7 @@
     - {source: 'whois'}
     - {source: 'nfs-common'}
     - {source: 'vnstat'}
+    - {source: 'traceroute'}
 - name: WAKE ON LAN
   import_tasks: wake_on_lan.yml
 - name: HOSTS ETC

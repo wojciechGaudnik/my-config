@@ -8,6 +8,8 @@
     - {source: 'lynis'}
     - {source: 'nmap'}
     - {source: 'tshark'}
+    - {source: 'arp-scan'}
+    - {source: 'masscan'}
     # - {source: 'feroxbuster'}
     # - {source: 'ffuf'}
     # - {source: 'dirb'}
