@@ -132,7 +132,7 @@ alias watch='watch -n.1'
 alias t='todo.sh'
 alias c="clear"
 alias s="sudo su"
-alias nvim="/opt/neovim/nvim.appimage"
+alias nvim="/opt/nvim/nvim.appimage"
 
 # turn off Ctrl+s freezing screen, for example in vim
 stty -ixon
