@@ -59,6 +59,17 @@ endif
 colorscheme one
 set background=dark 
 
+function! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+
+augroup DEFAULT
+    autocmd!
+    autocmd BufWritePre * :call TrimWhitespace()
+augroup END
+
 "syntax on
 "set t_Co=256
 "set cursorline
