@@ -16,38 +16,40 @@ call plug#begin('~/.config/nvim/plugged')
     "Plug 'sonph/onehalf', { 'rtp': 'vim' }
 call plug#end()
 
+source $HOME/.config/nvim/modules/sets.vim
+source $HOME/.config/nvim/modules/remaps.vim
 
-set tabstop=4 softtabstop=4
-set shiftwidth=4
-set expandtab
-set smartindent
-
-set exrc
-set relativenumber number
-
-" searches
-set ignorecase
-set smartcase
-set hlsearch
-set incsearch
-set magic
-" clear highlighting on escape in normal mode
-nnoremap <esc> :noh<return><esc>
-
-set hidden
-set nowrap
-
-
-set noswapfile
-set nobackup
-set undodir=~/.vim/undodir
-set undofile
-
-set scrolloff=8
-
-set completeopt=menuone,noinsert,noselect
-set signcolumn=auto
-set colorcolumn=120
+"set tabstop=4 softtabstop=4
+"set shiftwidth=4
+"set expandtab
+"set smartindent
+"
+"set exrc
+"set relativenumber number
+"
+"" searches
+"set ignorecase
+"set smartcase
+"set hlsearch
+"set incsearch
+"set magic
+"" clear highlighting on escape in normal mode
+"nnoremap <esc> :noh<return><esc>
+"
+"set hidden
+"set nowrap
+"
+"
+"set noswapfile
+"set nobackup
+"set undodir=~/.vim/undodir
+"set undofile
+"
+"set scrolloff=8
+"
+"set completeopt=menuone,noinsert,noselect
+"set signcolumn=auto
+"set colorcolumn=120
 
 
 if exists('+termguicolors') &&  $TERM == "xterm-256color"
@@ -57,7 +59,7 @@ if exists('+termguicolors') &&  $TERM == "xterm-256color"
 endif
 
 colorscheme one
-set background=dark 
+set background=dark
 
 function! TrimWhitespace()
     let l:save = winsaveview()
