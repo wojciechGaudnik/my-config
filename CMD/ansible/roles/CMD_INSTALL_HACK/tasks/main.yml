@@ -10,6 +10,8 @@
     - {source: 'tshark'}
     - {source: 'arp-scan'}
     - {source: 'masscan'}
+    - {source: 'ettercap-common'}
+    - {source: ''}
     # - {source: 'feroxbuster'}
     # - {source: 'ffuf'}
     # - {source: 'dirb'}
