@@ -16,6 +16,7 @@ call plug#begin('~/.config/nvim/plugged')
     "Plug 'sonph/onehalf', { 'rtp': 'vim' }
 call plug#end()
 
+source $HOME/.config/nvim/modules/plugins.vim
 source $HOME/.config/nvim/modules/sets.vim
 source $HOME/.config/nvim/modules/remaps.vim
 
