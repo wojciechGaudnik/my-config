@@ -10,6 +10,24 @@ set smartcase
 set hlsearch
 set incsearch
 set magic
+function! VisualSelection(direction, extra_filter) range
+	let l:saved_reg = @"
+  execute 'normal! vgvy'
+
+  let l:pattern = escape(@", "\\/.*'$^~[]")
+  let l:pattern = substitute(l:pattern, '\n$', '', '')
+
+  if a:direction ==? 'gv'
+      call CmdLine("Ack '" . l:pattern . "' " )
+  elseif a:direction ==? 'replace'
+      call CmdLine('%s' . '/'. l:pattern . '/')
+  endif
+
+  let @/ = l:pattern
+  let @" = l:saved_reg
+endfunction
+vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
+vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 
 
 set hidden
@@ -40,6 +58,12 @@ set splitbelow
 set splitright
 set lazyredraw
 
+" toggle Spell Check
+map <F5> :setlocal spell!<CR>
+set spelllang=en_us
+
+
+
 echom "from sets.vim"
 
 
@@ -50,15 +74,9 @@ echom "from sets.vim"
 
 " ---------- CONFIGURATION  -------------------------------------------------
 "
-"	set spelllang=en_us
 "	set ttimeoutlen=1
 "	set ttyfast
 "	let g:mapleader=' '
-"
-"	" cursor different shapes
-"	let &t_SI = "\e[5 q"
-"	let &t_EI = "\e[1 q"
-"	let &t_SR = "\e[3 q"
 "
 "	" menu in cmd mode
 "	set wildmode=longest,list,full
@@ -116,34 +134,8 @@ echom "from sets.vim"
 "	vnoremap <silent><C-S>         <C-C>:update<CR>
 "	inoremap <silent><C-S>         <C-O>:update<CR>
 "
-"	" toggle Spell Check
-"	map <F5> :setlocal spell!<CR>
 "
 "	" clear highlighting on escape in normal mode
 "	nnoremap <esc> :noh<return><esc>
 "	nnoremap <esc>^[ <esc>^[
 "
-"	" searches
-"	set ignorecase
-"	set smartcase
-"	set hlsearch
-"	set incsearch
-"	set magic
-"	function! VisualSelection(direction, extra_filter) range
-"		let l:saved_reg = @"
-"	  execute 'normal! vgvy'
-"
-"	  let l:pattern = escape(@", "\\/.*'$^~[]")
-"	  let l:pattern = substitute(l:pattern, '\n$', '', '')
-"
-"	  if a:direction ==? 'gv'
-"	      call CmdLine("Ack '" . l:pattern . "' " )
-"	  elseif a:direction ==? 'replace'
-"	      call CmdLine('%s' . '/'. l:pattern . '/')
-"	  endif
-"
-"	  let @/ = l:pattern
-"	  let @" = l:saved_reg
-"	endfunction
-"	vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
-"	vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
