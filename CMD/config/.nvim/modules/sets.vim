@@ -29,16 +29,38 @@ endfunction
 vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
 vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 
+" prevent from putting deleted characters into buffer
+noremap x "_x
+noremap X "_x
+noremap <Del> "_x
 
-set hidden
-set nowrap
-
-
+" undo file
 set noswapfile
 set nobackup
 set undodir=~/.config/nvim/undodir
 set undofile
 
+" set to auto read when a file is changed from the outside
+set autoread
+
+" toggle Spell Check
+map <F5> :setlocal spell!<CR>
+set spelllang=en_us
+
+" save current window <ctrl+s>
+noremap <silent><C-S>          :update<CR>
+vnoremap <silent><C-S>         <C-C>:update<CR>
+inoremap <silent><C-S>         <C-O>:update<CR>
+
+" split navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" all
+set hidden
+set nowrap
 set scrolloff=8
 
 set completeopt=menuone,noinsert,noselect
@@ -58,9 +80,6 @@ set splitbelow
 set splitright
 set lazyredraw
 
-" toggle Spell Check
-map <F5> :setlocal spell!<CR>
-set spelllang=en_us
 
 
 
@@ -82,8 +101,6 @@ echom "from sets.vim"
 "	set wildmode=longest,list,full
 "	set wildmenu
 "
-"	" set to auto read when a file is changed from the outside
-"	set autoread
 "	" au FocusGained,BufEnter * checktime
 "
 " 	" indenation
@@ -103,11 +120,7 @@ echom "from sets.vim"
 "	  au BufNewFile, BufRead *.js, *.html, *.css set shiftwidth=2
 "	augroup END
 "
-"	" split navigation
-"	nnoremap <C-J> <C-W><C-J>
-"	nnoremap <C-K> <C-W><C-K>
-"	nnoremap <C-L> <C-W><C-L>
-"	nnoremap <C-H> <C-W><C-H>
+
 "	" switching between opened files
 "	nnoremap <C-Right> :bn<CR>
 "	nnoremap <C-Left> :bp<CR>
@@ -118,22 +131,11 @@ echom "from sets.vim"
 "	nnoremap <C-w>j :resize +5<CR>
 "	nnoremap <C-w>k :resize -5<CR>
 "
-"	" prevent from putting deleted characters into buffer
-"	noremap x "_x
-"	noremap X "_x
-"	noremap <Del> "_x
-"
 "	" close current window <ctrl+4>
 "	inoremap <C-d> <esc>:q<cr>
 "	nnoremap <C-d> :q<cr>
 "	inoremap <C-\> <esc>:bd<cr>
 "	nnoremap <C-\> :bd<cr>
-"
-"	" save current window <ctrl+s>
-"	noremap <silent><C-S>          :update<CR>
-"	vnoremap <silent><C-S>         <C-C>:update<CR>
-"	inoremap <silent><C-S>         <C-O>:update<CR>
-"
 "
 "	" clear highlighting on escape in normal mode
 "	nnoremap <esc> :noh<return><esc>
