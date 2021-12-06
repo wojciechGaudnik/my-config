@@ -11,7 +11,7 @@
     - {source: 'arp-scan'}
     - {source: 'masscan'}
     - {source: 'ettercap-common'}
-    - {source: ''}
+    - {source: 'gcc-mingw-w64-x86-64'}
     # - {source: 'feroxbuster'}
     # - {source: 'ffuf'}
     # - {source: 'dirb'}
