@@ -22,4 +22,6 @@ nmap <C-P> :call <SID>SynStack()<CR>
 colorscheme one
 set background=dark
 
+hi keywords cterm=bold guifg=#ff5fff
+
 echom "from colors.vim"
