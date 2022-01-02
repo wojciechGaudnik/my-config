@@ -12,8 +12,8 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 call plug#begin('~/.config/nvim/plugged')
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'rakr/vim-one'
-    "Plug 'dracula/vim', { 'as': 'dracula' }
-    "Plug 'sonph/onehalf', { 'rtp': 'vim' }
+    Plug 'christoomey/vim-tmux-navigator'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 call plug#end()
 
 
