@@ -12,6 +12,7 @@
     - {source: 'masscan'}
     - {source: 'ettercap-common'}
     - {source: 'gcc-mingw-w64-x86-64'}
+    - {source: 'hashcat'}
     # - {source: 'feroxbuster'}
     # - {source: 'ffuf'}
     # - {source: 'dirb'}
