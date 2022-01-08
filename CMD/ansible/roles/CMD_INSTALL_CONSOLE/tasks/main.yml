@@ -23,6 +23,7 @@
     - {source: 'clamav'}
     - {source: 'vagrant'}
     - {source: 'docker'}
+    - {source: 'docker-compose'}
 - name: PIP VIM-VINT INSTALL
   become: 'yes'
   pip:
