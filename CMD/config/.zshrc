@@ -90,7 +90,7 @@ HISTSIZE=9999
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(ansible autojump git zsh-autosuggestions zsh-syntax-highlighting dotenv thefuck postgres mvn httpie docker docker-compose ufw rsync tmux pip)
+plugins=(ansible autojump git zsh-autosuggestions zsh-syntax-highlighting dotenv thefuck postgres mvn httpie docker docker-compose ufw rsync tmux pip vagrant)
 
 source $ZSH/oh-my-zsh.sh
 
