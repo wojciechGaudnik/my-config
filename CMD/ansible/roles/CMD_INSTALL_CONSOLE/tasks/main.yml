@@ -21,6 +21,8 @@
     - {source: 'vim'}
     - {source: 'fzf'}
     - {source: 'clamav'}
+    - {source: 'vagrant'}
+    - {source: 'docker'}
 - name: PIP VIM-VINT INSTALL
   become: 'yes'
   pip:
