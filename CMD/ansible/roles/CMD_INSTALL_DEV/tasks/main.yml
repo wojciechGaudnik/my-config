@@ -25,6 +25,8 @@
     - {source: 'sasm'}
     - {source: 'nodejs'}
     - {source: 'npm'}
+    - {source: 'go'}
+    - {source: 'lazygit'}
 - name: PIP INSTALL
   become: 'yes'
   pip:
