@@ -4,40 +4,8 @@
     name: "{{ item.source }}"
     state: latest
   with_items:
-    - {source: 'git'}
-    - {source: 'zsh'}
-    - {source: 'wget'}
-    - {source: 'curl'}
-    - {source: 'thefuck'}
-    - {source: 'autojump'}
-    - {source: 'tmux'}
-    - {source: 'screenfetch'}
-    - {source: 'mc'}
-    - {source: 'htop'}
-    - {source: 'ripgrep'}
-    - {source: 'xsel'}
-    - {source: 'xclip'}
-    - {source: 'cryptsetup'}
-    - {source: 'vim'}
-    - {source: 'fzf'}
-    - {source: 'clamav'}
-    - {source: 'vagrant'}
-    - {source: 'docker'}
-    - {source: 'docker-compose'}
-- name: PIP VIM-VINT INSTALL
-  become: 'yes'
-  pip:
-   name: 'vim-vint'
-   state: latest
-- name: GEM COLORLS INSTALL
-  become: 'yes'
-  gem:
-    name: 'colorls'
-    user_install: no
-    state: latest
-- name: VIVM INSTALL
-  become: 'yes'
-  get_url:
-    url: 'https://raw.githubusercontent.com/thameera/vimv/master/vimv'
-    dest: /usr/local/bin/vimv
-    mode: '0755'
+    # - {source: 'zsh'}
+    # - {source: 'tmux'}
+    # - {source: 'mc'}
+    # - {source: 'htop'}
+    # - {source: 'vim'}

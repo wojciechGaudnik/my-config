@@ -1,0 +1,121 @@
+---
+- name: APT CONSOLE TOOLS
+  become: 'yes'
+  apt:
+    name: "{{ item.source }}"
+    state: latest
+  with_items:
+    - {source: 'wget'}
+    - {source: 'curl'}
+    - {source: 'thefuck'}
+    - {source: 'autojump'}
+    - {source: 'screenfetch'}
+    - {source: 'ripgrep'}
+    - {source: 'fzf'}
+    - {source: 'xsel'}
+    - {source: 'xclip'}
+    - {source: 'cryptsetup'}
+    - {source: 'clamav'}
+    - {source: 'vagrant'}
+    - {source: 'docker'}
+    - {source: 'docker-compose'}
+
+- name: APT DEV
+  become: 'yes'
+  apt:
+    name: "{{ item.source }}"
+    state: latest
+  with_items:
+    - {source: 'ruby-full'}
+    - {source: 'build-essential'}
+    - {source: 'python3-distutils'}
+    - {source: 'python3.9-full'}
+    - {source: 'python3-pip'}
+    - {source: 'pylint'}
+    - {source: 'make'}
+    - {source: 'cmake'}
+    - {source: 'perl'}
+    - {source: 'ansible-lint'}
+    - {source: 'lua5.4'}
+    - {source: 'luarocks'}
+    - {source: 'lua-busted'}
+    - {source: 'default-jdk'}
+    - {source: 'maven'}
+    - {source: 'gcc'}
+    - {source: 'nasm'}
+    - {source: 'gdb'}
+    - {source: 'sasm'}
+    - {source: 'nodejs'}
+    - {source: 'npm'}
+    - {source: 'golang-go'}
+    # - {source: 'lazygit'}
+
+- name: GEM COLORLS INSTALL
+  become: 'yes'
+  gem:
+    name: 'colorls'
+    user_install: no
+    state: latest
+
+- name: APT HACK
+  become: 'yes'
+  apt:
+    name: "{{ item.source }}"
+    state: latest
+  with_items:
+    - {source: 'john'}
+    - {source: 'lynis'}
+    - {source: 'nmap'}
+    - {source: 'tshark'}
+    - {source: 'arp-scan'}
+    - {source: 'masscan'}
+    - {source: 'ettercap-common'}
+    - {source: 'gcc-mingw-w64-x86-64'}
+    - {source: 'hashcat'}
+    # - {source: 'feroxbuster'}
+    # - {source: 'ffuf'}
+    # - {source: 'dirb'}
+    # - {source: 'gobuster'}
+
+- name: PIP INSTALL
+  become: 'yes'
+  pip:
+    name: "{{ item.source }}"
+    state: latest
+  with_items:
+    - {source: 'threader3000'}
+
+
+- name: APT HARDWARE
+  become: 'yes'
+  apt:
+    name: '{{ item.source }}'
+    state: latest
+  with_items:
+    - {source: 'iftop'}
+    - {source: 'hwinfo'}
+    - {source: 'smem'}
+    - {source: 'glances'}
+    - {source: 'iotop'}
+    - {source: 'powertop'}
+    - {source: 'sysbench'}
+    - {source: 'inxi'}
+    - {source: 'stress'}
+    - {source: 'stress-ng'}
+    - {source: 'glmark2'}
+
+- name: APT NET
+  become: 'yes'
+  apt:
+    name: '{{ item.source }}'
+    state: latest
+  with_items:
+    - {source: 'net-tools'}
+    - {source: 'wakeonlan'}
+    - {source: 'ethtool'}
+    - {source: 'speedtest-cli'}
+    - {source: 'openvpn'}
+    - {source: 'whois'}
+    - {source: 'nfs-common'}
+    - {source: 'vnstat'}
+    - {source: 'traceroute'}

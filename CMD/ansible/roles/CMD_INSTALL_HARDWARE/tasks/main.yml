@@ -1,20 +1,3 @@
-- name: APT INSTALL
-  become: 'yes'
-  apt:
-    name: '{{ item.source }}'
-    state: latest
-  with_items:
-    - {source: 'iftop'}
-    - {source: 'hwinfo'}
-    - {source: 'smem'}
-    - {source: 'glances'}
-    - {source: 'iotop'}
-    - {source: 'powertop'}
-    - {source: 'sysbench'}
-    - {source: 'inxi'}
-    - {source: 'stress'}
-    - {source: 'stress-ng'}
-    - {source: 'glmark2'}
 
 - name: NVME-CLI
   import_tasks: nvme_cli.yml
