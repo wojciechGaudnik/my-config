@@ -1,5 +1,0 @@
-
-- name: NVME-CLI
-  import_tasks: nvme_cli.yml
-- name: LM SENSORS
-  import_tasks: lm_sensors.yml

@@ -1,0 +1,36 @@
+---
+- name: APT INSTALL HTOP
+  become: 'yes'
+  apt:
+    name: "htop"
+    state: latest
+
+- name: CREATE DIR USER
+  become: 'no'
+  file:
+    path='~/.config/htop'
+    state='directory'
+    recurse='yes'
+
+- name: HTOP LINK FILES USER
+  become: 'no'
+  file:
+    src='~/.my-config/CMD/config/htoprc'
+    dest='~/.config/htop/htoprc'
+    state='link'
+    force='yes'
+
+- name: CREATE DIR ROOT
+  become: 'yes'
+  file:
+    path='~/.config/htop'
+    state='directory'
+    recurse='yes'
+
+- name: HTOP LINK FILES ROOT
+  become: 'yes'
+  file:
+    src='~/.my-config/CMD/config/htoprc'
+    dest='~/.config/htop/htoprc'
+    state='link'
+    force='yes'

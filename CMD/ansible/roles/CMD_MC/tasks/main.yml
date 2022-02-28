@@ -1,0 +1,42 @@
+---
+- name: APT INSTALL MC
+  become: 'yes'
+  apt:
+    name: "mc"
+    state: latest
+
+- name: CREATE DIR USER
+  become: 'no'
+  file:
+    path='~/.config/mc'
+    state='directory'
+    recurse='yes'
+
+- name: MC COPY FILES USER
+  become: 'no'
+  copy:
+    src='{{ item.src }}'
+    dest='{{ item.dest }}'
+    remote_src='{{ item.remote_src }}'
+    mode='{{ item.mode }}'
+  with_items:
+    - {src: '~/.my-config/CMD/config/mc/ini', dest: '~/.config/mc/ini', remote_src: 'yes', mode: '0644' }
+    - {src: '~/.my-config/CMD/config/mc/panels.ini', dest: '~/.config/mc/panels.ini', remote_src: 'yes', mode: '0644' }
+
+- name: CREATE DIR ROOT
+  become: 'yes'
+  file:
+    path='~/.config/mc'
+    state='directory'
+    recurse='yes'
+
+- name: MC COPY FILES ROOT
+  become: 'yes'
+  copy:
+    src='{{ item.src }}'
+    dest='{{ item.dest }}'
+    remote_src='{{ item.remote_src }}'
+    mode='{{ item.mode }}'
+  with_items:
+    - {src: '~/.my-config/CMD/config/mc/ini', dest: '~/.config/mc/ini', remote_src: 'yes', mode: '0644' }
+    - {src: '~/.my-config/CMD/config/mc/panels.ini', dest: '~/.config/mc/panels.ini', remote_src: 'yes', mode: '0644' }

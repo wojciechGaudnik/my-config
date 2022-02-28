@@ -1,3 +1,4 @@
+---
 - name: LM_SENSORS APT INSTALL
   become: 'yes'
   apt:

@@ -6,9 +6,9 @@
     name: "{{ item.source }}"
     state: latest
   with_items:
-    - {source: 'ttf-mscorefonts-installer'}
-    - {source: 'tilix'}
-    - {source: 'dconf-cli'}
+    # - {source: 'ttf-mscorefonts-installer'}
+    # - {source: 'tilix'}
+    # - {source: 'dconf-cli'}
     - {source: 'conky-all'}
     - {source: 'google-chrome-stable'}
     - {source: 'solaar'}
@@ -24,7 +24,7 @@
     - {source: 'filelight'}
     - {source: 'synaptic'}
     - {source: 'wine'}
-    # - {source: 'playonlinux'}
+    - {source: 'playonlinux'}
     - {source: 'handbrake'}
     - {source: 'simplescreenrecorder'}
     - {source: 'ffmpeg'}
@@ -32,8 +32,9 @@
     - {source: 'vlc'}
     - {source: 'gimp'}
     - {source: 'libreoffice-java-common'}
-    # - {source: 'slack-desktop'}
-    # - {source: 'discord'}
+    - {source: 'slack-desktop'}
+    - {source: 'discord'}
     - {source: 'qbittorrent'}
     - {source: 'wireshark'}
+    - {source: 'ksysguard'}
 

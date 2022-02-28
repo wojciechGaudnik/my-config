@@ -48,9 +48,10 @@
     - {source: 'nodejs'}
     - {source: 'npm'}
     - {source: 'golang-go'}
+    - {source: 'openjdk-16-jdk'}
     # - {source: 'lazygit'}
 
-- name: GEM COLORLS INSTALL
+- name: GEM CONSOLE
   become: 'yes'
   gem:
     name: 'colorls'
@@ -72,18 +73,21 @@
     - {source: 'ettercap-common'}
     - {source: 'gcc-mingw-w64-x86-64'}
     - {source: 'hashcat'}
+    - {source: 'python3-shodan'}
+    - {source: 'rlwrap'}
     # - {source: 'feroxbuster'}
     # - {source: 'ffuf'}
     # - {source: 'dirb'}
     # - {source: 'gobuster'}
 
-- name: PIP INSTALL
+- name: PIP HACK
   become: 'yes'
   pip:
     name: "{{ item.source }}"
     state: latest
   with_items:
     - {source: 'threader3000'}
+    - {source: 'wfuzz'}
 
 
 - name: APT HARDWARE
@@ -119,3 +123,9 @@
     - {source: 'nfs-common'}
     - {source: 'vnstat'}
     - {source: 'traceroute'}
+
+- name: SNAP NET
+  become: 'yes'
+  snap:
+    name:
+      - ngrok

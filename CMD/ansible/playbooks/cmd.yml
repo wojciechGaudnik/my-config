@@ -2,13 +2,25 @@
 - hosts: KUB
   user: 'bq666'
   roles:
-    - TEST_PING
-    - CMD_APT_UPDATE_UPGRADE
-    - CMD_INSTALL
-    # - CMD_INSTALL_CONSOLE
+    # - TEST_PING
+    # - CMD_APT_UPDATE_UPGRADE
+    # - CMD_INSTALL
+    # - CMD_GIT
+    # - CMD_DOWNLOAD_CONFIGS
+    # - CMD_ZSH
+    # - CMD_TMUX
+    # - CMD_VIM
+    # - CMD_MC
+    # - CMD_HTOP
+    # - CMD_LM_SENSORS
+    # - CMD_NVME_CLI
+
+    - KDE_TILIX
+    # - KDE_APT_ADD_REPOS
+    
     # - CMD_INSTALL_HARDWARE
     # - CMD_INSTALL_NET
-    # - CMD_INSTALL_HACK
+    #
     # - CMD_ROOT_MY_CONFIG_GLOBAL
     # - CMD_BQ666_MY_CONFIG
     # - role: CMD_WGAUDNIK_MY_CONFIG

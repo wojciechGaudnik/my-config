@@ -1,0 +1,62 @@
+---
+- name: APT TMUX
+  become: 'yes'
+  apt:
+    name: "tmux"
+    state: latest
+
+- name: GIT USER TMUX PULL REPOS
+  become: 'no'
+  git:
+    repo: 'https://github.com/tmux-plugins/tpm'
+    dest: '~/.tmux/plugins/tpm'
+    force: 'yes'
+    version: master
+
+- name: GIT ROOT TMUX PULL REPOS
+  become: 'yes'
+  git:
+    repo: 'https://github.com/tmux-plugins/tpm'
+    dest: '~/.tmux/plugins/tpm'
+    force: 'yes'
+    version: master
+
+- name: TMUX USER LINK FILES
+  become: 'no'
+  file:
+    src='~/.my-config/CMD/config/.tmux.conf'
+    dest='~/.tmux.conf'
+    state='link'
+    force='yes'
+
+- name: TMUX ROOT LINK FILES
+  become: 'yes'
+  file:
+    src='~/.my-config/CMD/config/.tmux.conf'
+    dest='~/.tmux.conf'
+    state='link'
+    force='yes'
+
+- name: TMUX USER INSTALL PLUGINS
+  become: 'no'
+  shell: tmux start-server && ~/.tmux/plugins/tpm/scripts/install_plugins.sh
+
+- name: TMUX ROOT INSTALL PLUGINS
+  become: 'yes'
+  shell: tmux start-server && ~/.tmux/plugins/tpm/scripts/install_plugins.sh
+
+- name: TMUX USER UPDATE PLUGINS
+  become: 'no'
+  shell: tmux start-server && ~/.tmux/plugins/tpm/scripts/update_plugin.sh
+
+- name: TMUX ROOT UPDATE PLUGINS
+  become: 'yes'
+  shell: tmux start-server && ~/.tmux/plugins/tpm/scripts/update_plugin.sh
+
+- name: TMUX USER CLEAN PLUGINS
+  become: 'no'
+  shell: tmux start-server && ~/.tmux/plugins/tpm/scripts/clean_plugins.sh
+
+- name: TMUX ROOT CLEAN PLUGINS
+  become: 'yes'
+  shell: tmux start-server && ~/.tmux/plugins/tpm/scripts/clean_plugins.sh

@@ -5,7 +5,6 @@
     name: 'git'
     state: latest
 
-
 - name: GIT USER EMAIL AND NAME
   become: 'no'
   git_config:
@@ -15,7 +14,6 @@
   with_items:
     - {name: 'user.email', scope: 'global', value: 'wojciech.gaudnik@gmail.com'}
     - {name: 'user.name', scope: 'global', value: 'Wojciech Gaudnik'}
-
 
 - name: GIT ROOT EMAIL AND NAME
   become: 'yes'
