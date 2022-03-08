@@ -1,0 +1,21 @@
+---
+- name: ADD ADDITIONAL REPOTS
+  become: 'yes'
+  apt_repository:
+    repo: 'ppa:solaar-unifying/ppa'
+    state: 'present'
+
+- name: APT UPDATE AND UPGRADE
+  become: 'yes'
+  apt:
+    update_cache: 'yes'
+    upgrade: 'yes'
+    force_apt_get: 'yes'
+    cache_valid_time: 3600
+    autoremove: 'yes'
+
+- name: APT SOLAAR
+  become: 'yes'
+  apt:
+    name: 'solaar'
+    state: latest

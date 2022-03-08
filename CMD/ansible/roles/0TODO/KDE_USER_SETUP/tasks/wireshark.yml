@@ -6,6 +6,6 @@
 - name: WIRESHARK ADD USER TO GROUP
   become: 'yes'
   user:
-    name: 'bq666'
+    name: '{{ ansible_env.LOGNAME }}'
     groups: 'wireshark'
     append: 'yes'

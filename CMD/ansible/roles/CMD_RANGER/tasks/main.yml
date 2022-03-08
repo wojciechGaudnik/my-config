@@ -1,0 +1,59 @@
+---
+- name: APT INSTALL RANGER
+  become: 'yes'
+  apt:
+    name: "mc"
+    state: latest
+
+- name: RANGER GIT PULL REPOS USER
+  become: 'no'
+  git:
+    repo: '{{ item.repo }}'
+    dest: '{{ item.dest }}'
+    force: '{{ item.force }}'
+  with_items:
+    - {repo: 'https://github.com/alexanderjeurissen/ranger_devicons', dest: '~/.config/ranger/plugins/ranger_devicons', force: 'yes'}
+
+- name: RANGER GIT PULL REPOS ROOT
+  become: 'yes'
+  git:
+    repo: '{{ item.repo }}'
+    dest: '{{ item.dest }}'
+    force: '{{ item.force }}'
+  with_items:
+    - {repo: 'https://github.com/alexanderjeurissen/ranger_devicons', dest: '~/.config/ranger/plugins/ranger_devicons', force: 'yes'}
+
+- name: CREATE DIR USER
+  become: 'no'
+  file:
+    path='~/.config/ranger'
+    state='directory'
+    recurse='yes'
+
+- name: RANGER LINK FILES USER
+  become: 'no'
+  file:
+    src='{{ item.src }}'
+    dest='{{ item.dest }}'
+    state='{{ item.state }}'
+    force='{{ item.force }}'
+  with_items:
+    - {src: '~/.my-config/CMD/config/ranger/rc.conf', dest: '~/.config/ranger/rc.conf', state: 'link', force: 'yes'}
+
+- name: CREATE DIR ROOT
+  become: 'yes'
+  file:
+    path='~/.config/ranger'
+    state='directory'
+    recurse='yes'
+
+- name: RANGER LINK FILES ROOT
+  become: 'yes'
+  file:
+    src='{{ item.src }}'
+    dest='{{ item.dest }}'
+    state='{{ item.state }}'
+    force='{{ item.force }}'
+  with_items:
+    - {src: '~/.my-config/CMD/config/ranger/rc.conf', dest: '~/.config/ranger/rc.conf', state: 'link', force: 'yes'}
+

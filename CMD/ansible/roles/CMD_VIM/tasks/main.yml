@@ -44,8 +44,7 @@
   become: 'yes'
   file:
     path='{{ item.path }}'
-    state='{{ item.state }}'
-    recurse='{{ item.recurse }}'
+    state='{{ item.state }}' recurse='{{ item.recurse }}'
   with_items:
     - {path: '~/.vim/colors', state: 'directory', recurse: 'yes'}
     - {path: '~/.vim/undodir', state: 'directory', recurse: 'yes'}

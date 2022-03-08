@@ -8,6 +8,7 @@
   shell: 'cat /sys/class/net/{{ inter.device }}/device/power/wakeup'
   changed_when: false
   when: inventory_hostname in groups['WAKE_ON_LAN_HOSTS']
+
 - name: SET WAKE ON LAN
   become: 'yes'
   vars:

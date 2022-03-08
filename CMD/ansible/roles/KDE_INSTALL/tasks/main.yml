@@ -1,23 +1,16 @@
-- name: ADDITIONAL
-  import_tasks: additionals.yml
+---
 - name: APT INSTALL
   become: 'yes'
   apt:
     name: "{{ item.source }}"
     state: latest
   with_items:
-    # - {source: 'ttf-mscorefonts-installer'}
-    # - {source: 'tilix'}
-    # - {source: 'dconf-cli'}
     - {source: 'conky-all'}
-    - {source: 'google-chrome-stable'}
-    - {source: 'solaar'}
-    - {source: 'openrazer-meta'}
-    - {source: 'polychromatic'}
     - {source: 'thunderbird'}
     - {source: 'thunderbird-locale-en'}
     - {source: 'thunderbird-locale-en-us'}
     - {source: 'libreoffice-kde5'}
+    - {source: 'libreoffice-java-common'}
     - {source: 'latte-dock'}
     - {source: 'kcolorchooser'}
     - {source: 'timeshift'}
@@ -31,10 +24,10 @@
     - {source: 'obs-studio'}
     - {source: 'vlc'}
     - {source: 'gimp'}
-    - {source: 'libreoffice-java-common'}
     - {source: 'slack-desktop'}
     - {source: 'discord'}
     - {source: 'qbittorrent'}
     - {source: 'wireshark'}
     - {source: 'ksysguard'}
+    # - {source: 'aptik'}
 

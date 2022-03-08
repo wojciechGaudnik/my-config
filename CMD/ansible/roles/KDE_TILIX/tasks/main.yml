@@ -23,6 +23,6 @@
     - {source: 'tilix'}
     - {source: 'dconf-cli'}
 
-- name: TILIX CONFIG
+- name: CONFIG TILIX
   become: 'no'
   shell: 'dconf load /com/gexperts/Tilix/ <~/.my-config/KDE/tilix/tilix.dconf'

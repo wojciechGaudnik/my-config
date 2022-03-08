@@ -2,13 +2,14 @@
 - name: ZSH APT INSTALL
   become: 'yes'
   apt:
-    name: "zsh"
+    name: 'zsh'
     state: latest
+
 
 - name: ZSH USER SETUP DEFAULT SHELL
   become: 'yes'
   user:
-    name: 'bq666'
+    name: '{{ ansible_env.LOGNAME }}'
     shell: /usr/bin/zsh
 
 - name: ZSH ROOT SETUP DEFAULT SHELL

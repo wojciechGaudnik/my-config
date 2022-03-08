@@ -52,14 +52,10 @@
     - {src: '~/.my-config/KDE/.config/plasma-localerc', dest: '~/.config/', remote_src: 'yes'}
     - {src: '~/.my-config/KDE/.config/qBittorrent/qBittorrent-data.conf', dest: '~/.config/qBittorrent/', remote_src: 'yes'}
     - {src: '~/.my-config/KDE/.config/qBittorrent/qBittorrent.conf', dest: '~/.config/qBittorrent/', remote_src: 'yes'}
-- name: TILIX CONFIG
-  import_tasks: tilix.yml
 - name: WALLPAPERS COPY
   import_tasks: wallpapers.yml
 - name: AUTO START FILES COPY
   import_tasks: autostart.yml
-- name: NERD FONT SSETUP
-  import_tasks: nerdFonts.yml
 - name: OPEN RAZER SETUP
   import_tasks: openRazer.yml
 - name: WHIRESHARK

@@ -19,6 +19,7 @@
     - {source: 'vagrant'}
     - {source: 'docker'}
     - {source: 'docker-compose'}
+    - {source: 'ranger'}
 
 - name: APT DEV
   become: 'yes'
@@ -123,9 +124,44 @@
     - {source: 'nfs-common'}
     - {source: 'vnstat'}
     - {source: 'traceroute'}
+    - {source: 'apache2-utils'}
+    - {source: 'httpie'}
 
 - name: SNAP NET
   become: 'yes'
   snap:
     name:
       - ngrok
+
+- name: CREATE DIR
+  become: 'yes'
+  file:
+    path='{{ item.path }}'
+    state='{{ item.state }}'
+    recurse='{{ item.recurse }}'
+  with_items:
+    - {path: '/mnt/NAS_Backups', state: 'directory', recurse: 'yes'}
+    - {path: '/mnt/NAS_Important', state: 'directory', recurse: 'yes'}
+    - {path: '/mnt/NAS_Plex', state: 'directory', recurse: 'yes'}
+    - {path: '/mnt/NAS_Storage', state: 'directory', recurse: 'yes'}
+    - {path: '/mnt/NAS_VirtualBox', state: 'directory', recurse: 'yes'}
+    - {path: '/mnt/usb', state: 'directory', recurse: 'yes'}
+
+- name: LINK FILES
+  become: 'yes'
+  file:
+    src='{{ item.src }}'
+    dest='{{ item.dest }}'
+    state='{{ item.state }}'
+    force='{{ item.force }}'
+    mode='{{ item.mode }}'
+  with_items:
+    - {src: '~/.my-config/CMD/bash/off.sh', dest: '/usr/bin/off', state: 'link', force: 'yes', mode: '0700'}
+    - {src: '~/.my-config/CMD/bash/on.sh', dest: '/usr/bin/on', state: 'link', force: 'yes', mode: '0700'}
+    - {src: '~/.my-config/CMD/bash/resetNET.sh', dest: '/usr/bin/resetNET.sh', state: 'link', force: 'yes', mode: '0700'}
+    - {src: '~/.my-config/CMD/bash/resetNFS.sh', dest: '/usr/bin/resetNFS.sh', state: 'link', force: 'yes', mode: '0700'}
+    - {src: '~/.my-config/CMD/bash/resetUSB.sh', dest: '/usr/bin/resetUSB.sh', state: 'link', force: 'yes', mode: '0700'}
+    - {src: '~/.my-config/CMD/bash/resetKWIN.sh', dest: '/usr/bin/resetKWIN.sh', state: 'link', force: 'yes', mode: '0700'}
+    - {src: '~/.my-config/CMD/bash/testBIOSorURFI.sh', dest: '/usr/bin/testBIOSorURFI.sh', state: 'link', force: 'yes', mode: '0700'}
+    - {src: '~/.my-config/CMD/bash/testTrueColorConsole.sh', dest: '/usr/bin/testTrueColorConsole.sh', state: 'link', force: 'yes', mode: '0700'}
+    - {src: '~/.my-config/CMD/config/etc/environment', dest: '/etc/environment', state: 'link', force: 'yes', mode: '0644'}
