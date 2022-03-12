@@ -7,7 +7,7 @@
     # - CMD_APT_UPDATE_UPGRADE
     # - CMD_INSTALL
     # - CMD_GIT
-    # - CMD_DOWNLOAD_CONFIGS
+    - CMD_DOWNLOAD_CONFIGS
     # - CMD_ZSH
     # - CMD_TMUX
     # - CMD_VIM

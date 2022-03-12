@@ -20,3 +20,9 @@
     - {src: '~/.my-config/KDE/.config/conky_BIG/conky-startup.sh', dest: '~/.config/autostart-scripts/conky-startup.sh', state: 'link', force: 'yes'}
     - {src: '~/.my-config/KDE/.config/conky_BIG/.conky.conf', dest: '~/.config/conky/.conky.conf', state: 'link', force: 'yes'}
     - {src: '~/.my-config/KDE/.config/conky_BIG/NetStatRead.py', dest: '~/.config/conky/NetStatRead.py', state: 'link', force: 'yes'}
+
+- name: COPY AUTOSTART
+  copy:
+    src: '~/.my-config/KDE/.config/conky_BIG/conky-startup.sh'
+    dest: '~/.config/conky/'
+    remote_src: 'yes'
