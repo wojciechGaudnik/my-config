@@ -1,0 +1,15 @@
+---
+- name: APT INSTALL
+  become: 'yes'
+  apt:
+    name: 'qbittorrent'
+    state: latest
+
+- name: COPY FILES
+  copy:
+    src: '{{ item.src }}'
+    dest: '{{ item.dest }}'
+    remote_src: '{{ item.remote_src }}'
+  with_items:
+    - {src: '~/.my-config/KDE/.config/qBittorrent/qBittorrent-data.conf', dest: '~/.config/qBittorrent/', remote_src: 'yes'}
+    - {src: '~/.my-config/KDE/.config/qBittorrent/qBittorrent.conf', dest: '~/.config/qBittorrent/', remote_src: 'yes'}

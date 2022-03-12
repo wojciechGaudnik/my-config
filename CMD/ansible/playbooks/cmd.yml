@@ -27,8 +27,10 @@
 
 
     - KDE_SETUP
-    # - KDE_TILIX
+    - KDE_TILIX
     - KDE_PROGRAMS
+    - KDE_LIBREOFFICE
+    - KDE_QBITTORRENT
     # - KDE_INSTALL
     # - KDE_CHROME
     # - KDE_SOLAAR

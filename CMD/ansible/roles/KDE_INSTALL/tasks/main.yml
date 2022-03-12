@@ -8,8 +8,6 @@
     - {source: 'thunderbird'}
     - {source: 'thunderbird-locale-en'}
     - {source: 'thunderbird-locale-en-us'}
-    - {source: 'libreoffice-kde5'}
-    - {source: 'libreoffice-java-common'}
     - {source: 'latte-dock'}
     - {source: 'kcolorchooser'}
     - {source: 'timeshift'}
@@ -23,7 +21,6 @@
     - {source: 'obs-studio'}
     - {source: 'vlc'}
     - {source: 'gimp'}
-    - {source: 'qbittorrent'}
     - {source: 'wireshark'}
     - {source: 'ksysguard'}
     # - {source: 'slack-desktop'}
