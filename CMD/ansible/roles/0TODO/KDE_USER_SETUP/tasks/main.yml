@@ -8,13 +8,6 @@
     - {path: '~/.config/autostart/', state: 'directory'}
     - {path: '~/.config/qBittorrent/', state: 'directory'}
     # - {path: '~/.local/share/konsole/', state: 'absent'}
-- name: LINK FILES
-  file:
-    src='{{ item.src }}'
-    dest='{{ item.dest }}'
-    state='{{ item.state }}'
-    force='{{ item.force }}'
-  with_items:
 - name: COPY FILES
   copy:
     src: '{{ item.src }}'
