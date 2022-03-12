@@ -7,22 +7,37 @@
     # - CMD_APT_UPDATE_UPGRADE
     # - CMD_INSTALL
     # - CMD_GIT
-    - CMD_DOWNLOAD_CONFIGS
+    # - CMD_DOWNLOAD_CONFIGS
     # - CMD_ZSH
     # - CMD_TMUX
     # - CMD_VIM
     # - CMD_MC
-    - CMD_RANGER
+    # - CMD_RANGER
     # - CMD_HTOP
     # - CMD_LM_SENSORS
     # - CMD_NVME_CLI
     # - CMD_AUTOJUMP
+    # == BIG =====================================================
+    # - CMD_BIG
+    # - CMD_APC
 
+    # == SERVER =====================================================
+    # - CMD_UFW_SERVER
+
+
+
+    - KDE_SETUP
     # - KDE_TILIX
+    - KDE_PROGRAMS
     # - KDE_INSTALL
     # - KDE_CHROME
     # - KDE_SOLAAR
     # - KDE_OPENRAZER
+    # - KDE_CONKY_BIG
+    # - KDE_CONKY_LEN
+
+
+
 
     # - CMD_INSTALL_HARDWARE
     # - CMD_INSTALL_NET

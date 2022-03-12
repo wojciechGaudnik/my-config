@@ -1,23 +1,9 @@
-- name: MY CONFIG DELETE DIRECTORY
-  file:
-    path: '{{ item.path }}'
-    state: '{{ item.state }}'
-  with_items:
-    - {path: '~/.my-config/', state: 'absent'}
-- name: GIT PULL MY CONFIG REPO
-  git:
-    repo: 'git@github.com:wojciechGaudnik/my-config.git'
-    dest: '~/.my-config'
-    version: master
-  register: reg_user_git_pull_config_repo
 - name: DELETE/CREATE FILES/DIRECTORY
   file:
     path: '{{ item.path }}'
     state: '{{ item.state }}'
   with_items:
-    - {path: '~/.config/conky/', state: 'directory'}
     - {path: '~/.config/autostart-scripts/', state: 'directory'}
-    - {path: '~/.config/solaar/', state: 'directory'}
     - {path: '~/.config/libreoffice/4/user/basic/Standard/', state: 'directory'}
     - {path: '~/.config/autostart/', state: 'directory'}
     - {path: '~/.config/qBittorrent/', state: 'directory'}
@@ -29,34 +15,15 @@
     state='{{ item.state }}'
     force='{{ item.force }}'
   with_items:
-    - {src: '~/.my-config/KDE/.config/conky/conky-startup.sh', dest: '~/.config/autostart-scripts/conky-startup.sh', state: 'link', force: 'yes'}
-    - {src: '~/.my-config/KDE/.config/conky/.conky.conf', dest: '~/.config/conky/.conky.conf', state: 'link', force: 'yes'}
-    - {src: '~/.my-config/KDE/.config/conky/NetStatRead.py', dest: '~/.config/conky/NetStatRead.py', state: 'link', force: 'yes'}
-    - {src: '~/.my-config/KDE/.config/okularpartrc', dest: '~/.config/okularpartrc', state: 'link', force: 'yes'}
 - name: COPY FILES
   copy:
     src: '{{ item.src }}'
     dest: '{{ item.dest }}'
     remote_src: '{{ item.remote_src }}'
   with_items:
-    - {src: '~/.my-config/KDE/.config/konsolerc', dest: '~/.config/', remote_src: 'yes'}
-    - {src: '~/.my-config/KDE/.local/share/konsole/ZSH.profile', dest: '~/.local/share/konsole/', remote_src: 'yes'}
-    - {src: '~/.my-config/KDE/.config/kglobalshortcutsrc', dest: '~/.config/', remote_src: 'yes'}
-    - {src: '~/.my-config/KDE/.config/khotkeysrc', dest: '~/.config/', remote_src: 'yes'}
-    - {src: '~/.my-config/KDE/.config/solaar/config.json', dest: '~/.config/solaar/', remote_src: 'yes'}
-    - {src: '~/.my-config/KDE/.config/libreoffice/4/user/registrymodifications.xcu', dest: '~/.config/libreoffice/4/user/', remote_src: 'yes'}
-    - {src: '~/.my-config/KDE/.config/libreoffice/4/user/basic/Standard/MyColor.xba', dest: '~/.config/libreoffice/4/user/basic/Standard/', remote_src: 'yes'}
-    - {src: '~/.my-config/KDE/.config/katerc', dest: '~/.config/', remote_src: 'yes'}
-    - {src: '~/.my-config/KDE/.config/dolphinrc', dest: '~/.config/', remote_src: 'yes'}
-    - {src: '~/.my-config/KDE/.local/share/kxmlgui5/dolphin/dolphinui.rc', dest: '~/.local/share/kxmlgui5/dolphin/', remote_src: 'yes'}
-    - {src: '~/.my-config/KDE/.config/plasma-localerc', dest: '~/.config/', remote_src: 'yes'}
     - {src: '~/.my-config/KDE/.config/qBittorrent/qBittorrent-data.conf', dest: '~/.config/qBittorrent/', remote_src: 'yes'}
     - {src: '~/.my-config/KDE/.config/qBittorrent/qBittorrent.conf', dest: '~/.config/qBittorrent/', remote_src: 'yes'}
-- name: WALLPAPERS COPY
-  import_tasks: wallpapers.yml
-- name: AUTO START FILES COPY
-  import_tasks: autostart.yml
-- name: OPEN RAZER SETUP
-  import_tasks: openRazer.yml
+    - {src: '~/.my-config/KDE/.config/libreoffice/4/user/registrymodifications.xcu', dest: '~/.config/libreoffice/4/user/', remote_src: 'yes'}
+    - {src: '~/.my-config/KDE/.config/libreoffice/4/user/basic/Standard/MyColor.xba', dest: '~/.config/libreoffice/4/user/basic/Standard/', remote_src: 'yes'}
 - name: WHIRESHARK
   import_tasks: wireshark.yml

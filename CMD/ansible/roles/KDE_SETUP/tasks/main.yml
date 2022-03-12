@@ -1,3 +1,14 @@
+---
+- name: COPY CONFIGS
+  copy:
+    src: '{{ item.src }}'
+    dest: '{{ item.dest }}'
+    remote_src: '{{ item.remote_src }}'
+  with_items:
+    - {src: '~/.my-config/KDE/.config/kglobalshortcutsrc', dest: '~/.config/', remote_src: 'yes'}
+    - {src: '~/.my-config/KDE/.config/khotkeysrc', dest: '~/.config/', remote_src: 'yes'}
+    - {src: '~/.my-config/KDE/.config/plasma-localerc', dest: '~/.config/', remote_src: 'yes'}
+
 - name: WALLPAPERS DIRECTORY CREATE
   become: 'yes'
   file:
@@ -5,6 +16,7 @@
     state: '{{ item.state }}'
   with_items:
     - {path: '/usr/share/wallpapers/MyWallpapers', state: 'directory'}
+
 - name: WALLPAPERS COPY
   become: 'yes'
   copy:
@@ -17,3 +29,13 @@
     - {src: '~/.my-config/KDE/.local/share/wallpapers/right.jpg', dest: '/usr/share/wallpapers/MyWallpapers/', remote_src: 'yes'}
     - {src: '~/.my-config/KDE/.local/share/wallpapers/top.jpg', dest: '/usr/share/wallpapers/MyWallpapers/', remote_src: 'yes'}
     - {src: '~/.my-config/KDE/.local/share/wallpapers/login.jpg', dest: '/usr/share/wallpapers/MyWallpapers/', remote_src: 'yes'}
+
+- name: COPY AUTOSTART
+  copy:
+    src: '{{ item.src }}'
+    dest: '{{ item.dest }}'
+    remote_src: '{{ item.remote_src }}'
+  with_items:
+    - {src: '~/.my-config/KDE/.config/autostart/com.gexperts.tilix.desktop', dest: '~/.config/autostart/', remote_src: 'yes'}
+    - {src: '~/.my-config/KDE/.config/conky/conky-startup.sh', dest: '~/.config/conky/', remote_src: 'yes'}
+    - {src: '~/.my-config/KDE/.config/autostart/libreoffice-calc.desktop', dest: '~/.config/autostart/', remote_src: 'yes'}

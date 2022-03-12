@@ -33,3 +33,9 @@
     name: "{{ ansible_user }}"
     groups: plugdev
     append: yes
+
+- name: COPY CONFIG
+  copy:
+    src: '~/.my-config/KDE/.config/solaar/config.json'
+    dest: '~/.config/solaar/'
+    remote_src: 'yes'

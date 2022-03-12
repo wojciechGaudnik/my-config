@@ -1,0 +1,13 @@
+---
+- name: COPY CONFIGS
+  copy:
+    src: '{{ item.src }}'
+    dest: '{{ item.dest }}'
+    remote_src: '{{ item.remote_src }}'
+  with_items:
+    - {src: '~/.my-config/KDE/.config/konsolerc', dest: '~/.config/', remote_src: 'yes'}
+    - {src: '~/.my-config/KDE/.local/share/konsole/ZSH.profile', dest: '~/.local/share/konsole/', remote_src: 'yes'}
+    - {src: '~/.my-config/KDE/.config/katerc', dest: '~/.config/', remote_src: 'yes'}
+    - {src: '~/.my-config/KDE/.config/dolphinrc', dest: '~/.config/', remote_src: 'yes'}
+    - {src: '~/.my-config/KDE/.local/share/kxmlgui5/dolphin/dolphinui.rc', dest: '~/.local/share/kxmlgui5/dolphin/', remote_src: 'yes'}
+    - {src: '~/.my-config/KDE/.config/okularpartrc', dest: '~/.config/okularpartrc', remote_src: 'yes'}

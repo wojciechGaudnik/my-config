@@ -1,4 +1,0 @@
-- name: WAKE ON LAN
-  import_tasks: wake_on_lan.yml
-- name: HOSTS ETC
-  import_tasks: hosts_etc.yml

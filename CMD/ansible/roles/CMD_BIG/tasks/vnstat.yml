@@ -1,3 +1,4 @@
+---
 - name: VNSTAT COPY DB
   become: 'yes'
   copy:
@@ -6,7 +7,8 @@
     remote_src='{{ item.remote_src }}'
     mode='{{ item.mode }}'
   with_items:
-    - {src: '~/.my-config-tmp/CMD/config/vnstat/var/lib/vnstat/vnstat.db', dest: '/var/lib/vnstat/vnstat.db', remote_src: 'yes', mode: '0644' }
+    - {src: '~/.my-config/CMD/config/vnstat/var/lib/vnstat/vnstat.db', dest: '/var/lib/vnstat/vnstat.db', remote_src: 'yes', mode: '0644' }
+
 - name: VNSTAT LINK CONFIG
   become: 'yes'
   when: reg_vnstat_db.matched == 0

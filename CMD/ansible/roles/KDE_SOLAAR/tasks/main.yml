@@ -19,3 +19,14 @@
   apt:
     name: 'solaar'
     state: latest
+
+- name: CREATE DIRECTORY
+  file:
+    path: '~/.config/solaar/'
+    state: 'directory'
+
+- name: COPY CONFIGS
+  copy:
+    src: '~/.my-config/KDE/.config/konsolerc'
+    dest: '~/.config/'
+    remote_src: 'yes'

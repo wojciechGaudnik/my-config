@@ -1,12 +1,21 @@
+---
+- name: WAKE ON LAN
+  import_tasks: wake_on_lan.yml
+
+- name: HOSTS ETC
+  import_tasks: hosts_etc.yml
+
 - name: NET
   import_tasks: net.yml
-- name: APT INSTALL
+
+- name: VNSTAT
+  import_tasks: vnstat.yml
+
+- name: APT RADEONTOP
   become: 'yes'
   apt:
-    name: '{{ item.source }}'
+    name: 'radeontop'
     state: latest
-  with_items:
-    - {source: 'radeontop'}
 
 - name: CREATE DIR
   become: 'no'

@@ -5,25 +5,9 @@ DefaultProfile=ZSH.profile
 Favorites=ZSH.profile
 
 [MainWindow]
-DisplayPort-0 DisplayPort-1 DisplayPort-2 HDMI-A-0 Height 1440=1416
-DisplayPort-0 DisplayPort-1 DisplayPort-2 HDMI-A-0 Height 2560=2538
-DisplayPort-0 DisplayPort-1 DisplayPort-2 HDMI-A-0 Height 2560x1440=480
-DisplayPort-0 DisplayPort-1 DisplayPort-2 HDMI-A-0 Width 1440=1440
-DisplayPort-0 DisplayPort-1 DisplayPort-2 HDMI-A-0 Width 2560=2560
-DisplayPort-0 DisplayPort-1 DisplayPort-2 HDMI-A-0 Width 2560x1440=640
-DisplayPort-0 DisplayPort-1 DisplayPort-2 HDMI-A-0 Window-Maximized 2560x1440=true
-DisplayPort-0 DisplayPort-1 DisplayPort-2 HDMI-A-0 XPosition=1440
-DisplayPort-0 DisplayPort-1 DisplayPort-2 HDMI-A-0 XPosition 1440x2560=569
-DisplayPort-0 DisplayPort-1 DisplayPort-2 HDMI-A-0 XPosition 2560x1440=1444
-DisplayPort-0 DisplayPort-1 DisplayPort-2 HDMI-A-0 YPosition=24
-DisplayPort-0 DisplayPort-1 DisplayPort-2 HDMI-A-0 YPosition 1440x2560=460
-DisplayPort-0 DisplayPort-1 DisplayPort-2 HDMI-A-0 YPosition 2560x1440=1495
-State=AAAA/wAAAAD9AAAAAQAAAAAAAAAAAAAAAPwCAAAAAfsAAAAcAFMAUwBIAE0AYQBuAGEAZwBlAHIARABvAGMAawAAAAAA/////wAAANUBAAADAAACgAAAAZQAAAAEAAAABAAAAAgAAAAI/AAAAAEAAAACAAAAAgAAABYAbQBhAGkAbgBUAG8AbwBsAEIAYQByAQAAAAD/////AAAAAAAAAAAAAAAcAHMAZQBzAHMAaQBvAG4AVABvAG8AbABiAGEAcgEAAAJY/////wAAAAAAAAAA
 StatusBar=Disabled
 ToolBarsMovable=Disabled
-Virtual1 Window-Maximized 2560x1440=true
-Virtual1 XPosition 2560x1440=0
-Virtual1 YPosition 2560x1440=29
+RestorePositionForNextInstance=true
 
 [Notification Messages]
 CloseAllTabs=true
