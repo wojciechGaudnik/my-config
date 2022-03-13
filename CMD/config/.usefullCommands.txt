@@ -179,3 +179,7 @@ git rebase -i --root
 git push -f origin master
 “If I force-push fast enough, nobody will have had time to pull my fuckup”
 grep -iRn "tls_cacert*" /etc
+
+
+qemu-img convert -f vdi -O qcow2 rocky.vdi rocky8.qcow2
+

@@ -2,8 +2,16 @@
 - name: APT INSTALL RANGER
   become: 'yes'
   apt:
-    name: "mc"
+    name: "ranger"
     state: latest
+
+- name: PIP HACK
+  become: 'yes'
+  pip:
+    name: "{{ item.source }}"
+    state: latest
+  with_items:
+    - {source: 'ueberzug'}
 
 - name: RANGER GIT PULL REPOS USER
   become: 'no'
@@ -39,6 +47,10 @@
     force='{{ item.force }}'
   with_items:
     - {src: '~/.my-config/CMD/config/ranger/rc.conf', dest: '~/.config/ranger/rc.conf', state: 'link', force: 'yes'}
+    - {src: '~/.my-config/CMD/config/ranger/commands.py', dest: '~/.config/ranger/commands.py', state: 'link', force: 'yes'}
+    - {src: '~/.my-config/CMD/config/ranger/commands_full.py', dest: '~/.config/ranger/commands_full.py', state: 'link', force: 'yes'}
+    - {src: '~/.my-config/CMD/config/ranger/rifle.conf', dest: '~/.config/ranger/rifle.conf', state: 'link', force: 'yes'}
+    - {src: '~/.my-config/CMD/config/ranger/scope.sh', dest: '~/.config/ranger/scope.sh', state: 'link', force: 'yes'}
 
 - name: CREATE DIR ROOT
   become: 'yes'
@@ -56,4 +68,8 @@
     force='{{ item.force }}'
   with_items:
     - {src: '~/.my-config/CMD/config/ranger/rc.conf', dest: '~/.config/ranger/rc.conf', state: 'link', force: 'yes'}
+    - {src: '~/.my-config/CMD/config/ranger/commands.py', dest: '~/.config/ranger/commands.py', state: 'link', force: 'yes'}
+    - {src: '~/.my-config/CMD/config/ranger/commands_full.py', dest: '~/.config/ranger/commands_full.py', state: 'link', force: 'yes'}
+    - {src: '~/.my-config/CMD/config/ranger/rifle.conf', dest: '~/.config/ranger/rifle.conf', state: 'link', force: 'yes'}
+    - {src: '~/.my-config/CMD/config/ranger/scope.sh', dest: '~/.config/ranger/scope.sh', state: 'link', force: 'yes'}
 

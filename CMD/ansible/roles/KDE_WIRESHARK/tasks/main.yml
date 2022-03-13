@@ -1,8 +1,16 @@
+---
+- name: APT INSTALL
+  become: 'yes'
+  apt:
+    name: 'wireshark'
+    state: latest
+
 - name: WIRESHARK ADD GROUP
   become: 'yes'
   group:
-    name: wireshark
+    name: 'wireshark'
     state: present
+
 - name: WIRESHARK ADD USER TO GROUP
   become: 'yes'
   user:

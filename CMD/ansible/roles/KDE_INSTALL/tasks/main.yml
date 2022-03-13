@@ -21,7 +21,6 @@
     - {source: 'obs-studio'}
     - {source: 'vlc'}
     - {source: 'gimp'}
-    - {source: 'wireshark'}
     - {source: 'ksysguard'}
     # - {source: 'slack-desktop'}
     # - {source: 'discord'}

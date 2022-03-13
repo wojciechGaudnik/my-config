@@ -9,13 +9,13 @@
     - {src: '~/.my-config/KDE/.config/khotkeysrc', dest: '~/.config/', remote_src: 'yes'}
     - {src: '~/.my-config/KDE/.config/plasma-localerc', dest: '~/.config/', remote_src: 'yes'}
 
-- name: WALLPAPERS DIRECTORY CREATE
-  become: 'yes'
-  file:
-    path: '{{ item.path }}'
-    state: '{{ item.state }}'
-  with_items:
-    - {path: '/usr/share/wallpapers/MyWallpapers', state: 'directory'}
+# - name: WALLPAPERS DIRECTORY CREATE
+#   become: 'yes'
+#   file:
+#     path: '{{ item.path }}'
+#     state: '{{ item.state }}'
+#   with_items:
+#     - {path: '/usr/share/wallpapers/MyWallpapers', state: 'directory'}
 
 - name: WALLPAPERS COPY
   become: 'yes'

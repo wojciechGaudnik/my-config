@@ -8,6 +8,13 @@
     - {source: 'libreoffice-kde5'}
     - {source: 'libreoffice-java-common'}
 
+# - name: COPY FILES
+#   copy:
+#     src: '~/.my-config/KDE/.config/libreoffice/4/user/basic/'
+#     dest: '~/.config/libreoffice/4/user/basic/'
+#     remote_src: 'yes'
+
+
 - name: COPY FILES
   copy:
     src: '~/.my-config/KDE/.config/libreoffice/4/user/basic/'

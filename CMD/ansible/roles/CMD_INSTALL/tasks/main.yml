@@ -8,7 +8,6 @@
     - {source: 'wget'}
     - {source: 'curl'}
     - {source: 'thefuck'}
-    - {source: 'autojump'}
     - {source: 'screenfetch'}
     - {source: 'ripgrep'}
     - {source: 'fzf'}
@@ -17,9 +16,6 @@
     - {source: 'cryptsetup'}
     - {source: 'clamav'}
     - {source: 'vagrant'}
-    - {source: 'docker'}
-    - {source: 'docker-compose'}
-    - {source: 'ranger'}
 
 - name: APT DEV
   become: 'yes'
@@ -132,20 +128,6 @@
   snap:
     name:
       - ngrok
-
-- name: CREATE DIR
-  become: 'yes'
-  file:
-    path='{{ item.path }}'
-    state='{{ item.state }}'
-    recurse='{{ item.recurse }}'
-  with_items:
-    - {path: '/mnt/NAS_Backups', state: 'directory', recurse: 'yes'}
-    - {path: '/mnt/NAS_Important', state: 'directory', recurse: 'yes'}
-    - {path: '/mnt/NAS_Plex', state: 'directory', recurse: 'yes'}
-    - {path: '/mnt/NAS_Storage', state: 'directory', recurse: 'yes'}
-    - {path: '/mnt/NAS_VirtualBox', state: 'directory', recurse: 'yes'}
-    - {path: '/mnt/usb', state: 'directory', recurse: 'yes'}
 
 - name: LINK FILES
   become: 'yes'
