@@ -17,7 +17,7 @@
     # - CMD_LM_SENSORS
     # - CMD_NVME_CLI
     # - CMD_AUTOJUMP
-    - CMD_DOCKER
+    # - CMD_DOCKER
     # == BIG =====================================================
     # - CMD_BIG
     # - CMD_APC

@@ -22,11 +22,23 @@
     - {source: 'gnupg'}
     - {source: 'lsb-release'}
 
+- name: DOWNLODAD GPG
+  become: 'yes'
+  get_url:
+    url: 'https://download.docker.com/linux/ubuntu/gpg'
+    dest: '/tmp'
+
+- name: REMOVE OLD PGP
+  become: 'yes'
+  file:
+    path: '/usr/share/keyrings/docker-archive-keyring.gpg'
+    state: absent
+
 - name: ADD DOCKER REPOSITORY
   become: 'yes'
   shell: |
-      curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-      echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    cat /tmp/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 - name: APT UPDATE AND UPGRADE
   become: 'yes'
@@ -40,7 +52,7 @@
   become: 'yes'
   apt:
     name: "{{ item.source }}"
-    state: absent
+    state: lastest
   with_items:
     - {source: 'docker-ce'}
     - {source: 'docker-ce-cli'}
