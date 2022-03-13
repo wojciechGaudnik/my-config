@@ -6,6 +6,7 @@
     dest: '/tmp'
 
 - name: APT INSTALL
+  become: 'yes'
   apt:
     deb: '/tmp/docker-desktop.deb'
 

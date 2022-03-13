@@ -52,9 +52,22 @@
   become: 'yes'
   apt:
     name: "{{ item.source }}"
-    state: lastest
+    state: latest
   with_items:
     - {source: 'docker-ce'}
     - {source: 'docker-ce-cli'}
     - {source: 'containerd.io'}
     - {source: 'docker-compose'}
+
+- name: DOCKER ADD GROUP
+  become: 'yes'
+  group:
+    name: 'wireshark'
+    state: present
+
+- name: DOCKER ADD USER TO GROUP
+  become: 'yes'
+  user:
+    name: '{{ ansible_env.LOGNAME }}'
+    groups: 'docker'
+    append: 'yes'

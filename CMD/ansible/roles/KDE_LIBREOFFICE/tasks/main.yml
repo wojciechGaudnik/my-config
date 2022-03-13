@@ -2,7 +2,7 @@
 - name: APT INSTALL
   become: 'yes'
   apt:
-    name: "{{ item.source }}"
+    name: '{{ item.source }}'
     state: latest
   with_items:
     - {source: 'libreoffice-kde5'}
@@ -16,7 +16,20 @@
 
 
 - name: COPY FILES
+  become: 'no'
   copy:
-    src: '~/.my-config/KDE/.config/libreoffice/4/user/basic/'
-    dest: '~/.config/libreoffice/4/user/basic/'
-    remote_src: 'yes'
+    src: '{{ item.item }}'
+    dest: '{{ item.item }}'
+    remote_src: 'no'
+  with_items:
+    - {item: '~/.config/libreoffice/4/user/autocorr/'}
+    - {item: '~/.config/libreoffice/4/user/additions/'}
+    - {item: '~/.config/libreoffice/4/user/backup/'}
+    - {item: '~/.config/libreoffice/4/user/basic/'}
+    - {item: '~/.config/libreoffice/4/user/config/'}
+    - {item: '~/.config/libreoffice/4/user/extensions/'}
+    - {item: '~/.config/libreoffice/4/user/pack/'}
+    - {item: '~/.config/libreoffice/4/user/psprint/'}
+    - {item: '~/.config/libreoffice/4/user/registrymodifications.xcu'}
+    - {item: '~/.config/libreoffice/4/user/uno_packages/'}
+    - {item: '~/.config/libreoffice/4/user/wordbook/'}
