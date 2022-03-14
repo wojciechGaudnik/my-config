@@ -182,4 +182,4 @@ grep -iRn "tls_cacert*" /etc
 
 
 qemu-img convert -f vdi -O qcow2 rocky.vdi rocky8.qcow2
-
+ip -br -c a

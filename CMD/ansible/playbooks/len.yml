@@ -1,6 +1,6 @@
 ---
-- hosts: KUB
-  user: 'bq666'
+- hosts: LEN
+  user: 'wgaudnik'
   roles:
     - TEST_PING
     - CMD_UFW_CLIENT
@@ -42,14 +42,3 @@
     - KDE_QEMU
     - KDE_DOCKER_DESKTOP
 
-
-    # - CMD_INSTALL_HARDWARE
-    # - CMD_INSTALL_NET
-    #
-    # - CMD_ROOT_MY_CONFIG_GLOBAL
-    # - CMD_BQ666_MY_CONFIG
-    # - role: CMD_WGAUDNIK_MY_CONFIG
-      # remote_user: 'wgaudnik'
-    # - UFW_CLIENT
-    # - UFW_SERVER
-    # - CMD_ONLY_BIG

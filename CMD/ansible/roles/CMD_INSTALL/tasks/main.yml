@@ -123,6 +123,7 @@
     - {source: 'traceroute'}
     - {source: 'apache2-utils'}
     - {source: 'httpie'}
+    - {source: 'remmina'}
 
 - name: SNAP NET
   become: 'yes'
