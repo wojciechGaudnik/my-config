@@ -1,0 +1,103 @@
+---
+- name: VIM APT INSTALL
+  become: 'yes'
+  apt:
+    name: "vim"
+    state: latest
+
+- name: PIP VIM-VINT INSTALL
+  become: 'yes'
+  pip:
+   name: 'vim-vint'
+   state: latest
+
+- name: VIVM INSTALL
+  become: 'yes'
+  get_url:
+    url: 'https://raw.githubusercontent.com/thameera/vimv/master/vimv'
+    dest: /usr/local/bin/vimv
+    mode: '0755'
+
+- name: PIP VIM TOOLS
+  become: 'yes'
+  pip:
+    name: "{{ item.source }}"
+    state: latest
+  with_items:
+    - {source: 'black'}
+    - {source: 'isort'}
+    - {source: 'flake8'}
+    - {source: 'bandit'}
+
+- name: CREATE USER DIR
+  become: 'no'
+  file:
+    path='{{ item.path }}'
+    state='{{ item.state }}'
+    recurse='{{ item.recurse }}'
+  with_items:
+    - {path: '~/.vim/colors', state: 'directory', recurse: 'yes'}
+    - {path: '~/.vim/undodir', state: 'directory', recurse: 'yes'}
+    - {path: '~/.vim/spell', state: 'directory', recurse: 'yes'}
+
+- name: CREATE ROOT DIR
+  become: 'yes'
+  file:
+    path='{{ item.path }}'
+    state='{{ item.state }}' recurse='{{ item.recurse }}'
+  with_items:
+    - {path: '~/.vim/colors', state: 'directory', recurse: 'yes'}
+    - {path: '~/.vim/undodir', state: 'directory', recurse: 'yes'}
+    - {path: '~/.vim/spell', state: 'directory', recurse: 'yes'}
+
+- name: VIM USER LINK FILES
+  become: 'no'
+  file:
+    src='{{ item.src }}'
+    dest='{{ item.dest }}'
+    state='{{ item.state }}'
+    force='{{ item.force }}'
+  with_items:
+    - {src: '~/.my-config/CMD/config/.vimrc', dest: '~/.vimrc', state: 'link', force: 'yes'}
+    - {src: '~/.my-config/CMD/config/.vim/colors/green_dark.vim', dest: '~/.vim/colors/green_dark.vim', state: 'link', force: 'yes'}
+    - {src: '~/.my-config/CMD/config/.vim/spell/en.utf-8.add', dest: '~/.vim/spell/en.utf-8.add', state: 'link', force: 'yes'}
+    - {src: '~/.my-config/CMD/config/.vim/spell/en.utf-8.add.spl', dest: '~/.vim/spell/en.utf-8.add.spl', state: 'link', force: 'yes'}
+
+- name: VIM ROOT LINK FILES
+  become: 'yes'
+  file:
+    src='{{ item.src }}'
+    dest='{{ item.dest }}'
+    state='{{ item.state }}'
+    force='{{ item.force }}'
+  with_items:
+    - {src: '~/.my-config/CMD/config/.vimrc', dest: '~/.vimrc', state: 'link', force: 'yes'}
+    - {src: '~/.my-config/CMD/config/.vim/colors/green_dark.vim', dest: '~/.vim/colors/green_dark.vim', state: 'link', force: 'yes'}
+    - {src: '~/.my-config/CMD/config/.vim/spell/en.utf-8.add', dest: '~/.vim/spell/en.utf-8.add', state: 'link', force: 'yes'}
+    - {src: '~/.my-config/CMD/config/.vim/spell/en.utf-8.add.spl', dest: '~/.vim/spell/en.utf-8.add.spl', state: 'link', force: 'yes'}
+
+- name: VIM USER INSTALL/UPDATE PLUGINS
+  become: 'no'
+  expect:
+    timeout: 60
+    echo: 'yes'
+    command: vim +PlugUpdate +qall
+    responses:
+      .*ENTER.*: ""
+
+- name: VIM ROOT INSTALL/UPDATE PLUGINS
+  become: 'yes'
+  expect:
+    timeout: 60
+    echo: 'yes'
+    command: vim +PlugUpdate +qall
+    responses:
+      .*ENTER.*: ""
+
+- name: VIM USER CLEAN PLUGINS
+  become: 'no'
+  shell: vim +PlugClean! +qall
+
+- name: VIM ROOT CLEAN PLUGINS
+  become: 'no'
+  shell: vim +PlugClean! +qall

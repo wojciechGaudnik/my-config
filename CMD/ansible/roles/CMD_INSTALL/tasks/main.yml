@@ -1,0 +1,170 @@
+---
+- name: APT CONSOLE TOOLS
+  become: 'yes'
+  apt:
+    name: "{{ item.source }}"
+    state: latest
+  with_items:
+    - {source: 'wget'}
+    - {source: 'curl'}
+    - {source: 'thefuck'}
+    - {source: 'screenfetch'}
+    - {source: 'ripgrep'}
+    - {source: 'fzf'}
+    - {source: 'xsel'}
+    - {source: 'xclip'}
+    - {source: 'cryptsetup'}
+    - {source: 'clamav'}
+    - {source: 'vagrant'}
+    - {source: 'libxext-dev'}
+
+- name: APT DEV
+  become: 'yes'
+  apt:
+    name: "{{ item.source }}"
+    state: latest
+  with_items:
+    - {source: 'ruby-full'}
+    - {source: 'build-essential'}
+    - {source: 'python3-distutils'}
+    - {source: 'python3.9-full'}
+    - {source: 'python3-pip'}
+    - {source: 'pylint'}
+    - {source: 'make'}
+    - {source: 'cmake'}
+    - {source: 'perl'}
+    - {source: 'ansible-lint'}
+    - {source: 'lua5.4'}
+    - {source: 'luarocks'}
+    - {source: 'lua-busted'}
+    - {source: 'default-jdk'}
+    - {source: 'maven'}
+    - {source: 'gcc'}
+    - {source: 'nasm'}
+    - {source: 'gdb'}
+    - {source: 'sasm'}
+    - {source: 'nodejs'}
+    - {source: 'npm'}
+    - {source: 'golang-go'}
+    - {source: 'openjdk-16-jdk'}
+    # - {source: 'lazygit'}
+
+- name: GEM CONSOLE
+  become: 'yes'
+  gem:
+    name: 'colorls'
+    user_install: no
+    state: latest
+
+- name: APT HACK
+  become: 'yes'
+  apt:
+    name: "{{ item.source }}"
+    state: latest
+  with_items:
+    - {source: 'john'}
+    - {source: 'lynis'}
+    - {source: 'nmap'}
+    - {source: 'tshark'}
+    - {source: 'arp-scan'}
+    - {source: 'masscan'}
+    - {source: 'ettercap-common'}
+    - {source: 'gcc-mingw-w64-x86-64'}
+    - {source: 'hashcat'}
+    - {source: 'python3-shodan'}
+    - {source: 'rlwrap'}
+    # - {source: 'feroxbuster'}
+    # - {source: 'ffuf'}
+    # - {source: 'dirb'}
+    # - {source: 'gobuster'}
+
+- name: PIP HACK
+  become: 'yes'
+  pip:
+    name: "{{ item.source }}"
+    state: latest
+  with_items:
+    - {source: 'threader3000'}
+    - {source: 'wfuzz'}
+
+
+- name: APT HARDWARE
+  become: 'yes'
+  apt:
+    name: '{{ item.source }}'
+    state: latest
+  with_items:
+    - {source: 'iftop'}
+    - {source: 'hwinfo'}
+    - {source: 'smem'}
+    - {source: 'glances'}
+    - {source: 'iotop'}
+    - {source: 'powertop'}
+    - {source: 'sysbench'}
+    - {source: 'inxi'}
+    - {source: 'stress'}
+    - {source: 'stress-ng'}
+    - {source: 'glmark2'}
+
+- name: APT NET
+  become: 'yes'
+  apt:
+    name: '{{ item.source }}'
+    state: latest
+  with_items:
+    - {source: 'net-tools'}
+    - {source: 'wakeonlan'}
+    - {source: 'ethtool'}
+    - {source: 'speedtest-cli'}
+    - {source: 'openvpn'}
+    - {source: 'whois'}
+    - {source: 'nfs-common'}
+    - {source: 'vnstat'}
+    - {source: 'traceroute'}
+    - {source: 'apache2-utils'}
+    - {source: 'httpie'}
+    - {source: 'remmina'}
+
+- name: SNAP NET
+  become: 'yes'
+  snap:
+    name:
+      - ngrok
+
+# - name: LINK FILES
+#   become: 'yes'
+#   file:
+#     src='{{ item.src }}'
+#     dest='{{ item.dest }}'
+#     state='{{ item.state }}'
+#     force='{{ item.force }}'
+#     mode='{{ item.mode }}'
+#   with_items:
+#     - {src: '~/.my-config/CMD/bash/off.sh', dest: '/usr/bin/off', state: 'link', force: 'yes', mode: '0700'}
+#     - {src: '~/.my-config/CMD/bash/on.sh', dest: '/usr/bin/on', state: 'link', force: 'yes', mode: '0700'}
+#     - {src: '~/.my-config/CMD/bash/resetNET.sh', dest: '/usr/bin/resetNET.sh', state: 'link', force: 'yes', mode: '0700'}
+#     - {src: '~/.my-config/CMD/bash/resetNFS.sh', dest: '/usr/bin/resetNFS.sh', state: 'link', force: 'yes', mode: '0700'}
+#     - {src: '~/.my-config/CMD/bash/resetUSB.sh', dest: '/usr/bin/resetUSB.sh', state: 'link', force: 'yes', mode: '0700'}
+#     - {src: '~/.my-config/CMD/bash/resetKWIN.sh', dest: '/usr/bin/resetKWIN.sh', state: 'link', force: 'yes', mode: '0700'}
+#     - {src: '~/.my-config/CMD/bash/testBIOSorURFI.sh', dest: '/usr/bin/testBIOSorURFI.sh', state: 'link', force: 'yes', mode: '0700'}
+#     - {src: '~/.my-config/CMD/bash/testTrueColorConsole.sh', dest: '/usr/bin/testTrueColorConsole.sh', state: 'link', force: 'yes', mode: '0700'}
+#     - {src: '~/.my-config/CMD/config/etc/environment', dest: '/etc/environment', state: 'link', force: 'yes', mode: '0644'}
+
+- name: LINK FILES
+  become: 'yes'
+  file:
+    src='{{ item.src }}'
+    dest='{{ item.dest }}'
+    state='{{ item.state }}'
+    force='{{ item.force }}'
+  with_items:
+    - {src: '~/.my-config/CMD/bash/off.sh', dest: '/usr/bin/off', state: 'link', force: 'yes'}
+    - {src: '~/.my-config/CMD/bash/on.sh', dest: '/usr/bin/on', state: 'link', force: 'yes'}
+    - {src: '~/.my-config/CMD/bash/resetNET.sh', dest: '/usr/bin/resetNET.sh', state: 'link', force: 'yes'}
+    - {src: '~/.my-config/CMD/bash/resetNFS.sh', dest: '/usr/bin/resetNFS.sh', state: 'link', force: 'yes'}
+    - {src: '~/.my-config/CMD/bash/resetUSB.sh', dest: '/usr/bin/resetUSB.sh', state: 'link', force: 'yes'}
+    - {src: '~/.my-config/CMD/bash/resetKWIN.sh', dest: '/usr/bin/resetKWIN.sh', state: 'link', force: 'yes'}
+    - {src: '~/.my-config/CMD/bash/testBIOSorURFI.sh', dest: '/usr/bin/testBIOSorURFI.sh', state: 'link', force: 'yes'}
+    - {src: '~/.my-config/CMD/bash/testTrueColorConsole.sh', dest: '/usr/bin/testTrueColorConsole.sh', state: 'link', force: 'yes'}
+    - {src: '~/.my-config/CMD/config/etc/environment', dest: '/etc/environment', state: 'link', force: 'yes'}
+

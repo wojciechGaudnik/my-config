@@ -1,0 +1,18 @@
+---
+- name: DOWNLODAD DOCKER-DESKTOP
+  become: 'yes'
+  get_url:
+    url: 'https://desktop-stage.docker.com/linux/main/amd64/74258/docker-desktop.deb'
+    dest: '/tmp'
+
+- name: APT INSTALL
+  become: 'yes'
+  apt:
+    deb: '/tmp/docker-desktop.deb'
+
+- name: ADD SHARED MEMORY
+  become: 'yes'
+  lineinfile:
+    path: '/etc/fstab'
+    line: 'none /dev/shm tmpfs defaults,size=8G 0 0'
+    insertbefore: 'EOF'

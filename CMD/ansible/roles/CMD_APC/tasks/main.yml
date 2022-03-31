@@ -1,0 +1,58 @@
+---
+- name: APC INSTALL
+  become: 'yes'
+  register: reg_apc_install
+  apt:
+    name: '{{ item.source }}'
+    state: latest
+  with_items:
+    - {source: 'apcupsd'}
+
+- name: GIT PULL MY CONFIG REPO
+  become: 'yes'
+  when: reg_apc_install.changed
+  git:
+    repo: 'git@github.com:wojciechGaudnik/my-config.git'
+    dest: '~/.my-config-tmp'
+    version: master
+
+- name: APC SETUP
+  become: 'yes'
+  when: reg_apc_install.changed
+  copy:
+    src='{{ item.src }}'
+    dest='{{ item.dest }}'
+    remote_src='{{ item.remote_src }}'
+    mode='{{ item.mode }}'
+  with_items:
+    - {src: '~/.my-config-tmp/CMD/config/apc/etc/apcupsd/apcupsd.conf', dest: '/etc/apcupsd/apcupsd.conf', remote_src: 'yes', mode: '0644' }
+
+- name: REMOVE MY CONFIG AFTER VNSTAT INSTALLATION
+  become: 'yes'
+  when: reg_apc_install.changed
+  file:
+    state: absent
+    path: ~/.my-config-tmp
+
+- name: RUN APC SYSTEMCLT
+  become: 'yes'
+  when: reg_apc_install.changed
+  systemd:
+    name: apcupsd.service
+    state: started
+
+- name: PAUSE
+  local_action: pause seconds=10
+  when: reg_apc_install.changed
+
+- name: RUN TEST
+  become: 'yes'
+  shell: 'apcaccess status'
+  register: reg_apc_test
+
+- name: CHECK TEST
+  assert:
+    that:
+      - reg_apc_test is search('ONLINE')
+    fail_msg: 'UPC ERROR'
+    success_msg: 'UPC OK'

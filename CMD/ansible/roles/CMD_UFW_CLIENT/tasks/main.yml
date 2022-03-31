@@ -1,0 +1,16 @@
+---
+- name: UFW POLICY DENY
+  become: 'yes'
+  ufw:
+    state: 'enabled'
+    policy: 'deny'
+- name: UFW LOGGING ENABLE
+  become: 'yes'
+  ufw:
+    logging: 'on'
+- name: UFW SSH ALLOW
+  become: 'yes'
+  ufw:
+    rule: 'allow'
+    name: OpenSSH
+

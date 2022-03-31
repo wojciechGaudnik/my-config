@@ -1,0 +1,32 @@
+---
+- name: WAKE ON LAN
+  import_tasks: wake_on_lan.yml
+
+- name: HOSTS ETC
+  import_tasks: hosts_etc.yml
+
+- name: NET
+  import_tasks: net.yml
+
+- name: VNSTAT
+  import_tasks: vnstat.yml
+
+- name: APT RADEONTOP
+  become: 'yes'
+  apt:
+    name: 'radeontop'
+    state: latest
+
+- name: CREATE DIR
+  become: 'no'
+  file:
+    path='{{ item.path }}'
+    state='{{ item.state }}'
+    recurse='{{ item.recurse }}'
+  with_items:
+    - {path: '/mnt/NAS_Backups', state: 'directory', recurse: 'yes'}
+    - {path: '/mnt/NAS_Important', state: 'directory', recurse: 'yes'}
+    - {path: '/mnt/NAS_Plex', state: 'directory', recurse: 'yes'}
+    - {path: '/mnt/NAS_Storage', state: 'directory', recurse: 'yes'}
+    - {path: '/mnt/NAS_VirtualBox', state: 'directory', recurse: 'yes'}
+    - {path: '/mnt/usb', state: 'directory', recurse: 'yes'}

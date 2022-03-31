@@ -1,0 +1,73 @@
+---
+- name: APT REMOVE OLD DOCKER
+  become: 'yes'
+  apt:
+    name: "{{ item.source }}"
+    state: absent
+  with_items:
+    - {source: 'docker'}
+    - {source: 'docker-engine'}
+    - {source: 'docker-io'}
+    - {source: 'containerd'}
+    - {source: 'runc'}
+
+- name: APT INSTALL
+  become: 'yes'
+  apt:
+    name: "{{ item.source }}"
+    state: latest
+  with_items:
+    - {source: 'ca-certificates'}
+    - {source: 'curl'}
+    - {source: 'gnupg'}
+    - {source: 'lsb-release'}
+
+- name: DOWNLODAD GPG
+  become: 'yes'
+  get_url:
+    url: 'https://download.docker.com/linux/ubuntu/gpg'
+    dest: '/tmp'
+
+- name: REMOVE OLD PGP
+  become: 'yes'
+  file:
+    path: '/usr/share/keyrings/docker-archive-keyring.gpg'
+    state: absent
+
+- name: ADD DOCKER REPOSITORY
+  become: 'yes'
+  shell: |
+    cat /tmp/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+- name: APT UPDATE AND UPGRADE
+  become: 'yes'
+  apt:
+    update_cache: 'yes'
+    upgrade: 'yes'
+    force_apt_get: 'yes'
+    autoremove: 'yes'
+
+- name: APT INSTALL
+  become: 'yes'
+  apt:
+    name: "{{ item.source }}"
+    state: latest
+  with_items:
+    - {source: 'docker-ce'}
+    - {source: 'docker-ce-cli'}
+    - {source: 'containerd.io'}
+    - {source: 'docker-compose'}
+
+- name: DOCKER ADD GROUP
+  become: 'yes'
+  group:
+    name: 'wireshark'
+    state: present
+
+- name: DOCKER ADD USER TO GROUP
+  become: 'yes'
+  user:
+    name: '{{ ansible_env.LOGNAME }}'
+    groups: 'docker'
+    append: 'yes'

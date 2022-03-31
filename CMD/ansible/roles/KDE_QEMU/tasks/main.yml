@@ -1,0 +1,25 @@
+---
+- name: APT INSTALL
+  become: 'yes'
+  apt:
+    name: "{{ item.source }}"
+    state: latest
+  with_items:
+    - {source: 'qemu-kvm'}
+    - {source: 'libvirt-daemon-system'}
+    - {source: 'libvirt-clients'}
+    - {source: 'bridge-utils'}
+    - {source: 'virt-manager'}
+
+- name: QEMU ADD GROUP
+  become: 'yes'
+  group:
+    name: 'libvirt'
+    state: present
+
+- name: QEMU ADD USER TO GROUP
+  become: 'yes'
+  user:
+    name: '{{ ansible_env.LOGNAME }}'
+    groups: 'libvirt'
+    append: 'yes'

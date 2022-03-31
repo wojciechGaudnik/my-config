@@ -1,0 +1,27 @@
+---
+- name: FONTS COPY
+  become: 'yes'
+  copy:
+    src: '~/.my-config/KDE/fonts_hack/'
+    dest: '/usr/share/fonts/'
+    remote_src: 'yes'
+
+- name: APT TILIX
+  become: 'yes'
+  apt:
+    name: "{{ item.source }}"
+    state: latest
+  with_items:
+    - {source: 'ttf-mscorefonts-installer'}
+    - {source: 'tilix'}
+    - {source: 'dconf-cli'}
+
+- name: CONFIG TILIX
+  become: 'no'
+  shell: 'dconf load /com/gexperts/Tilix/ <~/.my-config/KDE/tilix/tilix.dconf'
+
+- name: FONTS CONFIG
+  become: 'yes'
+  command:
+    cmd: '/bin/fc-cache -f'
+

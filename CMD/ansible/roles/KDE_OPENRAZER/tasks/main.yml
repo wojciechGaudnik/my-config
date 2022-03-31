@@ -1,0 +1,41 @@
+---
+- name: ADD ADDITIONAL REPOTS
+  become: 'yes'
+  apt_repository:
+    repo: '{{ item.repo }}'
+    state: '{{ item.state }}'
+  with_items:
+    - {repo: 'ppa:openrazer/stable', state: 'present' }
+    - {repo: 'ppa:polychromatic/stable', state: 'present' }
+    # - {repo: 'deb https://packagecloud.io/slacktechnologies/slack/debian/ jessie main', state: 'present' }
+
+- name: APT UPDATE AND UPGRADE
+  become: 'yes'
+  apt:
+    update_cache: 'yes'
+    upgrade: 'yes'
+    force_apt_get: 'yes'
+    cache_valid_time: 3600
+    autoremove: 'yes'
+
+- name: APT OPENRAZER
+  become: 'yes'
+  apt:
+    name: "{{ item.source }}"
+    state: latest
+  with_items:
+    - {source: 'openrazer-meta'}
+    - {source: 'polychromatic'}
+
+- name: ADDING EXISTING USER "{{ ansible_user }}" TO GROUP PLUGDEV
+  become: 'yes'
+  user:
+    name: "{{ ansible_user }}"
+    groups: plugdev
+    append: yes
+
+- name: COPY CONFIG
+  copy:
+    src: '~/.my-config/KDE/.config/solaar/config.json'
+    dest: '~/.config/solaar/'
+    remote_src: 'yes'

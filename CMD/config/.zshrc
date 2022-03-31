@@ -26,6 +26,8 @@ export TERM="xterm-256color"
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+export LC_TIME=en_US.UTF-8
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -90,7 +92,7 @@ HISTSIZE=9999
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(ansible autojump git zsh-autosuggestions zsh-syntax-highlighting dotenv thefuck postgres mvn httpie docker docker-compose ufw rsync tmux pip)
+plugins=(ansible autojump git zsh-autosuggestions zsh-syntax-highlighting dotenv thefuck postgres mvn httpie docker docker-compose ufw rsync tmux pip vagrant)
 
 source $ZSH/oh-my-zsh.sh
 

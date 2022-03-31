@@ -13,6 +13,8 @@ Ctrl+p: Last command
 Ctrl+n: Precious command
 
 
+========= Ranger ===============================================================================================
+zh	<--- show hiden
 
 ========= Tmux ==================================================================================================
 <Ctrl+b> + ?			show all binds
@@ -143,6 +145,7 @@ fallocate -l 1G large_file.img
 fg <--- bring job from bacground
 xxd <--- creates a hex dump of a given file or standard input
 grep -irn '/home/bq666/.config' -e '-c conky'
+find / -name test -type f 2>&1 <---THM
 find / -name shiba4 -type f 2>>/dev/null
 bc <--- calculator
 diff -q(only when diffrent) -r(recursevely)
@@ -176,3 +179,7 @@ git rebase -i --root
 git push -f origin master
 “If I force-push fast enough, nobody will have had time to pull my fuckup”
 grep -iRn "tls_cacert*" /etc
+
+
+qemu-img convert -f vdi -O qcow2 rocky.vdi rocky8.qcow2
+ip -br -c a

@@ -1,5 +1,0 @@
-- name: SETUP DEFAULT SHELL
-  become: 'yes'
-  user:
-    name: 'bq666'
-    shell: /usr/bin/zsh

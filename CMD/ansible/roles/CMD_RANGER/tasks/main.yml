@@ -1,0 +1,75 @@
+---
+- name: APT INSTALL RANGER
+  become: 'yes'
+  apt:
+    name: "ranger"
+    state: latest
+
+- name: PIP HACK
+  become: 'yes'
+  pip:
+    name: "{{ item.source }}"
+    state: latest
+  with_items:
+    - {source: 'ueberzug'}
+
+- name: RANGER GIT PULL REPOS USER
+  become: 'no'
+  git:
+    repo: '{{ item.repo }}'
+    dest: '{{ item.dest }}'
+    force: '{{ item.force }}'
+  with_items:
+    - {repo: 'https://github.com/alexanderjeurissen/ranger_devicons', dest: '~/.config/ranger/plugins/ranger_devicons', force: 'yes'}
+
+- name: RANGER GIT PULL REPOS ROOT
+  become: 'yes'
+  git:
+    repo: '{{ item.repo }}'
+    dest: '{{ item.dest }}'
+    force: '{{ item.force }}'
+  with_items:
+    - {repo: 'https://github.com/alexanderjeurissen/ranger_devicons', dest: '~/.config/ranger/plugins/ranger_devicons', force: 'yes'}
+
+- name: CREATE DIR USER
+  become: 'no'
+  file:
+    path='~/.config/ranger'
+    state='directory'
+    recurse='yes'
+
+- name: RANGER LINK FILES USER
+  become: 'no'
+  file:
+    src='{{ item.src }}'
+    dest='{{ item.dest }}'
+    state='{{ item.state }}'
+    force='{{ item.force }}'
+  with_items:
+    - {src: '~/.my-config/CMD/config/ranger/rc.conf', dest: '~/.config/ranger/rc.conf', state: 'link', force: 'yes'}
+    - {src: '~/.my-config/CMD/config/ranger/commands.py', dest: '~/.config/ranger/commands.py', state: 'link', force: 'yes'}
+    - {src: '~/.my-config/CMD/config/ranger/commands_full.py', dest: '~/.config/ranger/commands_full.py', state: 'link', force: 'yes'}
+    - {src: '~/.my-config/CMD/config/ranger/rifle.conf', dest: '~/.config/ranger/rifle.conf', state: 'link', force: 'yes'}
+    - {src: '~/.my-config/CMD/config/ranger/scope.sh', dest: '~/.config/ranger/scope.sh', state: 'link', force: 'yes'}
+
+- name: CREATE DIR ROOT
+  become: 'yes'
+  file:
+    path='~/.config/ranger'
+    state='directory'
+    recurse='yes'
+
+- name: RANGER LINK FILES ROOT
+  become: 'yes'
+  file:
+    src='{{ item.src }}'
+    dest='{{ item.dest }}'
+    state='{{ item.state }}'
+    force='{{ item.force }}'
+  with_items:
+    - {src: '~/.my-config/CMD/config/ranger/rc.conf', dest: '~/.config/ranger/rc.conf', state: 'link', force: 'yes'}
+    - {src: '~/.my-config/CMD/config/ranger/commands.py', dest: '~/.config/ranger/commands.py', state: 'link', force: 'yes'}
+    - {src: '~/.my-config/CMD/config/ranger/commands_full.py', dest: '~/.config/ranger/commands_full.py', state: 'link', force: 'yes'}
+    - {src: '~/.my-config/CMD/config/ranger/rifle.conf', dest: '~/.config/ranger/rifle.conf', state: 'link', force: 'yes'}
+    - {src: '~/.my-config/CMD/config/ranger/scope.sh', dest: '~/.config/ranger/scope.sh', state: 'link', force: 'yes'}
+
