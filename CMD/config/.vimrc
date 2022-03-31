@@ -115,8 +115,8 @@ if isdirectory($HOME.'/.vim/plugged/')
 	nnoremap <C-K> <C-W><C-K>
 	nnoremap <C-L> <C-W><C-L>
 	nnoremap <C-H> <C-W><C-H>
-	" switching between opened files
 
+	" switching between opened files
 	nnoremap <C-Right> :bn<CR>
 	nnoremap <C-Left> :bp<CR>
 
