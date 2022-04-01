@@ -12,6 +12,8 @@
     state: latest
   with_items:
     - {source: 'ueberzug'}
+    - {source: 'ranger-fm'}
+    - {source: 'pynvim'}
 
 - name: RANGER GIT PULL REPOS USER
   become: 'no'

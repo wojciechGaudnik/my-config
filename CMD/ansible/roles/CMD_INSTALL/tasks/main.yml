@@ -48,7 +48,8 @@
     - {source: 'golang-go'}
     - {source: 'openjdk-16-jdk'}
     # - {source: 'lazygit'}
-
+# https://lindevs.com/install-lazygit-on-ubuntu/
+#
 - name: GEM CONSOLE
   become: 'yes'
   gem:
@@ -168,3 +169,4 @@
     - {src: '~/.my-config/CMD/bash/testTrueColorConsole.sh', dest: '/usr/bin/testTrueColorConsole.sh', state: 'link', force: 'yes'}
     - {src: '~/.my-config/CMD/config/etc/environment', dest: '/etc/environment', state: 'link', force: 'yes'}
 
+# - name: Create dir for google drive and nextCloud

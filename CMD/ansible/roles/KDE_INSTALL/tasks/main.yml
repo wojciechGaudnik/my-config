@@ -22,7 +22,8 @@
     - {source: 'vlc'}
     - {source: 'gimp'}
     - {source: 'ksysguard'}
+    - {source: 'calibre'}
     # - {source: 'slack-desktop'}
     # - {source: 'discord'}
     # - {source: 'aptik'}
-
+    # https://www.4kdownload.com/downloads
