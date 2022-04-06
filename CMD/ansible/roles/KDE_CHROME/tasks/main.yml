@@ -5,7 +5,7 @@
     url: 'https://dl.google.com/linux/linux_signing_key.pub'
     state: present
 
-- name: ADD CHROME REPOTS
+- name: ADD CHROME REPOSITORY
   become: 'yes'
   apt_repository:
     repo: 'deb http://dl.google.com/linux/chrome/deb/ stable main'

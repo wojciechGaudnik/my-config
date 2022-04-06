@@ -24,4 +24,4 @@ set background=dark
 
 hi keywords cterm=bold guifg=#ff5fff
 
-echom "from colors.vim"
+echom 'from colors.vim'
