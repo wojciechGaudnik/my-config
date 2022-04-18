@@ -7,6 +7,11 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" ---------- tpope/vim-commentar
+map  :Commentary<CR>
 nnoremap <C-t> :RnvimrToggle<CR>
 
+
+
 echom 'from remaps.vim'
+

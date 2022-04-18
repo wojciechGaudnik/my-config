@@ -16,7 +16,9 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
     Plug 'nvim-treesitter/playground'
+    Plug 'p00f/nvim-ts-rainbow'
     Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
+    Plug 'tpope/vim-commentary'
 call plug#end()
 
 

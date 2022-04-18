@@ -8,3 +8,6 @@ source $HOME/.config/nvim/modules/vim_tmux_navigator.vim
 source $HOME/.config/nvim/modules/treesitter.vim
 source $HOME/.config/nvim/modules/rnvimr.vim
 
+
+
+" vim.cmd "set whichwrap+=<,>,[,],h,l"  <--- old way in lua config
