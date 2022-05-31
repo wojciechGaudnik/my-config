@@ -42,3 +42,7 @@ keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
 -- Insert --
 -- commentary
 keymap("", "", ":Commentary<CR>", opts)
+
+
+-- Telescope
+keymap("n", "<C-f>", "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)

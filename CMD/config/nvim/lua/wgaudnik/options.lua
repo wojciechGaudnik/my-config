@@ -1,8 +1,8 @@
 local options = {
 -- tabs
-    tabstop = 4,                            -- insert 2 spaces for a tab
-    softtabstop = 4,                        --  how many columns (=spaces) the cursor moves right when you press <Tab> 
-    shiftwidth = 4,                         -- the number of spaces inserted for each indentation
+    tabstop = 2,                            -- insert spaces for a tab
+    softtabstop = 2,                        -- how many columns (=spaces) the cursor moves right when you press <Tab> 
+    shiftwidth = 2,                         -- the number of spaces inserted for each indentation
     smartindent = true,                     -- make indenting smarter again
   
 -- searches

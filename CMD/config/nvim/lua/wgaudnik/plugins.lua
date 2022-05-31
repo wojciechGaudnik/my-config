@@ -47,6 +47,35 @@ return packer.startup(function(use)
   use "lunarvim/colorschemes"
   use "tpope/vim-commentary"
 
+
+ -- Auto completion
+  use "hrsh7th/cmp-nvim-lsp"
+  use "hrsh7th/cmp-buffer"
+  use "hrsh7th/cmp-path"
+  use "hrsh7th/cmp-cmdline"
+  use "hrsh7th/nvim-cmp"
+  use "hrsh7th/cmp-nvim-lua"
+  -- snippets
+  use "L3MON4D3/LuaSnip" --snippet engine
+  -- use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+
+  -- LSP
+  use "neovim/nvim-lspconfig" -- enable LSP
+  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+--  use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
+--  use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+
+  
+  -- Telescope
+  use {
+  'nvim-telescope/telescope.nvim',
+  requires = { {'nvim-lua/plenary.nvim'} }
+  }
+
+  -- CSS colors
+  use "ap/vim-css-color"
+
+  --
   -- cmp plugins
   -- use {
   --   "hrsh7th/nvim-cmp",
@@ -64,13 +93,6 @@ return packer.startup(function(use)
   --   end,
   -- }
 
-  use "neovim/nvim-lspconfig"
-  use "hrsh7th/cmp-nvim-lsp"
-  use "hrsh7th/cmp-buffer"
-  use "hrsh7th/cmp-path"
-  use "hrsh7th/cmp-cmdline"
-  use "hrsh7th/nvim-cmp"
-  use "hrsh7th/cmp-nvim-lua"
 
   -- use "hrsh7th/nvim-compe"
   
@@ -80,9 +102,6 @@ return packer.startup(function(use)
 --  use "hrsh7th/cmp-cmdline" -- cmdline completions
 --  use "saadparwaiz1/cmp_luasnip" -- snippet completions
 
-  -- snippets
-  use "L3MON4D3/LuaSnip" --snippet engine
-  -- use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
  -- https://github.com/tjdevries/colorbuddy.nvim 
 
@@ -117,8 +136,6 @@ return packer.startup(function(use)
 --  use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
 --  use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
 
-  -- Telescope
---  use "nvim-telescope/telescope.nvim"
 
   -- Treesitter
 --  use {
