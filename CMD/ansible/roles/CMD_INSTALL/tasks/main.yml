@@ -47,6 +47,7 @@
     - {source: 'npm'}
     - {source: 'golang-go'}
     - {source: 'openjdk-16-jdk'}
+    # - {source: 'zoom'}
     # - {source: 'lazygit'}
 # https://lindevs.com/install-lazygit-on-ubuntu/
 #

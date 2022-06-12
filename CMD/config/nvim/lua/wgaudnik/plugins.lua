@@ -73,8 +73,18 @@ return packer.startup(function(use)
   }
 
   -- CSS colors
-  use "ap/vim-css-color"
+  -- use "ap/vim-css-color"
+  use "norcalli/nvim-colorizer.lua" 
 
+  -- Rainbow brackets
+  use "p00f/nvim-ts-rainbow"
+
+  -- Treesitter
+  use {
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate",
+  }
+  use "nvim-treesitter/playground"
   --
   -- cmp plugins
   -- use {

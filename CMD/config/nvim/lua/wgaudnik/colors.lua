@@ -17,3 +17,5 @@ if not status_ok then
 end
 
 pcall(vim.set, "background=" .. background) 
+
+vim.api.nvim_set_hl(0, 'TSParameter', {fg="#d19a66"} )
