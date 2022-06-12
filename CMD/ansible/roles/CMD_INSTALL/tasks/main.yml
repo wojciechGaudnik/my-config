@@ -75,6 +75,7 @@
     - {source: 'hashcat'}
     - {source: 'python3-shodan'}
     - {source: 'rlwrap'}
+    - {source: 'steghide'}
     # - {source: 'feroxbuster'}
     # - {source: 'ffuf'}
     # - {source: 'dirb'}
