@@ -18,4 +18,6 @@ end
 
 pcall(vim.set, "background=" .. background) 
 
-vim.api.nvim_set_hl(0, 'TSParameter', {fg="#d19a66"} )
+vim.api.nvim_set_hl(0, 'TSParameter', {fg="#D19A66"} )
+vim.api.nvim_set_hl(0, 'TSFunction', {fg="#DA7137", bold=true} )
+vim.api.nvim_set_hl(0, 'TSString', {fg="#009D00"} )

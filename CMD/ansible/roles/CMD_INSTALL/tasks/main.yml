@@ -76,10 +76,12 @@
     - {source: 'python3-shodan'}
     - {source: 'rlwrap'}
     - {source: 'steghide'}
+    # - {source: 'rustscan'} 
     # - {source: 'feroxbuster'}
     # - {source: 'ffuf'}
     # - {source: 'dirb'}
     # - {source: 'gobuster'}
+    # - {source: 'dirsearch'}
 
 - name: PIP HACK
   become: 'yes'
