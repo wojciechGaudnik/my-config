@@ -85,7 +85,15 @@ return packer.startup(function(use)
     run = ":TSUpdate",
   }
   use "nvim-treesitter/playground"
-  --
+  
+  -- Tmux nagigator
+  use "christoomey/vim-tmux-navigator"
+  
+  
+  
+  
+  
+  
   -- cmp plugins
   -- use {
   --   "hrsh7th/nvim-cmp",
