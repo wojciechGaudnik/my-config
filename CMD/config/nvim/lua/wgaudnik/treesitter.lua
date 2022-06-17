@@ -47,10 +47,12 @@ configs.setup {
     disable = { "latex" },
   },
   autotag = { enable = true },
+  autoparis = { enable = true },
   rainbow = { 
     enable = true, 
     extended_mode = true,
-    colors = { "#DDBA03", "#CC8888", "#CCCC88", "#88CC88", "#88CCCC", "#8888CC", "#CC88CC" }
+    colors = { "#E8BA36", "#54A857", "#359FF4", "#5060BB", "#179387" }
+    -- , "#8888CC", "#CC88CC" }
     -- colors = {
     --   "#E06C75",
     --   "#E5C07B",

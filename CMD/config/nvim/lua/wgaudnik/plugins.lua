@@ -88,6 +88,9 @@ return packer.startup(function(use)
   
   -- Tmux nagigator
   use "christoomey/vim-tmux-navigator"
+
+  -- Autopairs paranheses 
+  use "windwp/nvim-autopairs"
   
   
   

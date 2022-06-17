@@ -13,7 +13,7 @@ prompt-on-delete-profile=true
 quake-active-monitor=false
 quake-height-percent=50
 quake-hide-headerbar=false
-quake-hide-lose-focus=true
+quake-hide-lose-focus=false
 quake-keep-on-top=true
 quake-show-on-all-workspaces=false
 quake-specific-monitor=0
@@ -24,7 +24,7 @@ theme-variant='dark'
 unsafe-paste-alert=false
 warn-vte-config-issue=false
 window-save-state=true
-window-state=4
+window-state=128
 window-style='disable-csd'
 
 [keybindings]
