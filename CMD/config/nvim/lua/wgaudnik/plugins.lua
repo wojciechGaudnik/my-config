@@ -42,20 +42,21 @@ return packer.startup(function(use)
   -- My plugins here
   use "wbthomason/packer.nvim" -- Have packer manage itself
 
-  use "kyazdani42/nvim-web-devicons"
   use "rafamadriz/neon"
   use "lunarvim/colorschemes"
+  
+  -- Commentry 
   use "tpope/vim-commentary"
 
-
- -- Auto completion
+  -- Auto completion
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-buffer"
   use "hrsh7th/cmp-path"
   use "hrsh7th/cmp-cmdline"
   use "hrsh7th/nvim-cmp"
   use "hrsh7th/cmp-nvim-lua"
-  -- snippets
+  
+  -- Snippets
   use "L3MON4D3/LuaSnip" --snippet engine
   -- use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
@@ -64,7 +65,6 @@ return packer.startup(function(use)
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
 --  use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
 --  use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
-
   
   -- Telescope
   use {
@@ -73,8 +73,8 @@ return packer.startup(function(use)
   }
 
   -- CSS colors
-  -- use "ap/vim-css-color"
   use "norcalli/nvim-colorizer.lua" 
+  -- use "ap/vim-css-color"
 
   -- Rainbow brackets
   use "p00f/nvim-ts-rainbow"
@@ -94,7 +94,10 @@ return packer.startup(function(use)
   
   -- Git signs
   use "lewis6991/gitsigns.nvim"
-  
+ 
+  -- NvimTree
+  use "kyazdani42/nvim-web-devicons"
+  use "kyazdani42/nvim-tree.lua"
   
   
   

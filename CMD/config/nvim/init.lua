@@ -9,4 +9,5 @@ require "wgaudnik.treesitter"
 require "wgaudnik.colorizer"
 require "wgaudnik.autopairs"
 require "wgaudnik.gitsigns"
+require "wgaudnik.nvimtree"
 
