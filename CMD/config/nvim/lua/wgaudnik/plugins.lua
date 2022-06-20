@@ -92,6 +92,8 @@ return packer.startup(function(use)
   -- Autopairs paranheses 
   use "windwp/nvim-autopairs"
   
+  -- Git signs
+  use "lewis6991/gitsigns.nvim"
   
   
   

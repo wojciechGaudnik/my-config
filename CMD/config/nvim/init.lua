@@ -8,4 +8,5 @@ require "wgaudnik.telescope"
 require "wgaudnik.treesitter"
 require "wgaudnik.colorizer"
 require "wgaudnik.autopairs"
+require "wgaudnik.gitsigns"
 
