@@ -1,0 +1,20 @@
+- name: LM_SENSORS APT INSTALL
+  become: 'yes'
+  apt:
+    name: 'lm-sensors'
+    state: latest
+  register: reg_lm_sensors_install
+- name: LM_SENSORS DETECT
+  become: 'yes'
+  when: reg_lm_sensors_install.changed
+  expect:
+    timeout: 60
+    echo: yes
+    command: '/sbin/sensors-detect'
+    responses:
+      'Do you want to add these lines automatically to /etc/modules? (yes/NO)': 'yes'
+      '.*(YES/no).*': 'YES'
+      '.*(yes/NO).*': 'NO'
+      '(YES/no/selectively)': 'YES'
+      '(yes/NO/selectively)': 'NO'
+      '.*ENTER.*': ''
