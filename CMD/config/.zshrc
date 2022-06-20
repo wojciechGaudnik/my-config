@@ -1,5 +1,5 @@
 if [[ $EUID -ne 0 ]];then
-	cat /home/bq666/.my-config/CMD/config/.usefullCommands.txt
+	cat ~/.my-config/CMD/config/.usefullCommands.txt
 echo "---------------------------------------------------------------------------------------------------------------------------------------"
 screenfetch
 echo "---------------------------------------------------------------------------------------------------------------------------------------"
@@ -136,7 +136,7 @@ alias c="clear"
 alias s="sudo su"
 # alias nvim="/opt/nvim/nvim.appimage"
 # alias gitl="git log --format='%C(#ffaa00)%h%Creset%x09%an%x09%ad%x09%s' --date=format:'%Y-%m-%d %H:%M:%S' --graph --all"
-alias gitl="git log --format='%C(#ffaa00)%h%Creset%x09%an%x09%ad%x09%s%x09%C(#ffaa00)%C(auto)%d' --date=format:'%Y-%m-%d %H:%M:%S' --graph --all "
+alias gitl="git log --format='%C(auto)%d%C(#ffaa00)%h%Creset%x09%an%x09%ad%x09%s%x09%C(#ffaa00)' --date=format:'%Y-%m-%d %H:%M:%S' --graph --all "
 alias lsblkall="lsblk --nodeps -no name,size,model,serial,type,tran"
 alias up="python3 -m http.server 80"
 # turn off Ctrl+s freezing screen, for example in vim
