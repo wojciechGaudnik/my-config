@@ -46,3 +46,6 @@ keymap("", "", ":Commentary<CR>", opts)
 
 -- Telescope
 keymap("n", "<C-f>", "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
+
+-- NvimTree
+keymap("", "<C-t>", ":NvimTreeToggle<CR>", opts)
