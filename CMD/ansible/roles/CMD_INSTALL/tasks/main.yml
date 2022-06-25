@@ -17,6 +17,7 @@
     - {source: 'clamav'}
     - {source: 'vagrant'}
     - {source: 'libxext-dev'}
+    - {source: 'fd-find'}
 
 - name: APT DEV
   become: 'yes'
