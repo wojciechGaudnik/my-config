@@ -58,7 +58,7 @@ return packer.startup(function(use)
   
   -- Snippets
   use "L3MON4D3/LuaSnip" --snippet engine
-  -- use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
   -- LSP
   use "neovim/nvim-lspconfig" -- enable LSP
@@ -67,10 +67,9 @@ return packer.startup(function(use)
 --  use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   
   -- Telescope
-  use {
-  'nvim-telescope/telescope.nvim',
-  requires = { {'nvim-lua/plenary.nvim'} }
-  }
+  use {'nvim-telescope/telescope.nvim', requires = { { "nvim-lua/plenary.nvim" } } }
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+  -- use {'nvim-telescope/telescope-fzf-native.nvim', { run = 'make' } }
 
   -- CSS colors
   use "norcalli/nvim-colorizer.lua" 
@@ -98,7 +97,10 @@ return packer.startup(function(use)
   -- NvimTree
   use "kyazdani42/nvim-web-devicons"
   use "kyazdani42/nvim-tree.lua"
-  
+
+  -- Bufferline
+  use "akinsho/bufferline.nvim"
+  use "moll/vim-bbye"
   
   
   

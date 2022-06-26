@@ -9,7 +9,7 @@ npairs.setup({
     lua = {"string", "source"},
   },
   -- :echo &ft
-  disable_filetype = { "TelecsopePrompt", "spectacle_panel" },
+  disable_filetype = { "TelescopePrompt", "spectacle_panel" },
     fast_wrap = {
       map = '<C-p>',
       chars = { '{', '[', '(', '"', "'" },

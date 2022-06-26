@@ -10,4 +10,5 @@ require "wgaudnik.colorizer"
 require "wgaudnik.autopairs"
 require "wgaudnik.gitsigns"
 require "wgaudnik.nvimtree"
+require "wgaudnik.bufferline"
 
