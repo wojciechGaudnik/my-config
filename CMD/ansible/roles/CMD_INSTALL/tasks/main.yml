@@ -18,6 +18,8 @@
     - {source: 'vagrant'}
     - {source: 'libxext-dev'}
     - {source: 'fd-find'}
+    - {source: 'bat'}
+    - {source: 'delta'}
 
 - name: APT DEV
   become: 'yes'

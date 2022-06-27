@@ -102,7 +102,14 @@ return packer.startup(function(use)
   use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
   
-  
+  -- FZF and RipGrep
+  use { 'ibhagwan/fzf-lua',
+  -- optional for icon support
+  requires = { 'kyazdani42/nvim-web-devicons' }
+}
+  -- use "junegunn/fzf" 
+  -- use "jremmen/vim-ripgrep"
+  use "mfussenegger/nvim-dap"
   
   -- cmp plugins
   -- use {
