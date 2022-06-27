@@ -24,7 +24,7 @@ theme-variant='dark'
 unsafe-paste-alert=false
 warn-vte-config-issue=false
 window-save-state=true
-window-state=128
+window-state=144
 window-style='disable-csd'
 
 [keybindings]
@@ -40,6 +40,8 @@ session-switch-to-terminal-6='<Alt>6'
 session-switch-to-terminal-7='<Alt>7'
 session-switch-to-terminal-8='<Alt>8'
 session-switch-to-terminal-9='<Alt>9'
+session-switch-to-terminal-left='disabled'
+session-switch-to-terminal-right='disabled'
 terminal-zoom-normal='disabled'
 
 [profiles]
