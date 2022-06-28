@@ -52,7 +52,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'sheerun/vim-polyglot'
 
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-	Plug 'junegunn/fzf.vim'
+	" Plug 'junegunn/fzf.vim'
 	Plug 'ycm-core/YouCompleteMe', { 'do': function('BuildYCM') }
 	"Plug 'Vimjas/vim-python-pep8-indent'
 

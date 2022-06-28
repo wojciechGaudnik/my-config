@@ -159,3 +159,5 @@ autoload -U compinit && compinit -u
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 # test
 #
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

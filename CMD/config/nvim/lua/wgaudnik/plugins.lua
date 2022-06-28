@@ -106,7 +106,8 @@ return packer.startup(function(use)
   use { 'ibhagwan/fzf-lua',
   -- optional for icon support
   requires = { 'kyazdani42/nvim-web-devicons' }
-}
+  }
+  use { "junegunn/fzf", run = ":call fzf#install()" }
   -- use "junegunn/fzf" 
   -- use "jremmen/vim-ripgrep"
   use "mfussenegger/nvim-dap"

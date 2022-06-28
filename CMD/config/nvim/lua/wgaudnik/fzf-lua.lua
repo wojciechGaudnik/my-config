@@ -23,7 +23,7 @@ require'fzf-lua'.setup {
     -- window, can be set to 'false' to remove all borders or to
     -- 'none', 'single', 'double', 'thicc' or 'rounded' (default)
     border           = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
-    fullscreen       = false,           -- start fullscreen?
+    fullscreen       = true,           -- start fullscreen?
     hl = {
       normal         = 'Normal',        -- window normal color (fg+bg)
       border         = 'Normal',        -- border color (try 'FloatBorder')
