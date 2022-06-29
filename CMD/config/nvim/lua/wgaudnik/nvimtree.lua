@@ -42,7 +42,7 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
         { key = { "<C-]>", "<2-RightMouse>" },    action = "cd" },
         { key = "<C-v>",                          action = "vsplit" },
         { key = "<C-x>",                          action = "split" },
-        -- { key = "<C-t>",                          action = "tabnew" },
+        { key = "<C-n>",                          action = "tabnew" },
         { key = "<",                              action = "prev_sibling" },
         { key = ">",                              action = "next_sibling" },
         { key = "P",                              action = "parent_node" },
@@ -67,7 +67,7 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
         { key = "gy",                             action = "copy_absolute_path" },
         { key = "[c",                             action = "prev_git_item" },
         { key = "]c",                             action = "next_git_item" },
-        { key = "-",                              action = "dir_up" },
+        { key = "u",                              action = "dir_up" },
         { key = "s",                              action = "system_open" },
         { key = "f",                              action = "live_filter" },
         { key = "F",                              action = "clear_live_filter" },
@@ -77,8 +77,7 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
         { key = "S",                              action = "search_node" },
         { key = ".",                              action = "run_file_command" },
         { key = "<C-k>",                          action = "toggle_file_info" },
-        { key = "g?",                             action = "toggle_help" },
-        { key = "u", action = "dir_up" }
+        { key = "g?",                             action = "toggle_help" }
       },
     },
   },
