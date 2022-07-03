@@ -44,7 +44,7 @@ return packer.startup(function(use)
 
   use "rafamadriz/neon"
   use "lunarvim/colorschemes"
-  
+
   -- Commentry 
   use "tpope/vim-commentary"
 
@@ -55,7 +55,7 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-cmdline"
   use "hrsh7th/nvim-cmp"
   use "hrsh7th/cmp-nvim-lua"
-  
+
   -- Snippets
   use "L3MON4D3/LuaSnip" --snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
@@ -63,16 +63,16 @@ return packer.startup(function(use)
   -- LSP
   use "neovim/nvim-lspconfig" -- enable LSP
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+  use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
 --  use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
---  use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
-  
+
   -- Telescope
   use {'nvim-telescope/telescope.nvim', requires = { { "nvim-lua/plenary.nvim" } } }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
   -- use {'nvim-telescope/telescope-fzf-native.nvim', { run = 'make' } }
 
   -- CSS colors
-  use "norcalli/nvim-colorizer.lua" 
+  use "norcalli/nvim-colorizer.lua"
   -- use "ap/vim-css-color"
 
   -- Rainbow brackets
@@ -84,16 +84,16 @@ return packer.startup(function(use)
     run = ":TSUpdate",
   }
   use "nvim-treesitter/playground"
-  
+
   -- Tmux nagigator
   use "christoomey/vim-tmux-navigator"
 
   -- Autopairs paranheses 
   use "windwp/nvim-autopairs"
-  
+
   -- Git signs
   use "lewis6991/gitsigns.nvim"
- 
+
   -- NvimTree
   use "kyazdani42/nvim-web-devicons"
   use "kyazdani42/nvim-tree.lua"
@@ -101,17 +101,16 @@ return packer.startup(function(use)
   -- Bufferline
   use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
-  
+
   -- FZF and RipGrep
-  use { 'ibhagwan/fzf-lua',
-  -- optional for icon support
-  requires = { 'kyazdani42/nvim-web-devicons' }
-  }
+  use { 'ibhagwan/fzf-lua',  requires = { 'kyazdani42/nvim-web-devicons' } }
   use { "junegunn/fzf", run = ":call fzf#install()" }
-  -- use "junegunn/fzf" 
   -- use "jremmen/vim-ripgrep"
   use "mfussenegger/nvim-dap"
-  
+
+  -- Toggleterm
+  use {"akinsho/toggleterm.nvim", tag = 'v1.*'}
+
   -- cmp plugins
   -- use {
   --   "hrsh7th/nvim-cmp",

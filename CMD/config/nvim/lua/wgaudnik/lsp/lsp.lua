@@ -3,7 +3,7 @@ if not status_ok then
 	return
 end
 
-require("nvim-lsp-installer").setup({
+lsp_installer.setup({
     ensure_installed = {sumneko_lua, jdtls, pyright},
     automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
     ui = {

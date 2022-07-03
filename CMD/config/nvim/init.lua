@@ -12,4 +12,3 @@ require "wgaudnik.gitsigns"
 require "wgaudnik.nvimtree"
 require "wgaudnik.bufferline"
 require "wgaudnik.fzf-lua"
-

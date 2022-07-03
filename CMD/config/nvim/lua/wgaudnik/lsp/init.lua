@@ -4,3 +4,4 @@ if not status_ok then
 end
 
 require("wgaudnik.lsp.lsp")
+require("wgaudnik.lsp.null_ls")
