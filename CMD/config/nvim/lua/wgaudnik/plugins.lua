@@ -67,8 +67,8 @@ return packer.startup(function(use)
 --  use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
 
   -- Telescope
-  use {'nvim-telescope/telescope.nvim', requires = { { "nvim-lua/plenary.nvim" } } }
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+  use {"nvim-telescope/telescope.nvim", requires = { { "nvim-lua/plenary.nvim" } } }
+  use {"nvim-telescope/telescope-fzf-native.nvim", run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build" }
   -- use {'nvim-telescope/telescope-fzf-native.nvim', { run = 'make' } }
 
   -- CSS colors
@@ -79,10 +79,7 @@ return packer.startup(function(use)
   use "p00f/nvim-ts-rainbow"
 
   -- Treesitter
-  use {
-    "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
-  }
+  use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
   use "nvim-treesitter/playground"
 
   -- Tmux nagigator
@@ -103,14 +100,14 @@ return packer.startup(function(use)
   use "moll/vim-bbye"
 
   -- FZF and RipGrep
-  use { 'ibhagwan/fzf-lua',  requires = { 'kyazdani42/nvim-web-devicons' } }
+  use { "ibhagwan/fzf-lua",  requires = { "kyazdani42/nvim-web-devicons" } }
   use { "junegunn/fzf", run = ":call fzf#install()" }
   -- use "jremmen/vim-ripgrep"
   use "mfussenegger/nvim-dap"
 
   -- Toggleterm
-  use {"akinsho/toggleterm.nvim", tag = 'v1.*'}
-
+  use { "akinsho/toggleterm.nvim", tag = "v1.*"}
+  use { "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons", opt = true } }
   -- cmp plugins
   -- use {
   --   "hrsh7th/nvim-cmp",
