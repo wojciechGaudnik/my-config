@@ -50,3 +50,9 @@ keymap("n", "<C-f>", "<cmd>lua require('telescope.builtin').find_files()<cr>", o
 -- NvimTree
 keymap("", "<C-t>", ":NvimTreeToggle<CR>", {noremap = false})
 keymap("", "<C-q>", ":NvimTreeFindFile<CR>", {noremap = false})
+
+-- Close buffer
+keymap("n", [[<c-4>]], ":bd<CR>", opts)
+
+-- Run code
+keymap("n", "<M-X>", ":RunCode<CR>", opts)

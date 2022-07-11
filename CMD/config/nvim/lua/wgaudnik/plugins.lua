@@ -42,6 +42,8 @@ return packer.startup(function(use)
   -- My plugins here
   use "wbthomason/packer.nvim" -- Have packer manage itself
 
+  use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+
   use "rafamadriz/neon"
   use "lunarvim/colorschemes"
 
@@ -103,11 +105,18 @@ return packer.startup(function(use)
   use { "ibhagwan/fzf-lua",  requires = { "kyazdani42/nvim-web-devicons" } }
   use { "junegunn/fzf", run = ":call fzf#install()" }
   -- use "jremmen/vim-ripgrep"
-  use "mfussenegger/nvim-dap"
 
   -- Toggleterm
   use { "akinsho/toggleterm.nvim", tag = "v1.*"}
   use { "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons", opt = true } }
+
+  -- Undotree
+  use "mbbill/undotree"
+
+  -- Python
+  use "mfussenegger/nvim-dap"
+  use { 'CRAG666/code_runner.nvim', requires = 'nvim-lua/plenary.nvim' }
+
   -- cmp plugins
   -- use {
   --   "hrsh7th/nvim-cmp",
