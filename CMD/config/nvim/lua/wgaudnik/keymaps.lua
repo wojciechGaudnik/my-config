@@ -56,3 +56,7 @@ keymap("n", [[<c-4>]], ":bd<CR>", opts)
 
 -- Run code
 keymap("n", "<M-X>", ":RunCode<CR>", opts)
+
+-- Save
+keymap("", "<C-s>", ":w<CR>", opts)
+

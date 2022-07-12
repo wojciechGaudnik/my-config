@@ -117,6 +117,9 @@ return packer.startup(function(use)
   use "mfussenegger/nvim-dap"
   use { 'CRAG666/code_runner.nvim', requires = 'nvim-lua/plenary.nvim' }
 
+  -- Which key
+  use "folke/which-key.nvim"
+
   -- cmp plugins
   -- use {
   --   "hrsh7th/nvim-cmp",
