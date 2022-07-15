@@ -51,12 +51,27 @@ keymap("n", "<C-f>", "<cmd>lua require('telescope.builtin').find_files()<cr>", o
 keymap("", "<C-t>", ":NvimTreeToggle<CR>", {noremap = false})
 keymap("", "<C-q>", ":NvimTreeFindFile<CR>", {noremap = false})
 
--- Close buffer
-keymap("n", [[<c-4>]], ":bd<CR>", opts)
+-- Tmux navigator
+vim.g.tmux_navigator_no_mappings = 1
+keymap("", "<C-h>", ":TmuxNavigateLeft<CR>", opts)
+keymap("", "<C-j>", ":TmuxNavigateDown<CR>", opts)
+keymap("", "<C-k>", ":TmuxNavigateUp<CR>", opts)
+keymap("", "<C-l>", ":TmuxNavigateRight<CR>", opts)
 
+-- Close buffers
+-- keymap('n', '<C-\\', function () print ('test') end, opts)
+-- keymap("n", "C-\\", ":bd<CR>", opts)
+-- keymap("n", [[<C-4>]], ":bd<CR>", opts)
 -- Run code
 keymap("n", "<M-X>", ":RunCode<CR>", opts)
 
 -- Save
 keymap("", "<C-s>", ":w<CR>", opts)
 
+-- vim.keymap.set('n', '<C-\\>', function() print('test') end)
+vim.keymap.set('n', '<C-\\>', ":bd<CR>")
+
+-- vim.keymap.set('n', [[<C-4]], function() print('test') end)
+--
+--
+keymap("n", "<C-u>", ":UndotreeToggle<CR>", opts)

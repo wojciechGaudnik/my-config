@@ -15,7 +15,7 @@ local options = {
 -- undo file
     swapfile = false,                       -- creates a swapfile
     backup = false,                         -- creates a backup file
-    undodir = os.getenv("HOME")..".config/nvim/undofir",
+    undodir = os.getenv("HOME").."/.config/nvim/undofir",
     undofile = true,
 
 -- number
