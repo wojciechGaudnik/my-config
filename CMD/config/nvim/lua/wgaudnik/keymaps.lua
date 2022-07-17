@@ -41,8 +41,7 @@ keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
 
 -- Insert --
 -- commentary
-keymap("", "", ":Commentary<CR>", opts)
-
+keymap("", "", ":Commentary<CR><CR>", opts)
 
 -- Telescope
 keymap("n", "<C-f>", "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
@@ -74,4 +73,4 @@ vim.keymap.set('n', '<C-\\>', ":bd<CR>")
 -- vim.keymap.set('n', [[<C-4]], function() print('test') end)
 --
 --
-keymap("n", "<C-u>", ":UndotreeToggle<CR>", opts)
+keymap("n", "<C-u>", ":UndotreeToggle", opts)

@@ -120,6 +120,8 @@ return packer.startup(function(use)
   -- Which key
   use "folke/which-key.nvim"
 
+  -- Snake & quick scope
+  use "unblevable/quick-scope"
 
   -- cmp plugins
   -- use {
