@@ -78,4 +78,13 @@ lsp_installer.setup({
 --}
 
 require'lspconfig'.pyright.setup{}
-require'lspconfig'.sumneko_lua.setup{}
+require'lspconfig'.sumneko_lua.setup{
+  settings = {
+    Lua = {
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = {'vim'},
+      },
+    },
+  },
+}

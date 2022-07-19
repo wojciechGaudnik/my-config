@@ -123,6 +123,9 @@ return packer.startup(function(use)
   -- Snake & quick scope
   use "unblevable/quick-scope"
 
+  -- vimspector
+  use "puremourning/vimspector"
+
   -- cmp plugins
   -- use {
   --   "hrsh7th/nvim-cmp",
