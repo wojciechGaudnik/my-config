@@ -48,8 +48,8 @@ configs.setup {
   },
   autotag = { enable = true },
   autoparis = { enable = true },
-  rainbow = { 
-    enable = true, 
+  rainbow = {
+    enable = true,
     extended_mode = true,
     colors = { "#E8BA36", "#54A857", "#359FF4", "#5060BB", "#179387" }
     -- , "#8888CC", "#CC88CC" }
@@ -77,7 +77,7 @@ configs.setup {
     vue = "<!-- %s -->",
     json = "",
   },
-  indent = { 
+  indent = {
     enable = true,
     disable = { "" }
   },

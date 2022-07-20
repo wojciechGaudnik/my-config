@@ -121,6 +121,7 @@ return packer.startup(function(use)
   use "folke/which-key.nvim"
 
   -- Snake & quick scope
+  use "justinmk/vim-sneak"
   use "unblevable/quick-scope"
 
   -- vimspector
@@ -145,7 +146,6 @@ return packer.startup(function(use)
 
 
   -- use "hrsh7th/nvim-compe"
-  
 --  use "hrsh7th/nvim-cmp" -- The completion plugin
 --  use "hrsh7th/cmp-buffer" -- buffer completions
 --  use "hrsh7th/cmp-path" -- path completions
