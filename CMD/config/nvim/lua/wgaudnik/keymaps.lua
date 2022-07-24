@@ -44,8 +44,8 @@ keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
 keymap("", "", ":Commentary<CR><CR>", opts)
 
 -- Telescope
-keymap("n", "<C-f>", "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
-
+keymap("n", "<C-f>", "<cmd>lua require('telescope.builtin').find_files()<CR>", opts)
+keymap("n", "<C-r>", "<cmd>lua require('telescope.builtin').find_files()<CR>", opts)
 -- NvimTree
 keymap("", "<C-t>", ":NvimTreeToggle<CR>", {noremap = false})
 keymap("", "<C-q>", ":NvimTreeFindFile<CR>", {noremap = false})
@@ -73,4 +73,12 @@ vim.keymap.set('n', '<C-\\>', ":bd<CR>")
 -- vim.keymap.set('n', [[<C-4]], function() print('test') end)
 --
 --
-keymap("n", "<C-u>", ":UndotreeToggle", opts)
+keymap("n", "<C-u>", ":UndotreeToggle<CR>", opts)
+
+
+
+-- Vimspector
+-- keymap("n", "<C-p>", ":echo 'test'<CR>", opts)
+
+-- WitchKey
+keymap("", "<C-p>", ":WhichKey<CR>", opts)
