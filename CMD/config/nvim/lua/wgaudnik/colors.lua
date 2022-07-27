@@ -16,9 +16,10 @@ if not status_ok then
     return
 end
 
-pcall(vim.set, "background=" .. background) 
+pcall(vim.set, "background=" .. background)
 
 vim.api.nvim_set_hl(0, 'TSParameter', {fg="#D19A66"} )
 vim.api.nvim_set_hl(0, 'TSFunction', {fg="#DA7137", bold=true} )
 vim.api.nvim_set_hl(0, 'TSString', {fg="#009D00"} )
 vim.api.nvim_set_hl(0, 'TSVariable', {fg="#D19A66"} )
+vim.api.nvim_set_hl(0, 'GitSignsCurrentLineBlame', {fg="#545862", italic=true} )
