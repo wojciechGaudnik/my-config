@@ -86,6 +86,9 @@
     # - {source: 'dirb'}
     # - {source: 'gobuster'}
     # - {source: 'dirsearch'}
+    # - {source: 'tor'}
+    # - {source: 'tor browser'}
+    # - {source: 'proxychain4'}
 
 - name: PIP HACK
   become: 'yes'
