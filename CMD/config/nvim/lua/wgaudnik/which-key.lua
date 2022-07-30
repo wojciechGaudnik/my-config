@@ -1,7 +1,9 @@
-vim.g.timeoutlen=1500
-vim.g.ttimeoutlen =500
+-- vim.g.timeoutlen=1500
+-- vim.g.ttimeoutlen=1500
 
 require('which-key').setup{
+    timeoutlen = 1500,
+    ttimeoutlen = 1500,
     plugins = {
     marks = true, -- shows a list of your marks on ' and `
     registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
@@ -65,4 +67,7 @@ require('which-key').setup{
     i = { "j", "k" },
     v = { "j", "k" },
   },
+  triggers_nowait = {
+
+  }
 }
