@@ -92,7 +92,7 @@ HISTSIZE=9999
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(ansible autojump git zsh-autosuggestions zsh-syntax-highlighting dotenv thefuck postgres mvn httpie docker docker-compose ufw rsync tmux pip vagrant zsh-fzf-history-search)
+plugins=(ansible autojump git zsh-autosuggestions zsh-syntax-highlighting dotenv thefuck postgres mvn httpie docker docker-compose ufw rsync tmux pip vagrant zsh-fzf-history-search vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -105,7 +105,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
-export VISUAL=vim
+export VISUAL=nvim
 export EDITOR="$VISUAL"
 
 # Compilation flags
@@ -117,15 +117,14 @@ export EDITOR="$VISUAL"
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 alias gits='git status'
 alias gita='git add .'
 alias gitc='git commit'
 alias gitcn='git commit -m"next"'
 alias gitp='git push'
 alias gacnp='gita; gitcn; gitp'
-alias netstatmy='netstat -nautpl'
+alias gitd='git diff'
+alias netstatall='netstat -nautpl'
 alias ls='colorls --group-directories-first'
 alias l='colorls --group-directories-first --almost-all'
 alias ll='colorls --group-directories-first --almost-all --long'
@@ -134,15 +133,19 @@ alias watch='watch -n.1'
 alias t='todo.sh'
 alias c="clear"
 alias s="sudo su"
-# alias nvim="/opt/nvim/nvim.appimage"
-# alias gitl="git log --format='%C(#ffaa00)%h%Creset%x09%an%x09%ad%x09%s' --date=format:'%Y-%m-%d %H:%M:%S' --graph --all"
-# alias gitl="git log --format='%C(auto)%d%C(#ffaa00)%h%Creset%x09%an%x09%ad%x09%s%x09%C(#ffaa00)' --date=format:'%Y-%m-%d %H:%M:%S' --graph --all "
 alias gitl="git log --all --graph --pretty=tformat:'%Cblue%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %cD)%Creset'"
-
 alias lsblkall="lsblk --nodeps -no name,size,model,serial,type,tran"
 alias up="python3 -m http.server 80"
 # turn off Ctrl+s freezing screen, for example in vim
 stty -ixon
+
+# Enable vi mode
+bindkey -v
+# Controls whether the prompt is redrawn when switching to a different input mode
+VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
+VI_MODE_SET_CURSOR=true
+MODE_INDICATOR="%F{white}+%f"
+INSERT_MODE_INDICATOR="%F{yellow}+%f"
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -157,7 +160,5 @@ autoload -U compinit && compinit -u
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-# test
-#
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
