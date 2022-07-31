@@ -186,3 +186,5 @@ grep -iRn "tls_cacert*" /etc
 
 qemu-img convert -f vdi -O qcow2 rocky.vdi rocky8.qcow2
 ip -br -c a
+vboxmanage clonehd --format RAW /home/james/VirtualBox\ VMs/debian/debian.vdi debian_10_Server.img
+qemu-img convert -f raw debian_10_Server.img -O qcow2 debian_10_Server.qcow2

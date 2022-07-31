@@ -144,8 +144,8 @@ bindkey -v
 # Controls whether the prompt is redrawn when switching to a different input mode
 VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
 VI_MODE_SET_CURSOR=true
-MODE_INDICATOR="%F{white}+%f"
-INSERT_MODE_INDICATOR="%F{yellow}+%f"
+# MODE_INDICATOR="%F{white}+%f"
+# INSERT_MODE_INDICATOR="%F{yellow}+%f"
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
