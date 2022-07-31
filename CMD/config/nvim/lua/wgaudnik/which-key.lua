@@ -2,8 +2,8 @@
 -- vim.g.ttimeoutlen=1500
 
 require('which-key').setup{
-    timeoutlen = 1500,
-    ttimeoutlen = 1500,
+    -- timeoutlen = 1500,
+    -- ttimeoutlen = 1500,
     plugins = {
     marks = true, -- shows a list of your marks on ' and `
     registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
