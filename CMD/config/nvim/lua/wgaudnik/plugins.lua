@@ -124,8 +124,11 @@ return packer.startup(function(use)
   use "justinmk/vim-sneak"
   use "unblevable/quick-scope"
 
-  -- vimspector
+  -- Vimspector
   use "puremourning/vimspector"
+
+  -- Startiry
+  use "mhinz/vim-startify"
 
   -- cmp plugins
   -- use {
