@@ -136,6 +136,7 @@ alias s="sudo su"
 alias gitl="git log --all --graph --pretty=tformat:'%Cblue%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %cD)%Creset'"
 alias lsblkall="lsblk --nodeps -no name,size,model,serial,type,tran"
 alias up="python3 -m http.server 80"
+alias kp=kp.sh
 # turn off Ctrl+s freezing screen, for example in vim
 stty -ixon
 
