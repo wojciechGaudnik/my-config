@@ -137,6 +137,7 @@ alias gitl="git log --all --graph --pretty=tformat:'%Cblue%h%Creset -%C(auto)%d%
 alias lsblkall="lsblk --nodeps -no name,size,model,serial,type,tran"
 alias up="python3 -m http.server 80"
 alias kp=kp.sh
+alias kn=kn.sh
 # turn off Ctrl+s freezing screen, for example in vim
 stty -ixon
 
