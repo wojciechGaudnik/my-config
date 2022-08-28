@@ -181,5 +181,6 @@
     - {src: '~/.my-config/CMD/config/etc/environment', dest: '/etc/environment', state: 'link', force: 'yes'}
     - {src: '~/.my-config/CMD/bash/kp.sh', dest: '/usr/bin/kp', state: 'link', force: 'yes'}
     - {src: '~/.my-config/CMD/bash/kn.sh', dest: '/usr/bin/kn', state: 'link', force: 'yes'}
+    - {src: '~/.my-config/CMD/bash/conky-startup.sh', dest: '/bin/conky-startup', state: 'link', force: 'yes'}
 
 # - name: Create dir for google drive and nextCloud
