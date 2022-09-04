@@ -139,6 +139,7 @@ alias up="python3 -m http.server 80"
 alias kp=kp.sh
 alias kn=kn.sh
 alias ai=ai.sh
+alias fd="fdfind ''|fzf"
 # turn off Ctrl+s freezing screen, for example in vim
 stty -ixon
 
