@@ -131,10 +131,10 @@ fi
     # proxy                 # system-wide http/https/ftp proxy
     # example               # example user-defined segment (see prompt_example function below)
   )
-  #==================== [ bq666 ] ====================   
+  #==================== [ bq666 ] ====================
   typeset -g POWERLEVEL9K_HOST_ICON="\uF109 "
   typeset -g POWERLEVEL9K_SSH_ICON="\uF489 "
-  typeset -g POWERLEVEL9K_USER_ICON='' 
+  typeset -g POWERLEVEL9K_USER_ICON=''
   typeset -g POWERLEVEL9K_ROOT_ICON=""
   typeset -g POWERLEVEL9K_SUDO_ICON=$'\uF09C' # 
   typeset -g POWERLEVEL9K_HOST_FOREGROUND=022
@@ -258,7 +258,7 @@ fi
 
   #typeset -g POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND=025
   #typeset -g POWERLEVEL9K_DIR_HOME_BACKGROUND=025
-  
+
 
   # If directory is too long, shorten some of its segments to the shortest possible unique
   # prefix. The shortened directory can be tab-completed to the original.
@@ -356,14 +356,14 @@ fi
   #     '~/work(|/*)'  WORK     ''
   #     '~(|/*)'       HOME     ''
   #     '*'            DEFAULT  '')
-  
+
     typeset -g POWERLEVEL9K_DIR_CLASSES=(
     '~/Workspace(|/*)' 	WORK     	' '
     '/etc(|/*)'  	ETC 		' '
     '~(|/*)'          	HOME		' '
     '/*'            	DEFAULT  	' ' )
 
-     
+
      # Styling for WORK.
     typeset -g POWERLEVEL9K_DIR_WORK_VISUAL_IDENTIFIER_EXPANSION=' '
     typeset -g POWERLEVEL9K_DIR_WORK_NOT_WRITABLE_VISUAL_IDENTIFIER_EXPANSION=' 華'
@@ -371,8 +371,8 @@ fi
     typeset -g POWERLEVEL9K_DIR_WORK_FOREGROUND=0
     typeset -g POWERLEVEL9K_DIR_WORK_SHORTENED_FOREGROUND=0
     typeset -g POWERLEVEL9K_DIR_WORK_ANCHOR_FOREGROUND=0
-  
-  
+
+
      # Styling for ETC.
     typeset -g POWERLEVEL9K_DIR_ETC_VISUAL_IDENTIFIER_EXPANSION=''
     typeset -g POWERLEVEL9K_DIR_ETC_NOT_WRITABLE_VISUAL_IDENTIFIER_EXPANSION=' '
@@ -381,8 +381,8 @@ fi
     typeset -g POWERLEVEL9K_DIR_ETC_FOREGROUND=0
     typeset -g POWERLEVEL9K_DIR_ETC_SHORTENED_FOREGROUND=0
     typeset -g POWERLEVEL9K_DIR_ETC_ANCHOR_FOREGROUND=0
-  
-  
+
+
      # Styling for HOME.
     typeset -g POWERLEVEL9K_DIR_HOME_VISUAL_IDENTIFIER_EXPANSION=''
     typeset -g POWERLEVEL9K_DIR_HOME_NOT_WRITABLE_VISUAL_IDENTIFIER_EXPANSION=' '
@@ -390,7 +390,7 @@ fi
     typeset -g POWERLEVEL9K_DIR_HOME_FOREGROUND=0
     typeset -g POWERLEVEL9K_DIR_HOME_SHORTENED_FOREGROUND=0
     typeset -g POWERLEVEL9K_DIR_HOME_ANCHOR_FOREGROUND=0
-     
+
 
      # Styling for DEFAULT
     typeset -g POWERLEVEL9K_DIR_DEFAULT_VISUAL_IDENTIFIER_EXPANSION=''
@@ -446,17 +446,17 @@ fi
 
   # Change the value of this parameter to show a different untracked file icon.
   typeset -g POWERLEVEL9K_VCS_UNTRACKED_ICON='\uf79f '
-  
+
   # Change the value of this parameter to show a different stashed file icon.
   typeset -g POWERLEVEL9K_VCS_STASHES_ICON='\uf187 '
   # '\uf187 '
-  
+
   # Change the value of this parameter to show a different conflicted file icon.
   typeset -g POWERLEVEL9K_VCS_CONFLICTED_ICON='\ufb8a '
-  
+
   # Change the value of this parameter to show a different staged file icon.
   typeset -g POWERLEVEL9K_VCS_STAGED_ICON='\uf005 '
-  
+
   # Change the value of this parameter to show a different unstaged file icon.
   typeset -g POWERLEVEL9K_VCS_UNSTAGED_ICON='\uf006 '
 
@@ -610,7 +610,7 @@ fi
   # it will signify success by turning green.
   typeset -g POWERLEVEL9K_STATUS_OK=true
   #typeset -g POWERLEVEL9K_STATUS_OK_VISUAL_IDENTIFIER_EXPANSION='✔'
-  typeset -g POWERLEVEL9K_STATUS_OK_VISUAL_IDENTIFIER_EXPANSION='' 
+  typeset -g POWERLEVEL9K_STATUS_OK_VISUAL_IDENTIFIER_EXPANSION=''
   typeset -g POWERLEVEL9K_STATUS_OK_FOREGROUND=0
   typeset -g POWERLEVEL9K_STATUS_OK_BACKGROUND=77
 
@@ -618,7 +618,7 @@ fi
   # like this: 1|0.
   typeset -g POWERLEVEL9K_STATUS_OK_PIPE=true
   #typeset -g POWERLEVEL9K_STATUS_OK_PIPE_VISUAL_IDENTIFIER_EXPANSION='✔'
-  typeset -g POWERLEVEL9K_STATUS_OK_VISUAL_IDENTIFIER_EXPANSION='' 
+  typeset -g POWERLEVEL9K_STATUS_OK_VISUAL_IDENTIFIER_EXPANSION=''
   typeset -g POWERLEVEL9K_STATUS_OK_PIPE_FOREGROUND=2
   typeset -g POWERLEVEL9K_STATUS_OK_PIPE_BACKGROUND=0
 
@@ -1672,7 +1672,7 @@ fi
   # typeset -g POWERLEVEL9K_VPN_IP_CONTENT_EXPANSION=
   # Regular expression for the VPN network interface. Run `ifconfig` or `ip -4 a show` while on VPN
   # to see the name of the interface.
-  typeset -g POWERLEVEL9K_VPN_IP_INTERFACE='(gpd|wg|(.*tun)|tailscale)[0-9]*'
+  typeset -g POWERLEVEL9K_VPN_IP_INTERFACE='(gpd|wg|(.*pia.*)|tailscale)[0-9]*'
   # If set to true, show one segment per matching network interface. If set to false, show only
   # one segment corresponding to the first matching network interface.
   # Tip: If you set it to true, you'll probably want to unset POWERLEVEL9K_VPN_IP_CONTENT_EXPANSION.
