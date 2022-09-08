@@ -88,3 +88,14 @@ require'lspconfig'.sumneko_lua.setup{
     },
   },
 }
+
+
+local function blaho()
+  print "hello"
+end
+
+
+blaho()
+
+
+
