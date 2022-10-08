@@ -73,7 +73,7 @@ vim.keymap.set('n', '<C-\\>', ":bd<CR>")
 -- vim.keymap.set('n', [[<C-4]], function() print('test') end)
 --
 --
-keymap("n", "<C-u>", ":UndotreeToggle<CR>", opts)
+-- keymap("n", "<C-u>", ":UndotreeToggle<CR>", opts)
 
 
 

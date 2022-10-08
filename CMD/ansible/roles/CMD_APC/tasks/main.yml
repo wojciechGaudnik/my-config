@@ -4,7 +4,7 @@
   register: reg_apc_install
   apt:
     name: '{{ item.source }}'
-    state: latest
+    state: present
   with_items:
     - {source: 'apcupsd'}
 

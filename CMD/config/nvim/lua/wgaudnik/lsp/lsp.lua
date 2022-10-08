@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 lsp_installer.setup({
-    ensure_installed = {sumneko_lua, jdtls, pyright},
+    -- ensure_installed = {sumneko_lua, jdtls, pyright, tsserver, ansiblels},
     automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
     ui = {
         icons = {
@@ -77,6 +77,7 @@ lsp_installer.setup({
 --    max_concurrent_installers = 4,
 --}
 
+require'lspconfig'.ansiblels.setup{}
 require'lspconfig'.pyright.setup{}
 require'lspconfig'.sumneko_lua.setup{
   settings = {
